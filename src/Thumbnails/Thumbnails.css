@@ -1,0 +1,39 @@
+.thumbnails {
+  composes: container from '../container.css';
+  padding: 20px 15px;
+  background: white;
+}
+
+.img {
+  padding: 2px;
+  border: 1px solid #666;
+  width:100%;
+}
+
+.thumbnailItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 33%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.itemTitle {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 768px) { 
+  .thumbnailItems {
+    display: block;
+  }
+  
+  .item {
+    width: 100%;
+  }
+  
+}

@@ -1,0 +1,137 @@
+.topSkills {
+  margin-top:20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom:20px;
+  background: white;
+  
+}
+
+.container {
+  composes: container from '../container.css';
+  width: 100%;
+  display: flex;
+}
+
+.topSkillsContainer {
+  composes: container from '../container.css';
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topSkillsTagline {
+  padding: 20px;
+  text-align: center;
+  
+}
+
+.topSkillsTagline h1 {
+  padding: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #444;
+  font-size: 48px;
+}
+
+.topSkillsTagline h3 {
+  line-height: 1.5;
+  font-weight: 300;
+  color: #848484;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  align-items: center;
+  justify-content:center;
+  display: flex;
+  color: white;
+  font-size:48px;
+  margin-top: -20px;
+}
+
+.circles {
+  position: relative;
+  display:flex;
+  width:50%;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.jsCircle {
+  composes: circle;
+  color: #444;
+    position:relative;
+    border: 3px solid #F7DB4D;
+    font-weight: 700;
+}
+
+.htmlCircle {
+  composes: circle;
+  position:relative;
+  margin-top:0px;
+  border: 3px solid #E34C26;
+  color: #E34C26;
+}
+
+.cssCircle {
+  composes: circle;
+  position:relative;
+  border: 3px solid #139BD5;
+  color: #139BD5;
+}
+
+.otherSkills {
+  display: flex;
+  background: #333;
+  color: white;
+  padding-bottom: 20px;
+}
+
+.otherSkillsCategory {
+  composes: card from '../MarketMe/MarketMe.css';
+  color: white;
+}
+
+.otherSkillsCategory h3 {
+  color: white;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .topSkills h1 {
+    font-size: 24px;
+  }
+  .topSkillsContainer {
+    display: block;
+  }
+  
+  .circles {
+    flex-flow: row wrap;
+    width:100%;
+  }
+  
+  .circle {
+    margin-top: 0px;
+    margin-left: -20px;
+  }
+  
+  .otherSkills {
+    display: block;
+  }
+  
+  .otherSkillsCategory {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .jsCircle {
+    margin-top: -70px;
+  }
+}

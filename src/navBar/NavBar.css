@@ -1,0 +1,82 @@
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 900;
+  background:white;
+  width:100%;
+  border-bottom: 1px solid #efefef;
+}
+
+.navbarContainer {
+  composes: container from '../container.css';
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px;
+  width:100%;
+}
+
+.active {
+  border-bottom: 1px solid #cc0000;
+  font-weight: 500;
+}
+
+.navbarLinks {
+  margin-left: auto;
+  display: flex;
+}
+
+.navbarLink {
+  flex: auto;
+  padding: 10px;
+  margin-left: 10px;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.navbarToggle {
+  display: none;
+  background: transparent;
+  border: 1px solid transparent;
+  position: relative;
+  padding: 9px 10px;
+}
+
+.navbarToggle:hover {
+  background: whiteSmoke;
+}
+
+.iconBar {
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  display: block;
+  background-color: #333;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .navbarToggle {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  .navbarLinksHidden {
+    display: none;
+  }
+  .navbarLinks {
+    border-top: 1px solid #ccc;
+    margin-top:10px;
+    padding-top: 10px;
+    flex: 0 1 100%;
+    flex-direction: column;
+  }
+  .navbarLink {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+}

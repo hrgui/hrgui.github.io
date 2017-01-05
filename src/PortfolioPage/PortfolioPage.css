@@ -1,0 +1,153 @@
+.container {
+  composes: container from '../container.css';
+  background: white;
+}
+
+.slider {
+  width: 100%;
+  background:black;
+}
+
+.slider img {
+  width: 100%;
+}
+
+.portfolioPage {
+  padding: 20px;
+  line-height: 1.25;
+}
+
+.actionProject {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.actionDescription {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.headerWebsiteLink {
+  display: block;
+}
+
+.headerWebsiteLink:before {
+  content: '> ';
+}
+
+.section {
+  border-bottom: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+}
+
+.section:last-child {
+  border: none;
+}
+
+.sectionTitle {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  width: 25%;
+}
+
+.sectionContent {
+  width: 75%;
+  margin-left: auto;
+}
+
+.section ul {
+  margin-left: 20px;
+}
+
+.section li {
+  display: list-item;
+  list-style-type: square;
+}
+
+.title {
+  font-weight: 400;
+  margin: 0;
+  padding:0;
+}
+
+
+.actionsSection {
+  composes: section;
+}
+
+.techSkillsSection {
+  composes: section;
+}
+
+.technicals {
+  composes: sectionContent;
+}
+
+.clientAbout {
+  composes: sectionContent;
+}
+
+.actions {
+  composes: sectionContent;
+}
+
+.headerInfo {
+  text-transform: uppercase;
+}
+
+.headerSection {
+  composes: section;
+}
+
+.headerInfo span {
+  margin-right: 10px;
+}
+
+.headerRight {
+  margin-left: auto;
+}
+
+
+.position {
+  
+}
+
+.location {
+  margin: 0;
+  padding:0;
+  font-weight: 300;
+}
+
+.datetime {
+  margin: 0;
+  padding:0;
+}
+
+.projectFrame {
+  width: 100%;
+  height: 100vh;
+}
+
+:global .slick-next, :global .slick-prev {
+  background:#666;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) { 
+  .section {
+    display: block;
+  }
+  
+  .sectionTitle {
+    width: 100%;
+  }
+  
+  .sectionContent {
+    width: 100%;
+  }
+  
+}

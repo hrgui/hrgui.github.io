@@ -1,0 +1,12 @@
+.logo {
+  font-size: 32px;
+  color: #777;
+  letter-spacing: -1px;
+  cursor: pointer; 
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.gui {
+  color: #cc0000; 
+}

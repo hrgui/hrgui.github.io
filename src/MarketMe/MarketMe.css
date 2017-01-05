@@ -1,0 +1,39 @@
+.cards {
+  composes: container from '../container.css';
+  display:flex;
+  padding-top:30px;
+  padding-bottom:30px;
+  background: white;
+}
+
+.card {
+  -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 33.33333%;
+      padding-left: 0.83333%;
+      padding-right: 0.83333%; 
+      line-height: 1.5;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-weight: 400;
+  color: #444;
+}
+
+.card p {
+  color:#848484;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    display: block;
+  }
+  
+  .card {
+    width: 100%;
+    padding:15px;
+  }
+}
