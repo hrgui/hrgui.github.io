@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "inferno-app"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "react": "inferno-compat",
+          "react-dom": "inferno-compat"
+        }
+      }
+    ]
+  ]
+}

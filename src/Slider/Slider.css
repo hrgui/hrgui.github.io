@@ -1,0 +1,16 @@
+.sliderPager {
+  text-align: center;
+  height: 40px;
+  color: #ccc;
+}
+
+.sliderPager a {
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.sliderLinkActive {
+  border-bottom: 1px solid #cc0000;
+  font-weight:bold;
+}

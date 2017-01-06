@@ -3,7 +3,7 @@ import projects from '../data/work/projects';
 import websites from '../data/work/websites';
 import styles from './PortfolioPage.css';
 import clients from '../data/clients';
-import Slider from 'react-slick';
+import Slider from '../Slider';
 import Component from 'inferno-component';
 
 let SectionTitle = ({children}) => {
@@ -38,9 +38,7 @@ export default class PortfolioPage extends Component {
       className: styles.slider,
       dots: true,
       infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
+      speed: 500
     };
     
     if (model.images.img) {
