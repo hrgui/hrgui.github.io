@@ -1,5 +1,16 @@
 .cover {
   background: black;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+  height:400px;
+  width:100%;
+  overflow:hidden;
+  right:0;
+  top:0;
+  display:flex;
+  align-items: center;
 }
 
 .welcomeHeader {
@@ -13,23 +24,42 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+  overflow: hidden;
+  right:0;
+  top:0;
+}
+
+.welcomeHeader:after {
+  background:linear-gradient(rgba(0,0,0,.3) 30%,rgba(0,0,0,.8));
+  bottom: 0;
+  content: ' ';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .container {
   composes: container from '../container.css';
   width: 100%;
+  position: relative;
 }
 
 .welcome {
   -webkit-font-smoothing: antialiased;
   color: #fff;
   display:flex;
-  align-items: center;
-  justify-content: center;
   padding-left:15px;
   font-size: 64px;
   font-weight:300;
   text-shadow: 0 3px 5px rgba(0,0,0,0.5),0 1px 30px rgba(0,0,0, 1);
+  border-top: 1px dotted white;
+  padding-top: 20px;
+  outline-color: white;
 }
 
 .tagLine {
@@ -39,6 +69,8 @@
   font-size:36px;
   font-weight: 300;
   text-shadow: 0 3px 5px rgba(0,0,0,0.5),0 1px 30px rgba(0,0,0,1);
+  border-bottom: 1px dotted white;
+
 }
 
 @media (max-width: 768px) {

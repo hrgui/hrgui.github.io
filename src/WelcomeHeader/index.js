@@ -4,7 +4,9 @@ import styles from './WelcomeHeader.css';
 export default () => {
   return <div className={styles.cover}>
     <div className={styles.welcomeHeader}>
-      <div className={styles.container}>
+      
+    </div>
+    <div className={styles.container}>
         <div className={styles.welcome}>
           Hello there!
         </div>
@@ -12,6 +14,5 @@ export default () => {
           I love making cool and awesome web and mobile apps.
         </div>
       </div>
-    </div>
   </div>
 };
