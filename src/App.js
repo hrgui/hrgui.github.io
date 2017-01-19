@@ -9,7 +9,7 @@ import Footer from './Footer';
 export default class App extends Component {
   render() {
     return <div>
-      <NavBar />
+      <NavBar portfolio={!!this.props.params.slug} />
       <div className={styles.content}>
         {this.props.children}
         <Footer />

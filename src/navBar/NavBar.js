@@ -53,10 +53,15 @@ export default class NavBar extends Component {
     return (<div className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <Link to="/"><Logo className={styles.logo} /></Link>
-        <NavBarToggle onClick={this.toggle} />
-        <NavBarLinks isMobileHidden={this.state.linksShown}>
+        {!this.props.portfolio && <NavBarToggle onClick={this.toggle} />}
+        {!this.props.portfolio && <NavBarLinks isMobileHidden={this.state.linksShown}>
           {navbarLinks}
-        </NavBarLinks>
+        </NavBarLinks>}
+
+        {this.props.portfolio && <NavBarLinks>
+            <Link to="#" className={cx(styles.active, styles.navbarLink)}>portfolio</Link>
+            <Link to="/" className={styles.navbarLink}>&laquo; Back to Home</Link>
+        </NavBarLinks>}
       </div>
     </div>)
   }
