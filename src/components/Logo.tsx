@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   }
 `
 
-export default ({ variant = "h4", className, ...props}) => {
+export default ({ variant = "h4", className, ...props}:  {variant?, className?}) => {
   return (
     <Wrapper className={className} {...props}>
       <a href="/">

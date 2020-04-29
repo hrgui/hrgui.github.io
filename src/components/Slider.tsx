@@ -52,7 +52,7 @@ const SliderPager = styled.div`
   }
 `
 
-export default class Slider extends React.Component {
+export default class Slider extends React.Component<any,any> {
   static defaultProps = {
     speed: 5000,
     transitionSpeed: 1500,
