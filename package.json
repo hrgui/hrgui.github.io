@@ -52,10 +52,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf public && gatsby build --verbose && gh-pages --dist public --branch master",
+    "deploy": "gh-pages --dist public --branch master",
+    "predeploy": "yarn build",
+    "build": "rm -rf public && gatsby build --verbose",
     "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
+    "start": "gatsby develop",
+    "format": "prettier --write \"src/**/*.tsx\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "repository": {

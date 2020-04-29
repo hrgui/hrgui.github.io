@@ -1,14 +1,18 @@
 # hrgui
 
+# Developing
+
 ## Running development
 ```
 yarn develop
 ```
 
-## Deploying
-
+## Building
 ```
-yarn build 
-git commit -m "some mesage"
-git push origin HEAD
+yarn build
+```
+
+## Building & Deploying Manually
+```
+yarn deploy
 ```
