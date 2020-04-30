@@ -1,5 +1,6 @@
 ---
 {
+  template: 'portfolio',
   path: '/portfolio/vkey',
   title: "VKEY",
   slug: 'vkey',

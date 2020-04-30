@@ -1,5 +1,6 @@
 ---
 {
+  template: 'portfolio',
   path: "/portfolio/tetris",
   type: "portfolio",
   category: "github",

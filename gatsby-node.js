@@ -5,20 +5,17 @@
  */
 const path = require('path');
 
-async function createPortfolioPages({actions, graphql}) {
+async function createPages({actions, graphql}) {
   const { createPage } = actions;
-
-  // TODO yeah, blog templates needed here.
-  const portfolioTemplate = path.resolve(`src/templates/portfolioTemplate.tsx`)
-
+  // ask for all markdown pages
   const result = await graphql(`
     {
       allMarkdownRemark {
         edges {
           node {
             frontmatter {
+              template
               path
-              title
             }
           }
         }
@@ -29,26 +26,26 @@ async function createPortfolioPages({actions, graphql}) {
   if (result.errors) {
     return Promise.reject(result.errors);
   }
+  const componentMap = {
+    'blog': path.resolve(`src/templates/blogTemplate.tsx`),
+    'portfolio': path.resolve(`src/templates/portfolioTemplate.tsx`)
+  };
 
   const edges = result.data.allMarkdownRemark.edges;
 
   for (const {node} of edges) {
-    if (!node.frontmatter.path) {
-      console.log(node);
+    if (!node.frontmatter.path || !node.frontmatter.template) {
+      console.error(node, 'is missing fronmatter.path or frontmatter.template');
       continue;
     }
 
-
     createPage({
       path: node.frontmatter.path,
-      component: portfolioTemplate,
-      context: {
-        apple: true
-      }, // additional data can be passed via context
+      component: componentMap[node.frontmatter.template]
     })
   }
 }
 
 exports.createPages = async (props) => {
-  await createPortfolioPages(props); 
+  await createPages(props); 
 }

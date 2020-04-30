@@ -1,5 +1,6 @@
 ---
 {
+  template: 'portfolio',
   path: "/portfolio/viterbi",
   category: "work",
   title: "USC Viterbi School of Engineering",

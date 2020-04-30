@@ -1,5 +1,6 @@
 ---
 {
+  template: 'portfolio',
   path: "/portfolio/kirby",
   title: 'Kirby (CSS3 Challenge)',
   slug: 'kirby',
