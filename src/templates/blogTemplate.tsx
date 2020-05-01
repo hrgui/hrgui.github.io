@@ -18,9 +18,23 @@ const Title = styled.h1`
 const Styles = styled.div`
   margin-top: 80px;
   width: 100%;
+  line-height: 1.6;
 
   h1, h2, h3, h4, h5 {
     margin: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 21px;
+  }
+
+  blockquote {
+    border-left: 3px solid #ccc;
+    padding-left: 16px;
+    margin-left: 8px;
+    color: #666;
   }
 `;
 
