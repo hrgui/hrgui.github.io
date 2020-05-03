@@ -1,4 +1,5 @@
 ---
+unlisted: true
 template: blog
 path: "/blog/helloWorld"
 title: Test Blog Template
