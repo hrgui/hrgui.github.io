@@ -6,7 +6,7 @@ date: "5/3/2020"
 excerpt: Don't have time to dockerize everything? This blog post shows what can be done for that.
 ---
 
-_Note 5/4/2020: This only works on Macs, but if you know how to make it work on Windows, Mac, leave a comment on Github_
+_Note 6/6/2020: This only works on Macs and Windows, but if you know how to make it work on Linux leave a comment on Github_
 
 Yes, I don't just do frontend development. I know some Docker. Just recently, I wanted to connect the APIs inside my docker-containers to what was outside my docker containers, the host.
 
