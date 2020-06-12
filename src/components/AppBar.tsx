@@ -4,6 +4,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger"
 import Container from "./Container"
 import Logo from "./Logo"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 const StyledToolbar = styled(Toolbar)`
   height: 100%;
@@ -26,11 +27,26 @@ const AppBarContainer = styled(Container)`
 const NavMenuContainer = styled.div`
   display: flex;
   align-items: center;
+
+  .link {
+    color: #cc0000;
+    text-decoration: none;
+    margin-left: 16px;
+    margin-right: 16px;
+    
+    &.active {
+      border-bottom: 2px solid #666;
+    }
+  }
 `
 
 export const NavMenu = () => {
   return (
     <NavMenuContainer>
+      <Link className="link" activeClassName="active" to="/">home</Link>
+      <Link className="link"activeClassName="active" partiallyActive={true}  to="/portfolio">portfolio</Link>
+      <Link className="link"activeClassName="active" partiallyActive={true}  to="/blog">blog</Link>
+      
     </NavMenuContainer>
   )
 }
