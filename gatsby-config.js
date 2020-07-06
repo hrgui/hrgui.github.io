@@ -55,7 +55,7 @@ module.exports = {
           'gatsby-remark-header-custom-ids',
           `gatsby-remark-copy-linked-files`,
           {
-            resolve: `gatsby-remark-prismjs`
+            resolve: `gatsby-remark-vscode`
           },
           {
             resolve: `gatsby-remark-images`,

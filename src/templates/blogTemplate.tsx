@@ -25,6 +25,7 @@ const Styles = styled.div`
   line-height: 1.6;
   padding-left: 16px;
   padding-right:16px;
+  font-size: 21px;
 
   ${({theme}) => theme.breakpoints.down('sm')} {
     padding-left: 24px;
@@ -43,6 +44,10 @@ const Styles = styled.div`
     ${({theme}) => theme.breakpoints.down('sm')} {
       font-size: 16px;
     }
+  }
+
+  code {
+    font-family: 'Roboto Mono', monospace
   }
 
   blockquote {
