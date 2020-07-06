@@ -2,7 +2,7 @@
   "name": "hrgui",
   "private": true,
   "description": "Portfolio website",
-  "version": "2020.0.0",
+  "version": "2020.1.0",
   "author": "Harman Goei",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
