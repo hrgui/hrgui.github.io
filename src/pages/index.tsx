@@ -1,18 +1,10 @@
-import React from 'react'
+import React from "react";
+import HomePage from "@/components/HomePage";
 
-import Layout from '../components/Layout'
-import { Hero } from '../components/main/Hero';
-import MarketBullets from '../components/main/MarketBullets';
-import Technical from '../components/main/Technical';
-import Portfolio from '../components/main/Portfolio';
+interface Props {}
 
-const IndexPage = (props) => (
-  <Layout isBreakout>
-    <Hero />
-    <MarketBullets />
-    <Technical />
-    <Portfolio {...props} />
-  </Layout>
-)
+const IndexPage = (props: Props) => {
+  return <HomePage />;
+};
 
-export default IndexPage
+export default IndexPage;

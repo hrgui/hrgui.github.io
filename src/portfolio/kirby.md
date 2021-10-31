@@ -1,31 +1,16 @@
 ---
 {
-  template: 'portfolio',
+  template: "portfolio",
   path: "/portfolio/kirby",
-  title: 'Kirby (CSS3 Challenge)',
-  slug: 'kirby',
+  title: "Kirby (CSS3 Challenge)",
+  slug: "kirby",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-kirby",
   url: "//www.harmanradix.com/css3-kirby/",
-  thumbnail: "./images/kirby.gif",
-  iframe: {
-    scrolling: "no",
-    height: 550,
-    src: "//www.harmanradix.com/css3-kirby/"
-  },
-  whatIDid: [
-    "Recreated one of my favorite characters, Kirby with just CSS"
-  ],
-  technologiesUsed: [
-    {
-      type: "CSS",
-      value: 91.3
-    },
-    {
-      type: "HTML",
-      value: 8.7
-    }
-  ]
+  thumbnail: "/images/portfolio/kirby.gif",
+  iframe: { scrolling: "no", height: 550, src: "//www.harmanradix.com/css3-kirby/" },
+  whatIDid: ["Recreated one of my favorite characters, Kirby with just CSS"],
+  technologiesUsed: [{ type: "CSS", value: 91.3 }, { type: "HTML", value: 8.7 }],
 }
 ---
 

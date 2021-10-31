@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+  @apply p-4 flex flex-col justify-center items-start bg-gradient-to-tr from-gray-100 to-pink-300;
+  height: 32rem;
+}
