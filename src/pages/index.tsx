@@ -1,10 +1,21 @@
-import React from "react";
-import HomePage from "@/components/HomePage";
+import React from "react"
+import HomePage from "@/components/HomePage"
+import { getMarkdownSortedFiles } from "utils/mdxUtils"
 
-interface Props {}
+interface Props {
+  portfolioItems
+}
 
 const IndexPage = (props: Props) => {
-  return <HomePage />;
-};
+  return <HomePage portfolioItems={props.portfolioItems} />
+}
 
-export default IndexPage;
+export async function getStaticProps() {
+  const portfolioItems = await getMarkdownSortedFiles("portfolio")
+
+  return {
+    props: { portfolioItems },
+  }
+}
+
+export default IndexPage
