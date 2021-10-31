@@ -11,16 +11,19 @@ const Footer = (props: Props) => {
 
   return (
     <div className=" bg-gray-200">
-      <div className="p-5">
-        <Logo />
-        <p className="prose prose-sm mt-4 mb-4">
-          Harman Goei (hrgui) is a developer that loves to make cool and awesome
-          web applications. His strength is in HTML, CSS, JavaScript, but he is
-          willing to code anywhere in the stack to make the web be awesome.
-        </p>
+      <div className="p-5 sm:grid sm:grid-cols-2 sm:gap-4">
+        <div>
+          <Logo />
+          <p className="prose prose-sm mt-4 mb-4">
+            Harman Goei (hrgui) is a developer that loves to make cool and
+            awesome web applications. His strength is in HTML, CSS, JavaScript,
+            but he is willing to code anywhere in the stack to make the web be
+            awesome.
+          </p>
+        </div>
         <div className="mb-4 mt-4">
           <nav className="flex flex-col">
-            <Link href="/portfolio">
+            <Link href="/">
               <a className={"text-red-700 hover:underline font-medium"}>Home</a>
             </Link>
             <Link href="/posts">

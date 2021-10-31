@@ -4,7 +4,7 @@ import GithubProfileButton from "./GithubProfileButton"
 const Hero = () => {
   return (
     <div className="hero">
-      <h1 className="text-4xl font-semibold">
+      <h1 className="text-4xl font-semibold sm:text-7xl">
         I ♥ MAKING COOL AND AWESOME WEB/MOBILE APPS.
       </h1>
       <GithubProfileButton

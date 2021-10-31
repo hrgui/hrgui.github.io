@@ -17,7 +17,7 @@ const AppLayout = (props: Props) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
       </Head>
-      {props.children}
+      <div className="min-h-screen">{props.children}</div>
       <Footer />
     </div>
   )

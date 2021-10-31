@@ -13,7 +13,7 @@ function Item({ title, children, ...props }: Props) {
 
 const ThreeSellPoints = (props: Props) => {
   return (
-    <div className="p-4 pt-8 bg-gray-800 ">
+    <div className="p-4 pt-8 bg-gray-800 sm:grid sm:grid-cols-3 sm:gap-4">
       <Item title="Making the web awesome is my passion.">
         I am a Frontend / JavaScript engineer who loves to make interactive web
         applications. I believe web applications should function great, and look
