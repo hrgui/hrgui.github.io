@@ -1,6 +1,6 @@
 ---
 title: "New Site, who dis? Part 1: Build chain."
-date: "10/30/2021"
+date: "11/12/2021"
 excerpt: It's been a while, but hey, new look and feel for this site, and I'll describe my journey on how I got here.
 ---
 
@@ -108,13 +108,13 @@ Of course, I probably need to read up a thing or two about `next/router` for mor
 I didn't have to learn a new Single Page Application methodology though. It's still React. They have a great example on how to read markdown-x files or markdown:
 
 ```tsx
-import fs from "fs";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
-import path from "path";
-import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
+import fs from "fs"
+import matter from "gray-matter"
+import { MDXRemote } from "next-mdx-remote"
+import { serialize } from "next-mdx-remote/serialize"
+import Head from "next/head"
+import path from "path"
+import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils"
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -122,14 +122,18 @@ import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
 // here.
 const components = {
   Head,
-};
+}
 
 export default function PostPage({ source, frontMatter }) {
   return (
     <div className="pt-28 p-6 container mx-auto">
       <div className="mb-14">
-        <h5 className="text-gray-500 mb-4 font-mono leading-5">{frontMatter.date}</h5>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium">{frontMatter.title}</h1>
+        <h5 className="text-gray-500 mb-4 font-mono leading-5">
+          {frontMatter.date}
+        </h5>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium">
+          {frontMatter.title}
+        </h1>
       </div>
       <div className="prose prose-md md:prose-lg lg:prose-xl">
         <main>
@@ -137,14 +141,14 @@ export default function PostPage({ source, frontMatter }) {
         </main>
       </div>
     </div>
-  );
+  )
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.md`);
-  const source = fs.readFileSync(postFilePath);
+  const postFilePath = path.join(POSTS_PATH, `${params.slug}.md`)
+  const source = fs.readFileSync(postFilePath)
 
-  const { content, data } = matter(source);
+  const { content, data } = matter(source)
 
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
@@ -153,28 +157,28 @@ export const getStaticProps = async ({ params }) => {
       rehypePlugins: [],
     },
     scope: data,
-  });
+  })
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
     },
-  };
-};
+  }
+}
 
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map(path => path.replace(/\.mdx?$/, ""))
     // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }));
+    .map(slug => ({ params: { slug } }))
 
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 ```
 
 If i were to explain this:
