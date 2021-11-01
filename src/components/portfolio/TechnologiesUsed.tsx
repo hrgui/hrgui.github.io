@@ -1,9 +1,10 @@
-import React from "react";
-import { PortfolioTechnology } from "utils/mdxUtils";
-import { Pie } from "react-chartjs-2";
+import React from "react"
+import { PortfolioTechnology } from "utils/mdxUtils"
+import { Pie } from "react-chartjs-2"
 
 interface Props {
-  data?: PortfolioTechnology[];
+  data?: PortfolioTechnology[]
+  className?: string
 }
 
 export const techColors = {
@@ -15,10 +16,10 @@ export const techColors = {
   POSTGRESQL: "#1e6692",
   FIREBASE: "#FFA000",
   WORDPRESS: "#21759b",
-};
+}
 
-const TechnologiesUsed = (props: Props) => {
-  const technologies = props.data;
+const TechnologiesUsed = ({ className, ...props }: Props) => {
+  const technologies = props.data
   const data = {
     labels: technologies.map(({ type }) => type),
     datasets: [
@@ -28,14 +29,16 @@ const TechnologiesUsed = (props: Props) => {
         hoverBackgroundColor: technologies.map(({ type }) => techColors[type]),
       },
     ],
-  };
+  }
 
   return (
-    <div>
-      <h3 className="font-semibold text-2xl mb-6">Technologies Used</h3>
+    <div className={className}>
+      <h3 className="font-semibold text-2xl md:text-4xl text-gray-700 mb-6">
+        Technologies Used
+      </h3>
       <Pie data={data} />
     </div>
-  );
-};
+  )
+}
 
-export default TechnologiesUsed;
+export default TechnologiesUsed

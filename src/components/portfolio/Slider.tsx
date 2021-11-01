@@ -9,7 +9,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
 export default function Slider({
   className,
   children,
-  isAutoPlay: defaultIsAutoPlay,
+  isAutoPlay: defaultIsAutoPlay = true,
 }: Props) {
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay)
@@ -22,7 +22,7 @@ export default function Slider({
 
     const interval = setInterval(() => {
       handleChangeImage(currentIndex + 1)
-    }, 3000)
+    }, 10000)
     return () => clearInterval(interval)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +46,7 @@ export default function Slider({
 
   return (
     <div className={className}>
-      <div className="bg-black h-52 relative">
+      <div className="container mx-auto flex items-center justify-center relative overflow-hidden h-56 lg:h-hero">
         {React.Children.map(children, (child, i) => {
           return React.cloneElement(child as React.ReactElement, {
             className: classnames("absolute transition duration-500", {
@@ -75,7 +75,7 @@ export default function Slider({
           <button
             onClick={() => handleChangeImage(i)}
             className={classnames(
-              "p-2 transition duration-150 text-gray-500 hover:font-medium",
+              "p-2 transition duration-1000 text-gray-500 hover:font-medium",
               {
                 "font-semibold": currentIndex === i,
               }
