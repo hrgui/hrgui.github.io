@@ -23,7 +23,7 @@ const NavLink = ({
     <Link href={href}>
       <a
         className={classNames(
-          "text-gray-700 hover:text-gray-900 font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10",
+          "text-gray-700 hover:text-gray-900 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10",
           {
             "text-red-700 hover:text-red-900  bg-red-700 bg-opacity-10  border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700": exact
               ? router.pathname === href
