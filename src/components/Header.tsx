@@ -4,6 +4,7 @@ import Logo from "./Logo"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import classNames from "classnames"
+import useScrollTrigger from "hooks/useScrollTrigger"
 
 const NavLink = ({
   href,
@@ -22,9 +23,9 @@ const NavLink = ({
     <Link href={href}>
       <a
         className={classNames(
-          "text-gray-700 hover:text-gray-900 font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-5",
+          "text-gray-700 hover:text-gray-900 font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10",
           {
-            "text-red-700 hover:text-red-900  bg-red-200 rounded-r-full sm:rounded-none sm:bg-transparent sm:border-b-2 border-red-700": exact
+            "text-red-700 hover:text-red-900  bg-red-700 bg-opacity-10  border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700": exact
               ? router.pathname === href
               : router.pathname.includes(href),
           }
@@ -40,6 +41,10 @@ const NavLink = ({
 const Header = () => {
   const [isOpen, setisOpen] = React.useState(false)
   const handleSetIsOpen = () => setisOpen(!isOpen)
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  })
 
   const links = [
     <NavLink key="home" href="/" exact>
@@ -55,7 +60,14 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex fixed items-center h-16 border-b border-gray-300 sm:justify-between w-full">
+      <div
+        className={classNames(
+          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors",
+          {
+            "bg-white border-b-2": trigger,
+          }
+        )}
+      >
         <Menu onClick={handleSetIsOpen} className="sm:hidden w-16" />
         <Logo className="sm:pl-5" />
         <nav className="hidden sm:flex h-16 justify-center items-center">

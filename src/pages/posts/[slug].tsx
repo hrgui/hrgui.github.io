@@ -16,7 +16,7 @@ export default function PostPage({ source, frontMatter }) {
         <h5 className="text-gray-500 mb-4 font-mono leading-5">
           {frontMatter.date}
         </h5>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
           {frontMatter.title}
         </h1>
       </div>

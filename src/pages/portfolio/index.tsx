@@ -9,7 +9,7 @@ interface Props {
 const PortfolioPage = (props: Props) => {
   return (
     <div className={"pt-16"}>
-      <h1 className="text-5xl p-5 sm:text-6xl md:text-7xl font-medium mb-4 mt-6">
+      <h1 className="pl-5 text-5xl sm:text-6xl md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
         Portfolio
       </h1>
 

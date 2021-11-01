@@ -6,6 +6,10 @@ module.exports = {
       fontFamily: {
         inter: ['"Inter"', "sans-serif"],
       },
+      height: {
+        hero: "32rem",
+        "hero-sm": "42rem",
+      },
       typography: theme => ({
         light: {
           css: {
