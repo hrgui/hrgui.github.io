@@ -11,7 +11,7 @@ const components = {
 
 export default function PostPage({ source, frontMatter }) {
   return (
-    <div className="pt-28 p-6 container mx-auto">
+    <div className="pt-28 p-6 container mx-auto max-w-min">
       <div className="mb-14">
         <h5 className="text-gray-500 mb-4 font-mono leading-5">
           {frontMatter.date}
