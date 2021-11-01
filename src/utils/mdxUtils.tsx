@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import { serialize } from "next-mdx-remote/serialize"
 import matter from "gray-matter"
+import remarkPrism from "remark-prism"
 
 export interface PortfolioTechnology {
   type?: string
@@ -68,7 +69,7 @@ export async function getMarkdownPropsBySlugName(
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [remarkPrism],
       rehypePlugins: [],
     },
     scope: data,

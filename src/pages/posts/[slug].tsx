@@ -11,21 +11,23 @@ const components = {
 
 export default function PostPage({ source, frontMatter }) {
   return (
-    <div className="pt-28 p-6 container mx-auto max-w-min">
-      <div className="mb-14">
-        <h5 className="text-gray-500 mb-4 font-mono leading-5">
-          {frontMatter.date}
-        </h5>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
-          {frontMatter.title}
-        </h1>
+    <>
+      <div className="pt-28 p-6 container mx-auto max-w-min">
+        <div className="mb-14">
+          <h5 className="text-gray-500 mb-4 font-mono leading-5">
+            {frontMatter.date}
+          </h5>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
+            {frontMatter.title}
+          </h1>
+        </div>
+        <div className="prose prose-md md:prose-lg lg:prose-xl">
+          <main>
+            <MDXRemote {...source} components={components} />
+          </main>
+        </div>
       </div>
-      <div className="prose prose-md md:prose-lg lg:prose-xl">
-        <main>
-          <MDXRemote {...source} components={components} />
-        </main>
-      </div>
-    </div>
+    </>
   )
 }
 
