@@ -41,19 +41,17 @@ const Header = () => {
   const [isOpen, setisOpen] = React.useState(false)
   const handleSetIsOpen = () => setisOpen(!isOpen)
 
-  const links = (
-    <>
-      <NavLink onClick={handleSetIsOpen} href="/" exact>
-        Home
-      </NavLink>
-      <NavLink onClick={handleSetIsOpen} href="/posts">
-        Blog
-      </NavLink>
-      <NavLink onClick={handleSetIsOpen} href="/portfolio">
-        Portfolio
-      </NavLink>
-    </>
-  )
+  const links = [
+    <NavLink key="home" href="/" exact>
+      Home
+    </NavLink>,
+    <NavLink key="blog" href="/posts">
+      Blog
+    </NavLink>,
+    <NavLink key="portfolio" href="/portfolio">
+      Portfolio
+    </NavLink>,
+  ]
 
   return (
     <>
@@ -82,7 +80,9 @@ const Header = () => {
         )}
       >
         <Logo className="flex items-center pl-5 h-16 border-b-2 mb-2" />
-        {links}
+        {links.map(link =>
+          React.cloneElement(link, { onClick: handleSetIsOpen })
+        )}
       </aside>
     </>
   )

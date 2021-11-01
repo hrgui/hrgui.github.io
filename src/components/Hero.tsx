@@ -3,7 +3,7 @@ import GithubProfileButton from "./GithubProfileButton"
 
 const Hero = () => {
   return (
-    <div className="hero">
+    <div className="hero gplay-bg">
       <h1 className="text-4xl font-semibold sm:text-7xl">
         I ♥ MAKING COOL AND AWESOME WEB/MOBILE APPS.
       </h1>
