@@ -1,34 +1,26 @@
 import React from "react"
-import styled from "styled-components"
-import { Typography } from "@material-ui/core"
+import classNames from "classnames"
+import Link from "next/link"
 
-const Wrapper = styled.div`
-  display: inline;
+interface Props {
+  className?: string
+}
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  & span {
-    letter-spacing: -5px;
-    font-family: 'Roboto Mono', monospace;
-  }
-
-  .gui {
-    color: ${({theme}) => theme.palette.primary.main};
-  }
-`
-
-export default ({ variant = "h4", className, ...props}:  {variant?, className?}) => {
+const Logo = ({ className }: Props) => {
   return (
-    <Wrapper className={className} {...props}>
-      <a href="/">
-        <Typography variant={variant}>
-          <span className="hr">hr</span>
-          <span className="gui">gui</span>
-        </Typography>
+    <Link href="/">
+      <a>
+        <div
+          className={classNames(
+            "text-3xl tracking-tight font-medium",
+            className
+          )}
+        >
+          hr<span className="text-red-700">gui</span>
+        </div>
       </a>
-    </Wrapper>
+    </Link>
   )
 }
+
+export default Logo

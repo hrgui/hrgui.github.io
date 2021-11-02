@@ -1,18 +1,5 @@
 # hrgui
 
-# Developing
+# Backgrounds from
 
-## Running development
-```
-yarn develop
-```
-
-## Building
-```
-yarn build
-```
-
-## Building & Deploying Manually
-```
-yarn deploy
-```
+1. GPlay BG: https://svgeneration.netlify.app/recipes/gplay/
