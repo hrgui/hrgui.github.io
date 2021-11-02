@@ -2,7 +2,7 @@ import React from "react"
 import { NextSeo } from "next-seo"
 
 interface Props {
-  title: string
+  title?: string
   description: string
 }
 

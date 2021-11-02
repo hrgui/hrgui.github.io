@@ -1,4 +1,5 @@
 import PortfolioShowcase from "@/components/PortfolioShowcase"
+import Seo from "@/components/Seo"
 import React from "react"
 import { getMarkdownSortedFiles } from "utils/mdxUtils"
 
@@ -8,13 +9,19 @@ interface Props {
 
 const PortfolioPage = (props: Props) => {
   return (
-    <div className={"pt-16"}>
-      <h1 className="pl-5 text-5xl sm:text-6xl md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-        Portfolio
-      </h1>
+    <>
+      <Seo
+        title="Portfolio"
+        description="View Harman's showcase of work as a developer."
+      />
+      <div className={"pt-16"}>
+        <h1 className="pl-5 text-5xl sm:text-6xl md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+          Portfolio
+        </h1>
 
-      <PortfolioShowcase hasTitle={false} items={props.items} />
-    </div>
+        <PortfolioShowcase hasTitle={false} items={props.items} />
+      </div>
+    </>
   )
 }
 
