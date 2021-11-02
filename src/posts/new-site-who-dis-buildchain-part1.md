@@ -1,6 +1,6 @@
 ---
 title: "New Site, who dis? Part 1: Build chain."
-date: "11/12/2021"
+date: "11/1/2021"
 excerpt: It's been a while, but hey, new look and feel for this site, and I'll describe my journey on how I got here.
 ---
 
