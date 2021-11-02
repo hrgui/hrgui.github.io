@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo"
 import { MDXRemote } from "next-mdx-remote"
 import Head from "next/head"
 import {
@@ -12,6 +13,7 @@ const components = {
 export default function PostPage({ source, frontMatter }) {
   return (
     <>
+      <Seo title={`${frontMatter.title}`} description={frontMatter.excerpt} />
       <div className="pt-28 p-6 container mx-auto max-w-min">
         <div className="mb-14">
           <h5 className="text-gray-500 mb-4 font-mono leading-5">

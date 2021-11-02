@@ -1,5 +1,6 @@
 import Slider from "@/components/portfolio/Slider"
 import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed"
+import Seo from "@/components/Seo"
 import { MDXRemote } from "next-mdx-remote"
 import Head from "next/head"
 import {
@@ -23,6 +24,10 @@ export default function PortfolioPage({
 }: PortfolioPageProps) {
   return (
     <>
+      <Seo
+        title={`Portfolio: ${data.title}`}
+        description={data.whatIDid?.[0] || "Portfolio"}
+      />
       <div className="pt-28 p-5 lg:flex lg:justify-between">
         <h1 className="text-3xl  sm:text-5xl md:text-6xl font-semibold tracking-tight">
           {data.title}
