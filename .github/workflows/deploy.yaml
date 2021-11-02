@@ -1,5 +1,6 @@
 name: Build for Github Pages
 on:
+  workflow_dispatch:
   push:
     paths:
       - "src/**"
