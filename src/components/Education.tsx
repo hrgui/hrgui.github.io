@@ -6,11 +6,13 @@ const Education = () => {
       <h1 className="text-3xl font-medium mb-8">Education</h1>
       <div className="flex items-center">
         <div className="w-28 pr-4">
-          <img
-            alt="University of Southern California"
-            src="/images/usc.png"
-            className="w-20"
-          />
+          <a href="https://www.usc.edu" target="__blank">
+            <img
+              alt="Open www.usc.edu in a new tab"
+              src="/images/usc.png"
+              className="w-20"
+            />
+          </a>
         </div>
         <div className="prose">
           <h3 className="uppercase">University of Southern California</h3>
