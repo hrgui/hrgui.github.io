@@ -17,6 +17,8 @@ const AppLayout = (props: Props) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <div className="min-h-screen">{props.children}</div>
       <Footer />
