@@ -84,14 +84,14 @@ const Header = () => {
       </div>
       <aside
         className={classNames(
-          "transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30",
+          "transform top-0 left-0 w-64 bg-white dark:bg-zinc-900 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30",
           {
             "translate-x-0": isOpen,
             "-translate-x-full": !isOpen,
           }
         )}
       >
-        <Logo className="flex items-center pl-5 h-16 border-b-2 mb-2" />
+        <Logo className="flex items-center pl-5 h-16 border-b-2 border-gray-700 mb-2" />
         {links.map(link =>
           React.cloneElement(link, { onClick: handleSetIsOpen })
         )}
