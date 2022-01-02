@@ -68,7 +68,7 @@ const Header = () => {
           }
         )}
       >
-        <Menu onClick={handleSetIsOpen} className="sm:hidden w-16" />
+        <Menu onClick={handleSetIsOpen} className="sm:hidden w-16 h-6" />
         <Logo className="sm:pl-5" />
         <nav className="hidden sm:flex h-16 justify-center items-center">
           {links}
