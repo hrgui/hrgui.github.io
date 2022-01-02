@@ -28,7 +28,7 @@ export default function PortfolioPage({
         title={`Portfolio: ${data.title}`}
         description={data.whatIDid?.[0] || "Portfolio"}
       />
-      <div className="pt-28 p-5 lg:flex lg:justify-between">
+      <div className="p-8 pt-28 lg:flex lg:justify-between">
         <h1 className="text-3xl  sm:text-5xl md:text-6xl font-semibold tracking-tight">
           {data.title}
         </h1>

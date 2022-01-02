@@ -14,7 +14,7 @@ export default function PostPage({ source, frontMatter }) {
   return (
     <>
       <Seo title={`${frontMatter.title}`} description={frontMatter.excerpt} />
-      <div className="pt-28 p-6 container mx-auto max-w-min">
+      <div className="pt-28 p-6 container mx-auto max-w-none">
         <div className="mb-14">
           <h5 className="text-gray-500 mb-4 font-mono leading-5">
             {frontMatter.date}
@@ -23,7 +23,7 @@ export default function PostPage({ source, frontMatter }) {
             {frontMatter.title}
           </h1>
         </div>
-        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl">
+        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl max-w-none">
           <main>
             <MDXRemote {...source} components={components} />
           </main>

@@ -3,8 +3,10 @@ import Link from "next/link"
 
 const PortfolioShowcase = ({ items, hasTitle = true }) => {
   return (
-    <div className="p-5 bg-yellow-700 bg-opacity-10 dark:bg-neutral-700 dark:text-gray-200">
-      {hasTitle && <h1 className="text-3xl font-medium">Portfolio</h1>}
+    <div className="p-8 bg-yellow-700 bg-opacity-10 dark:bg-neutral-800 dark:text-gray-200">
+      {hasTitle && (
+        <h1 className="text-3xl font-medium mb-8 mt-3">Portfolio</h1>
+      )}
 
       <div className="pt-2 pb-2 sm:grid sm:grid-cols-3 sm:gap-6">
         {items.map((item, i) => {

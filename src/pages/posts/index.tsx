@@ -14,8 +14,8 @@ const PostsIndexPage = ({ posts }: Props) => {
         title="Blog"
         description="Read about Harman's blog posts about the web and things."
       />
-      <div className="pt-20 p-5">
-        <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-600">
+      <div className="pt-20 p-8">
+        <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-red-500 to-orange-500">
           Blog
         </h1>
         {posts.map(post => {
@@ -29,7 +29,7 @@ const PostsIndexPage = ({ posts }: Props) => {
                   </h2>
                 </a>
               </Link>
-              <p className="prose dark:prose-invert dark:text-gray-200">
+              <p className="prose dark:prose-invert max-w-none dark:text-gray-200">
                 {post.excerpt}
                 <br />
                 <br />

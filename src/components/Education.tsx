@@ -2,7 +2,7 @@ import React from "react"
 
 const Education = () => {
   return (
-    <div className="p-4 pt-8 pb-8  dark:bg-neutral-800 dark:text-gray-100 border-t-4 border-black dark:border-neutral-700">
+    <div className="p-8 pt-8 pb-8  dark:bg-stone-900 dark:text-gray-100 border-t-4 border-black dark:border-stone-700">
       <h1 className="text-3xl font-medium mb-8">Education</h1>
       <div className="flex items-center">
         <div className="w-28 pr-4">
