@@ -12,11 +12,11 @@ const Logo = ({ className }: Props) => {
       <a>
         <div
           className={classNames(
-            "text-3xl tracking-tight font-medium",
+            "text-3xl tracking-tight font-medium dark:text-gray-200",
             className
           )}
         >
-          hr<span className="text-red-700">gui</span>
+          hr<span className="text-red-700 dark:text-red-500">gui</span>
         </div>
       </a>
     </Link>

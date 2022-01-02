@@ -2,7 +2,7 @@ import React from "react"
 
 const Education = () => {
   return (
-    <div className="p-4 pt-8 pb-8 bg-blue-100 border-t-4 border-black">
+    <div className="p-4 pt-8 pb-8  dark:bg-neutral-800 dark:text-gray-100 border-t-4 border-black dark:border-neutral-700">
       <h1 className="text-3xl font-medium mb-8">Education</h1>
       <div className="flex items-center">
         <div className="w-28 pr-4">
@@ -14,8 +14,10 @@ const Education = () => {
             />
           </a>
         </div>
-        <div className="prose">
-          <h3 className="uppercase">University of Southern California</h3>
+        <div className="prose dark:text-gray-200">
+          <h3 className="uppercase dark:text-gray-100">
+            University of Southern California
+          </h3>
           <p>
             Bachelor of Science (B.S.), Computer Science and Engineering, Magna
             Cum Laude

@@ -36,7 +36,7 @@ export default function PortfolioPage({
           {data.url && (
             <a
               href={data.url}
-              className="uppercase block text-gray-700 hover:text-gray-900 transition-colors"
+              className="uppercase block dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
               target="__blank"
               rel="noreferrer"
             >
@@ -46,7 +46,7 @@ export default function PortfolioPage({
           {data.githubUrl && (
             <a
               href={data.githubUrl}
-              className="uppercase block text-gray-700 hover:text-gray-900 transition-colors"
+              className="uppercase block dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
               target="_blank"
               rel="noreferrer"
             >
@@ -60,7 +60,7 @@ export default function PortfolioPage({
                 key={i}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-700 hover:text-gray-900 transition-colors block overflow-hidden overflow-ellipsis"
+                className="dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors block overflow-hidden overflow-ellipsis"
               >
                 Visit {url}
               </a>
@@ -68,7 +68,7 @@ export default function PortfolioPage({
         </div>
       </div>
 
-      <div className="bg-gray-100 pt-4 pb-4">
+      <div className="bg-gray-100 dark:bg-gray-800 pt-4 pb-4">
         {data.thumbnail && !data.images && (
           <div className="md:hidden">
             <img className="w-screen" alt={data.title} src={data.thumbnail} />
@@ -96,7 +96,7 @@ export default function PortfolioPage({
         <div className="md:grid md:grid-cols-12">
           {data.whatIDid && (
             <div className="mb-10 md:col-span-8">
-              <h3 className="font-semibold text-2xl md:text-4xl mb-6 text-gray-700">
+              <h3 className="font-semibold text-2xl md:text-4xl mb-6 text-gray-700 dark:text-gray-200">
                 What I Did
               </h3>
               <ul className="ml-6">
@@ -115,7 +115,7 @@ export default function PortfolioPage({
             />
           )}
         </div>
-        <div className="prose prose-sm md:prose-md md:prose-lg lg:prose-xl">
+        <div className="prose dark:prose-invert prose-sm md:prose-md md:prose-lg lg:prose-xl">
           <main>
             <MDXRemote {...source} components={components} />
           </main>

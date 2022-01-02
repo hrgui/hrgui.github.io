@@ -23,7 +23,7 @@ export default function PostPage({ source, frontMatter }) {
             {frontMatter.title}
           </h1>
         </div>
-        <div className="prose prose-md md:prose-lg lg:prose-xl">
+        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl">
           <main>
             <MDXRemote {...source} components={components} />
           </main>

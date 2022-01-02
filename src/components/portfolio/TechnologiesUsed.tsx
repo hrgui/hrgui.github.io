@@ -33,7 +33,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
 
   return (
     <div className={className}>
-      <h3 className="font-semibold text-2xl md:text-4xl text-gray-700 mb-6">
+      <h3 className="font-semibold text-2xl md:text-4xl text-gray-700 dark:text-gray-200 mb-6">
         Technologies Used
       </h3>
       <Pie data={data} />

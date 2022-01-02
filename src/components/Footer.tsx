@@ -10,11 +10,11 @@ const Footer = (props: Props) => {
   }
 
   return (
-    <div className=" bg-gray-200">
+    <div className=" bg-gray-200 dark:bg-neutral-800 dark:text-gray-200">
       <div className="p-5 sm:grid sm:grid-cols-2 sm:gap-4">
         <div>
           <Logo />
-          <p className="prose prose-sm mt-4 mb-4">
+          <p className="prose prose-sm dark:text-gray-200 mt-4 mb-4">
             Harman Goei (hrgui) is a developer that loves to make cool and
             awesome web applications. His strength is in HTML, CSS, JavaScript,
             but he is willing to code anywhere in the stack to make the web be
@@ -24,13 +24,29 @@ const Footer = (props: Props) => {
         <div className="mb-4 mt-4">
           <nav className="flex flex-col">
             <Link href="/">
-              <a className={"text-red-700 hover:underline font-medium"}>Home</a>
+              <a
+                className={
+                  "text-red-700 dark:text-red-500 hover:underline font-medium"
+                }
+              >
+                Home
+              </a>
             </Link>
             <Link href="/posts">
-              <a className={"text-red-700 hover-underline font-medium"}>Blog</a>
+              <a
+                className={
+                  "text-red-700 dark:text-red-500 hover-underline font-medium"
+                }
+              >
+                Blog
+              </a>
             </Link>
             <Link href="/portfolio">
-              <a className={"text-red-700 hover-underline font-medium"}>
+              <a
+                className={
+                  "text-red-700 dark:text-red-500 hover-underline font-medium"
+                }
+              >
                 Portfolio
               </a>
             </Link>
@@ -42,7 +58,7 @@ const Footer = (props: Props) => {
         <div>
           <button
             onClick={handleBackToTop}
-            className="text-red-700 hover-underline font-medium"
+            className="text-red-700 dark:text-red-500 hover-underline font-medium"
           >
             back to top?
           </button>

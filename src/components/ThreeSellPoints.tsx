@@ -13,7 +13,7 @@ function Item({ title, children, ...props }: Props) {
 
 const ThreeSellPoints = (props: Props) => {
   return (
-    <div className="p-4 pt-8 bg-gray-800 sm:grid sm:grid-cols-3 sm:gap-4">
+    <div className="p-4 pt-8 bg-zinc-900 sm:grid sm:grid-cols-3 sm:gap-4">
       <Item title="Making the web awesome is my passion.">
         I am a Frontend / JavaScript engineer who loves to make interactive web
         applications. I believe web applications should function great, and look
@@ -29,10 +29,7 @@ const ThreeSellPoints = (props: Props) => {
         kinds and sorts. Some of them were pleasant, some of them were
         frankensteined applications. For that, I always try to help contribute
         making other developer experiences great, so they dont have to suffer as
-        I did. So, I have had to dabble with build systems like Grunt, Gulp,
-        Webpack, and I have vast knowledge of utilizing those to at least to
-        perform CI/CD and to making developing iteratively on a platform
-        awesome.
+        I did.
       </Item>
       <Item title="While my code is compiling...">
         I love to play my guitar, thinking of that new, awesome guitar lick. I

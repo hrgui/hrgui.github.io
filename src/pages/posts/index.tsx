@@ -29,7 +29,7 @@ const PostsIndexPage = ({ posts }: Props) => {
                   </h2>
                 </a>
               </Link>
-              <p className="prose">
+              <p className="prose dark:prose-invert dark:text-gray-200">
                 {post.excerpt}
                 <br />
                 <br />
