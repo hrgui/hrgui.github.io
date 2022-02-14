@@ -11,7 +11,7 @@ function Item({ title, children, ...props }: Props) {
   )
 }
 
-const ThreeSellPoints = (props: Props) => {
+const ThreeSellPoints = () => {
   return (
     <div className="p-6 pt-16 pb-16 bg-zinc-900 sm:grid sm:grid-cols-3 sm:gap-8">
       <Item title="Making the web awesome is my passion.">

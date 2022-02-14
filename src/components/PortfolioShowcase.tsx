@@ -1,7 +1,18 @@
 import React from "react"
 import Link from "next/link"
 
-const PortfolioShowcase = ({ items, hasTitle = true }) => {
+interface PortfolioItem {
+  title: string
+  thumbnail: string
+  slug: string
+}
+
+interface Props {
+  items: PortfolioItem[]
+  hasTitle: boolean
+}
+
+const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
   return (
     <div className="p-6 bg-yellow-700 bg-opacity-10 dark:bg-neutral-800 dark:text-gray-200">
       {hasTitle && (

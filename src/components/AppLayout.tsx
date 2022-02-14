@@ -4,7 +4,7 @@ import Head from "next/head"
 import Footer from "./Footer"
 
 interface Props {
-  children?
+  children?: React.ReactNode
 }
 
 const AppLayout = (props: Props) => {

@@ -2,15 +2,13 @@ import React from "react"
 import Logo from "./Logo"
 import Link from "next/link"
 
-interface Props {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
   function handleBackToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   return (
-    <div className=" bg-gray-200 dark:bg-neutral-900 dark:text-gray-200">
+    <div className="bg-gray-200 dark:bg-neutral-900 dark:text-gray-200">
       <div className="p-6 sm:grid sm:grid-cols-2 sm:gap-8">
         <div>
           <Logo />
