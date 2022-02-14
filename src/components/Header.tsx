@@ -62,7 +62,7 @@ const Header = () => {
     <>
       <div
         className={classNames(
-          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors",
+          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-10",
           {
             "bg-white dark:bg-zinc-900 border-b-2 dark:border-gray-700": trigger,
           }

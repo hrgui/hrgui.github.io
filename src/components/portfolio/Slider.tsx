@@ -15,6 +15,21 @@ export default function Slider({
   const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay)
   const images = React.Children.toArray(children)
 
+  const handleChangeImage = React.useCallback(
+    function(newIndex) {
+      if (newIndex > images.length - 1) {
+        newIndex = 0
+      }
+
+      if (newIndex < 0) {
+        newIndex = images.length - 1
+      }
+
+      setCurrentIndex(newIndex)
+    },
+    [setCurrentIndex, images.length]
+  )
+
   React.useEffect(() => {
     if (!isAutoPlay) {
       return
@@ -24,21 +39,7 @@ export default function Slider({
       handleChangeImage(currentIndex + 1)
     }, 10000)
     return () => clearInterval(interval)
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, isAutoPlay])
-
-  function handleChangeImage(newIndex) {
-    if (newIndex > images.length - 1) {
-      newIndex = 0
-    }
-
-    if (newIndex < 0) {
-      newIndex = images.length - 1
-    }
-
-    setCurrentIndex(newIndex)
-  }
+  }, [currentIndex, handleChangeImage, isAutoPlay])
 
   function handleChangeAutoPlay() {
     setIsAutoPlay(!isAutoPlay)

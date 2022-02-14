@@ -23,7 +23,7 @@ const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
         {items.map((item, i) => {
           return (
             <Link href={`/portfolio/${item.slug}`} key={i}>
-              <a className="text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-100 transition-all">
+              <a className=" text-gray-200 hover:text-gray-100 transition-all z-0">
                 <div
                   className="pl-2 pr-2 mb-6 bg-white bg-no-repeat bg-cover bg-center rounded-lg flex items-center justify-center h-52 hover:shadow-md relative"
                   title={item.title}
