@@ -9,7 +9,7 @@ interface PortfolioItem {
 
 interface Props {
   items: PortfolioItem[]
-  hasTitle: boolean
+  hasTitle?: boolean
 }
 
 const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
