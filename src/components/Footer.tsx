@@ -11,7 +11,7 @@ const Footer = (props: Props) => {
 
   return (
     <div className=" bg-gray-200 dark:bg-neutral-900 dark:text-gray-200">
-      <div className="p-8 sm:grid sm:grid-cols-2 sm:gap-8">
+      <div className="p-6 sm:grid sm:grid-cols-2 sm:gap-8">
         <div>
           <Logo />
           <p className="prose prose-sm dark:text-gray-200 mt-4 mb-4">
@@ -53,7 +53,7 @@ const Footer = (props: Props) => {
           </nav>
         </div>
       </div>
-      <div className="p-8 border-t border-gray-400 flex justify-between">
+      <div className="p-6 border-t border-gray-400 flex justify-between">
         <div>&copy; {new Date().getFullYear()} Harman Goei</div>
         <div>
           <button

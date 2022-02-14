@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const PortfolioShowcase = ({ items, hasTitle = true }) => {
   return (
-    <div className="p-8 bg-yellow-700 bg-opacity-10 dark:bg-neutral-800 dark:text-gray-200">
+    <div className="p-6 bg-yellow-700 bg-opacity-10 dark:bg-neutral-800 dark:text-gray-200">
       {hasTitle && (
         <h1 className="text-3xl font-medium mb-8 mt-3">Portfolio</h1>
       )}
@@ -14,16 +14,16 @@ const PortfolioShowcase = ({ items, hasTitle = true }) => {
             <Link href={`/portfolio/${item.slug}`} key={i}>
               <a className="text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-100 transition-all">
                 <div
-                  className="pl-2 pr-2 pb-4 bg-white bg-no-repeat bg-cover bg-center rounded-lg flex items-center justify-center h-52 hover:shadow-md"
+                  className="pl-2 pr-2 mb-6 bg-white bg-no-repeat bg-cover bg-center rounded-lg flex items-center justify-center h-52 hover:shadow-md relative"
                   title={item.title}
                   style={{
                     backgroundImage: `url(${item.thumbnail})`,
                   }}
-                ></div>
-
-                <h2 className="pb-4 tracking-tight font-medium">
-                  {item.title}
-                </h2>
+                >
+                  <h2 className="p-4 bg-black inline-flex rounded-bl-lg  bg-opacity-75 tracking-tight font-semibold text-xl absolute bottom-0 left-0 hover:bg-opacity-100 transition-all">
+                    {item.title}
+                  </h2>
+                </div>
               </a>
             </Link>
           )

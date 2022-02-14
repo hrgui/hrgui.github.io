@@ -28,7 +28,7 @@ function NestedList(props: React.HTMLProps<HTMLUListElement>) {
 
 const TechnicalSkills = (props: Props) => {
   return (
-    <div className="p-8 pt-16 bg-blue-100 dark:bg-stone-900 dark:text-gray-100">
+    <div className="p-6 pt-16 bg-blue-100 dark:bg-stone-900 dark:text-gray-100">
       <h4 className="uppercase tracking-widest mb-3 text-gray-600 dark:text-gray-300">
         Experience... I Have.
       </h4>

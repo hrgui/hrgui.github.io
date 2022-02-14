@@ -14,8 +14,8 @@ const PostsIndexPage = ({ posts }: Props) => {
         title="Blog"
         description="Read about Harman's blog posts about the web and things."
       />
-      <div className="pt-20 p-8">
-        <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-red-500 to-orange-500">
+      <div className="pt-16 p-6">
+        <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight md:text-7xl md:leading-tight font-semibold tracking-tight mb-8 mt-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-red-500 to-orange-500">
           Blog
         </h1>
         {posts.map(post => {
