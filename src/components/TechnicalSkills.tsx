@@ -44,7 +44,7 @@ const TechnicalSkills = () => {
             <li>React.js</li>
             <li>Next.js</li>
             <li>Webpack</li>
-            <li>ESBuild / SWC</li>
+            <li>Vite / ESBuild / SWC</li>
             <li>...Vanilla</li>
           </ul>
         </TechnicalSection>
