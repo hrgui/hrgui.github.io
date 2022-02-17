@@ -23,7 +23,7 @@ const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
         {items.map((item, i) => {
           return (
             <Link href={`/portfolio/${item.slug}`} key={i}>
-              <a className=" text-gray-200 hover:text-gray-100 transition-all z-0">
+              <a className=" text-gray-200 hover:text-gray-100 sm:opacity-75 sm:hover:opacity-100 transition-all z-0">
                 <div
                   className="pl-2 pr-2 mb-6 bg-white bg-no-repeat bg-cover bg-center rounded-lg flex items-center justify-center h-52 hover:shadow-md relative"
                   title={item.title}
@@ -31,7 +31,7 @@ const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
                     backgroundImage: `url(${item.thumbnail})`,
                   }}
                 >
-                  <h2 className="p-4 bg-black inline-flex rounded-bl-lg  bg-opacity-75 tracking-tight font-semibold text-xl absolute bottom-0 left-0 hover:bg-opacity-100 transition-all">
+                  <h2 className="p-4 bg-black inline-flex rounded-bl-lg  tracking-tight font-semibold text-xl absolute bottom-0 left-0 transition-all">
                     {item.title}
                   </h2>
                 </div>
