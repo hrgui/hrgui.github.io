@@ -59,7 +59,7 @@ export default function Slider({
       </div>
       <div className="flex items-center justify-center w-full">
         <button
-          className={classnames("p-2 text-gray-500", {
+          className={classnames("p-2 text-gray-500 dark:text-gray-300", {
             "font-medium": isAutoPlay,
           })}
           onClick={handleChangeAutoPlay}
@@ -67,7 +67,7 @@ export default function Slider({
           {isAutoPlay ? "AutoPlay" : "Manual"}
         </button>
         <button
-          className="text-gray-500"
+          className="text-gray-500 dark:text-gray-300"
           onClick={() => handleChangeImage(currentIndex - 1)}
         >
           Prev
@@ -76,7 +76,7 @@ export default function Slider({
           <button
             onClick={() => handleChangeImage(i)}
             className={classnames(
-              "p-2 transition duration-1000 text-gray-500 hover:font-medium",
+              "p-2 transition duration-1000 text-gray-500 dark:text-gray-300 hover:font-medium",
               {
                 "font-semibold": currentIndex === i,
               }
@@ -87,7 +87,7 @@ export default function Slider({
           </button>
         ))}
         <button
-          className="text-gray-500"
+          className="text-gray-500 dark:text-gray-300"
           onClick={() => handleChangeImage(currentIndex + 1)}
         >
           Next
