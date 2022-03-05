@@ -26,7 +26,7 @@ export default function PostPage({
     <>
       <Seo title={`${frontMatter.title}`} description={frontMatter.excerpt} />
       <div className="pt-28 p-6 pb-0 container mx-auto max-w-none circuit-board-bg dark:dark-circuit-board-bg">
-        <div className="mb-14">
+        <div className="mb-14 max-w-[70rem] mx-auto">
           {frontMatter.hidden && process.env.NODE_ENV === "development" && (
             <div className="italic flex justify-center">
               You are looking at a hidden post. Remove hidden: true or set it to
@@ -43,7 +43,7 @@ export default function PostPage({
       </div>
 
       <div className="pl-6 pr-6">
-        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl max-w-none">
+        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl max-w-[70rem] mx-auto">
           <main>
             <MDXRemote {...source} components={components} />
           </main>
