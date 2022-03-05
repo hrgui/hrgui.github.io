@@ -2,6 +2,7 @@ import React from "react"
 import { Frontmatter, getMarkdownSortedFiles } from "utils/mdxUtils"
 import Link from "next/link"
 import Seo from "@/components/Seo"
+import classNames from "classnames"
 
 interface Props {
   posts: Frontmatter[]
@@ -21,13 +22,27 @@ const PostsIndexPage = ({ posts }: Props) => {
       </div>
       <div className="pl-6 pr-6">
         {posts.map(post => {
+          if (post.hidden && process.env.NODE_ENV !== "development") {
+            return null
+          }
+
           return (
             <div key={post.slug} className="pb-16">
               <Link href={`/posts/${post.slug}`}>
                 <a>
                   <h3 className="text-gray-500 font-mono">{post.date}</h3>
-                  <h2 className="text-2xl sm:text-3xl mb-2 font-semibold">
-                    {post.title}
+                  <h2
+                    className={classNames(
+                      "text-2xl sm:text-3xl mb-2 font-semibold",
+                      {
+                        italic: post.hidden,
+                      }
+                    )}
+                  >
+                    {post.title}{" "}
+                    {post.hidden &&
+                      process.env.NODE_ENV === "development" &&
+                      `(hidden)`}
                   </h2>
                 </a>
               </Link>

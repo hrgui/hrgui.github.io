@@ -29,6 +29,7 @@ export type PostFrontmatter = {
   date?: string
   excerpt?: string
   slug: string
+  hidden?: boolean
 }
 export type Frontmatter = PostFrontmatter
 
