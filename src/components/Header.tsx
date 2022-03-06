@@ -68,7 +68,12 @@ const Header = () => {
           }
         )}
       >
-        <Menu onClick={handleSetIsOpen} className="sm:hidden w-16 h-6" />
+        <button
+          onClick={handleSetIsOpen}
+          className="sm:hidden hover:bg-gray-800 hover:opacity-100 p-2 opacity-75 transition-all"
+        >
+          <Menu className="sm:hidden w-12 h-6" />
+        </button>
         <Logo className="sm:pl-5" />
         <nav className="hidden sm:flex h-16 justify-center items-center">
           {links}
