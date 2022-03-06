@@ -7,10 +7,14 @@
   title: "Tetris",
   slug: "tetris",
   githubUrl: "https://github.com/hrgui/tetris",
-  url: "//www.harmanradix.com/tetris/",
+  url: "https://www.harmanradix.com/tetris/",
   thumbnail: "/images/portfolio/tetris.gif",
   iframe:
-    { scrolling: "no", height: 530, src: "//www.harmanradix.com/tetris/" },
+    {
+      scrolling: "no",
+      height: 530,
+      src: "https://www.harmanradix.com/tetris/",
+    },
   whatIDid:
     ["Recreated Tetris using HTML/CSS/JavaScript (pure vanilla JavaScript)"],
   technologiesUsed:
