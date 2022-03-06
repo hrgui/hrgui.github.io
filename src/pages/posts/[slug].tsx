@@ -36,14 +36,14 @@ export default function PostPage({
           <h5 className="text-gray-500 mb-4 font-mono leading-5">
             {frontMatter.date}
           </h5>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
             {frontMatter.title}
           </h1>
         </div>
       </div>
 
       <div className="pl-6 pr-6">
-        <div className="prose dark:prose-invert prose-md md:prose-lg lg:prose-xl max-w-[70rem] mx-auto">
+        <div className="prose dark:prose-invert prose-md lg:prose-lg max-w-[70rem] mx-auto">
           <main>
             <MDXRemote {...source} components={components} />
           </main>
