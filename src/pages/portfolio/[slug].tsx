@@ -36,7 +36,7 @@ export default function PortfolioPage({
           {data.url && (
             <a
               href={data.url}
-              className="uppercase block dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+              className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
               target="__blank"
               rel="noreferrer"
             >
@@ -46,7 +46,7 @@ export default function PortfolioPage({
           {data.githubUrl && (
             <a
               href={data.githubUrl}
-              className="uppercase block dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+              className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
               target="_blank"
               rel="noreferrer"
             >
