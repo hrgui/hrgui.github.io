@@ -16,7 +16,7 @@ const PortfolioPage = (props: Props) => {
       />
       <div className={"pt-16 graph-bg dark:dark-graph-bg"}>
         <h1 className="pl-5 text-5xl sm:text-6xl md:text-7xl md:leading-tight font-semibold tracking-tight mb-10 mt-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-400  to-violet-500">
-          Portfolio
+          <div className="container mx-auto">Portfolio</div>
         </h1>
 
         <PortfolioShowcase hasTitle={false} items={props.items} />

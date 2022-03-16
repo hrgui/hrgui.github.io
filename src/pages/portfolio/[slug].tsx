@@ -28,43 +28,46 @@ export default function PortfolioPage({
         title={`Portfolio: ${data.title}`}
         description={data.whatIDid?.[0] || "Portfolio"}
       />
-      <div className="p-6 pt-28 lg:flex lg:justify-between graph-bg dark:dark-graph-bg">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
-          {data.title}
-        </h1>
-        <div className="mt-2 mb-2">
-          {data.url && (
-            <a
-              href={data.url}
-              className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
-              target="__blank"
-              rel="noreferrer"
-            >
-              Open Link / Demo in new Tab
-            </a>
-          )}
-          {data.githubUrl && (
-            <a
-              href={data.githubUrl}
-              className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
-              target="_blank"
-              rel="noreferrer"
-            >
-              View Github Code
-            </a>
-          )}
-          {data.urls &&
-            data.urls.map((url, i) => (
+      <div className="p-6 pt-28 graph-bg dark:dark-graph-bg">
+        <div className="container mx-auto lg:flex lg:justify-between ">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
+            {data.title}
+          </h1>
+
+          <div className="mt-2 mb-2">
+            {data.url && (
               <a
-                href={url}
-                key={i}
+                href={data.url}
+                className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+                target="__blank"
+                rel="noreferrer"
+              >
+                Open Link / Demo in new Tab
+              </a>
+            )}
+            {data.githubUrl && (
+              <a
+                href={data.githubUrl}
+                className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
                 target="_blank"
                 rel="noreferrer"
-                className="dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors block overflow-hidden overflow-ellipsis"
               >
-                Visit {url}
+                View Github Code
               </a>
-            ))}
+            )}
+            {data.urls &&
+              data.urls.map((url, i) => (
+                <a
+                  href={url}
+                  key={i}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors block overflow-hidden overflow-ellipsis"
+                >
+                  Visit {url}
+                </a>
+              ))}
+          </div>
         </div>
       </div>
 
@@ -92,7 +95,7 @@ export default function PortfolioPage({
         )}
       </div>
 
-      <div className="p-6 mx-auto">
+      <div className="p-6 container mx-auto">
         <div className="md:grid md:grid-cols-12">
           {data.whatIDid && (
             <div className="mb-10 md:col-span-8">

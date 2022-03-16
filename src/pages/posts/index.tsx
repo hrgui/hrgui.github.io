@@ -17,10 +17,10 @@ const PostsIndexPage = ({ posts }: Props) => {
       />
       <div className="pt-16 p-6 pb-0 circuit-board-bg dark:dark-circuit-board-bg">
         <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight md:text-7xl md:leading-tight font-semibold tracking-tight mb-8 mt-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-red-500 to-orange-500">
-          Blog
+          <div className="container mx-auto">Blog</div>
         </h1>
       </div>
-      <div className="pl-6 pr-6">
+      <div className="container mx-auto">
         {posts.map(post => {
           if (post.hidden && process.env.NODE_ENV !== "development") {
             return null
