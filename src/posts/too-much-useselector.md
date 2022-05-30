@@ -199,7 +199,7 @@ a.b.c.d.e // ... (4 ways of getting an error)
 
 Thankfully, JavaScript does offer ways of protection using the `?.` operator, but it ends up costing more computation as it boils down to doing something like
 
-```
+```jsx
 a && a.b && a.b.c && a.b.c.d
 ```
 
