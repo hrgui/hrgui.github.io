@@ -4,7 +4,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {}
 
 function Item({ title, children, ...props }: Props) {
   return (
-    <div className="prose prose-md prose-invert mb-6" {...props}>
+    <div className="prose prose-md dark:prose-invert mb-6" {...props}>
       <h2>{title}</h2>
       <p>{children}</p>
     </div>
@@ -13,7 +13,7 @@ function Item({ title, children, ...props }: Props) {
 
 const ThreeSellPoints = () => {
   return (
-    <div className="p-6 pt-16 pb-16 bg-zinc-900">
+    <div className="p-6 pt-16 pb-10 bg-dolly-200 dark:bg-slate-900">
       <div className="container mx-auto sm:grid sm:grid-cols-3 sm:gap-8">
         <Item title="Making the web awesome is my passion.">
           I am a Frontend / JavaScript engineer who loves to make interactive

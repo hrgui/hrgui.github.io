@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import classNames from "classnames"
 import useScrollTrigger from "hooks/useScrollTrigger"
+import { twMerge } from "tailwind-merge"
 
 const NavLink = ({
   href,
@@ -22,13 +23,15 @@ const NavLink = ({
   return (
     <Link href={href}>
       <a
-        className={classNames(
-          "text-gray-700 dark:text-gray-200 hover:text-gray-900  dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10",
-          {
-            "text-red-700 dark:text-red-300 hover:text-red-900 dark:hover:text-red-500  bg-red-700 bg-opacity-10  border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700": exact
-              ? router.pathname === href
-              : router.pathname.includes(href),
-          }
+        className={twMerge(
+          classNames(
+            "text-gray-700 dark:text-gray-200 hover:text-gray-900  dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10",
+            {
+              "text-red-700 dark:text-red-300 hover:text-red-900 dark:hover:text-red-500  bg-red-700 bg-opacity-10  border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700": exact
+                ? router.pathname === href
+                : router.pathname.includes(href),
+            }
+          )
         )}
         onClick={onClick}
       >
@@ -64,7 +67,7 @@ const Header = () => {
         className={classNames(
           "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-10",
           {
-            "bg-white dark:bg-zinc-900 border-b-2 dark:border-gray-700": trigger,
+            "bg-white dark:bg-zinc-900  dark:border-gray-700": trigger,
           }
         )}
       >

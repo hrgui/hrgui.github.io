@@ -9,7 +9,7 @@ interface Props {
 
 const AppLayout = (props: Props) => {
   return (
-    <div className="font-inter dark:bg-neutral-900 dark:text-gray-200">
+    <div className="font-inter dark:bg-stone-900 dark:text-gray-200">
       <Header />
       <Head>
         <title>hrgui</title>

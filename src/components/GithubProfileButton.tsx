@@ -8,7 +8,7 @@ const GithubProfileButton = ({ className, ...props }: Props) => {
     <a
       {...props}
       className={cx(
-        "bg-red-700 text-white p-3 w-auto rounded-lg hover:bg-red-900 focus:outline-none focus:ring shadow-md hover:shadow-none transition-all duration-300 mt-5",
+        "bg-red-700 text-white p-3 w-auto rounded-lg hover:bg-red-900 focus:outline-none focus:ring shadow-md hover:shadow-none transition-all duration-300 mt-7 sm:mt-5",
         className
       )}
     />

@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 border-t border-gray-400">
+      <div className="p-6 dark:bg-stone-800">
         <div className="container mx-auto flex justify-between">
           <div>&copy; {new Date().getFullYear()} Harman Goei</div>
           <div>

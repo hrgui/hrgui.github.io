@@ -28,7 +28,7 @@ export default function PortfolioPage({
         title={`Portfolio: ${data.title}`}
         description={data.whatIDid?.[0] || "Portfolio"}
       />
-      <div className="p-6 pt-28 graph-bg dark:dark-graph-bg">
+      <div className="p-6 pt-24 sm:pt-28 graph-bg dark:dark-graph-bg">
         <div className="container mx-auto lg:flex lg:justify-between ">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
             {data.title}
@@ -71,7 +71,7 @@ export default function PortfolioPage({
         </div>
       </div>
 
-      <div className="bg-gray-100 dark:bg-gray-800 pt-4 pb-4">
+      <div className="bg-neutral-100 dark:bg-neutral-800 pt-4 pb-4">
         {data.thumbnail && !data.images && (
           <div className="md:hidden">
             <img className="w-screen" alt={data.title} src={data.thumbnail} />
@@ -95,33 +95,35 @@ export default function PortfolioPage({
         )}
       </div>
 
-      <div className="p-6 container mx-auto">
-        <div className="md:grid md:grid-cols-12">
-          {data.whatIDid && (
-            <div className="mb-10 md:col-span-8">
-              <h3 className="font-semibold text-2xl md:text-4xl mb-6 text-gray-700 dark:text-gray-200">
-                What I Did
-              </h3>
-              <ul className="ml-6">
-                {data.whatIDid.map((bullet, i) => (
-                  <li key={i} className="list-disc">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {data.technologiesUsed && (
-            <TechnologiesUsed
-              className={"md:col-span-4"}
-              data={data.technologiesUsed}
-            />
-          )}
-        </div>
-        <div className="prose dark:prose-invert prose-sm md:prose-md md:prose-lg lg:prose-xl">
-          <main>
-            <MDXRemote {...source} components={components} />
-          </main>
+      <div className="dark:bg-stone-900 pt-12 pb-12">
+        <div className="container pl-6 pr-6 sm:pl-2 sm:pr-2 mx-auto">
+          <div className="md:grid md:grid-cols-12">
+            {data.whatIDid && (
+              <div className="mb-10 md:col-span-8">
+                <h3 className="font-semibold text-2xl md:text-4xl mb-6 text-gray-700 dark:text-gray-200">
+                  What I Did
+                </h3>
+                <ul className="ml-6">
+                  {data.whatIDid.map((bullet, i) => (
+                    <li key={i} className="list-disc">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {data.technologiesUsed && (
+              <TechnologiesUsed
+                className={"md:col-span-4"}
+                data={data.technologiesUsed}
+              />
+            )}
+          </div>
+          <div className="prose dark:prose-invert prose-sm md:prose-md md:prose-lg lg:prose-xl">
+            <main>
+              <MDXRemote {...source} components={components} />
+            </main>
+          </div>
         </div>
       </div>
     </>
