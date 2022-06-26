@@ -10,6 +10,7 @@ export default function Slider({
   className,
   children,
   isAutoPlay: defaultIsAutoPlay = true,
+  ...props
 }: Props) {
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay)
@@ -46,7 +47,7 @@ export default function Slider({
   }
 
   return (
-    <div className={className}>
+    <div className={className} {...props}>
       <div className="container mx-auto flex items-center justify-center relative overflow-hidden h-56 lg:h-hero">
         {React.Children.map(children, (child, i) => {
           return React.cloneElement(child as React.ReactElement, {
