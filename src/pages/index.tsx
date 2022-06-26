@@ -1,7 +1,7 @@
 import React from "react"
-import HomePage from "@/components/HomePage"
+import HomePage from "@/components/app/HomePage"
 import { getMarkdownSortedFiles } from "utils/mdxUtils"
-import Seo from "@/components/Seo"
+import Seo from "@/components/app/Seo"
 
 interface Props {
   portfolioItems

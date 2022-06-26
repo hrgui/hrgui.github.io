@@ -1,9 +1,9 @@
 import React from "react"
-import Education from "./Education"
-import Hero from "./Hero"
-import PortfolioShowcase from "./PortfolioShowcase"
-import TechnicalSkills from "./TechnicalSkills"
-import ThreeSellPoints from "./ThreeSellPoints"
+import PortfolioShowcase from "@/components/app/portfolio/PortfolioShowcase"
+import Education from "./sections/Education"
+import Hero from "./sections/Hero"
+import TechnicalSkills from "./sections/TechnicalSkills"
+import ThreeSellPoints from "./sections/ThreeSellPoints"
 
 const HomePage = ({ portfolioItems }) => {
   return (

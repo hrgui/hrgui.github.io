@@ -1,5 +1,4 @@
 import React from "react"
-import classnames from "classnames"
 
 interface Props extends Omit<React.HTMLProps<SVGSVGElement>, "crossOrigin"> {
   className?: string

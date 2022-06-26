@@ -1,6 +1,6 @@
 import Slider from "@/components/portfolio/Slider"
 import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed"
-import Seo from "@/components/Seo"
+import Seo from "@/components/app/Seo"
 import { MDXRemote } from "next-mdx-remote"
 import Head from "next/head"
 import {

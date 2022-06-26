@@ -13,7 +13,10 @@ function Item({ title, children, ...props }: Props) {
 
 const ThreeSellPoints = () => {
   return (
-    <div className="p-6 pt-16 pb-10 bg-dolly-200 dark:bg-slate-900">
+    <div
+      className="p-6 pt-16 pb-10 bg-dolly-200 dark:bg-slate-900"
+      data-testid="section-three-sell-points"
+    >
       <div className="container mx-auto sm:grid sm:grid-cols-3 sm:gap-8">
         <Item title="Making the web awesome is my passion.">
           I am a Frontend / JavaScript engineer who loves to make interactive

@@ -1,6 +1,6 @@
-import PortfolioShowcase from "@/components/PortfolioShowcase"
-import Seo from "@/components/Seo"
-import SubPageHeader from "@/components/SubPageHeader"
+import PortfolioShowcase from "@/components/app/portfolio/PortfolioShowcase"
+import Seo from "@/components/app/Seo"
+import SubPageHeader from "@/components/layout/SubPageHeader"
 import React from "react"
 import { getMarkdownSortedFiles } from "utils/mdxUtils"
 

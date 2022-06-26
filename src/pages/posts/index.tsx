@@ -1,8 +1,8 @@
 import React from "react"
 import { Frontmatter, getMarkdownSortedFiles } from "utils/mdxUtils"
 import Link from "next/link"
-import Seo from "@/components/Seo"
-import SubPageHeader from "@/components/SubPageHeader"
+import Seo from "@/components/app/Seo"
+import SubPageHeader from "@/components/layout/SubPageHeader"
 import classNames from "classnames"
 
 interface Props {

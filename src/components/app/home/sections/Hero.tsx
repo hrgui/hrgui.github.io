@@ -11,7 +11,10 @@ const Hero = () => {
   const headerAnimationEnded = useAnimationEnd(headerRef)
 
   return (
-    <div className="flex flex-col justify-center items-start dark:text-gray-200 h-hero sm:h-hero-sm gplay-bg dark:dark-gplay-bg">
+    <div
+      className="flex flex-col justify-center items-start dark:text-gray-200 h-hero sm:h-hero-sm gplay-bg dark:dark-gplay-bg"
+      data-testid="section-hero"
+    >
       <div className="p-6 xl:p-0 flex flex-col justify-center items-start container mx-auto">
         <h1
           ref={headerRef}

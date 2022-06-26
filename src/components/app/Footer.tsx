@@ -8,7 +8,10 @@ const Footer = () => {
   }
 
   return (
-    <div className="bg-gray-200 dark:bg-neutral-900 dark:text-gray-200">
+    <div
+      className="bg-gray-200 dark:bg-neutral-900 dark:text-gray-200"
+      data-testid="footer"
+    >
       <div className="container mx-auto">
         <div className="p-6 sm:grid sm:grid-cols-2 sm:gap-8">
           <div>

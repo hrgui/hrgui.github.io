@@ -26,6 +26,9 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
+      - name: 🧪 Test
+        run: yarn test
+
       - name: ⚙️ Build
         run: yarn build && touch out/.nojekyll
 
