@@ -1,5 +1,5 @@
 import React from "react"
-import HomePage from "@/components/app/HomePage"
+import HomePage from "@/components/app/home/HomePage"
 import { getMarkdownSortedFiles } from "utils/mdxUtils"
 import Seo from "@/components/app/Seo"
 
