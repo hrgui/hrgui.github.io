@@ -49,6 +49,17 @@ export const portfolioFilePaths = fs
   // Only include md(x) files
   .filter(path => /\.mdx?$/.test(path))
 
+export function toMdx(content: string, data: { [key: string]: any } = {}) {
+  return serialize(content, {
+    // Optionally pass remark/rehype plugins
+    mdxOptions: {
+      remarkPlugins: [remarkPrism],
+      rehypePlugins: [],
+    },
+    scope: data,
+  })
+}
+
 export async function getMarkdownPropsBySlugName(
   slugName,
   type: "posts" | "portfolio"
@@ -67,14 +78,7 @@ export async function getMarkdownPropsBySlugName(
 
   const { content, data } = matter(source)
 
-  const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [remarkPrism],
-      rehypePlugins: [],
-    },
-    scope: data,
-  })
+  const mdxSource = await toMdx(content, data)
 
   return {
     props: {
