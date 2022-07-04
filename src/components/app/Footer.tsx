@@ -1,6 +1,7 @@
 import React from "react"
 import Logo from "./Logo"
 import Link from "next/link"
+import AppSocialMedia from "./AppSocialMedia"
 
 const Footer = () => {
   function handleBackToTop() {
@@ -59,6 +60,7 @@ const Footer = () => {
       <div className="p-6 dark:bg-stone-800">
         <div className="container mx-auto flex justify-between">
           <div>&copy; {new Date().getFullYear()} Harman Goei</div>
+          <AppSocialMedia />
           <div>
             <button
               onClick={handleBackToTop}

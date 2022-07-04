@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { useAnimationEnd } from "hooks/useAnimationEnd"
 import useIntersectionObserver from "hooks/useIntersectionObserver"
 import React, { useRef } from "react"
-import GithubProfileButton from "./GithubProfileButton"
+import AppSocialMedia from "../../AppSocialMedia"
 
 const Hero = () => {
   const headerRef = useRef()
@@ -31,7 +31,7 @@ const Hero = () => {
           </span>
           web/mobile apps.
         </h1>
-        <GithubProfileButton
+        {/* <GithubProfileButton
           className={classNames("opacity-0", {
             ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
           })}
@@ -39,8 +39,14 @@ const Hero = () => {
           target="__blank"
           rel="noreferrer"
         >
+          <FontAwesomeIcon icon={faGithub} className="mr-2" />
           View Github Profile
-        </GithubProfileButton>
+        </GithubProfileButton> */}
+        <AppSocialMedia
+          className={classNames("text-xl opacity-0", {
+            ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
+          })}
+        />
       </div>
     </div>
   )
