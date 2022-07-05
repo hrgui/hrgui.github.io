@@ -22,7 +22,7 @@ Add this step to your Github Actions file, if you use [vitest](https://vitest.de
     echo "\`\`\`"  >> $GITHUB_STEP_SUMMARY
 ```
 
-[Here's a sample result.](https://github.com/hrgui/hrgui.github.io/actions/runs/2613306882)
+[Here's a sample result.](https://github.com/hrgui/hrgui.github.io/actions/runs/2613435384)
 
 If you use [jest](https://jestjs.io/), just replace `yarn c8 report` with the output of `yarn test --silent --coverage`, like so:
 
