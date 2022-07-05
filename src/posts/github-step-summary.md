@@ -3,7 +3,7 @@ template: blog
 path: /blog/github-step-summary.md
 title: "What I use `$GITHUB_STEP_SUMMARY` for"
 date: "7/4/2022"
-excerpt: `$GITHUB_STEP_SUMMARY` is a useful step in Github Actions. What do I use it for?
+excerpt: $GITHUB_STEP_SUMMARY is a useful step in Github Actions. What do I use it for?
 ---
 
 In 05/09/2022, [Github Actions released `$GITHUB_STEP_SUMMARY`](https://github.blog/2022-05-09-supercharging-github-actions-with-job-summaries/).
