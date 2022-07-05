@@ -11,5 +11,8 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./src/test/setup.tsx",
+    coverage: {
+      reporter: ["text", "text-summary", "html"],
+    },
   },
 })
