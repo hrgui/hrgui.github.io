@@ -28,11 +28,7 @@ jobs:
 
       - name: 🧪 Test
         run: |
-          yarn test --silent --coverage > test_results
-          echo "### Test Results 🧪" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
-          cat test_results >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          yarn test --silent --coverage >> $GITHUB_STEP_SUMMARY
 
       - name: ⚙️ Build
         run: yarn build && touch out/.nojekyll
