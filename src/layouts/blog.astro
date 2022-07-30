@@ -6,7 +6,7 @@ import Head from 'layouts/components/Head.astro';
 import BlogSubHeader from '@/components/app/blog/BlogSubHeader';
 import BlogEntry from '@/components/app/blog/BlogEntry';
 
-const { description, content } = Astro.props
+const { title, description, content } = Astro.props
 
 export type Props = {
   title?: string
@@ -18,7 +18,7 @@ export type Props = {
 <!doctype html>
 <html lang="en">
 
-<Head description={description} />
+<Head title={title} description={description} />
 <AppLayout client:visible>
   <BlogSubHeader date={content.date} title={content.title} hidden={content.hidden} />
   <BlogEntry>
