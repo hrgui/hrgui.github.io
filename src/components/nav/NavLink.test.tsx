@@ -37,5 +37,5 @@ it("should be able to render current page link", async () => {
   )
   const link = screen.getByText(/Test/)
   expect(link).toBeInTheDocument()
-  expect(link.getAttribute("aria-current")).toMatchInlineSnapshot('"page"')
+  expect(link.getAttribute("aria-current")).toMatchInlineSnapshot('null')
 })

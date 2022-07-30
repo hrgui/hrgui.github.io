@@ -1,0 +1,27 @@
+---
+import 'styles/globals.css';
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+config.autoAddCss = false
+
+import AppLayout from '@/components/app/AppLayout';
+import Head from 'layouts/components/Head.astro';
+
+const { description } = Astro.props
+
+export type Props = {
+  title?: string
+  description?: string
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+
+<Head description={description} />
+<AppLayout client:visible>
+  <slot />
+</AppLayout>
+
+</html>

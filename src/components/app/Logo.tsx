@@ -1,26 +1,23 @@
-import React from "react"
-import classNames from "classnames"
-import Link from "next/link"
+import React from "react";
+import classNames from "classnames";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 const Logo = ({ className }: Props) => {
   return (
-    <Link href="/">
-      <a>
-        <div
-          className={classNames(
-            "text-3xl tracking-tight font-medium dark:text-gray-200",
-            className
-          )}
-        >
-          hr<span className="text-red-700 dark:text-red-500">gui</span>
-        </div>
-      </a>
-    </Link>
-  )
-}
+    <a href="/">
+      <div
+        className={classNames(
+          "text-3xl tracking-tight font-medium dark:text-gray-200",
+          className
+        )}
+      >
+        hr<span className="text-red-700 dark:text-red-500">gui</span>
+      </div>
+    </a>
+  );
+};
 
-export default Logo
+export default Logo;

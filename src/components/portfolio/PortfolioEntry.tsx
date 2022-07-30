@@ -1,15 +1,9 @@
-import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed"
-import { MDXRemote } from "next-mdx-remote"
-import Head from "next/head"
-import { PortfolioFrontmatter } from "../../utils/mdxUtils"
-import PortfolioMedia from "./PortfolioMedia"
-import WhatIDid from "./WhatIDid"
+import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed";
+import { PortfolioFrontmatter } from "../../utils/mdxUtils";
+import PortfolioMedia from "./PortfolioMedia";
+import WhatIDid from "./WhatIDid";
 
-const components = {
-  Head,
-}
-
-type Props = PortfolioFrontmatter & { source: any }
+type Props = PortfolioFrontmatter & { children?: React.ReactNode };
 
 const PortfolioEntry = ({
   title,
@@ -21,7 +15,7 @@ const PortfolioEntry = ({
   iframe,
   whatIDid,
   technologiesUsed,
-  source,
+  children,
 }: Props) => {
   return (
     <>
@@ -88,14 +82,12 @@ const PortfolioEntry = ({
           </div>
 
           <div className="prose dark:prose-invert prose-sm md:prose-md md:prose-lg lg:prose-xl">
-            <main>
-              <MDXRemote {...source} components={components} />
-            </main>
+            <main>{children}</main>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PortfolioEntry
+export default PortfolioEntry;
