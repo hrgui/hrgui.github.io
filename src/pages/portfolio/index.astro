@@ -1,0 +1,23 @@
+---
+import DefaultPageLayout from "layouts/default.astro";
+import SubPageHeader from "@/components/layout/SubPageHeader";
+import { PortfolioFrontmatter } from "utils/mdxUtils";
+import PortfolioShowcase from "@/components/app/portfolio/PortfolioShowcase";
+
+const title = `Portfolio`;
+const description = `View Harman's showcase of work as a developer.`;
+
+const items = await Astro.glob<PortfolioFrontmatter>("./*.md");
+---
+
+<DefaultPageLayout title={title} description={description}>
+  <SubPageHeader
+    bgClassName="graph-bg dark:dark-graph-bg"
+    className="from-pink-400  to-violet-500"
+    >{title}
+  </SubPageHeader>
+  <PortfolioShowcase
+    hasTitle={false}
+    items={items.map((item) => item.frontmatter)}
+  />
+</DefaultPageLayout>

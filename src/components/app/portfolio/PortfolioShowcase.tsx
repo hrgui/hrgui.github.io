@@ -1,11 +1,7 @@
-interface PortfolioItem {
-  title: string;
-  thumbnail: string;
-  slug: string;
-}
+import { PortfolioFrontmatter } from "utils/mdxUtils";
 
 interface Props {
-  items: PortfolioItem[];
+  items: PortfolioFrontmatter[];
   hasTitle?: boolean;
 }
 
