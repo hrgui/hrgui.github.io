@@ -1,13 +1,9 @@
-import React from "react"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
-import { GITHUB_URL, LINKEDIN_URL } from "@/constants"
-import { twMerge } from "tailwind-merge"
+import { GITHUB_URL, LINKEDIN_URL } from "@/constants";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
-  className?: string
-}
+  className?: string;
+};
 
 const AppSocialMedia = ({ className }: Props) => {
   return (
@@ -19,7 +15,7 @@ const AppSocialMedia = ({ className }: Props) => {
         rel="noopener noreferrer"
         className="opacity-50 hover:opacity-100 transition-all"
       >
-        <FontAwesomeIcon icon={faGithub} />
+        Github
       </a>
       <a
         title="View My LinkedIn Profile"
@@ -28,10 +24,10 @@ const AppSocialMedia = ({ className }: Props) => {
         rel="noopener noreferrer"
         className="opacity-50 hover:opacity-100 transition-all"
       >
-        <FontAwesomeIcon icon={faLinkedinIn} />
+        LinkedIn
       </a>
     </div>
-  )
-}
+  );
+};
 
-export default AppSocialMedia
+export default AppSocialMedia;
