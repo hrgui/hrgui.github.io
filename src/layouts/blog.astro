@@ -1,0 +1,29 @@
+---
+import 'styles/globals.css';
+
+import AppLayout from '@/components/app/AppLayout';
+import Head from 'layouts/components/Head.astro';
+import BlogSubHeader from '@/components/app/blog/BlogSubHeader';
+import BlogEntry from '@/components/app/blog/BlogEntry';
+
+const { description, content } = Astro.props
+
+export type Props = {
+  title?: string
+  description?: string
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+
+<Head description={description} />
+<AppLayout client:visible>
+  <BlogSubHeader date={content.date} title={content.title} hidden={content.hidden} />
+  <BlogEntry>
+    <slot />
+  </BlogEntry>
+</AppLayout>
+
+</html>

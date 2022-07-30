@@ -1,5 +1,5 @@
 ---
-template: blog
+layout: ../../layouts/blog.astro
 title: "How I Feel About TypeScript - Part I"
 date: "2/13/2022"
 excerpt: Listen, I use TypeScript, but...
@@ -31,11 +31,11 @@ I once worked with an API that had data something like this:
 
 ```ts
 interface Product {
-  title: string
-  category: string
-  price: number
-  image: string
-  metadata: Metadata
+  title: string;
+  category: string;
+  price: number;
+  image: string;
+  metadata: Metadata;
 }
 ```
 
@@ -43,8 +43,8 @@ The API didn't have a way to expose types for `Metadata`, so we had to type it o
 
 ```ts
 interface Metadata {
-  level: number
-  images: { left: string; right: string }
+  level: number;
+  images: { left: string; right: string };
 }
 ```
 
@@ -63,7 +63,7 @@ I had to fix the problem on the spot by assuming Metadata was `Partial<Metadata>
 In the long run, I made Metadata as `Partial<Metadata>`, and I unioned it with all the possible types. In the JavaScript code, I ended up using [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) for parts that could fail, like the following:
 
 ```js
-metadata?.images?.left || image
+metadata?.images?.left || image;
 ```
 
 Yet, I think in the long run, if I wanted to be faster and more lazy, I could have just assumed metadata at the top most level is just going to be of type `any`. I would then probably then type it based on `category`, which I know TypeScript can do, but `any` would get me done quickly.

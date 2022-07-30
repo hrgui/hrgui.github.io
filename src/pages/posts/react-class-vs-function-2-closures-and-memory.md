@@ -1,6 +1,5 @@
 ---
-template: blog
-path: /blog/react-class-vs-function-2-closures-and-memory.md
+layout: ../../layouts/blog.astro
 title: "React Class Components VS Functional Components II: Functional Component's Closures, Memory and the Absence of Component Lifecycles"
 date: "7/6/2020"
 excerpt: This is part II of my long running series of React Class Components VS Functional Components. This post talks about some shortcomings about functional components and how class components still got it in the bag.
@@ -18,7 +17,7 @@ We last talked about `this`, and how it leads into pitfalls into React. This tim
 
 ```js
 function makeAdder(x) {
-  return function (y) {
+  return function(y) {
     return x + y;
   };
 }
@@ -144,7 +143,9 @@ useEffect(() => {
   if (isReverse && loadMoreRef.current) {
     const parentElement = getParentElement(scrollComponentRef.current);
     parentElement.scrollTop =
-      parentElement.scrollHeight - beforeScrollHeightRef.current + beforeScrollTopRef.current;
+      parentElement.scrollHeight -
+      beforeScrollHeightRef.current +
+      beforeScrollTopRef.current;
     loadMoreRef.current = false;
   }
   attachScrollListener();
@@ -231,8 +232,12 @@ scrollListener = React.useCallback(
 
     let offset;
     if (useWindow) {
-      const doc = document.documentElement || document.body.parentNode || document.body;
-      const scrollTop = scrollEl.pageYOffset !== undefined ? scrollEl.pageYOffset : doc.scrollTop;
+      const doc =
+        document.documentElement || document.body.parentNode || document.body;
+      const scrollTop =
+        scrollEl.pageYOffset !== undefined
+          ? scrollEl.pageYOffset
+          : doc.scrollTop;
       if (isReverse) {
         offset = scrollTop;
       } else {
@@ -257,7 +262,14 @@ scrollListener = React.useCallback(
       }
     }
   },
-  [getParentElement, useWindow, isReverse, detachScrollListener, loadMore, threshold]
+  [
+    getParentElement,
+    useWindow,
+    isReverse,
+    detachScrollListener,
+    loadMore,
+    threshold,
+  ]
 );
 ```
 
@@ -271,7 +283,7 @@ So, I ended up writing the code like the following:
 
 ```jsx
 useEffect(
-  function () {
+  function() {
     function detachScrollListener() {
       let scrollEl = window;
       if (useWindow === false) {
@@ -297,8 +309,12 @@ useEffect(
 
       let offset;
       if (useWindow) {
-        const doc = document.documentElement || document.body.parentNode || document.body;
-        const scrollTop = scrollEl.pageYOffset !== undefined ? scrollEl.pageYOffset : doc.scrollTop;
+        const doc =
+          document.documentElement || document.body.parentNode || document.body;
+        const scrollTop =
+          scrollEl.pageYOffset !== undefined
+            ? scrollEl.pageYOffset
+            : doc.scrollTop;
         if (isReverse) {
           offset = scrollTop;
         } else {
@@ -307,7 +323,8 @@ useEffect(
       } else if (isReverse) {
         offset = parentNode.scrollTop;
       } else {
-        offset = el.scrollHeight - parentNode.scrollTop - parentNode.clientHeight;
+        offset =
+          el.scrollHeight - parentNode.scrollTop - parentNode.clientHeight;
       }
 
       // Here we make sure the element is visible as well as checking the offset
@@ -367,7 +384,9 @@ useEffect(
       if (isReverse && loadMoreRef.current) {
         const parentElement = getParentElement(scrollComponentRef.current);
         parentElement.scrollTop =
-          parentElement.scrollHeight - beforeScrollHeightRef.current + beforeScrollTopRef.current;
+          parentElement.scrollHeight -
+          beforeScrollHeightRef.current +
+          beforeScrollTopRef.current;
         loadMoreRef.current = false;
       }
       attachScrollListener();

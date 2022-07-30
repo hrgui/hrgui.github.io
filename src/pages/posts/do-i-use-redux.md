@@ -1,6 +1,5 @@
 ---
-template: blog
-path: /blog/do-i-use-redux.md
+layout: ../../layouts/blog.astro
 title: "Do I use Redux?"
 date: "11/3/2020"
 excerpt: I am a React Developer. Do I use Redux? Insert attention-grabbing thing here to make you click.
@@ -82,7 +81,7 @@ const store = createStore(counter);
 
 export function Counter() {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state);
+  const count = useSelector(state => state);
 
   return (
     <div>
@@ -129,13 +128,17 @@ const store = createStore(counterSlice.reducer);
 
 export function Counter() {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state);
+  const count = useSelector(state => state);
 
   return (
     <div>
       <h1>{count}</h1>
-      <button onClick={() => dispatch(counterSlice.actions.increment())}>+</button>
-      <button onClick={() => dispatch(counterSlice.actions.decrement())}>-</button>
+      <button onClick={() => dispatch(counterSlice.actions.increment())}>
+        +
+      </button>
+      <button onClick={() => dispatch(counterSlice.actions.decrement())}>
+        -
+      </button>
     </div>
   );
 }

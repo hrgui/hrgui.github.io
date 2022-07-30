@@ -1,5 +1,5 @@
 ---
-template: blog
+layout: ../../layouts/blog.astro
 path: /blog/host-docker-internal
 title: "Docker: How to connect from container to Host"
 date: "5/3/2020"
