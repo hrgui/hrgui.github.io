@@ -19,20 +19,20 @@ const Hero = () => {
         <h1
           ref={headerRef}
           className={classNames(
-            `text-4xl font-semibold leading-tight md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug opacity-0`,
+            `text-4xl font-semibold leading-tight md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug opacity-0 motion-reduce:opacity-100`,
             {
               ["motion-safe:animate-fadeIn-1.5"]: isHeaderVisible,
             }
           )}
         >
           I ❤️ making{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-saltpan-400 to-malibu-500 dark:from-saltpan-500 dark:to-malibu-400">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-malibu-500 dark:from-saltpan-500 dark:to-malibu-400">
             cool and awesome{" "}
           </span>
           web/mobile apps.
         </h1>
         <AppSocialMedia
-          className={classNames("text-xl opacity-0", {
+          className={classNames("text-xl opacity-0 motion-reduce:opacity-100", {
             ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
           })}
         />
