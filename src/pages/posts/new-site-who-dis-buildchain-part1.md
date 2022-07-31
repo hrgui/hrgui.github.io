@@ -191,3 +191,8 @@ If i were to explain this:
 # Now what if i told you, I did not have to write that much CSS for this new blog layout?
 
 `prose prose-md md:prose-lg lg:prose-xl` is the only CSS class I had to maintain for this. I'll talk about this in the next part of my **New Site who dis** series. It'll be another long blogpost, and about how I feel about CSS. I have a lot to say about it.
+
+_This is a 2 part series of a blog._
+
+1. [New site, who dis? Part 1: Build chain.](/posts/new-site-who-dis-buildchain-part1)
+2. [New site, who dis? Part 2: CSS](/posts/new-site-who-dis-css-part2)

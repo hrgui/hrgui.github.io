@@ -328,3 +328,8 @@ This website is developed with TailwindCSS for its CSS. Despite it feels like we
 As a result, this makes the website fast and snappy. That's what I want to advertise - that I am always on a mission to make web apps the best as they can, and the most performant as possible.
 
 _P.S. I still do CSS in JS though for other things / work though! It all depends on the team, and the usecase of the application._
+
+_This is a 2 part series of a blog._
+
+1. [New site, who dis? Part 1: Build chain.](/posts/new-site-who-dis-buildchain-part1)
+2. [New site, who dis? Part 2: CSS](/posts/new-site-who-dis-css-part2)
