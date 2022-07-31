@@ -20,6 +20,7 @@ const Header = ({ currentPathName }: Props) => {
     threshold: 0,
   });
 
+  // NOTE: this needs a key because of use in the Drawer
   const links = [
     <NavLink currentPathName={currentPathName} key="home" href="/" exact>
       Home

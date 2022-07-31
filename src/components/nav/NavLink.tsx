@@ -11,12 +11,14 @@ type Props = {
 
 export const NavLink = ({
   href,
-  currentPathName,
+  currentPathName = "",
   children,
   onClick,
+  exact = false,
 }: Props) => {
-  // TODO
-  const isActive = currentPathName === href;
+  const isActive = exact
+    ? currentPathName === href
+    : currentPathName.startsWith(href);
 
   return (
     <a
