@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useAnimationEnd } from "hooks/useAnimationEnd";
 import useIntersectionObserver from "hooks/useIntersectionObserver";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import AppSocialMedia from "../../AppSocialMedia";
 
 const Hero = () => {
@@ -19,7 +19,7 @@ const Hero = () => {
         <h1
           ref={headerRef}
           className={classNames(
-            `text-4xl font-semibold leading-tight md:text-6xl md:leading-snug  xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug`,
+            `text-4xl font-semibold leading-tight md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug opacity-0`,
             {
               ["motion-safe:animate-fadeIn-1.5"]: isHeaderVisible,
             }
@@ -31,17 +31,6 @@ const Hero = () => {
           </span>
           web/mobile apps.
         </h1>
-        {/* <GithubProfileButton
-          className={classNames("opacity-0", {
-            ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
-          })}
-          href="https://www.github.com/hrgui"
-          target="__blank"
-          rel="noreferrer"
-        >
-          <FontAwesomeIcon icon={faGithub} className="mr-2" />
-          View Github Profile
-        </GithubProfileButton> */}
         <AppSocialMedia
           className={classNames("text-xl opacity-0", {
             ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
