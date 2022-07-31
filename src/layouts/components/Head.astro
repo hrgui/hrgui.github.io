@@ -7,7 +7,7 @@ export type Props = {
 };
 const { title = siteTitle, description } = Astro.props as Props;
 
-const fullTitle = siteTitle === title ? title : `${siteTitle} | ${title}`;
+const fullTitle = siteTitle === title ? title : `${title} | ${siteTitle}`;
 ---
 
 <head>
