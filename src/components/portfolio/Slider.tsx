@@ -1,9 +1,9 @@
-import React from "react"
-import classnames from "classnames"
+import React from "react";
+import classnames from "classnames";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
-  isAutoPlay?: boolean
-  className?: string
+  isAutoPlay?: boolean;
+  className?: string;
 }
 
 export default function Slider({
@@ -12,38 +12,38 @@ export default function Slider({
   isAutoPlay: defaultIsAutoPlay = true,
   ...props
 }: Props) {
-  const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay)
-  const images = React.Children.toArray(children)
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay);
+  const images = React.Children.toArray(children);
 
   const handleChangeImage = React.useCallback(
-    function(newIndex) {
+    function (newIndex) {
       if (newIndex > images.length - 1) {
-        newIndex = 0
+        newIndex = 0;
       }
 
       if (newIndex < 0) {
-        newIndex = images.length - 1
+        newIndex = images.length - 1;
       }
 
-      setCurrentIndex(newIndex)
+      setCurrentIndex(newIndex);
     },
     [setCurrentIndex, images.length]
-  )
+  );
 
   React.useEffect(() => {
     if (!isAutoPlay) {
-      return
+      return;
     }
 
     const interval = setInterval(() => {
-      handleChangeImage(currentIndex + 1)
-    }, 10000)
-    return () => clearInterval(interval)
-  }, [currentIndex, handleChangeImage, isAutoPlay])
+      handleChangeImage(currentIndex + 1);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [currentIndex, handleChangeImage, isAutoPlay]);
 
   function handleChangeAutoPlay() {
-    setIsAutoPlay(!isAutoPlay)
+    setIsAutoPlay(!isAutoPlay);
   }
 
   return (
@@ -55,7 +55,7 @@ export default function Slider({
               "opacity-100": currentIndex === i,
               "opacity-0": currentIndex !== i,
             }),
-          })
+          });
         })}
       </div>
       <div className="flex items-center justify-center w-full">
@@ -95,5 +95,5 @@ export default function Slider({
         </button>
       </div>
     </div>
-  )
+  );
 }

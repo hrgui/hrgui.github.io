@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {}
 
@@ -8,7 +8,7 @@ function Item({ title, children, ...props }: Props) {
       <h2>{title}</h2>
       <p>{children}</p>
     </div>
-  )
+  );
 }
 
 const ThreeSellPoints = () => {
@@ -46,7 +46,7 @@ const ThreeSellPoints = () => {
         </Item>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ThreeSellPoints
+export default ThreeSellPoints;

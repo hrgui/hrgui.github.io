@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react"
-import { test } from "vitest"
-import Posts from "./Posts"
+import { render, screen } from "@testing-library/react";
+import { test } from "vitest";
+import Posts from "./Posts";
 
 test("should be able to render no posts without crashing", () => {
-  render(<Posts posts={[]} />)
-  expect(screen.getByText(/No posts available/)).toBeInTheDocument()
-})
+  render(<Posts posts={[]} />);
+  expect(screen.getByText(/No posts available/)).toBeInTheDocument();
+});
 
 test("should be able to render some posts without crashing", () => {
   render(
@@ -23,7 +23,7 @@ test("should be able to render some posts without crashing", () => {
         },
       ]}
     />
-  )
-  expect(screen.getByTestId("posts-hello-world")).toBeInTheDocument()
-  expect(screen.getByTestId("posts-post-2")).toBeInTheDocument()
-})
+  );
+  expect(screen.getByTestId("posts-hello-world")).toBeInTheDocument();
+  expect(screen.getByTestId("posts-post-2")).toBeInTheDocument();
+});

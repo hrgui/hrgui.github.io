@@ -2,41 +2,35 @@
 import { siteTitle } from "@/constants";
 
 export type Props = {
-  title?: string
-  description?: string
-}
-const { title = siteTitle, description } = Astro.props as Props
+  title?: string;
+  description?: string;
+};
+const { title = siteTitle, description } = Astro.props as Props;
 
 const fullTitle = siteTitle === title ? title : `${siteTitle} | ${title}`;
-
-
 ---
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
   <title>{fullTitle}</title>
   <meta name="title" content={fullTitle} />
-  {description &&
-  <meta name="description" content={description} />}
+  {description && <meta name="description" content={description} />}
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Open Graph Tags (Facebook) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={fullTitle} />
-  {description &&
-  <meta property="og:description" content={description} />
-  }
+  {description && <meta property="og:description" content={description} />}
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content={fullTitle} />
 
-  {description &&
-  <meta property="twitter:description" content={description} />
-  }
-
-
+  {description && <meta property="twitter:description" content={description} />}
 </head>

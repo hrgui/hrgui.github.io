@@ -1,13 +1,20 @@
 ---
-import DefaultPageLayout from 'layouts/default.astro'
-import HomePage from "@/components/app/home/HomePage"
-import { PortfolioFrontmatter } from 'types/frontmatter';
+import DefaultPageLayout from "layouts/default.astro";
+import HomePage from "@/components/app/home/HomePage";
+import { PortfolioFrontmatter } from "types/frontmatter";
 
 const description = `Hi! I'm Harman. I am a developer who loves to make cool and awesome web applications that rock the world.`;
 
-const portfolioItems =  await Astro.glob<PortfolioFrontmatter>("./portfolio/*.md");
+const portfolioItems = await Astro.glob<PortfolioFrontmatter>(
+  "./portfolio/*.md"
+);
 ---
 
 <DefaultPageLayout description={description}>
-  <HomePage portfolioItems={portfolioItems.map(portfolioItem => portfolioItem.frontmatter)} client:visible />
+  <HomePage
+    portfolioItems={portfolioItems.map(
+      (portfolioItem) => portfolioItem.frontmatter
+    )}
+    client:visible
+  />
 </DefaultPageLayout>

@@ -71,7 +71,7 @@ The answer is no. This is because the Review family of components does not accep
 We could update our store to be an array of reviews, then in our selector we could the following:
 
 ```jsx
-const review = useSelector(state => state.reviews[props.id]);
+const review = useSelector((state) => state.reviews[props.id]);
 ```
 
 Crisis averted, or are we leading into another pitfall?
@@ -81,7 +81,7 @@ Crisis averted, or are we leading into another pitfall?
 Suppose we wanted to show just one review in 1 page, maybe because that review can also have comments. That is the next product feature we are building. In that case, we can just change our selector:
 
 ```jsx
-const review = useSelector(state => state.review || state.reviews[props.id]);
+const review = useSelector((state) => state.review || state.reviews[props.id]);
 ```
 
 When it's just one review, state.review will be populated, otherwise it is state.reviews. We do this for all of our selectors and components. That works, until the next feature comes.
@@ -90,7 +90,9 @@ In the `<ReviewUser />` component, we have the following:
 
 ```jsx
 export function ReviewUser({ id }) {
-  const review = useSelector(state => state.review || state.reviews[props.id]);
+  const review = useSelector(
+    (state) => state.review || state.reviews[props.id]
+  );
 
   return (
     <div>
@@ -105,7 +107,9 @@ We want to use the same ReviewAvatar component for our User profile feature and 
 
 ```jsx
 export function ReviewAvatar({ id }) {
-  const review = useSelector(state => state.review || state.reviews[props.id]);
+  const review = useSelector(
+    (state) => state.review || state.reviews[props.id]
+  );
   const initials = getInitials(review.user.fullName);
 
   return (
@@ -137,7 +141,7 @@ import { Story, Meta } from "@storybook/react";
 import { ReviewAvatar } from "./ReviewAvatar";
 const meta: Meta = { title: "ReviewAvatar", component: ReviewAvatar };
 
-const Demo: Story = props => <ReviewAvatar {...props} />;
+const Demo: Story = (props) => <ReviewAvatar {...props} />;
 
 export const Default = Demo.bind({});
 Default.args = {};
@@ -168,7 +172,7 @@ Let's take the user's cart for example. We've seen the overuse of `useSelector()
 
 ```jsx
 function Cart() {
-  const items = useSelector(state => state.cart.items);
+  const items = useSelector((state) => state.cart.items);
   return <ItemList items={items} />;
 }
 ```
@@ -179,7 +183,7 @@ Now we have `ItemList`:
 export function ItemList({ items }) {
   return (
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <Item item={item} key={item.id} />
       ))}
     </ul>

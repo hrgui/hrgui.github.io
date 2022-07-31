@@ -17,7 +17,7 @@ We last talked about `this`, and how it leads into pitfalls into React. This tim
 
 ```js
 function makeAdder(x) {
-  return function(y) {
+  return function (y) {
     return x + y;
   };
 }
@@ -283,7 +283,7 @@ So, I ended up writing the code like the following:
 
 ```jsx
 useEffect(
-  function() {
+  function () {
     function detachScrollListener() {
       let scrollEl = window;
       if (useWindow === false) {

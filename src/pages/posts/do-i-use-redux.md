@@ -81,7 +81,7 @@ const store = createStore(counter);
 
 export function Counter() {
   const dispatch = useDispatch();
-  const count = useSelector(state => state);
+  const count = useSelector((state) => state);
 
   return (
     <div>
@@ -128,7 +128,7 @@ const store = createStore(counterSlice.reducer);
 
 export function Counter() {
   const dispatch = useDispatch();
-  const count = useSelector(state => state);
+  const count = useSelector((state) => state);
 
   return (
     <div>

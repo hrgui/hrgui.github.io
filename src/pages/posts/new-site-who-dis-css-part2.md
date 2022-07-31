@@ -124,7 +124,7 @@ In CSS in JS, it depends on the codebase.
 JSS is a common CSS in JS library used in Material-UI v4 and below. It looked like something like this:
 
 ```jsx
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     greeting: {
       color: "red",
@@ -152,7 +152,7 @@ export const greetingStyle = {
 
 import { greetingStyle } from "./sharedStyles";
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     greeting: greetingStyle,
   };

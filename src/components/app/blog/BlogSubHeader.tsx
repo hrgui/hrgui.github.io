@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
 type Props = {
-  hidden?: boolean
-  date?: string
-  title?: string
-}
+  hidden?: boolean;
+  date?: string;
+  title?: string;
+};
 
 const BlogSubHeader = ({ hidden, date, title }: Props) => {
   return (
@@ -22,7 +22,7 @@ const BlogSubHeader = ({ hidden, date, title }: Props) => {
         </h1>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlogSubHeader
+export default BlogSubHeader;

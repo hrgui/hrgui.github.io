@@ -1,5 +1,5 @@
-import React from "react"
-import cx from "classnames"
+import React from "react";
+import cx from "classnames";
 
 interface Props extends React.HTMLProps<HTMLAnchorElement> {}
 
@@ -12,7 +12,7 @@ const GithubProfileButton = ({ className, ...props }: Props) => {
         className
       )}
     />
-  )
-}
+  );
+};
 
-export default GithubProfileButton
+export default GithubProfileButton;
