@@ -8,7 +8,7 @@ interface Props {
 const Posts = ({ posts }: Props) => {
   return (
     <div className="pl-6 pr-6 pt-6 sm:pl-0 sm:pr-0 container mx-auto">
-      {posts?.map(post => {
+      {posts?.map((post) => {
         if (post.hidden && process.env.NODE_ENV !== "development") {
           return null;
         }
@@ -19,7 +19,7 @@ const Posts = ({ posts }: Props) => {
             className="pb-16"
             data-testid={`posts-${post.slug}`}
           >
-            <a href={`/posts/${post.slug}`}>
+            <a href={`${post.slug}`}>
               <h3 className="text-gray-500 font-mono">{post.date}</h3>
               <h2
                 className={classNames(
