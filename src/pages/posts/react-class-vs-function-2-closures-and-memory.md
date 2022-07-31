@@ -5,7 +5,7 @@ date: "7/6/2020"
 excerpt: This is part II of my long running series of React Class Components VS Functional Components. This post talks about some shortcomings about functional components and how class components still got it in the bag.
 ---
 
-This is Part II of my long running series, React Class Components VS Functional Components.
+This is Part II of my ~~long~~ running series, React Class Components VS Functional Components.
 
 We last talked about `this`, and how it leads into pitfalls into React. This time, we'll talk about React hooks pitfalls and how it leads into more pitfalls. Note that React hooks only apply to functional components, not class components.
 

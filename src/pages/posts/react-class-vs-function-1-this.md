@@ -486,3 +486,8 @@ The `this` keyword in classes is confusing for React developers when making clas
 - `this` can hold state, but don't rely on it.
 
 This does seem like functional components do take the winning prize for today. However, functional components do have it's own share of problems coming from another realm of JavaScript entirely - which may be even more difficult to understand.
+
+_This blog post is part of the series React Class VS Functional Components_:
+
+1. [React Class Components VS Functional Components I: Class Component's this](/posts/react-class-vs-function-1-this)
+2. [React Class Components VS Functional Components II: Functional Component's Closures, Memory and the Absence of Component Lifecycles](/posts/react-class-vs-function-2-closures-and-memory)
