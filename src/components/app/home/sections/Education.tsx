@@ -12,9 +12,10 @@ const Education = () => {
           <div className="w-28 pr-4">
             <a href="https://www.usc.edu" target="__blank">
               <img
+                loading="lazy"
                 alt="Open www.usc.edu in a new tab"
                 src="/images/usc.png"
-                className="w-20"
+                className="w-20 h-20"
               />
             </a>
           </div>
@@ -22,7 +23,7 @@ const Education = () => {
             <h3 className="uppercase dark:text-gray-100 mb-2 font-semibold tracking-wide">
               University of Southern California
             </h3>
-            <p className="">
+            <p>
               Bachelor of Science (B.S.), Computer Science and Engineering,
               Magna Cum Laude
             </p>
