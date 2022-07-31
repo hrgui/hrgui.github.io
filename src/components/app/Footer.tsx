@@ -8,11 +8,11 @@ const Footer = () => {
 
   return (
     <div
-      className="bg-gray-200 dark:bg-neutral-900 dark:text-gray-200"
+      className="bg-gray-200 dark:bg-neutral-800 dark:text-gray-200"
       data-testid="footer"
     >
       <div className="container mx-auto">
-        <div className="p-6 sm:grid sm:grid-cols-2 sm:gap-8">
+        <div className="p-6 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8">
           <div>
             <Logo />
             <p className="prose prose-sm dark:text-gray-200 mt-4 mb-4">
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 dark:bg-stone-800">
+      <div className="p-6 bg-gray-200 dark:bg-neutral-800 border-t-2 border-neutral-700 dark:text-gray-200">
         <div className="container mx-auto flex justify-between">
           <div>&copy; {new Date().getFullYear()} Harman Goei</div>
           <AppSocialMedia />
