@@ -1,7 +1,6 @@
 ---
 {
-  template: "portfolio",
-  path: "/portfolio/vkey",
+  layout: "../../layouts/portfolio.astro",
   title: "VKEY",
   slug: "vkey",
   category: "work",

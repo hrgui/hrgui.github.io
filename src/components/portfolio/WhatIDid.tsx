@@ -1,7 +1,7 @@
-import React from "react"
-import { PortfolioFrontmatter } from "utils/mdxUtils"
+import React from "react";
+import { PortfolioFrontmatter } from "types/frontmatter";
 
-type Props = Pick<PortfolioFrontmatter, "whatIDid">
+type Props = Pick<PortfolioFrontmatter, "whatIDid">;
 
 const WhatIDid = ({ whatIDid }: Props) => {
   return (
@@ -17,7 +17,7 @@ const WhatIDid = ({ whatIDid }: Props) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default WhatIDid
+export default WhatIDid;

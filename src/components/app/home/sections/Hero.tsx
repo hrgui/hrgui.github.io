@@ -1,14 +1,14 @@
-import classNames from "classnames"
-import { useAnimationEnd } from "hooks/useAnimationEnd"
-import useIntersectionObserver from "hooks/useIntersectionObserver"
-import React, { useRef } from "react"
-import AppSocialMedia from "../../AppSocialMedia"
+import classNames from "classnames";
+import { useAnimationEnd } from "hooks/useAnimationEnd";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
+import React, { useRef } from "react";
+import AppSocialMedia from "../../AppSocialMedia";
 
 const Hero = () => {
-  const headerRef = useRef()
-  const headerEntry = useIntersectionObserver(headerRef, {})
-  const isHeaderVisible = !!headerEntry?.isIntersecting
-  const headerAnimationEnded = useAnimationEnd(headerRef)
+  const headerRef = useRef();
+  const headerEntry = useIntersectionObserver(headerRef, {});
+  const isHeaderVisible = !!headerEntry?.isIntersecting;
+  const headerAnimationEnded = useAnimationEnd(headerRef);
 
   return (
     <div
@@ -49,7 +49,7 @@ const Hero = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

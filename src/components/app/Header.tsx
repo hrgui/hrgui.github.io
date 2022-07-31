@@ -1,32 +1,41 @@
-import React from "react"
-import Menu from "../icons/Menu"
-import Logo from "./Logo"
+import React from "react";
+import Menu from "../icons/Menu";
+import Logo from "./Logo";
 
-import classNames from "classnames"
-import useScrollTrigger from "hooks/useScrollTrigger"
-import { NavLink } from "../nav/NavLink"
-import Overlay from "../layout/Overlay"
-import NavDrawer from "../nav/NavDrawer"
+import classNames from "classnames";
+import useScrollTrigger from "hooks/useScrollTrigger";
+import { NavLink } from "../nav/NavLink";
+import Overlay from "../layout/Overlay";
+import NavDrawer from "../nav/NavDrawer";
 
-const Header = () => {
-  const [isOpen, setisOpen] = React.useState(false)
-  const handleSetIsOpen = () => setisOpen(!isOpen)
+type Props = {
+  currentPathName: string;
+};
+
+const Header = ({ currentPathName }: Props) => {
+  const [isOpen, setisOpen] = React.useState(false);
+  const handleSetIsOpen = () => setisOpen(!isOpen);
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-  })
+  });
 
+  // NOTE: this needs a key because of use in the Drawer
   const links = [
-    <NavLink key="home" href="/" exact>
+    <NavLink currentPathName={currentPathName} key="home" href="/" exact>
       Home
     </NavLink>,
-    <NavLink key="blog" href="/posts">
+    <NavLink currentPathName={currentPathName} key="blog" href="/posts">
       Blog
     </NavLink>,
-    <NavLink key="portfolio" href="/portfolio">
+    <NavLink
+      currentPathName={currentPathName}
+      key="portfolio"
+      href="/portfolio"
+    >
       Portfolio
     </NavLink>,
-  ]
+  ];
 
   return (
     <>
@@ -60,7 +69,7 @@ const Header = () => {
       />
       <NavDrawer isOpen={isOpen} links={links} />
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

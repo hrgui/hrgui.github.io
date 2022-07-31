@@ -1,7 +1,6 @@
 ---
 {
-  template: "portfolio",
-  path: "/portfolio/kirby",
+  layout: "../../layouts/portfolio.astro",
   title: "Kirby (CSS3 Challenge)",
   slug: "kirby",
   category: "github",

@@ -1,5 +1,5 @@
 ---
-template: blog
+layout: ../../layouts/blog.astro
 title: "Overusing useSelector() in react-redux"
 date: "5/29/2022"
 excerpt: useSelector is an easy way to get data for your component. Why not just use it for everything?
@@ -40,7 +40,7 @@ export function Review() {
       <ReviewDate />
       <ReviewDescription />
     </ReviewContainer>
-  )
+  );
 }
 ```
 
@@ -62,7 +62,7 @@ export function ReviewList({ reviews }) {
         <Review key={id} />
       ))}
     </ul>
-  )
+  );
 }
 ```
 
@@ -71,7 +71,7 @@ The answer is no. This is because the Review family of components does not accep
 We could update our store to be an array of reviews, then in our selector we could the following:
 
 ```jsx
-const review = useSelector(state => state.reviews[props.id])
+const review = useSelector((state) => state.reviews[props.id]);
 ```
 
 Crisis averted, or are we leading into another pitfall?
@@ -81,7 +81,7 @@ Crisis averted, or are we leading into another pitfall?
 Suppose we wanted to show just one review in 1 page, maybe because that review can also have comments. That is the next product feature we are building. In that case, we can just change our selector:
 
 ```jsx
-const review = useSelector(state => state.review || state.reviews[props.id])
+const review = useSelector((state) => state.review || state.reviews[props.id]);
 ```
 
 When it's just one review, state.review will be populated, otherwise it is state.reviews. We do this for all of our selectors and components. That works, until the next feature comes.
@@ -90,14 +90,16 @@ In the `<ReviewUser />` component, we have the following:
 
 ```jsx
 export function ReviewUser({ id }) {
-  const review = useSelector(state => state.review || state.reviews[props.id])
+  const review = useSelector(
+    (state) => state.review || state.reviews[props.id]
+  );
 
   return (
     <div>
       <ReviewAvatar id={id} />
       <span>{review.user.fullName}</span>
     </div>
-  )
+  );
 }
 ```
 
@@ -105,8 +107,10 @@ We want to use the same ReviewAvatar component for our User profile feature and 
 
 ```jsx
 export function ReviewAvatar({ id }) {
-  const review = useSelector(state => state.review || state.reviews[props.id])
-  const initials = getInitials(review.user.fullName)
+  const review = useSelector(
+    (state) => state.review || state.reviews[props.id]
+  );
+  const initials = getInitials(review.user.fullName);
 
   return (
     <div
@@ -119,7 +123,7 @@ export function ReviewAvatar({ id }) {
     >
       {initials}
     </div>
-  )
+  );
 }
 ```
 
@@ -132,17 +136,17 @@ If we wanted to show `<ReviewAvatar />` in [Storybook](https://storybook.js.org/
 Is this enough?
 
 ```tsx
-import React from "react"
-import { Story, Meta } from "@storybook/react"
-import { ReviewAvatar } from "./ReviewAvatar"
-const meta: Meta = { title: "ReviewAvatar", component: ReviewAvatar }
+import React from "react";
+import { Story, Meta } from "@storybook/react";
+import { ReviewAvatar } from "./ReviewAvatar";
+const meta: Meta = { title: "ReviewAvatar", component: ReviewAvatar };
 
-const Demo: Story = props => <ReviewAvatar {...props} />
+const Demo: Story = (props) => <ReviewAvatar {...props} />;
 
-export const Default = Demo.bind({})
-Default.args = {}
+export const Default = Demo.bind({});
+Default.args = {};
 
-export default meta
+export default meta;
 ```
 
 When we run this in storybook, it simply does not work. This is because, again - the component is dependent on `review` or `reviews` in the redux store. We need to set that up for this page.
@@ -151,9 +155,9 @@ We can say the same for the tests.
 
 ```tsx
 it("should display the initials of the username", () => {
-  render(<ReviewAvatar id={25} />)
-  expect(screen.getByText("HG")).toBeInTheDocument()
-})
+  render(<ReviewAvatar id={25} />);
+  expect(screen.getByText("HG")).toBeInTheDocument();
+});
 ```
 
 The test will always fail, because we need to have the redux store present.
@@ -168,8 +172,8 @@ Let's take the user's cart for example. We've seen the overuse of `useSelector()
 
 ```jsx
 function Cart() {
-  const items = useSelector(state => state.cart.items)
-  return <ItemList items={items} />
+  const items = useSelector((state) => state.cart.items);
+  return <ItemList items={items} />;
 }
 ```
 
@@ -179,28 +183,28 @@ Now we have `ItemList`:
 export function ItemList({ items }) {
   return (
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <Item item={item} key={item.id} />
       ))}
     </ul>
-  )
+  );
 }
 ```
 
 However, component developers stylistically have a choice at this point on how their component API should work. In the example above, the developers chose to be coupled to the `Item`'s data model shape. That may seem fine at the moment, but if the `Item`'s model structurally changes every single time, it may cause an emotional re-visiting of the component, every, single, time. That is because of the `.` operator in JavaScript. The more `.`'s a JavaScript expression has, the more suspectible it becomes to an error:
 
 ```jsx
-a // either the variable a is undefined or defined (severity level 0)
-a.b // if a is undefined, b throws an error.  (1 way of getting an error)
-a.b.c // if a is undefined, c throws an error. Same with b. (2 ways of getting an error)
-a.b.c.d // ... (3 ways of getting an error)
-a.b.c.d.e // ... (4 ways of getting an error)
+a; // either the variable a is undefined or defined (severity level 0)
+a.b; // if a is undefined, b throws an error.  (1 way of getting an error)
+a.b.c; // if a is undefined, c throws an error. Same with b. (2 ways of getting an error)
+a.b.c.d; // ... (3 ways of getting an error)
+a.b.c.d.e; // ... (4 ways of getting an error)
 ```
 
 Thankfully, JavaScript does offer ways of protection using the `?.` operator, but it ends up costing more computation as it boils down to doing something like
 
 ```jsx
-a && a.b && a.b.c && a.b.c.d
+a && a.b && a.b.c && a.b.c.d;
 ```
 
 for every usage of the `?.`

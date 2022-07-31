@@ -1,6 +1,5 @@
 ---
-template: blog
-path: /blog/apollo-client-testing-gotchas
+layout: ../../layouts/blog.astro
 title: "Apollo Client: Testing Gotchas with MockProvider"
 date: "6/6/2020"
 excerpt: This describes some of the gotchas I encountered with Apollo Client.

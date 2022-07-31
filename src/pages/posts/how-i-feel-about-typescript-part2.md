@@ -1,5 +1,5 @@
 ---
-template: blog
+layout: ../../layouts/blog.astro
 title: "Part II: I miss TypeScript"
 date: "4/16/2022"
 excerpt: I've been working without TypeScript for the past 2 months. It is... rough.
@@ -16,7 +16,7 @@ In the current codebase that I work with, everytime an error occurs in the web a
 Here's a trivial example. For strings, we can transform the output of the string to uppercase. There's a function for that. Let's see how that works:
 
 ```js
-"Hello World".toUppercase()
+"Hello World".toUppercase();
 ```
 
 When I run the codebase, I get the infamous "An error occurred!". It'll be somewhere, in the large sea of code. If it's with tests, then it'll be caught. If it's without tests, who knows when this will be caught. It'll most likely be caught when my user works with my application. It could be the most critical portion too! When the user is about to give you money, and if this happens, this is a breaking moment.
@@ -24,7 +24,7 @@ When I run the codebase, I get the infamous "An error occurred!". It'll be somew
 If you still haven't figured out the error, here it is:
 
 ```ts
-"Hello World".toUppercase()
+"Hello World".toUppercase();
 /**               ^ this is the error
 any
 Property 'toUppercase' does not exist on type '"Hello World"'. Did you mean 'toUpperCase'?ts(2551)
@@ -50,18 +50,18 @@ When there's a test, it may or may not be helpful for describing the JSON object
 
 ```jsx
 it("should give me Luke Skywalker back when I fetch id=1", async () => {
-  const data = await getStarWarsCharacter(1)
-  expect(data.name).toEqual("Luke Skywalker")
-})
+  const data = await getStarWarsCharacter(1);
+  expect(data.name).toEqual("Luke Skywalker");
+});
 ```
 
 This test is useful for only 1 thing: If I get the Star Wars character, it will for sure have the `name` property. What if I wanted something else? This test won't give you that information. Someone could even argue that this is 100% coverage for the happy path. However, it actually has a lot of other useful properties, e.g. height, mass, hair_color, skin_color, eye_color, birth_year, and the list goes on.
 
 ```jsx
 it("should give me Luke Skywalker back when I fetch id=1", async () => {
-  const data = await getStarWarsCharacter(1)
-  expect(data).toMatchSnapshot()
-})
+  const data = await getStarWarsCharacter(1);
+  expect(data).toMatchSnapshot();
+});
 ```
 
 This is better, but in the first glance it is not so obvious. What is `toMatchSnapshot()`? It is a part of [Snapshot Testing](https://jestjs.io/docs/snapshot-testing). On the test first run, we create a `.snapshot` file, then it saves a record of what it was at that time. Upon consecutive runs, the test will evaluate and check the `.snapshot` file. If there's a difference, it will be a failure (red), and we'll be asked if that is correct or if it requires to update.
@@ -74,7 +74,7 @@ Luckily there is something better. It is called `toMatchInlineSnapshot()`. Take 
 // note, the actual output will look similar to this, but i was too lazy to actually run it on an actual app
 // the spacing is probably better in a right app
 it("should give me Luke Skywalker back when I fetch id=1", async () => {
-  const data = await getStarWarsCharacter(1)
+  const data = await getStarWarsCharacter(1);
   expect(data).toMatchInlineSnapshot(
     `{
 	"name": "Luke Skywalker",
@@ -108,8 +108,8 @@ it("should give me Luke Skywalker back when I fetch id=1", async () => {
 	"edited": "2014-12-20T21:17:56.891000Z",
 	"url": "https://swapi.dev/api/people/1/"
 }`
-  )
-})
+  );
+});
 ```
 
 This is **much** better than `toMatchSnapshot()`. This is because the snapshot is colocated with the code. It also describes the shape in the test at this point.
@@ -133,38 +133,38 @@ If it did work, and it returned JSON Schema, we then can use [JSON Schema To Typ
 
 ```tsx
 export function getStarWarsCharacter(id): Promise<SWPerson> {
-  const res = await fetch(`https://swapi.dev/api/people/${id}/`)
-  const json = res.json()
-  return json
+  const res = await fetch(`https://swapi.dev/api/people/${id}/`);
+  const json = res.json();
+  return json;
 }
 ```
 
 ```ts
 interface SWPerson {
-  name: string
-  height: string
-  mass: string
-  hair_color: string
-  skin_color: string
-  eye_color: string
-  birth_year: string
-  gender: string
-  homeworld: string
-  films: string[]
-  species: string[]
-  vehicles: string[]
-  starships: string[]
-  created: Date
-  edited: Date
-  url: string
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  homeworld: string;
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starships: string[];
+  created: Date;
+  edited: Date;
+  url: string;
 }
 ```
 
 Now, when I do use the `getStarWarsCharacter()` function, and if I make a typo like the following:
 
 ```tsx
-const data = await getStarWarsCharacter(1)
-console.log(data.Mass)
+const data = await getStarWarsCharacter(1);
+console.log(data.Mass);
 /*                ^ this is the error
 SWPerson
 Property 'Mass' does not exist on type '"SWPerson"'. Did you mean 'mass'? ts(2551)

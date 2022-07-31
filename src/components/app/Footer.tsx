@@ -1,11 +1,9 @@
-import React from "react"
-import Logo from "./Logo"
-import Link from "next/link"
-import AppSocialMedia from "./AppSocialMedia"
+import Logo from "./Logo";
+import AppSocialMedia from "./AppSocialMedia";
 
 const Footer = () => {
   function handleBackToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
@@ -26,33 +24,30 @@ const Footer = () => {
           </div>
           <div className="mb-4 mt-4">
             <nav className="flex flex-col">
-              <Link href="/">
-                <a
-                  className={
-                    "text-red-700 dark:text-red-500 hover:underline font-medium"
-                  }
-                >
-                  Home
-                </a>
-              </Link>
-              <Link href="/posts">
-                <a
-                  className={
-                    "text-red-700 dark:text-red-500 hover-underline font-medium"
-                  }
-                >
-                  Blog
-                </a>
-              </Link>
-              <Link href="/portfolio">
-                <a
-                  className={
-                    "text-red-700 dark:text-red-500 hover-underline font-medium"
-                  }
-                >
-                  Portfolio
-                </a>
-              </Link>
+              <a
+                href="/"
+                className={
+                  "text-red-700 dark:text-red-500 hover:underline font-medium"
+                }
+              >
+                Home
+              </a>
+              <a
+                href="/posts"
+                className={
+                  "text-red-700 dark:text-red-500 hover-underline font-medium"
+                }
+              >
+                Blog
+              </a>
+              <a
+                href="/portfolio"
+                className={
+                  "text-red-700 dark:text-red-500 hover-underline font-medium"
+                }
+              >
+                Portfolio
+              </a>
             </nav>
           </div>
         </div>
@@ -72,7 +67,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/blog.astro
 title: "New Site, who dis? Part 2: CSS"
 date: "1/8/2022"
 excerpt: Now here's the part 2 - let's talk about my take on CSS and how I approached it in my website.
@@ -89,20 +90,20 @@ It doesn't end here though. CSS, despite saving HTML from a disaster, still had 
 Of course, there are more issues than 3. At this time, I learned [Angular.js](https://angularjs.org/), which introduced the idea of creating components for every single thing, and so did a library called [React.js](https://reactjs.org/). We decided to extend that to CSS also. Take the same example:
 
 ```tsx
-import styled from "styled-components"
-import React from "react"
-import ReactDOM from "react-dom"
+import styled from "styled-components";
+import React from "react";
+import ReactDOM from "react-dom";
 
 const Greeting = styled.p`
   color: red;
   font-family: "Verdana", "Geneva", sans-serif;
   font-size: 1em;
-`
+`;
 
 ReactDOM.render(
   <Greeting>Hello World</Greeting>,
   document.getElementById("root")
-)
+);
 ```
 
 This is how plenty of websites do the CSS today. While it gave structure, solved many of CSS problems, it has its own share of issues. I'll talk about some of them in detail.
@@ -123,19 +124,19 @@ In CSS in JS, it depends on the codebase.
 JSS is a common CSS in JS library used in Material-UI v4 and below. It looked like something like this:
 
 ```jsx
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     greeting: {
       color: "red",
       fontFamily: '"Verdana", sans-serif',
       fontSize: "1em",
     },
-  }
-})
+  };
+});
 
 function Greeting({ children }) {
-  const classes = useStyles()
-  return <p className={classes.greeting}>{children}</p>
+  const classes = useStyles();
+  return <p className={classes.greeting}>{children}</p>;
 }
 ```
 
@@ -147,19 +148,19 @@ export const greetingStyle = {
   color: "red",
   fontFamily: '"Verdana", sans-serif',
   fontSize: "1em",
-}
+};
 
-import { greetingStyle } from "./sharedStyles"
+import { greetingStyle } from "./sharedStyles";
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     greeting: greetingStyle,
-  }
-})
+  };
+});
 
 function Greeting({ children }) {
-  const classes = useStyles()
-  return <p className={classes.greeting}>{children}</p>
+  const classes = useStyles();
+  return <p className={classes.greeting}>{children}</p>;
 }
 ```
 
@@ -176,14 +177,14 @@ const Wrapper = styled.div`
     font-family: "Verdana", "Geneva", sans-serif;
     font-size: 1em;
   }
-`
+`;
 
 function Greeting({ children }) {
   return (
     <Wrapper>
       <p className="greeting">{children}</p>
     </Wrapper>
-  )
+  );
 }
 ```
 
@@ -198,9 +199,9 @@ So most of the time, sharing styles are actually quite uncommon, and I feel like
 If JS is so good, why not just do JS for everything? Literally everything. Here's an example:
 
 ```jsx
-import { useState } from "react"
-import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core"
-import "./styles.css"
+import { useState } from "react";
+import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
+import "./styles.css";
 
 const useStylesMobile = makeStyles(
   {
@@ -213,7 +214,7 @@ const useStylesMobile = makeStyles(
     },
   },
   { name: "CounterMobile" }
-)
+);
 
 const useStylesDesktop = makeStyles(
   {
@@ -225,11 +226,11 @@ const useStylesDesktop = makeStyles(
     },
   },
   { name: "CounterDesktop" }
-)
+);
 
 function CounterMobile() {
-  const [count, setCount] = useState(0)
-  const classes = useStylesMobile()
+  const [count, setCount] = useState(0);
+  const classes = useStylesMobile();
 
   return (
     <div className={classes.root}>
@@ -237,12 +238,12 @@ function CounterMobile() {
       <button onClick={() => setCount(count + 1)}>+</button>
       <button onClick={() => setCount(count - 1)}>-</button>
     </div>
-  )
+  );
 }
 
 function CounterDesktop() {
-  const [count, setCount] = useState(0)
-  const classes = useStylesDesktop()
+  const [count, setCount] = useState(0);
+  const classes = useStylesDesktop();
 
   return (
     <div className={classes.root}>
@@ -250,14 +251,14 @@ function CounterDesktop() {
       <button onClick={() => setCount(count + 1)}>+</button>
       <button onClick={() => setCount(count - 1)}>-</button>
     </div>
-  )
+  );
 }
 
 function Counter() {
-  const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.up("sm"))
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
-  return matches ? <CounterDesktop /> : <CounterMobile />
+  return matches ? <CounterDesktop /> : <CounterMobile />;
 }
 
 export default function App() {
@@ -265,7 +266,7 @@ export default function App() {
     <div className="App">
       <Counter />
     </div>
-  )
+  );
 }
 ```
 

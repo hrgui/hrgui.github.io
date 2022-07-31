@@ -1,8 +1,6 @@
 ---
 {
-  template: "portfolio",
-  path: "/portfolio/web-block-puzzle",
-  type: "portfolio",
+  layout: "../../layouts/portfolio.astro",
   category: "github",
   title: "web-block-puzzle",
   slug: "web-block-puzzle",

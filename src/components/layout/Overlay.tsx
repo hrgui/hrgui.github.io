@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
-import classNames from "classnames"
-import { twMerge } from "tailwind-merge"
+import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
-type Props = {} & React.HTMLProps<HTMLDivElement>
+type Props = {} & React.HTMLProps<HTMLDivElement>;
 
 const Overlay = ({ className, ...props }: Props) => {
   return (
@@ -15,7 +15,7 @@ const Overlay = ({ className, ...props }: Props) => {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
     </div>
-  )
-}
+  );
+};
 
-export default Overlay
+export default Overlay;

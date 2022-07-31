@@ -1,0 +1,20 @@
+---
+import Posts from "@/components/app/blog/Posts";
+import DefaultPageLayout from "layouts/default.astro";
+import SubPageHeader from "@/components/layout/SubPageHeader";
+import { Frontmatter } from "types/frontmatter";
+
+const title = `Blog`;
+const description = `Read about Harman's blog posts about the web and things.`;
+
+const posts = await Astro.glob<Frontmatter>("./*.md");
+posts.sort(
+  (a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)
+);
+---
+
+<DefaultPageLayout title={title} description={description}>
+  <SubPageHeader>{title}</SubPageHeader>
+  <Posts posts={posts.map((post) => ({ ...post.frontmatter, slug: post.url }))}
+  />
+</DefaultPageLayout>

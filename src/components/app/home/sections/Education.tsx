@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const Education = () => {
   return (
@@ -31,7 +31,7 @@ const Education = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Education
+export default Education;

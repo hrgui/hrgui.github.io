@@ -1,9 +1,9 @@
-import classNames from "classnames"
-import React from "react"
+import classNames from "classnames";
+import React from "react";
 
 type Props = {
-  isOpen?: boolean
-} & React.HTMLProps<HTMLElement>
+  isOpen?: boolean;
+} & React.HTMLProps<HTMLElement>;
 
 const Drawer = ({ isOpen = false, children, className, ...props }: Props) => {
   return (
@@ -20,7 +20,7 @@ const Drawer = ({ isOpen = false, children, className, ...props }: Props) => {
     >
       {children}
     </aside>
-  )
-}
+  );
+};
 
-export default Drawer
+export default Drawer;

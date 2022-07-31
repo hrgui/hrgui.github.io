@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 interface Props extends Omit<React.HTMLProps<SVGSVGElement>, "crossOrigin"> {
-  className?: string
+  className?: string;
 }
 
 const Menu = ({ className, ...props }: Props) => {
@@ -21,7 +21,7 @@ const Menu = ({ className, ...props }: Props) => {
         d="M4 6h16M4 12h16M4 18h16"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

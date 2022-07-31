@@ -1,14 +1,15 @@
-import React from "react"
-import { twMerge } from "tailwind-merge"
+import React from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
-  children?: React.ReactNode
-  bgClassName?: string
-  className?: string
-}
+  children?: React.ReactNode;
+  bgClassName?: string;
+  className?: string;
+};
 
 const SubPageHeader = ({ bgClassName, className, children }: Props) => {
-  bgClassName = bgClassName || `circuit-board-bg dark:dark-circuit-board-bg`
+  bgClassName = bgClassName || `circuit-board-bg dark:dark-circuit-board-bg`;
+
   return (
     <div
       className={twMerge("pt-16 pl-6 pr-6 pb-0 overflow-hidden", bgClassName)}
@@ -22,7 +23,7 @@ const SubPageHeader = ({ bgClassName, className, children }: Props) => {
         <div className="container mx-auto">{children}</div>
       </h1>
     </div>
-  )
-}
+  );
+};
 
-export default SubPageHeader
+export default SubPageHeader;

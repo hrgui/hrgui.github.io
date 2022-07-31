@@ -1,6 +1,5 @@
 ---
-template: blog
-path: /blog/react-class-vs-function-1-this
+layout: ../../layouts/blog.astro
 title: "React Class Components VS Functional Components I: Class Component's this"
 date: "7/5/2020"
 excerpt: This is part I of my long running series of React Class Components VS Functional Components
@@ -22,7 +21,10 @@ class HelloMessage extends React.Component {
   }
 }
 
-ReactDOM.render(<HelloMessage name="Taylor" />, document.getElementById("hello-example"));
+ReactDOM.render(
+  <HelloMessage name="Taylor" />,
+  document.getElementById("hello-example")
+);
 ```
 
 **Components** have the following specs:
@@ -41,7 +43,10 @@ function HelloMessage({ name }) {
   return <div>Hello {name}</div>;
 }
 
-ReactDOM.render(<HelloMessage name="Taylor" />, document.getElementById("hello-example"));
+ReactDOM.render(
+  <HelloMessage name="Taylor" />,
+  document.getElementById("hello-example")
+);
 ```
 
 To me, this was a mindblower: with just a **function** we can write a user interface. We don't need a class to make a component.
