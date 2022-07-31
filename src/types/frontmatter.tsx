@@ -6,6 +6,7 @@ export interface PortfolioTechnology {
 interface PortfolioIframe extends React.HTMLProps<HTMLIFrameElement> {}
 
 export type PortfolioFrontmatter = {
+  slug?: string;
   date?: string;
   title?: string;
   category?: string;
