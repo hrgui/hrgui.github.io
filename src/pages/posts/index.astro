@@ -15,5 +15,5 @@ posts.sort(
 
 <DefaultPageLayout title={title} description={description}>
   <SubPageHeader>{title}</SubPageHeader>
-  <Posts />
+  <Posts posts={posts.map((post) => post.frontmatter)} />
 </DefaultPageLayout>

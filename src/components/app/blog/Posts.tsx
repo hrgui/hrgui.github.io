@@ -46,7 +46,7 @@ const Posts = ({ posts }: Props) => {
           </div>
         );
       })}
-      {(posts.length === 0 || !posts) && <div>No posts available.</div>}
+      {(!posts || posts.length === 0) && <div>No posts available.</div>}
     </div>
   );
 };
