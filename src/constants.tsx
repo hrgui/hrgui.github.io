@@ -4,7 +4,7 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/hrgui";
 export const siteTitle = "hrgui";
 export const threeSellPoints = [
   {
-    title: "Making the web awesome is my passion",
+    title: "Making the web awesome is my passion.",
     description: `I am a Software Engineer who loves to make interactive web
     applications. I believe web applications should function great. It
     should look pleasing to the eye for the best user experience. When

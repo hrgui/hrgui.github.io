@@ -1,5 +1,5 @@
 import React from "react";
-import { technicalSkills } from "@/constants";
+import { technicalSkills as defaultTechnicalSkills } from "@/constants";
 
 function TechnicalSection({
   title,
@@ -25,7 +25,11 @@ function NestedList(props: React.HTMLProps<HTMLUListElement>) {
   );
 }
 
-const TechnicalSkills = () => {
+const TechnicalSkills = ({
+  technicalSkills = defaultTechnicalSkills,
+}: {
+  technicalSkills?: typeof defaultTechnicalSkills;
+}) => {
   const mapTechnicalSkills = (item, index) => {
     if (typeof item === "string") {
       return <li key={index}>{item}</li>;

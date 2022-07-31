@@ -1,4 +1,4 @@
-import { threeSellPoints } from "@/constants";
+import { threeSellPoints as defaultThreeSellPoints } from "@/constants";
 import React from "react";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {}
@@ -12,7 +12,11 @@ function Item({ title, children, ...props }: Props) {
   );
 }
 
-const ThreeSellPoints = () => {
+const ThreeSellPoints = ({
+  threeSellPoints = defaultThreeSellPoints,
+}: {
+  threeSellPoints?: typeof defaultThreeSellPoints;
+}) => {
   return (
     <div
       className="p-6 pt-16 pb-10 bg-dolly-200 dark:bg-slate-900"

@@ -1,7 +1,11 @@
-import { education } from "@/constants";
+import { education as defaultEducation } from "@/constants";
 import { Fragment } from "react";
 
-const Education = () => {
+const Education = ({
+  education = defaultEducation,
+}: {
+  education?: typeof defaultEducation;
+}) => {
   return (
     <div
       className="p-6 pt-8 pb-10  dark:bg-neutral-900 dark:text-gray-100  dark:border-stone-700"
