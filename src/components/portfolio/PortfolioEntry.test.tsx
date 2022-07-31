@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { toMdx } from "types/frontmatter";
 import { test } from "vitest";
 import PortfolioEntry from "./PortfolioEntry";
 

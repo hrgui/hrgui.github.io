@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useAnimationEnd } from "hooks/useAnimationEnd";
 import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useRef } from "react";
-import AppSocialMedia from "../../AppSocialMedia";
+import AppSocialMedia from "@/components/app/AppSocialMedia";
 
 const Hero = () => {
   const headerRef = useRef();

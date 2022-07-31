@@ -14,7 +14,7 @@ const Education = ({
       <div className="container mx-auto">
         <h1 className="text-3xl font-medium mb-6">Education</h1>
         <div className="flex items-center">
-          {education.map(
+          {education?.map(
             ({
               key,
               imgSrc,

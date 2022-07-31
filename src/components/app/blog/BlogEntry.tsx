@@ -1,5 +1,3 @@
-import { MDXRemote } from "next-mdx-remote";
-
 type Props = {
   children: React.ReactNode;
 };

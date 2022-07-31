@@ -58,10 +58,10 @@ const TechnicalSkills = ({
           Technical Skills
         </h1>
         <div className="sm:grid sm:grid-cols-3 sm:gap-8">
-          {technicalSkills.map(({ key, title, items }) => {
+          {technicalSkills?.map(({ key, title, items }) => {
             return (
               <TechnicalSection title={title} key={key}>
-                <ul>{items.map(mapTechnicalSkills)}</ul>
+                <ul>{items?.map(mapTechnicalSkills)}</ul>
               </TechnicalSection>
             );
           })}

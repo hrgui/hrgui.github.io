@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   hidden?: boolean;
   date?: string;

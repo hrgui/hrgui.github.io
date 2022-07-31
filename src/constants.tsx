@@ -2,7 +2,13 @@ export const GITHUB_URL = "https://www.github.com/hrgui";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/hrgui";
 
 export const siteTitle = "hrgui";
-export const threeSellPoints = [
+
+type SellPoint = {
+  title: string;
+  description: string;
+};
+
+export const threeSellPoints: SellPoint[] = [
   {
     title: "Making the web awesome is my passion.",
     description: `I am a Software Engineer who loves to make interactive web
@@ -33,7 +39,13 @@ export const threeSellPoints = [
   },
 ];
 
-export const technicalSkills = [
+type TechnicalSkillSection = {
+  key?: string;
+  title: string | JSX.Element;
+  items: (string | TechnicalSkillSection)[];
+};
+
+export const technicalSkills: TechnicalSkillSection[] = [
   {
     key: "javascript",
     title: <span className="bg-yellow-300 text-black p-2">JavaScript</span>,
@@ -107,7 +119,16 @@ export const technicalSkills = [
   },
 ];
 
-export const education = [
+type Education = {
+  key: string;
+  url: string;
+  imgSrc: string;
+  title: string;
+  description: string;
+  timeframe: { start: number | string; end: number | string };
+};
+
+export const education: Education[] = [
   {
     key: "usc",
     url: "https://www.usc.edu",
