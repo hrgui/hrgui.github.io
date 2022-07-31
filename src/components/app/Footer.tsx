@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 bg-gray-200 dark:bg-neutral-800 border-t-2 border-neutral-700 dark:text-gray-200">
+      <div className="p-6 bg-gray-200 dark:bg-neutral-800 border-t-2 border-gray-300 dark:border-neutral-700 dark:text-gray-200">
         <div className="container mx-auto flex justify-between">
           <div>&copy; {new Date().getFullYear()} Harman Goei</div>
           <AppSocialMedia />

@@ -16,7 +16,9 @@ const BlogSubHeader = ({ hidden, date, title }: Props) => {
             false to publish this post.
           </div>
         )}
-        <h5 className="text-gray-500 mb-4 font-mono leading-5">{date}</h5>
+        <h5 className="text-gray-700 dark:text-gray-500 mb-4 font-mono leading-5">
+          {date}
+        </h5>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight break-words">
           {title}
         </h1>
