@@ -19,7 +19,7 @@ export type Props = {
 <html lang="en">
 
 <Head title={title} description={description} />
-<AppLayout client:visible>
+<AppLayout currentPathName={Astro.url.pathname} client:visible>
   <BlogSubHeader date={content.date} title={content.title} hidden={content.hidden} />
   <BlogEntry>
     <slot />

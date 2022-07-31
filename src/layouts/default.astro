@@ -17,7 +17,7 @@ export type Props = {
 <html lang="en">
 
 <Head description={description} />
-<AppLayout client:visible>
+<AppLayout currentPathName={Astro.url.pathname} client:visible>
   <slot />
 </AppLayout>
 

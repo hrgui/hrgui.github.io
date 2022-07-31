@@ -4,12 +4,14 @@ import Footer from "./Footer";
 
 interface Props {
   children?: React.ReactNode;
+  currentUrl?: string;
+  currentPathName?: string;
 }
 
-const AppLayout = ({ children }: Props) => {
+const AppLayout = ({ children, currentPathName }: Props) => {
   return (
     <div className="font-inter dark:bg-stone-900 dark:text-gray-200">
-      <Header />
+      <Header currentPathName={currentPathName} />
       <div className="min-h-screen">{children}</div>
       <Footer />
     </div>
