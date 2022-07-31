@@ -11,7 +11,7 @@ That's because I did not change the look and feel. I just changed the underlying
 
 # What was the problem with my previous developer experience (DX)?
 
-As per my [last blog post about changing my website](/posts/new-site-who-dis-buildchain-part1), I went from [Gatsby](https://www.gatsbyjs.com/) -> [Next.js](https://nextjs.org/). The Next.js iteration of my website lasted about 7 months. It had a fair share of problems:
+As per my [last blog post about changing my website](/posts/new-site-who-dis-buildchain-part1), I went from [Gatsby](https://www.gatsbyjs.com/) -> [Next.js](https://nextjs.org/). The Next.js iteration of my website lasted about 8 months. It had a fair share of problems:
 
 ## Markdown did not live-reload.
 
