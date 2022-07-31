@@ -1,0 +1,27 @@
+---
+import 'styles/globals.css';
+
+import AppLayout from '@/components/app/AppLayout';
+import Head from 'layouts/components/Head.astro';
+import PortfolioEntry from '@/components/portfolio/PortfolioEntry';
+
+const { title, description, content } = Astro.props
+
+export type Props = {
+  title?: string
+  description?: string
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+
+<Head title={title} description={description} />
+<AppLayout client:visible>
+  <PortfolioEntry {...content} client:visible>
+    <slot />
+  </PortfolioEntry>
+</AppLayout>
+
+</html>

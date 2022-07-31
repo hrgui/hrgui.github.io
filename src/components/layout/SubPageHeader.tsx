@@ -9,6 +9,7 @@ type Props = {
 
 const SubPageHeader = ({ bgClassName, className, children }: Props) => {
   bgClassName = bgClassName || `circuit-board-bg dark:dark-circuit-board-bg`;
+
   return (
     <div
       className={twMerge("pt-16 pl-6 pr-6 pb-0 overflow-hidden", bgClassName)}

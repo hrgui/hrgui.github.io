@@ -14,7 +14,8 @@ const items = await Astro.glob<PortfolioFrontmatter>("./*.md");
   <SubPageHeader
     bgClassName="graph-bg dark:dark-graph-bg"
     className="from-pink-400  to-violet-500"
-    >{title}
+    >
+    {title}
   </SubPageHeader>
   <PortfolioShowcase
     hasTitle={false}
