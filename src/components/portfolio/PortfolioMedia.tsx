@@ -1,11 +1,11 @@
-import React from "react"
-import Slider from "@/components/portfolio/Slider"
-import { PortfolioFrontmatter } from "utils/mdxUtils"
+import React from "react";
+import Slider from "@/components/portfolio/Slider";
+import { PortfolioFrontmatter } from "types/frontmatter";
 
 type Props = Pick<
   PortfolioFrontmatter,
   "images" | "thumbnail" | "title" | "iframe"
->
+>;
 
 const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
   return (
@@ -24,7 +24,7 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
                   <img alt={title} src={img.thumbnail} />
                 </a>
               </div>
-            )
+            );
           })}
         </Slider>
       )}
@@ -36,7 +36,7 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default PortfolioMedia
+export default PortfolioMedia;

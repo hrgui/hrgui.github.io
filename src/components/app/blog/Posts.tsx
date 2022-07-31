@@ -1,4 +1,4 @@
-import { Frontmatter } from "utils/mdxUtils";
+import { Frontmatter } from "types/frontmatter";
 import classNames from "classnames";
 
 interface Props {

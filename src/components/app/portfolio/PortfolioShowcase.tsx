@@ -1,4 +1,4 @@
-import { PortfolioFrontmatter } from "utils/mdxUtils";
+import { PortfolioFrontmatter } from "types/frontmatter";
 
 interface Props {
   items: PortfolioFrontmatter[];

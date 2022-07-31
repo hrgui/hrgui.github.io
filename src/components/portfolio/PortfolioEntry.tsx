@@ -1,5 +1,5 @@
 import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed";
-import { PortfolioFrontmatter } from "../../utils/mdxUtils";
+import { PortfolioFrontmatter } from "../../types/frontmatter";
 import PortfolioMedia from "./PortfolioMedia";
 import WhatIDid from "./WhatIDid";
 
