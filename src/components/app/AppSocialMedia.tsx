@@ -1,5 +1,7 @@
 import { GITHUB_URL, LINKEDIN_URL } from "@/constants";
 import { twMerge } from "tailwind-merge";
+import Github from "@/components/icons/Github";
+import LinkedIn from "@/components/icons/LinkedIn";
 
 type Props = {
   className?: string;
@@ -15,7 +17,7 @@ const AppSocialMedia = ({ className }: Props) => {
         rel="noopener noreferrer"
         className="opacity-50 hover:opacity-100 transition-all"
       >
-        Github
+        <Github />
       </a>
       <a
         title="View My LinkedIn Profile"
@@ -24,7 +26,7 @@ const AppSocialMedia = ({ className }: Props) => {
         rel="noopener noreferrer"
         className="opacity-50 hover:opacity-100 transition-all"
       >
-        LinkedIn
+        <LinkedIn className="hover:text-blue-500" />
       </a>
     </div>
   );
