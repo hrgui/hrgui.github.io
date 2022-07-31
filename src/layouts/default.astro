@@ -4,7 +4,7 @@ import "styles/globals.css";
 import AppLayout from "@/components/app/AppLayout";
 import Head from "layouts/components/Head.astro";
 
-const { description } = Astro.props;
+const { title, description } = Astro.props;
 
 export type Props = {
   title?: string;
@@ -14,7 +14,7 @@ export type Props = {
 
 <!DOCTYPE html>
 <html lang="en">
-  <Head description={description} />
+  <Head title={title} description={description} />
   <AppLayout currentPathName={Astro.url.pathname} client:visible>
     <slot />
   </AppLayout>
