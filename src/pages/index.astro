@@ -1,7 +1,10 @@
 ---
 import DefaultPageLayout from "layouts/default.astro";
-import HomePage from "@/components/app/home/HomePage";
 import { PortfolioFrontmatter } from "types/frontmatter";
+import Hero from "@/components/app/home/sections/Hero";
+import ThreeSellPoints from "@/components/app/home/sections/ThreeSellPoints";
+import Education from "@/components/app/home/sections/Education";
+import PortfolioShowcase from "@/components/app/portfolio/PortfolioShowcase";
 
 const description = `Hi! I'm Harman. I am a developer who loves to make cool and awesome web applications that rock the world.`;
 
@@ -11,10 +14,10 @@ const portfolioItems = await Astro.glob<PortfolioFrontmatter>(
 ---
 
 <DefaultPageLayout description={description}>
-  <HomePage
-    portfolioItems={portfolioItems.map(
-      (portfolioItem) => portfolioItem.frontmatter
-    )}
-    client:visible
-  />
+  <Hero client:visible />
+  <ThreeSellPoints />
+  <Education />
+  <PortfolioShowcase items={portfolioItems.map(
+    (portfolioItem) => portfolioItem.frontmatter
+  )} />
 </DefaultPageLayout>
