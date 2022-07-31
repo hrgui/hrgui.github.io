@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"],
+  content: [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.md",
+    "./src/**/*.astro",
+  ],
   theme: {
     extend: {
       colors: {
