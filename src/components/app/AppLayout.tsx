@@ -10,13 +10,11 @@ interface Props {
 
 const AppLayout = ({ children, currentPathName }: Props) => {
   return (
-    <body className="dark:bg-black">
-      <div className="font-inter dark:bg-stone-900 dark:text-gray-200">
-        <Header currentPathName={currentPathName} />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
-      </div>
-    </body>
+    <div className="font-inter dark:bg-stone-900 dark:text-gray-200">
+      <Header currentPathName={currentPathName} />
+      <div className="min-h-screen">{children}</div>
+      <Footer />
+    </div>
   );
 };
 
