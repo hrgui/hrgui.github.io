@@ -10,7 +10,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write \"src/**/*.tsx\"",
+    "format": "prettier --write \"src/**/*\"",
     "test": "vitest",
     "test-ui": "vitest --ui"
   },
