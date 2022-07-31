@@ -19,7 +19,7 @@
     "baseUrl": "src",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/constants": ["constants.ts"],
+      "@/constants": ["constants.tsx"],
       "@/layouts": ["layouts/*"],
       "@": ["."]
     }

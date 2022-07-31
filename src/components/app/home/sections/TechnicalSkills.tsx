@@ -1,4 +1,5 @@
 import React from "react";
+import { technicalSkills } from "@/constants";
 
 function TechnicalSection({
   title,
@@ -25,6 +26,21 @@ function NestedList(props: React.HTMLProps<HTMLUListElement>) {
 }
 
 const TechnicalSkills = () => {
+  const mapTechnicalSkills = (item, index) => {
+    if (typeof item === "string") {
+      return <li key={index}>{item}</li>;
+    }
+
+    const { title, items: subitems } = item;
+
+    return (
+      <li key={index}>
+        {title}
+        <NestedList>{subitems.map(mapTechnicalSkills)}</NestedList>
+      </li>
+    );
+  };
+
   return (
     <div
       className="p-6 pt-16 bg-malibu-200 dark:bg-stone-900 dark:text-gray-100"
@@ -38,80 +54,13 @@ const TechnicalSkills = () => {
           Technical Skills
         </h1>
         <div className="sm:grid sm:grid-cols-3 sm:gap-8">
-          <TechnicalSection
-            title={
-              <span className="bg-yellow-300 text-black p-2">JavaScript</span>
-            }
-          >
-            <ul>
-              <li>Node.js</li>
-              <li>React.js</li>
-              <li>Next.js</li>
-              <li>Webpack</li>
-              <li>Vite / ESBuild / SWC</li>
-              <li>...Vanilla</li>
-            </ul>
-          </TechnicalSection>
-
-          <TechnicalSection
-            title={
-              <>
-                <span className="bg-red-600 p-2 text-white">HTML</span> /{" "}
-                <span className="bg-blue-600 p-2 text-white">CSS</span>
-              </>
-            }
-          >
-            <ul>
-              <li>HTML5</li>
-              <li>
-                CSS3 / CSS Preprocessors
-                <NestedList>
-                  <li>CSS in JS - Emotion / Styled Components / JSS</li>
-                  <li>Tailwind - Utility First</li>
-                  <li>SASS</li>
-                </NestedList>
-              </li>
-            </ul>
-          </TechnicalSection>
-
-          <TechnicalSection title={<code>Other</code>}>
-            <ul>
-              <li>GraphQL</li>
-              <li>
-                NoSQL
-                <NestedList>
-                  <li>Firebase Realtime Database</li>
-                  <li>MongoDB</li>
-                  <li>
-                    <code>if its a Document Store, i can work with it.</code>
-                  </li>
-                </NestedList>
-              </li>
-              <li>
-                SQL
-                <NestedList>
-                  <li>PostgreSQL</li>
-                  <li>MySQL</li>
-                  <li>Google Cloud BigQuery</li>
-                </NestedList>
-              </li>
-              <li>
-                Other Cloud / Google Cloud Platform
-                <NestedList>
-                  <li>Google Cloud Storage</li>
-                  <li>Google Cloud PubSub</li>
-                  <li>Cloudflare Workers</li>
-                  <li>Google Kubernetes Engine</li>
-                </NestedList>
-              </li>
-              <li>
-                Other Programming Languages
-                <NestedList>
-                  <li>Python</li>
-                </NestedList>
-              </li>
-            </ul>
-          </TechnicalSection>
+          {technicalSkills.map(({ key, title, items }) => {
+            return (
+              <TechnicalSection title={title} key={key}>
+                <ul>{items.map(mapTechnicalSkills)}</ul>
+              </TechnicalSection>
+            );
+          })}
         </div>
       </div>
     </div>
