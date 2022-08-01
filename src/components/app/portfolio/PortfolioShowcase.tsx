@@ -13,21 +13,21 @@ const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
           <h1 className="text-3xl font-medium mb-8 mt-3">Portfolio</h1>
         )}
 
-        <div className="pt-2 pb-2 sm:grid sm:grid-cols-3 sm:gap-6">
+        <div className="pt-2 pb-2 overflow-hidden sm:grid sm:grid-cols-3 sm:gap-6">
           {items?.map((item, i) => {
             return (
               <a
                 href={`/portfolio/${item.slug}`}
                 key={i}
-                className=" text-gray-200 hover:text-gray-100 sm:opacity-75 sm:hover:opacity-100 transition-all z-0 w-full h-52 overflow-hidden relative"
+                className=" text-gray-200 block mb-4 hover:text-gray-100 sm:opacity-75 sm:hover:opacity-100 transition-all z-0 w-full h-52 overflow-hidden relative"
               >
                 <img
-                  className="object-cover h-52 w-full rounded-lg"
+                  className="object-cover absolute h-52 z-10 w-full rounded-lg"
                   loading="lazy"
                   src={item.thumbnail}
                   alt={item.title}
                 />
-                <h2 className="p-4 bg-black inline-flex rounded-bl-lg  tracking-tight font-semibold text-xl absolute bottom-0 left-0 transition-all">
+                <h2 className="p-4 z-20 bg-black inline-flex rounded-bl-lg tracking-tight font-semibold text-xl absolute bottom-0 left-0 transition-all">
                   {item.title}
                 </h2>
               </a>
