@@ -25,7 +25,7 @@ const Education = ({
             }) => {
               return (
                 <Fragment key={key}>
-                  <div className="w-28 pr-4">
+                  <div className="w-28 pr-4 shrink-0">
                     <a href={url} target="__blank">
                       <img
                         loading="lazy"
