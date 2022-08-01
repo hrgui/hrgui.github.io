@@ -32,9 +32,12 @@ const Hero = () => {
           web/mobile apps.
         </h1>
         <AppSocialMedia
-          className={classNames("text-xl opacity-0 motion-reduce:opacity-100", {
-            ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
-          })}
+          className={classNames(
+            "text-xl opacity-0 motion-reduce:opacity-100 mt-4",
+            {
+              ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
+            }
+          )}
         />
       </div>
     </div>
