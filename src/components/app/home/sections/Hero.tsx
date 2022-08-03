@@ -1,14 +1,15 @@
 import classNames from "classnames";
-import { useAnimationEnd } from "hooks/useAnimationEnd";
 import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useRef } from "react";
 import AppSocialMedia from "@/components/app/AppSocialMedia";
+import { twMerge } from "tailwind-merge";
+import { useTransitionEnd } from "hooks/useTransitionEnd";
 
 const Hero = () => {
   const headerRef = useRef();
   const headerEntry = useIntersectionObserver(headerRef, {});
   const isHeaderVisible = !!headerEntry?.isIntersecting;
-  const headerAnimationEnded = useAnimationEnd(headerRef);
+  const headerAnimationEnded = useTransitionEnd(headerRef);
 
   return (
     <div
@@ -19,10 +20,16 @@ const Hero = () => {
         <h1
           ref={headerRef}
           className={classNames(
-            `font-semibold leading-tight xl:leading-snug 2xl:leading-snug text-4xl md:text-6xl xl:text-7xl md:leading-snug 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
-            {
-              ["motion-safe:animate-fadeIn-1.5"]: isHeaderVisible,
-            }
+            twMerge(
+              classNames(
+                `translate-y-1/2 motion-reduce:translate-y-0 font-semibold text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
+                {
+                  ["transition-hero opacity-100 translate-y-0"]:
+                    isHeaderVisible,
+                }
+              )
+            ),
+            "leading-tight md:leading-snug xl:leading-snug 2xl:leading-snug"
           )}
         >
           I ❤️ making{" "}
@@ -33,9 +40,10 @@ const Hero = () => {
         </h1>
         <AppSocialMedia
           className={classNames(
-            "text-xl opacity-0 motion-reduce:opacity-100 mt-4",
+            "translate-y-1/2 motion-reduce:translate-y-0 text-xl opacity-0 motion-reduce:opacity-100 mt-4",
             {
-              ["motion-safe:animate-fadeIn-1.5"]: headerAnimationEnded,
+              ["transition-hero opacity-100 translate-y-0"]:
+                headerAnimationEnded,
             }
           )}
         />

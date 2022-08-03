@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.transition-hero {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1) 0.1s,
+    opacity 0.5s linear 0.1s;
+}
+
 @layer components {
   .gplay-bg {
     background-color: #f7f7f8;
