@@ -12,21 +12,21 @@ const Hero = () => {
 
   return (
     <div
-      className="flex flex-col justify-center items-start dark:text-gray-200 h-hero sm:h-hero-sm gplay-bg dark:dark-gplay-bg"
+      className="flex flex-col justify-center items-start dark:text-gray-200 h-[800px] sm:h-[900px] gplay-bg dark:dark-gplay-bg"
       data-testid="section-hero"
     >
       <div className="p-6 xl:p-0 flex flex-col justify-center items-start container mx-auto">
         <h1
           ref={headerRef}
           className={classNames(
-            `text-4xl font-semibold leading-tight md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug opacity-0 motion-reduce:opacity-100`,
+            `font-semibold leading-tight xl:leading-snug 2xl:leading-snug text-4xl md:text-6xl xl:text-7xl md:leading-snug 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
             {
               ["motion-safe:animate-fadeIn-1.5"]: isHeaderVisible,
             }
           )}
         >
           I ❤️ making{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-malibu-500 dark:from-saltpan-500 dark:to-malibu-400">
+          <span className="bg-clip-text text-transparent block sm:inline bg-gradient-to-r from-green-500 to-malibu-500 dark:from-saltpan-500 dark:to-malibu-400">
             cool and awesome{" "}
           </span>
           web/mobile apps.
