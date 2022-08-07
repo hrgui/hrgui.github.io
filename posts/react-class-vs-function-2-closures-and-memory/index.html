@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>hrgui</title>
+  <meta name="title" content="hrgui">
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Open Graph Tags (Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="hrgui">
+  
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="hrgui">
+
+  
+<link rel="stylesheet" href="/assets/15150b41.71e9f2c8.css" /></head>
+
+  <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(i,c,n)=>{const r=async()=>{await(await i())()};let s=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){s.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];s.observe(t)}};var a;{const l={0:t=>t,1:t=>JSON.parse(t,n),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,n)),5:t=>new Set(JSON.parse(t,n)),6:t=>BigInt(t),7:t=>new URL(t)},n=(t,r)=>{if(t===""||!Array.isArray(r))return r;const[e,i]=r;return e in l?l[e](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(a=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement?.closest("astro-island[ssr]"))return;const r=this.querySelectorAll("astro-slot"),e={},i=this.querySelectorAll("template[data-astro-template]");for(const s of i)!s.closest(this.tagName)?.isSameNode(this)||(e[s.getAttribute("data-astro-template")||"default"]=s.innerHTML,s.remove());for(const s of r)!s.closest(this.tagName)?.isSameNode(this)||(e[s.getAttribute("name")||"default"]=s.innerHTML);const o=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),n):{};this.hydrator(this)(this.Component,o,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url"));const r=JSON.parse(this.getAttribute("opts"));Astro[this.getAttribute("client")](async()=>{const e=this.getAttribute("renderer-url"),[i,{default:o}]=await Promise.all([import(this.getAttribute("component-url")),e?import(e):()=>()=>{}]);return this.Component=i[this.getAttribute("component-export")||"default"],this.hydrator=o,this.hydrate},r,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},a.observedAttributes=["props"],a))}</script><astro-island uid="QUYO1" component-url="/AppLayout.2ea4e566.js" component-export="default" renderer-url="/client.20a4fdc2.js" props="{&quot;currentPathName&quot;:[0,&quot;/posts/react-class-vs-function-2-closures-and-memory&quot;]}" ssr="" client="visible" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;AppLayout&quot;,&quot;value&quot;:true}" await-children=""><div class="font-inter dark:bg-stone-900 dark:text-gray-200"><div class="flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-10"><button class="sm:hidden hover:bg-gray-800 hover:opacity-100 p-2 opacity-75 transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="sm:hidden w-12 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button><a href="/"><div class="text-3xl tracking-tight font-medium dark:text-gray-200 sm:pl-5">hr<span class="text-red-700 dark:text-red-500">gui</span></div></a><nav class="hidden sm:flex h-16 justify-center items-center" data-testid="desktop-nav"><a href="/" class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10">Home</a><a href="/posts" class="transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10 text-red-700 dark:text-red-300 hover:text-red-900 dark:hover:text-red-500 bg-red-700 bg-opacity-10 border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700" aria-current="page">Blog</a><a href="/portfolio" class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10">Portfolio</a></nav></div><div class="z-10 fixed inset-0 transition-opacity hidden"><div class="absolute inset-0 bg-black opacity-50"></div></div><aside class="sm:-translate-x-full transform top-0 left-0 w-64 bg-white dark:bg-zinc-900 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 -translate-x-full"><a href="/"><div class="text-3xl tracking-tight font-medium dark:text-gray-200 flex items-center pl-5 h-16 border-b-2 border-gray-700 mb-2">hr<span class="text-red-700 dark:text-red-500">gui</span></div></a><a href="/" class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10">Home</a><a href="/posts" class="transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10 text-red-700 dark:text-red-300 hover:text-red-900 dark:hover:text-red-500 bg-red-700 bg-opacity-10 border-l-2 sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-t-2 border-red-700" aria-current="page">Blog</a><a href="/portfolio" class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 hover:bg-red-700 hover:bg-opacity-10">Portfolio</a></aside><div class="min-h-screen"><astro-slot><div class="pt-28 p-6 pb-0 container mx-auto max-w-none circuit-board-bg dark:dark-circuit-board-bg"><div class="mb-14 max-w-[1536px] mx-auto"><h5 class="text-gray-700 dark:text-gray-500 mb-4 font-mono leading-5">7/6/2020</h5><h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight break-words">React Class Components VS Functional Components II: Functional Component&#x27;s Closures, Memory and the Absence of Component Lifecycles</h1></div></div><div class="pl-6 pr-6"><div class="prose dark:prose-invert prose-md lg:prose-lg max-w-[1536px] mx-auto"><main><p>This is Part II of my <del>long</del> running series, React Class Components VS Functional Components.</p>
+<p>We last talked about <code>this</code>, and how it leads into pitfalls into React. This time, we’ll talk about React hooks pitfalls and how it leads into more pitfalls. Note that React hooks only apply to functional components, not class components.</p>
+<h1 id="closures-a-javascript-engineers-tool">Closures, a JavaScript Engineer’s tool.</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">From MDN</a>:</p>
+<blockquote>
+<p>A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.</p>
+</blockquote>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">makeAdder</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">x</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">y</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> x </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> y;</span></span>
+<span class="line"><span style="color: #C9D1D9">  };</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> add5 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">makeAdder</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">5</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> add10 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">makeAdder</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">10</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #D2A8FF">add5</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">)); </span><span style="color: #8B949E">// 7</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #D2A8FF">add10</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">)); </span><span style="color: #8B949E">// 12</span></span></code></pre>
+<p><em>One of my favorite examples of closures: insert meme that says we know you love functions, so we put a function in a function.</em></p>
+<h1 id="where-do-closures-apply-in-react-hooks">Where do closures apply in React Hooks?</h1>
+<p>Event handlers for DOM. Here’s an example.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> React </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"react"</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"./styles.css"</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">function</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">App</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> [</span><span style="color: #79C0FF">count</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">setCount</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useState</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">handleAlert</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useCallback</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">alert</span><span style="color: #C9D1D9">(count);</span></span>
+<span class="line"><span style="color: #C9D1D9">  }, []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> (</span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">className</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"App"</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">      {count}</span></span>
+<span class="line"><span style="color: #C9D1D9">      &#x3C;</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">onClick</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{handleAlert}>alert&#x3C;/</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">      &#x3C;</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">onClick</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">setCount</span><span style="color: #C9D1D9">(count </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">)}>increment&#x3C;/</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;/</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">  );</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>The code is broken though. We increment the value, but the alert function never changes. This is because <code>React.useCallback</code> never changes and only changes based on the values in the dependency list, which is the 2nd argument.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> React </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"react"</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">function</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">App</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> [</span><span style="color: #79C0FF">count</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">setCount</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useState</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">handleAlert</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useCallback</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">alert</span><span style="color: #C9D1D9">(count);</span></span>
+<span class="line"><span style="color: #C9D1D9">  }, [count]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> (</span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">className</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"App"</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">      {count}</span></span>
+<span class="line"><span style="color: #C9D1D9">      &#x3C;</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">onClick</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{handleAlert}>alert&#x3C;/</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">      &#x3C;</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">onClick</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">setCount</span><span style="color: #C9D1D9">(count </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">)}>increment&#x3C;/</span><span style="color: #7EE787">button</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;/</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">  );</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>We can then see 2 problems:</p>
+<ul>
+<li>Imagine if the memory we held is <strong>HUGE</strong>. That means if we setup React.useCallback incorrectly with no dependency list, we are telling the garbage collector that huge source of memory can never be cleaned up.</li>
+<li>Nested functions are always recreated on every render / function call.</li>
+</ul>
+<p>Let’s continue on focusing on the 2nd problem.</p>
+<h1 id="nested-functions-are-always-recreated-on-every-render--function-call">Nested functions are always recreated on every render / function call</h1>
+<p>In class components, or functional components, this is something common that React developers do. In fact, it’s common in JavaScript developers, for those who like closures.</p>
+<p>When can it become a problem though?</p>
+<h1 id="listening-to-events-handling-it-without-component-lifecycles">Listening to events, handling it without Component LifeCycles</h1>
+<p>Recently I’ve been trying to assess my knowledge of React Hooks - I’ve been using it for a year now, how good is my knowledge with it?</p>
+<p>The best way really is to not take a quiz, or a multiple-choice test. It’s just to put your skills to the test by converting something that is already coded as a class component - fairly complex enough, to a hooks component.</p>
+<p>I came across: <a href="https://github.com/danbovey/react-infinite-scroller">https://github.com/danbovey/react-infinite-scroller</a> - it seems to work the way I wanted it to work, which is great. However, I wanted to learn the internals of it, and understand what it really does, so I converted it to a hooks component. I didn’t rewrite the entire thing from scratch though - I did it the way a senior software engineer would - refactor.</p>
+<p>The code has some event lifecycle paradigms:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">componentDidMount</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.pageLoaded </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.props.pageStart;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.options </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">eventListenerOptions</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">componentDidUpdate</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.props.isReverse </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.loadMore) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentElement</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.scrollComponent);</span></span>
+<span class="line"><span style="color: #C9D1D9">      parentElement.scrollTop </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">        parentElement.scrollHeight </span><span style="color: #FF7B72">-</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.beforeScrollHeight </span><span style="color: #FF7B72">+</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.beforeScrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.loadMore </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">componentWillUnmount</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">detachMousewheelListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span></code></pre>
+<p><em>Class components have lifecycles. Not in React hooks though.</em></p>
+<p>Class Components have lifecycles. In React hooks, we don’t have that. There’s a <a href="https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component">stack overflow Q&#x26;A</a> on emulating the events, and I decided, hey, I can apply it here. So I gave it a shot:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  pageLoadedRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> pageStart;</span></span>
+<span class="line"><span style="color: #C9D1D9">  optionsRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">eventListenerOptions</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> () </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">detachMousewheelListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  };</span></span>
+<span class="line"><span style="color: #C9D1D9">}, []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> loadMoreRef.current) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentElement</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(scrollComponentRef.current);</span></span>
+<span class="line"><span style="color: #C9D1D9">    parentElement.scrollTop </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">      parentElement.scrollHeight </span><span style="color: #FF7B72">-</span></span>
+<span class="line"><span style="color: #C9D1D9">      beforeScrollHeightRef.current </span><span style="color: #FF7B72">+</span></span>
+<span class="line"><span style="color: #C9D1D9">      beforeScrollTopRef.current;</span></span>
+<span class="line"><span style="color: #C9D1D9">    loadMoreRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">}, [isReverse, attachScrollListener, getParentElement]);</span></span></code></pre>
+<p>_Yes, <code>this.pageLoaded = this.props.pageStart</code> is equivalent to making a ref for pageLoaded, then assigning it to the current var, i think. It works though - dont quote me on that. In fact if you find a problem with that let me know _
+CodeSandbox: <a href="https://codesandbox.io/s/inf-scroll-broken-nvh8l-nvh8l?file=/src/InfiniteScroll.tsx">https://codesandbox.io/s/inf-scroll-broken-nvh8l-nvh8l?file=/src/InfiniteScroll.tsx</a></p>
+<p>If you have eslint-create-react-app (CRA), the above code will have a red/yellow squiggly highlight in the empty dependency list in the so-called <code>componentDidMount</code> implementation that I have.</p>
+<p>Should I ignore the error, or should I fix it by adding dependencies?</p>
+<ul>
+<li>If I fix it by adding dependencies, my so-called componentDidMount will eventually get called more than once. At the same time, the so-called <code>componentWillUnmount</code> gets called more than once too.</li>
+</ul>
+<p>When I did run the code, I noticed a couple of problems:</p>
+<ul>
+<li>When I scroll down, the infinite scroll is sporadic! It’s like if old event listeners are firing and never getting destroyed…</li>
+</ul>
+<p>So I decided to fix it by adding the dependencies:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  pageLoadedRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> pageStart;</span></span>
+<span class="line"><span style="color: #C9D1D9">  optionsRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">eventListenerOptions</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> () </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">detachMousewheelListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">  };</span></span>
+<span class="line"><span style="color: #C9D1D9">}, [</span></span>
+<span class="line"><span style="color: #C9D1D9">  attachScrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">  detachScrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">  detachMousewheelListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">  eventListenerOptions,</span></span>
+<span class="line"><span style="color: #C9D1D9">  pageStart,</span></span>
+<span class="line"><span style="color: #C9D1D9">]);</span></span></code></pre>
+<p>Tip: neat trick, in devtools, we can get the number of events we have added to the window</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">getEventListeners(window).scroll</span></span>
+<span class="line"><span style="color: #c9d1d9">(5950) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …]</span></span></code></pre>
+<p><a href="https://codesandbox.io/s/inf-scroll-broken2-nvh8l-5j4w3">https://codesandbox.io/s/inf-scroll-broken2-nvh8l-5j4w3</a> &#x3C;- WARNING, this code may crash your tab.</p>
+<p>WHOA! 5950 events.</p>
+<p>So why did this become worse? Honestly, this is what stumbled me for a bit, a long time. It is in the territory of “if it ain’t broke, don’t fix it.”</p>
+<p>The class component code itself was working.</p>
+<p>The problem lies elsewhere in the code, in which I will copy and paste here.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">detachScrollListener </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useCallback</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> window;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (useWindow </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(scrollComponentRef.current);</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    scrollEl.</span><span style="color: #D2A8FF">removeEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #A5D6FF">"scroll"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">      optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">    );</span></span>
+<span class="line"><span style="color: #C9D1D9">    scrollEl.</span><span style="color: #D2A8FF">removeEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #A5D6FF">"resize"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">      optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">    );</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  [useWindow, scrollListener, useCapture, getParentElement]</span></span>
+<span class="line"><span style="color: #C9D1D9">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">scrollListener </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> React.</span><span style="color: #D2A8FF">useCallback</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">scrollListener</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">el</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> scrollComponentRef.current;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">scrollEl</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> window;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentNode</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(el);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> offset;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (useWindow) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">doc</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">        document.documentElement </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> document.body.parentNode </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> document.body;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">scrollTop</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollEl.pageYOffset </span><span style="color: #FF7B72">!==</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">undefined</span></span>
+<span class="line"><span style="color: #C9D1D9">          </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> scrollEl.pageYOffset</span></span>
+<span class="line"><span style="color: #C9D1D9">          </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> doc.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">      } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">        offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">calculateOffset</span><span style="color: #C9D1D9">(el, scrollTop);</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">    } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">    } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">      offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> el.scrollHeight </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> parentNode.scrollTop </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> parentNode.clientHeight;</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// Here we make sure the element is visible as well as checking the offset</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// console.log(offset, threshold, el.offsetParent)</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (offset </span><span style="color: #FF7B72">&#x3C;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Number</span><span style="color: #C9D1D9">(threshold) </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">hasOffsetParent</span><span style="color: #C9D1D9">(el)) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">      beforeScrollHeightRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollHeight;</span></span>
+<span class="line"><span style="color: #C9D1D9">      beforeScrollTopRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #8B949E">// Call loadMore after detachScrollListener to allow for non-async loadMore functions</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">typeof</span><span style="color: #C9D1D9"> loadMore </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"function"</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #D2A8FF">loadMore</span><span style="color: #C9D1D9">((pageLoadedRef.current </span><span style="color: #FF7B72">+=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">));</span></span>
+<span class="line"><span style="color: #C9D1D9">        loadMoreRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  [</span></span>
+<span class="line"><span style="color: #C9D1D9">    getParentElement,</span></span>
+<span class="line"><span style="color: #C9D1D9">    useWindow,</span></span>
+<span class="line"><span style="color: #C9D1D9">    isReverse,</span></span>
+<span class="line"><span style="color: #C9D1D9">    detachScrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">    loadMore,</span></span>
+<span class="line"><span style="color: #C9D1D9">    threshold,</span></span>
+<span class="line"><span style="color: #C9D1D9">  ]</span></span>
+<span class="line"><span style="color: #C9D1D9">);</span></span></code></pre>
+<p>Here’s my thought process.</p>
+<p>These two functions, they depend on each other, at least on how it is implemented. detachScrollListner calls scrollListener to remove the event reference. scrollListener calls detachScrollListener.</p>
+<p>When we have a dependency cycle like that, we can then say these two functions always need to be updated despite using <code>React.useCallback</code>. When the functions update, the effects need to get re-called because they are the ones that changed.</p>
+<p>So, I ended up writing the code like the following:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> () {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> window;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (useWindow </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(scrollComponentRef.current);</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl.</span><span style="color: #D2A8FF">removeEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #A5D6FF">"scroll"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">        optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">      );</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl.</span><span style="color: #D2A8FF">removeEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #A5D6FF">"resize"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">        optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">      );</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">scrollListener</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">el</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> scrollComponentRef.current;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">scrollEl</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> window;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentNode</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(el);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> offset;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (useWindow) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">doc</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">          document.documentElement </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> document.body.parentNode </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> document.body;</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">scrollTop</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">          scrollEl.pageYOffset </span><span style="color: #FF7B72">!==</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">undefined</span></span>
+<span class="line"><span style="color: #C9D1D9">            </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> scrollEl.pageYOffset</span></span>
+<span class="line"><span style="color: #C9D1D9">            </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> doc.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse) {</span></span>
+<span class="line"><span style="color: #C9D1D9">          offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">        } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">          offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">calculateOffset</span><span style="color: #C9D1D9">(el, scrollTop);</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">      } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        offset </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">      } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">        offset </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">          el.scrollHeight </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> parentNode.scrollTop </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> parentNode.clientHeight;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #8B949E">// Here we make sure the element is visible as well as checking the offset</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #8B949E">// console.log(offset, threshold, el.offsetParent)</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (offset </span><span style="color: #FF7B72">&#x3C;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Number</span><span style="color: #C9D1D9">(threshold) </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">hasOffsetParent</span><span style="color: #C9D1D9">(el)) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">        beforeScrollHeightRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollHeight;</span></span>
+<span class="line"><span style="color: #C9D1D9">        beforeScrollTopRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentNode.scrollTop;</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #8B949E">// Call loadMore after detachScrollListener to allow for non-async loadMore functions</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">typeof</span><span style="color: #C9D1D9"> loadMore </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"function"</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">          </span><span style="color: #D2A8FF">loadMore</span><span style="color: #C9D1D9">((pageLoadedRef.current </span><span style="color: #FF7B72">+=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">));</span></span>
+<span class="line"><span style="color: #C9D1D9">          loadMoreRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentElement</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(scrollComponentRef.current);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">!</span><span style="color: #C9D1D9">hasMore </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">!</span><span style="color: #C9D1D9">parentElement) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> window;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (useWindow </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollEl </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentElement;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl.</span><span style="color: #D2A8FF">addEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #A5D6FF">"mousewheel"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        mousewheelListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">        optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">      );</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl.</span><span style="color: #D2A8FF">addEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #A5D6FF">"scroll"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">        optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">      );</span></span>
+<span class="line"><span style="color: #C9D1D9">      scrollEl.</span><span style="color: #D2A8FF">addEventListener</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #A5D6FF">"resize"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        scrollListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">        optionsRef.current </span><span style="color: #FF7B72">?</span><span style="color: #C9D1D9"> optionsRef.current </span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> useCapture</span></span>
+<span class="line"><span style="color: #C9D1D9">      );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (initialLoad) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #D2A8FF">scrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">componentDidMount</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">      pageLoadedRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> pageStart;</span></span>
+<span class="line"><span style="color: #C9D1D9">      optionsRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">eventListenerOptions</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">componentDidUpdate</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (isReverse </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> loadMoreRef.current) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentElement</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getParentElement</span><span style="color: #C9D1D9">(scrollComponentRef.current);</span></span>
+<span class="line"><span style="color: #C9D1D9">        parentElement.scrollTop </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">          parentElement.scrollHeight </span><span style="color: #FF7B72">-</span></span>
+<span class="line"><span style="color: #C9D1D9">          beforeScrollHeightRef.current </span><span style="color: #FF7B72">+</span></span>
+<span class="line"><span style="color: #C9D1D9">          beforeScrollTopRef.current;</span></span>
+<span class="line"><span style="color: #C9D1D9">        loadMoreRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">attachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">!</span><span style="color: #C9D1D9">componentDidMountRef.current) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">componentDidMount</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">      componentDidMountRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">componentDidUpdate</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> () </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">detachScrollListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #D2A8FF">detachMousewheelListener</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    };</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  [</span></span>
+<span class="line"><span style="color: #C9D1D9">    isReverse,</span></span>
+<span class="line"><span style="color: #C9D1D9">    loadMore,</span></span>
+<span class="line"><span style="color: #C9D1D9">    useCapture,</span></span>
+<span class="line"><span style="color: #C9D1D9">    useWindow,</span></span>
+<span class="line"><span style="color: #C9D1D9">    hasMore,</span></span>
+<span class="line"><span style="color: #C9D1D9">    initialLoad,</span></span>
+<span class="line"><span style="color: #C9D1D9">    pageStart,</span></span>
+<span class="line"><span style="color: #C9D1D9">    threshold,</span></span>
+<span class="line"><span style="color: #C9D1D9">    detachMousewheelListener,</span></span>
+<span class="line"><span style="color: #C9D1D9">    eventListenerOptions,</span></span>
+<span class="line"><span style="color: #C9D1D9">    getParentElement,</span></span>
+<span class="line"><span style="color: #C9D1D9">  ]</span></span>
+<span class="line"><span style="color: #C9D1D9">);</span></span></code></pre>
+<p>Couple of tidbits I had learned</p>
+<ul>
+<li><a href="https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies">https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies</a> - when using <code>useEffect</code>, when a function depends on something, it is not safe to say hey, <code>[]</code> no dependencies. That will only cause the <code>useEffect</code> to be called once, and at worse, it will end up being stale.</li>
+<li>If you have two functions that depend on each other, the best thing to do is move both functions inside of the effect.</li>
+<li><a href="https://reacttraining.com/blog/useEffect-is-not-the-new-componentDidMount/">https://reacttraining.com/blog/useEffect-is-not-the-new-componentDidMount/</a> Don’t use <code>useEffect</code> as the new lifecycle manager. Instead, think of the component of, so my state changed, what side effects need to be re-run?</li>
+</ul>
+<p>The code works, but perhaps there’s more improvement that I could possibly do.</p>
+<h1 id="summary">Summary</h1>
+<p>Functional components do have their own fair share of problems, just like class components. However, the problems we are facing here now depend on state, its dependencies and its side effects. It enforces engineers to write better code without needing to write quirky JavaScript code to make things work (ahem, <code>this</code> binding).</p>
+<p>We highlighted a couple of things:</p>
+<ul>
+<li>When using <code>React.useCallback</code>, we can really end up traveling back in time with the DOM if we don’t clean up the DOM correctly. We also have to be mindful of the dependency list here. This can present memory issues if we don’t handle this correctly.</li>
+<li>When using <code>React.useEffect</code>, specify the dependencies, otherwise most likely we are going to write buggy code. Think about code as hey, state changed - what side effects need to be re-run? This can present unwanted re-renders that lead into infinite loops, or memory issues, if we don’t handle this correctly.</li>
+</ul>
+<p>Now, what will be my part III of this series? We’ll see.</p></main></div></div></astro-slot></div><div class="bg-gray-200 dark:bg-neutral-800 dark:text-gray-200" data-testid="footer"><div class="container mx-auto"><div class="p-6 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8"><div><a href="/"><div class="text-3xl tracking-tight font-medium dark:text-gray-200">hr<span class="text-red-700 dark:text-red-500">gui</span></div></a><p class="prose prose-sm dark:text-gray-200 mt-4 mb-4">Harman Goei (hrgui) is a developer that loves to make cool and awesome web applications. His strength is in HTML, CSS, JavaScript, but he is willing to code anywhere in the stack to make the web be awesome.</p></div><div class="mb-4 mt-4"><nav class="flex flex-col"><a href="/" class="text-red-700 dark:text-red-500 hover:underline font-medium">Home</a><a href="/posts" class="text-red-700 dark:text-red-500 hover-underline font-medium">Blog</a><a href="/portfolio" class="text-red-700 dark:text-red-500 hover-underline font-medium">Portfolio</a></nav></div></div></div><div class="p-6 bg-gray-200 dark:bg-neutral-800 border-t-2 border-gray-300 dark:border-neutral-700 dark:text-gray-200"><div class="container mx-auto flex justify-between"><div>© <!-- -->2022<!-- --> Harman Goei</div><div class="flex gap-2"><a title="View My Github Profile" href="https://www.github.com/hrgui" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 transition-all"><svg class="w-6 h-6 fill-current" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></a><a title="View My LinkedIn Profile" href="https://www.linkedin.com/in/hrgui" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 transition-all"><svg class="w-6 h-6 fill-current hover:text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a></div><div><button class="text-red-700 dark:text-red-500 hover-underline font-medium">back to top?</button></div></div></div></div></div></astro-island>
+</html>
