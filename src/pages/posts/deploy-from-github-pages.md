@@ -89,4 +89,4 @@ What's nice is that I get preview URLs per each branch. Excessive, but great. Th
 
 The I like to live dangerously option choice is [Cloudflare Workers](https://workers.cloudflare.com/) or [Cloudflare Pages](https://pages.cloudflare.com/). I haven't done this option in years, but the upside to this one is that it may perform like Vercel's Edge Functions - or even faster. This is because Cloudflare Workers deploys to many locations around the world, and will serve the closest to where you are.
 
-There's no need to deploy to many locations. That's why I love it.
+There's no need to deploy to many locations. That's why I love it. Only downside to this is that I am not working with a Node environment here. I am working with a Cloudflare Workers, or Web Worker environment. It's the new way of thinking.
