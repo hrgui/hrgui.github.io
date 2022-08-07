@@ -6,7 +6,7 @@
   thumbnail: "/images/portfolio/angryBirds.png",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-angrybird",
-  url: "https://www.harmanradix.com/css3-angrybird/",
+  demoUrl: "https://www.harmanradix.com/css3-angrybird/",
   iframe:
     {
       scrolling: "no",

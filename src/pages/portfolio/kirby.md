@@ -5,7 +5,7 @@
   slug: "kirby",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-kirby",
-  url: "https://www.harmanradix.com/css3-kirby/",
+  demoUrl: "https://www.harmanradix.com/css3-kirby/",
   thumbnail: "/images/portfolio/kirby.gif",
   iframe:
     {

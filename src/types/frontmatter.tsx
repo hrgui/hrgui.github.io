@@ -12,6 +12,7 @@ export type PortfolioFrontmatter = {
   category?: string;
   githubUrl?: string;
   images?: { src: string; thumbnail: string }[];
+  demoUrl?: string;
   url?: string;
   urls?: string[];
   thumbnail?: string;

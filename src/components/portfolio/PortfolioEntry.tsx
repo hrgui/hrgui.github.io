@@ -7,7 +7,7 @@ type Props = PortfolioFrontmatter & { children?: React.ReactNode };
 
 const PortfolioEntry = ({
   title,
-  url,
+  demoUrl,
   githubUrl,
   urls,
   thumbnail,
@@ -26,9 +26,9 @@ const PortfolioEntry = ({
           </h1>
 
           <div className="mt-2 mb-2">
-            {url && (
+            {demoUrl && (
               <a
-                href={url}
+                href={demoUrl}
                 className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
                 target="__blank"
                 rel="noreferrer"

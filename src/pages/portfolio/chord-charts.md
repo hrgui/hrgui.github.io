@@ -5,7 +5,7 @@
   title: "chord-charts",
   slug: "chord-charts",
   githubUrl: "https://github.com/hrgui/chord-charts-app",
-  url: "https://chord-charts.vercel.app/",
+  demoUrl: "https://chord-charts.vercel.app/",
   thumbnail: "/images/portfolio/chord-charts.png",
   iframe:
     { scrolling: "no", height: 530, src: "https://chord-charts.vercel.app/" },
