@@ -6,7 +6,7 @@ test("should render a basic portfolio entry with thumbnail and images without cr
   render(
     <PortfolioEntry
       title="Title"
-      url="https://www.harmanradix.com"
+      demoUrl="https://www.harmanradix.com"
       githubUrl="https://www.harmanradix.com"
       urls={["https://www.harmanradix.com"]}
       whatIDid={["whatidid1", "whatidid2", "whatidid3"]}
@@ -40,7 +40,7 @@ test("should render a basic portfolio entry with thumbnail without crashing", as
   render(
     <PortfolioEntry
       title="Title"
-      url="https://www.harmanradix.com"
+      demoUrl="https://www.harmanradix.com"
       whatIDid={["whatidid1", "whatidid2", "whatidid3"]}
       thumbnail={"test.jpg"}
     />
