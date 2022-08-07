@@ -3,6 +3,7 @@ import DefaultPageLayout from "layouts/default.astro";
 import { PortfolioFrontmatter } from "types/frontmatter";
 import Hero from "@/components/app/home/sections/Hero";
 import ThreeSellPoints from "@/components/app/home/sections/ThreeSellPoints";
+import TechnicalSkills from "@/components/app/home/sections/TechnicalSkills";
 import Education from "@/components/app/home/sections/Education";
 import PortfolioShowcase from "@/components/app/portfolio/PortfolioShowcase";
 
@@ -16,8 +17,9 @@ const portfolioItems = await Astro.glob<PortfolioFrontmatter>(
 <DefaultPageLayout description={description}>
   <Hero client:visible />
   <ThreeSellPoints />
+  <TechnicalSkills />
   <Education />
-  <PortfolioShowcase items={portfolioItems.map(
-    (portfolioItem) => portfolioItem.frontmatter
-  )} />
+  <PortfolioShowcase
+    items={portfolioItems.map((portfolioItem) => portfolioItem.frontmatter)}
+  />
 </DefaultPageLayout>
