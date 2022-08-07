@@ -11,7 +11,7 @@ For building my personal websites, for a no-cost option, I use [Github Pages via
 
 Anywho, I just drop this file into `.github/workflows`, change Pages to use Github Actions rather than a branch, and I am set:
 
-```yml
+```yaml
 name: Build and Deploy for Github Pages
 on:
   workflow_dispatch:

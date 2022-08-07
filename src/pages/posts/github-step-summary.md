@@ -11,7 +11,7 @@ I use it for reporting code coverage. Writing it in a comment will always fail a
 
 Add this step to your Github Actions file, if you use [vitest](https://vitest.dev/):
 
-```yml
+```yaml
 - name: 🧪 Test
   run: |
     yarn test --silent --coverage
@@ -25,7 +25,7 @@ Add this step to your Github Actions file, if you use [vitest](https://vitest.de
 
 If you use [jest](https://jestjs.io/), just replace `yarn c8 report` with the output of `yarn test --silent --coverage`, like so:
 
-```yml
+```yaml
 - name: 🧪 Test
   run: |
     echo "### Test Results 🧪 "  >> $GITHUB_STEP_SUMMARY
