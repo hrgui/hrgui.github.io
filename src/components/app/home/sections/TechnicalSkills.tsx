@@ -47,7 +47,7 @@ const TechnicalSkills = ({
 
   return (
     <div
-      className="p-6 pt-16 bg-malibu-200 dark:bg-stone-900 dark:text-gray-100"
+      className="p-6 pt-16 pb-16 bg-malibu-200 dark:bg-stone-900 dark:text-gray-100"
       data-testid="section-technical-skills"
     >
       <div className="container mx-auto">
