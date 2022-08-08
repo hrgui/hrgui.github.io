@@ -5,7 +5,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    remarkPlugins: ["remark-gfm", "remark-smartypants", "remark-mermaid"],
+    remarkPlugins: [
+      "remark-gfm",
+      "remark-smartypants",
+      ["remark-mermaid", { simple: true }],
+    ],
   },
   integrations: [
     react(),
