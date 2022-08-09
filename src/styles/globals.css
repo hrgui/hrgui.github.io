@@ -5,6 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.mermaid {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  @apply p-4 mb-4 mt-4 bg-white;
+}
+
 .transition-hero {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1) 0.1s,
     opacity 0.5s linear 0.1s;
