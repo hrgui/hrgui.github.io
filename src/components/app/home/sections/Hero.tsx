@@ -5,7 +5,7 @@ import AppSocialMedia from "@/components/app/AppSocialMedia";
 import { twMerge } from "tailwind-merge";
 import { useTransitionEnd } from "hooks/useTransitionEnd";
 
-const Hero = () => {
+export function Hero() {
   const headerRef = useRef();
   const headerEntry = useIntersectionObserver(headerRef, {});
   const isHeaderVisible = !!headerEntry?.isIntersecting;
@@ -50,6 +50,6 @@ const Hero = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Hero;

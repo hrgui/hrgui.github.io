@@ -25,11 +25,11 @@ function NestedList(props: React.HTMLProps<HTMLUListElement>) {
   );
 }
 
-const TechnicalSkills = ({
+export function TechnicalSkills({
   technicalSkills = defaultTechnicalSkills,
 }: {
   technicalSkills?: typeof defaultTechnicalSkills;
-}) => {
+}) {
   const mapTechnicalSkills = (item, index) => {
     if (typeof item === "string") {
       return <li key={index}>{item}</li>;
@@ -69,6 +69,6 @@ const TechnicalSkills = ({
       </div>
     </div>
   );
-};
+}
 
 export default TechnicalSkills;

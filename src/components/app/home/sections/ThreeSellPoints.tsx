@@ -12,11 +12,11 @@ function Item({ title, children, ...props }: Props) {
   );
 }
 
-const ThreeSellPoints = ({
+export function ThreeSellPoints({
   threeSellPoints = defaultThreeSellPoints,
 }: {
   threeSellPoints?: typeof defaultThreeSellPoints;
-}) => {
+}) {
   return (
     <div
       className="p-6 pt-16 pb-16 bg-dolly-200 dark:bg-neutral-800"
@@ -33,6 +33,6 @@ const ThreeSellPoints = ({
       </div>
     </div>
   );
-};
+}
 
 export default ThreeSellPoints;

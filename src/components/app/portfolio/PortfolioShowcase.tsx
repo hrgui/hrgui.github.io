@@ -5,7 +5,7 @@ interface Props {
   hasTitle?: boolean;
 }
 
-const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
+export function PortfolioShowcase({ items, hasTitle = true }: Props) {
   return (
     <div className="p-6 bg-saltpan-200 dark:bg-stone-900 dark:text-gray-200">
       <div className="container mx-auto">
@@ -37,6 +37,6 @@ const PortfolioShowcase = ({ items, hasTitle = true }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PortfolioShowcase;

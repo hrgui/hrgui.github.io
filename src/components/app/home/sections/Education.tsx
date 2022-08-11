@@ -1,11 +1,11 @@
 import { education as defaultEducation } from "@/constants";
 import { Fragment } from "react";
 
-const Education = ({
+export function Education({
   education = defaultEducation,
 }: {
   education?: typeof defaultEducation;
-}) => {
+}) {
   return (
     <div
       className="p-6 pt-8 pb-8  dark:bg-neutral-800 dark:text-gray-100  dark:border-stone-700"
@@ -52,6 +52,6 @@ const Education = ({
       </div>
     </div>
   );
-};
+}
 
 export default Education;
