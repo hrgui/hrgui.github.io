@@ -1,4 +1,5 @@
 import { PortfolioTechnology } from "types/frontmatter";
+import Pie from "@/components/charts/Pie";
 
 interface Props {
   data?: PortfolioTechnology[];
@@ -34,7 +35,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
       <h3 className="font-semibold text-2xl md:text-4xl text-gray-700 dark:text-gray-200 mb-6">
         Technologies Used
       </h3>
-      TODO
+      <Pie data={data} />
     </div>
   );
 };
