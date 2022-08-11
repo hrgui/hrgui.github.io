@@ -1,5 +1,5 @@
 import { education as defaultEducation } from "@/constants";
-import { Fragment } from "react";
+import { Fragment } from "preact";
 
 export function Education({
   education = defaultEducation,

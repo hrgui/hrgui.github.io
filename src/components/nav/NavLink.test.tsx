@@ -1,5 +1,5 @@
 import { it, vi, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/preact";
 import { NavLink } from "./NavLink";
 import userEvent from "@testing-library/user-event";
 

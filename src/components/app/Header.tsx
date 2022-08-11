@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 import Menu from "../icons/Menu";
 import Logo from "./Logo";
 
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Header = ({ currentPathName }: Props) => {
-  const [isOpen, setisOpen] = React.useState(false);
+  const [isOpen, setisOpen] = useState(false);
   const handleSetIsOpen = () => setisOpen(!isOpen);
   const trigger = useScrollTrigger({
     disableHysteresis: true,

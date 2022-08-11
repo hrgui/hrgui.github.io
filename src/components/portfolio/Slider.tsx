@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useCallback, useEffect } from "preact/hooks";
+import { cloneElement, toChildArray } from "preact";
 import classnames from "classnames";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
@@ -12,11 +13,11 @@ export default function Slider({
   isAutoPlay: defaultIsAutoPlay = true,
   ...props
 }: Props) {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [isAutoPlay, setIsAutoPlay] = React.useState(defaultIsAutoPlay);
-  const images = React.Children.toArray(children);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(defaultIsAutoPlay);
+  const images = toChildArray(children);
 
-  const handleChangeImage = React.useCallback(
+  const handleChangeImage = useCallback(
     function (newIndex) {
       if (newIndex > images.length - 1) {
         newIndex = 0;
@@ -31,7 +32,7 @@ export default function Slider({
     [setCurrentIndex, images.length]
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isAutoPlay) {
       return;
     }
@@ -49,8 +50,8 @@ export default function Slider({
   return (
     <div className={className} {...props}>
       <div className="container mx-auto flex items-center justify-center relative overflow-hidden h-56 lg:h-hero">
-        {React.Children.map(children, (child, i) => {
-          return React.cloneElement(child as React.ReactElement, {
+        {images.map((child, i) => {
+          return cloneElement(child, {
             className: classnames("absolute transition duration-500", {
               "opacity-100": currentIndex === i,
               "opacity-0": currentIndex !== i,

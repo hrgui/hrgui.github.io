@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "preact/hooks";
 
 export function useTransitionEnd(elementRef: RefObject<Element>) {
   const [transitionEnded, setTransitionEnded] = useState(false);
