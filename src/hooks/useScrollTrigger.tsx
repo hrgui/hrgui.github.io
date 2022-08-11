@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef, useState, useEffect } from "preact/hooks";
 
 function defaultTrigger(store, options) {
   const { disableHysteresis = false, threshold = 100, target } = options;
@@ -36,10 +36,10 @@ export default function useScrollTrigger(
     target = defaultTarget,
     ...other
   } = options;
-  const store = React.useRef();
-  const [trigger, setTrigger] = React.useState(() => getTrigger(store, other));
+  const store = useRef();
+  const [trigger, setTrigger] = useState(() => getTrigger(store, other));
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setTrigger(getTrigger(store, { target, ...other }));
     };

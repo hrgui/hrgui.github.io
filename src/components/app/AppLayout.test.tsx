@@ -1,4 +1,4 @@
-import { screen, render, within } from "@testing-library/react";
+import { screen, render, within } from "@testing-library/preact";
 import { test } from "vitest";
 import AppLayout from "./AppLayout";
 

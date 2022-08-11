@@ -1,4 +1,4 @@
-import React from "react";
+import { cloneElement } from "preact";
 import Drawer from "../layout/Drawer";
 import Logo from "@/components/app/Logo";
 
@@ -12,9 +12,7 @@ const NavDrawer = ({ isOpen = false, links, onLinkClicked }: Props) => {
   return (
     <Drawer isOpen={isOpen}>
       <Logo className="flex items-center pl-5 h-16 border-b-2 border-gray-700 mb-2" />
-      {links.map((link) =>
-        React.cloneElement(link, { onClick: onLinkClicked })
-      )}
+      {links.map((link) => cloneElement(link, { onClick: onLinkClicked }))}
     </Drawer>
   );
 };

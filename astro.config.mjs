@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,15 +8,20 @@ export default defineConfig({
     remarkPlugins: [
       "remark-gfm",
       "remark-smartypants",
-      ["remark-mermaid", { simple: true }],
+      [
+        "remark-mermaid",
+        {
+          simple: true,
+        },
+      ],
     ],
   },
   integrations: [
-    react(),
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
+    preact(),
   ],
 });

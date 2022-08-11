@@ -1,12 +1,12 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from "vitest/config"
-import react from "@vitejs/plugin-react"
-import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "vitest/config";
+import preact from "@preact/preset-vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [preact(), tsconfigPaths()],
   test: {
     environment: "jsdom",
     globals: true,
@@ -15,4 +15,4 @@ export default defineConfig({
       reporter: ["text", "text-summary", "html"],
     },
   },
-})
+});
