@@ -1,6 +1,10 @@
-import { Chart } from "chart.js";
+import {
+  Chart,
+  PieController,
+  ArcElement,
+  Tooltip,
+} from "chart.js/dist/chart.mjs";
 import { useEffect, useRef } from "preact/hooks";
-import { PieController, ArcElement, Tooltip } from "chart.js";
 
 Chart.register(PieController, ArcElement, Tooltip);
 
