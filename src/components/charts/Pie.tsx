@@ -8,9 +8,14 @@ import { useEffect, useRef } from "preact/hooks";
 
 Chart.register(PieController, ArcElement, Tooltip);
 
-//TODO types for data
+type Dataset = {
+  data?: number[];
+  backgroundColor?: string[];
+  hoverBackgroundColor?: string[];
+};
+
 type Props = {
-  data: any;
+  data: { labels: string[]; datasets: Dataset[] };
 };
 
 const Pie = ({ data }: Props) => {
