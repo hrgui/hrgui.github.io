@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "preact/hooks";
+import { useState, useCallback, useEffect, useRef } from "preact/hooks";
 import { cloneElement, toChildArray } from "preact";
 import classnames from "classnames";
 
@@ -15,6 +15,7 @@ export default function Slider({
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(defaultIsAutoPlay);
+  const carouselRef = useRef<HTMLDivElement>();
   const images = toChildArray(children);
 
   const handleChangeImage = useCallback(
@@ -28,8 +29,14 @@ export default function Slider({
       }
 
       setCurrentIndex(newIndex);
+      carouselRef.current
+        .querySelector(`#carousel__item--${newIndex}`)
+        ?.scrollIntoView({
+          behavior: "smooth",
+          inline: "start",
+        });
     },
-    [setCurrentIndex, images.length]
+    [setCurrentIndex, images.length, carouselRef.current]
   );
 
   useEffect(() => {
@@ -43,57 +50,51 @@ export default function Slider({
     return () => clearInterval(interval);
   }, [currentIndex, handleChangeImage, isAutoPlay]);
 
-  function handleChangeAutoPlay() {
-    setIsAutoPlay(!isAutoPlay);
-  }
+  const heightClassName = `h-[300px] lg:h-[600px]`;
 
   return (
-    <div className={className} {...props}>
-      <div className="container mx-auto flex items-center justify-center relative overflow-hidden h-56 lg:h-hero">
+    <div className="relative container mx-auto">
+      <div
+        className={classnames(`carousel`, className, heightClassName)}
+        ref={carouselRef}
+        {...props}
+      >
         {images.map((child, i) => {
           return cloneElement(child, {
-            className: classnames("absolute transition duration-500", {
-              "opacity-100": currentIndex === i,
-              "opacity-0": currentIndex !== i,
+            id: `carousel__item--${i}`,
+            className: classnames("carousel__item", heightClassName, {
+              b: currentIndex === i,
+              a: currentIndex !== i,
             }),
           });
         })}
       </div>
-      <div className="flex items-center justify-center w-full">
+
+      <div className="flex items-center justify-center w-full absolute h-full z-10 top-0 text-3xl">
         <button
-          className={classnames("p-2 text-gray-500 dark:text-gray-300", {
-            "font-medium": isAutoPlay,
-          })}
-          onClick={handleChangeAutoPlay}
-        >
-          {isAutoPlay ? "AutoPlay" : "Manual"}
-        </button>
-        <button
-          className="text-gray-500 dark:text-gray-300"
+          className="text-gray-500 dark:text-gray-300 bg-black p-4"
           onClick={() => handleChangeImage(currentIndex - 1)}
         >
-          Prev
+          &laquo;
         </button>
+        <button
+          className="text-gray-500 dark:text-gray-300 bg-black p-4 ml-auto"
+          onClick={() => handleChangeImage(currentIndex + 1)}
+        >
+          &raquo;
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center w-full absolute bottom-0 z-10">
         {images.map((img, i) => (
           <button
             onClick={() => handleChangeImage(i)}
-            className={classnames(
-              "p-2 transition duration-1000 text-gray-500 dark:text-gray-300 hover:font-medium",
-              {
-                "font-semibold": currentIndex === i,
-              }
-            )}
+            className={classnames("carousel__dot", {
+              active: currentIndex === i,
+            })}
             key={i}
-          >
-            {i + 1}
-          </button>
+          ></button>
         ))}
-        <button
-          className="text-gray-500 dark:text-gray-300"
-          onClick={() => handleChangeImage(currentIndex + 1)}
-        >
-          Next
-        </button>
       </div>
     </div>
   );
