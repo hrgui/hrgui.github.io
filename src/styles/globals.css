@@ -49,7 +49,7 @@
 /* note height is in the slider */
 .carousel {
   scroll-snap-type: x mandatory;
-  overflow: hidden;
+  overflow-x: scroll;
   @apply flex relative;
 }
 

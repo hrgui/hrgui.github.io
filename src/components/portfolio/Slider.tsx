@@ -7,6 +7,17 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
+function isInViewport(element: Element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
 export default function Slider({
   className,
   children,
@@ -14,7 +25,7 @@ export default function Slider({
   ...props
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(defaultIsAutoPlay);
+  const [isAutoPlay] = useState(defaultIsAutoPlay);
   const carouselRef = useRef<HTMLDivElement>();
   const images = toChildArray(children);
 
@@ -32,12 +43,34 @@ export default function Slider({
       carouselRef.current
         .querySelector(`#carousel__item--${newIndex}`)
         ?.scrollIntoView({
+          block: "center",
           behavior: "smooth",
           inline: "start",
         });
     },
     [setCurrentIndex, images.length, carouselRef.current]
   );
+
+  const handleChangeImageByScroll: any = () => {
+    const carousel = carouselRef.current;
+
+    const allCarouselItems = Array.from(
+      carousel.querySelectorAll(".carousel__item")
+    );
+
+    for (const carouselItem of allCarouselItems) {
+      const itemIsSupposedToBeActive = isInViewport(carouselItem);
+      if (itemIsSupposedToBeActive) {
+        // console.log(carouselItem);
+
+        const carouselIndex = +carouselItem.getAttribute("data-carousel-index");
+
+        if (currentIndex !== carouselIndex) {
+          setCurrentIndex(+carouselIndex);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     if (!isAutoPlay) {
@@ -56,11 +89,13 @@ export default function Slider({
     <div className="relative container mx-auto">
       <div
         className={classnames(`carousel`, className, heightClassName)}
+        onScroll={handleChangeImageByScroll}
         ref={carouselRef}
         {...props}
       >
         {images.map((child, i) => {
           return cloneElement(child, {
+            "data-carousel-index": i,
             id: `carousel__item--${i}`,
             className: classnames("carousel__item", heightClassName, {
               b: currentIndex === i,
@@ -70,21 +105,19 @@ export default function Slider({
         })}
       </div>
 
-      <div className="flex items-center justify-center w-full absolute h-full z-10 top-0 text-3xl">
-        <button
-          className="text-gray-500 dark:text-gray-300 bg-black p-4"
-          onClick={() => handleChangeImage(currentIndex - 1)}
-        >
-          &laquo;
-        </button>
-        <button
-          className="text-gray-500 dark:text-gray-300 bg-black p-4 ml-auto"
-          onClick={() => handleChangeImage(currentIndex + 1)}
-        >
-          &raquo;
-        </button>
-      </div>
+      <button
+        className="text-gray-500 dark:text-gray-300 bg-black p-4 absolute top-[50%]"
+        onClick={() => handleChangeImage(currentIndex - 1)}
+      >
+        &laquo;
+      </button>
 
+      <button
+        className="text-gray-500 dark:text-gray-300 bg-black p-4 absolute top-[50%] right-0"
+        onClick={() => handleChangeImage(currentIndex + 1)}
+      >
+        &raquo;
+      </button>
       <div className="flex items-center justify-center w-full absolute bottom-0 z-10">
         {images.map((img, i) => (
           <button
