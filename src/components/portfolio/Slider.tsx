@@ -7,6 +7,11 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
+/**
+ * Determines if the element is currently in view.
+ * @param element
+ * @returns
+ */
 function isInViewport(element: Element) {
   const rect = element.getBoundingClientRect();
   return (
@@ -16,6 +21,27 @@ function isInViewport(element: Element) {
       (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
+}
+
+/**
+ * Scrolls into element view. Unlike el.scrollIntoView, this only scrolls into the element's viewport.
+ * @param element Container element to scroll from.
+ * @param elToScrollTo Element scrolling into.
+ * @returns
+ */
+function scrollIntoElementView(element: Element, elToScrollTo: Element): void {
+  if (!element || !elToScrollTo) {
+    return;
+  }
+
+  const elToScrollToBoundingClientRect = elToScrollTo.getBoundingClientRect();
+  const left = element.scrollLeft + elToScrollToBoundingClientRect.left;
+
+  element.scrollTo({
+    top: 0,
+    left,
+    behavior: "smooth",
+  });
 }
 
 export default function Slider({
@@ -40,13 +66,12 @@ export default function Slider({
       }
 
       setCurrentIndex(newIndex);
-      carouselRef.current
-        .querySelector(`#carousel__item--${newIndex}`)
-        ?.scrollIntoView({
-          block: "center",
-          behavior: "smooth",
-          inline: "start",
-        });
+
+      const elToScrollTo = carouselRef.current.querySelector(
+        `#carousel__item--${newIndex}`
+      );
+
+      scrollIntoElementView(carouselRef.current, elToScrollTo);
     },
     [setCurrentIndex, images.length, carouselRef.current]
   );
@@ -61,8 +86,6 @@ export default function Slider({
     for (const carouselItem of allCarouselItems) {
       const itemIsSupposedToBeActive = isInViewport(carouselItem);
       if (itemIsSupposedToBeActive) {
-        // console.log(carouselItem);
-
         const carouselIndex = +carouselItem.getAttribute("data-carousel-index");
 
         if (currentIndex !== carouselIndex) {
