@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "preact/hooks";
 import { cloneElement, toChildArray } from "preact";
+import debounce from "lodash.debounce";
 import classnames from "classnames";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
@@ -37,7 +38,7 @@ function scrollIntoElementView(element: Element, elToScrollTo: Element): void {
   const elToScrollToBoundingClientRect = elToScrollTo.getBoundingClientRect();
   const left = element.scrollLeft + elToScrollToBoundingClientRect.left;
 
-  element.scrollTo({
+  return element.scrollTo({
     top: 0,
     left,
     behavior: "smooth",
@@ -54,6 +55,7 @@ export default function Slider({
   const [isAutoPlay] = useState(defaultIsAutoPlay);
   const carouselRef = useRef<HTMLDivElement>();
   const images = toChildArray(children);
+  const heightClassName = `h-[300px] lg:h-[600px]`;
 
   const handleChangeImage = useCallback(
     function (newIndex) {
@@ -65,18 +67,21 @@ export default function Slider({
         newIndex = images.length - 1;
       }
 
-      setCurrentIndex(newIndex);
-
       const elToScrollTo = carouselRef.current.querySelector(
         `#carousel__item--${newIndex}`
       );
-
-      scrollIntoElementView(carouselRef.current, elToScrollTo);
+      if (elToScrollTo) {
+        scrollIntoElementView(carouselRef.current, elToScrollTo);
+      } else {
+        //TODO: this doesn't work the way expected
+        // it just "jumps" because the el is not in the stage
+        setCurrentIndex(newIndex);
+      }
     },
     [setCurrentIndex, images.length, carouselRef.current]
   );
 
-  const handleChangeImageByScroll: any = () => {
+  const _handleChangeImageByScroll: any = () => {
     const carousel = carouselRef.current;
 
     const allCarouselItems = Array.from(
@@ -95,6 +100,41 @@ export default function Slider({
     }
   };
 
+  const handleChangeImageByScroll = debounce(_handleChangeImageByScroll, 50);
+
+  const getStagedImages = (images: any[], currentIndex: number) => {
+    const createProps = (index: number) => ({
+      "data-carousel-index": index,
+      id: `carousel__item--${index}`,
+      className: classnames("carousel__item", heightClassName),
+    });
+
+    const current = cloneElement(
+      images[currentIndex],
+      createProps(currentIndex)
+    );
+
+    if (images.length === 1) {
+      return [current];
+    }
+
+    const prevIndex =
+      currentIndex - 1 < 0 ? images.length - 1 : currentIndex - 1;
+    const nextIndex = currentIndex + 1 >= images.length ? 0 : currentIndex + 1;
+
+    const prev = cloneElement(images[prevIndex], createProps(prevIndex));
+    const next = cloneElement(images[nextIndex], createProps(nextIndex));
+    return [prev, current, next];
+  };
+
+  useEffect(() => {
+    if (!carouselRef.current) {
+      return;
+    }
+
+    carouselRef.current.scrollLeft = carouselRef.current.clientWidth;
+  }, [currentIndex, carouselRef.current]);
+
   useEffect(() => {
     if (!isAutoPlay) {
       return;
@@ -106,8 +146,6 @@ export default function Slider({
     return () => clearInterval(interval);
   }, [currentIndex, handleChangeImage, isAutoPlay]);
 
-  const heightClassName = `h-[300px] lg:h-[600px]`;
-
   return (
     <div className="relative container mx-auto">
       <div
@@ -116,16 +154,7 @@ export default function Slider({
         ref={carouselRef}
         {...props}
       >
-        {images.map((child, i) => {
-          return cloneElement(child, {
-            "data-carousel-index": i,
-            id: `carousel__item--${i}`,
-            className: classnames("carousel__item", heightClassName, {
-              b: currentIndex === i,
-              a: currentIndex !== i,
-            }),
-          });
-        })}
+        {getStagedImages(images, currentIndex)}
       </div>
 
       <button
@@ -144,6 +173,7 @@ export default function Slider({
       <div className="flex items-center justify-center w-full absolute bottom-0 z-10">
         {images.map((img, i) => (
           <button
+            aria-label={`Navigate to Item ${i + 1}`}
             onClick={() => handleChangeImage(i)}
             className={classnames("carousel__dot", {
               active: currentIndex === i,
