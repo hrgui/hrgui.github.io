@@ -30,7 +30,11 @@ function isInViewport(element: Element) {
  * @param elToScrollTo Element scrolling into.
  * @returns
  */
-function scrollIntoElementView(element: Element, elToScrollTo: Element): void {
+function scrollIntoElementView(
+  element: Element,
+  elToScrollTo: Element,
+  isJump: boolean = false
+): void {
   if (!element || !elToScrollTo) {
     return;
   }
@@ -41,9 +45,11 @@ function scrollIntoElementView(element: Element, elToScrollTo: Element): void {
   return element.scrollTo({
     top: 0,
     left,
-    behavior: "smooth",
+    behavior: isJump ? "auto" : "smooth",
   });
 }
+
+const AUTOPLAY_DURATION = 10000;
 
 export default function Slider({
   className,
@@ -59,24 +65,23 @@ export default function Slider({
 
   const handleChangeImage = useCallback(
     function (newIndex) {
+      let hasWrapped = false;
       if (newIndex > images.length - 1) {
         newIndex = 0;
+        hasWrapped = true;
       }
 
       if (newIndex < 0) {
+        hasWrapped = true;
         newIndex = images.length - 1;
       }
 
       const elToScrollTo = carouselRef.current.querySelector(
-        `#carousel__item--${newIndex}`
+        !hasWrapped
+          ? `#carousel__item--${newIndex}`
+          : `#carousel__item--duplicate--${newIndex}`
       );
-      if (elToScrollTo) {
-        scrollIntoElementView(carouselRef.current, elToScrollTo);
-      } else {
-        //TODO: this doesn't work the way expected
-        // it just "jumps" because the el is not in the stage
-        setCurrentIndex(newIndex);
-      }
+      scrollIntoElementView(carouselRef.current, elToScrollTo);
     },
     [setCurrentIndex, images.length, carouselRef.current]
   );
@@ -103,36 +108,54 @@ export default function Slider({
   const handleChangeImageByScroll = debounce(_handleChangeImageByScroll, 50);
 
   const getStagedImages = (images: any[], currentIndex: number) => {
-    const createProps = (index: number) => ({
+    const createProps = (index: number, isDuplicate: boolean = false) => ({
       "data-carousel-index": index,
-      id: `carousel__item--${index}`,
+      "data-testid": `carousel__item--${index}${
+        isDuplicate ? "--duplicate" : ""
+      }${currentIndex === index ? "--active" : ""}`,
+      id: isDuplicate
+        ? `carousel__item--duplicate--${index}`
+        : `carousel__item--${index}`,
       className: classnames("carousel__item", heightClassName),
     });
 
-    const current = cloneElement(
-      images[currentIndex],
-      createProps(currentIndex)
-    );
-
-    if (images.length === 1) {
-      return [current];
-    }
-
-    const prevIndex =
-      currentIndex - 1 < 0 ? images.length - 1 : currentIndex - 1;
-    const nextIndex = currentIndex + 1 >= images.length ? 0 : currentIndex + 1;
-
-    const prev = cloneElement(images[prevIndex], createProps(prevIndex));
-    const next = cloneElement(images[nextIndex], createProps(nextIndex));
-    return [prev, current, next];
+    return [
+      cloneElement(
+        images[images.length - 1],
+        createProps(images.length - 1, true)
+      ),
+      ...images.map((child, i) => cloneElement(child, createProps(i))),
+      cloneElement(images[0], createProps(0, true)),
+    ];
   };
 
+  // this effect is needed since the last image and first image are duplicated
   useEffect(() => {
     if (!carouselRef.current) {
       return;
     }
 
-    carouselRef.current.scrollLeft = carouselRef.current.clientWidth;
+    const normalElSelector = `#carousel__item--${currentIndex}`;
+    const duplicateElSelector = `#carousel__item--duplicate--${currentIndex}`;
+
+    const currentEl = carouselRef.current.querySelector(normalElSelector);
+    const duplicateEl = carouselRef.current.querySelector(duplicateElSelector);
+
+    if (currentEl && duplicateEl) {
+      if (isInViewport(duplicateEl)) {
+        // on the duplicate
+        // need to jump the scrollbar position
+        scrollIntoElementView(carouselRef.current, currentEl, true);
+      } else {
+        if (!isInViewport(currentEl)) {
+          scrollIntoElementView(carouselRef.current, currentEl, true);
+        }
+      }
+    } else {
+      if (!isInViewport(currentEl)) {
+        scrollIntoElementView(carouselRef.current, currentEl);
+      }
+    }
   }, [currentIndex, carouselRef.current]);
 
   useEffect(() => {
@@ -142,7 +165,7 @@ export default function Slider({
 
     const interval = setInterval(() => {
       handleChangeImage(currentIndex + 1);
-    }, 10000);
+    }, AUTOPLAY_DURATION);
     return () => clearInterval(interval);
   }, [currentIndex, handleChangeImage, isAutoPlay]);
 
