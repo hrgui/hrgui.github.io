@@ -57,7 +57,7 @@ So what will allow me to do this?
 <a href="https://astro.build/" target="__blank">
   <div class="aspect-w-16 aspect-h-9 p-4 bg-black">
     <div class="flex items-center justify-center">
-      <img class="w-3/4 h-auto max-h-16 sm:max-h-32" src="/images/blog/astro.svg" alt="Full Logo Dark">
+      <img class="w-3/4 h-auto max-h-16 sm:max-h-32" src="/images/blog/astro.svg" alt="Astro">
     </div>
   </div>
 </a>
