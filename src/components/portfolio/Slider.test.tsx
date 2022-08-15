@@ -28,10 +28,9 @@ it("should render normally without crashing - base case", () => {
       </div>
     </Slider>
   );
-  expect(screen.getByTestId("d")).toBeInTheDocument();
-  expect(screen.getByTestId("a")).toBeInTheDocument();
-  expect(screen.getByTestId("b")).toBeInTheDocument();
   expect(screen.getByLabelText(`Navigate to Item 1`)).toBeInTheDocument();
+  expect(screen.getByLabelText(`Navigate to Item 2`)).toBeInTheDocument();
+  expect(screen.getByLabelText(`Navigate to Item 3`)).toBeInTheDocument();
   expect(screen.getByLabelText(`Navigate to Item 4`)).toBeInTheDocument();
 });
 
@@ -61,9 +60,6 @@ describe("navigation by buttons", () => {
         </div>
       </Slider>
     );
-    expect(screen.getByTestId("d")).toBeInTheDocument();
-    expect(screen.getByTestId("a")).toBeInTheDocument();
-    expect(screen.getByTestId("b")).toBeInTheDocument();
     expect(screen.getByLabelText(`Navigate to Item 1`)).toBeInTheDocument();
 
     const itemToClick = screen.getByLabelText(`Navigate to Item 2`);
@@ -71,13 +67,5 @@ describe("navigation by buttons", () => {
     expect(itemToClick).toBeInTheDocument();
 
     await userEvent.click(itemToClick);
-
-    expect(screen.getByTestId("a")).toBeInTheDocument();
-    expect(screen.getByTestId("b")).toBeInTheDocument();
-    expect(screen.getByTestId("c")).toBeInTheDocument();
-
-    screen.debug();
-
-    // expect(screen.getByLabelText(`Navigate to Item 4`)).toBeInTheDocument();
   });
 });
