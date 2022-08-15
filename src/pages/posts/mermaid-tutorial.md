@@ -66,13 +66,6 @@ Here are the operations that it supports:
 
 Participants can be declared explicitly or implicitly. For example, this is how it works implicitly:
 
-```
-sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-    Alice-)John: See you later!
-```
-
 ```mermaid
 sequenceDiagram
     Alice->>John: Hello John, how are you?
@@ -81,14 +74,6 @@ sequenceDiagram
 ```
 
 Mermaid will know that the participants are `Alice` and `John`. They are rendered according to the order of appearance in the diagram source text. However, sometimes we want to show the participants in a different order. To do this, we declare the participants upfront using the `participant` keyword. At the same time, this will declare how the order looks like.
-
-```
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>Bob: Hi Bob
-    Bob->>Alice: Hi Alice
-```
 
 ```mermaid
 sequenceDiagram
@@ -99,14 +84,6 @@ sequenceDiagram
 ```
 
 If we want to use the actor symbol, instead of using `participant`, just use the keyword `actor`:
-
-```
-sequenceDiagram
-    actor Alice
-    participant Bob
-    Alice->>Bob: Hi Bob
-    Bob->>Alice: Hi Alice
-```
 
 ```mermaid
 sequenceDiagram
@@ -162,24 +139,6 @@ CAR {
 
 A fully-fledged entity-relationship diagram can look like the following:
 
-```
-erDiagram
-    CAR ||--o{ NAMED-DRIVER : allows
-    CAR {
-        string allowedDriver FK "The license of the allowed driver"
-        string registrationNumber
-        string make
-        string model
-    }
-    PERSON ||--o{ NAMED-DRIVER : is
-    PERSON {
-        string driversLicense PK "The license #"
-        string firstName
-        string lastName
-        int age
-    }
-```
-
 ```mermaid
 erDiagram
     CAR ||--o{ NAMED-DRIVER : allows
@@ -230,22 +189,12 @@ Here are the possible flowchart orientations:
 
 To make a node, all we need to do is just write something. To make a node called `a`, here's the example:
 
-```
-flowchart LR
-    a
-```
-
 ```mermaid
 flowchart LR
     a
 ```
 
 I can then also write different text in the node, like so:
-
-```
-flowchart LR
-    a[Node A]
-```
 
 ```mermaid
 flowchart LR
@@ -256,13 +205,6 @@ flowchart LR
 
 With multiple nodes, we can create arrows in between them.
 
-```
-flowchart LR
-    a[Node A]
-    b[Node B]
-    a --> b
-```
-
 ```mermaid
 flowchart LR
     a[Node A]
@@ -271,15 +213,6 @@ flowchart LR
 ```
 
 Using what we know about nodes and arrows, we can come up with something like the following:
-
-```
-flowchart TD
-    A[Start] --> B{Is it?}
-    B -->|Yes| C[OK]
-    C --> D[Rethink]
-    D --> B
-    B ---->|No| E[End]
-```
 
 ```mermaid
 flowchart TD
@@ -324,7 +257,7 @@ Of course, `yarn add remark-mermaid` to add it.
 Lastly, in the head of the HTML page, I included the following snippet:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.5/dist/mermaid.min.js"></script>
 ```
 
 I also added the following CSS, to make it look a little pretty:
@@ -339,4 +272,4 @@ I also added the following CSS, to make it look a little pretty:
 }
 ```
 
-> Why did I fix it to 9.1.3? It's because there's a issue with version 9.1.4+. Subsequent sequence diagrams are merged with prior sequence diagrams. [See this issue](https://github.com/mermaid-js/mermaid/issues/3305).
+> Why did I fix it to 9.1.4? It's because there's a issue with version 9.1.4. Subsequent sequence diagrams are merged with prior sequence diagrams. [See this issue](https://github.com/mermaid-js/mermaid/issues/3305). It is fixed in v9.1.5

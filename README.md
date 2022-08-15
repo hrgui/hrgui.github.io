@@ -26,6 +26,8 @@ yarn dev
 - [Vercel](https://vercel.com/) for Build Previews
 - [Github Pages](https://pages.github.com/) for Production
 
+Note: I added [remark-mermaid](https://github.com/temando/remark-mermaid) into utils and slightly modified it so that it is always simple mode and always returns a `pre` + `<div class="mermaid"></div>`. This allows mermaid code blocks to be included.
+
 # Outputs
 
 - `dist` - this is the output of the build
