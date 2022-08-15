@@ -1,7 +1,7 @@
-import React from "react";
 import { twMerge } from "tailwind-merge";
+import { JSX } from "preact";
 
-interface Props extends React.SVGProps<SVGSVGElement> {}
+interface Props extends JSX.SVGAttributes<SVGSVGElement> {}
 
 const Github = ({ className, ...props }: Props) => {
   const _className = twMerge("w-6 h-6 fill-current", className);

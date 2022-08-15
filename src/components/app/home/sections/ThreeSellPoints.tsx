@@ -1,7 +1,7 @@
 import { threeSellPoints as defaultThreeSellPoints } from "@/constants";
-import React from "react";
+import { JSX } from "preact";
 
-interface Props extends React.HTMLProps<HTMLDivElement> {}
+interface Props extends JSX.HTMLAttributes<HTMLDivElement> {}
 
 function Item({ title, children, ...props }: Props) {
   return (

@@ -1,9 +1,9 @@
-import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { ComponentChildren } from "preact";
 
 interface Props {
-  children?: React.ReactNode;
+  children?: ComponentChildren;
   currentUrl?: string;
   currentPathName?: string;
 }

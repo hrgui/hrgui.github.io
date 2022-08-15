@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import React from "react";
+import { JSX } from "preact";
 
 type Props = {
   isOpen?: boolean;
-} & React.HTMLProps<HTMLElement>;
+} & JSX.HTMLAttributes<HTMLElement>;
 
 const Drawer = ({ isOpen = false, children, className, ...props }: Props) => {
   return (

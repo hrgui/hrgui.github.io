@@ -1,12 +1,12 @@
-import React from "react";
 import { technicalSkills as defaultTechnicalSkills } from "@/constants";
+import { JSX } from "preact";
 
 function TechnicalSection({
   title,
   children,
   ...props
-}: Omit<React.HTMLProps<HTMLDivElement>, "title"> & {
-  title: React.ReactElement;
+}: Omit<JSX.HTMLAttributes<HTMLDivElement>, "title"> & {
+  title: JSX.Element | string;
 }) {
   return (
     <div className="mt-8 mb-8 pb-8" {...props}>
@@ -16,7 +16,7 @@ function TechnicalSection({
   );
 }
 
-function NestedList(props: React.HTMLProps<HTMLUListElement>) {
+function NestedList(props: JSX.HTMLAttributes<HTMLUListElement>) {
   return (
     <ul
       className="border-l-2 border-gray-700 pl-4 pt-4 pb-4 mt-2 mb-2"

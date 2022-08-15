@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from "preact/hooks";
-import { cloneElement, toChildArray } from "preact";
+import { cloneElement, toChildArray, JSX } from "preact";
 import debounce from "lodash.debounce";
 import classnames from "classnames";
 
-interface Props extends React.HTMLProps<HTMLDivElement> {
+interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   isAutoPlay?: boolean;
   className?: string;
 }

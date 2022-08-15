@@ -1,9 +1,11 @@
+import type { JSX } from "preact";
+
 export interface PortfolioTechnology {
   type?: string;
   value?: number;
 }
 
-interface PortfolioIframe extends React.HTMLProps<HTMLIFrameElement> {}
+interface PortfolioIframe extends JSX.HTMLAttributes<HTMLIFrameElement> {}
 
 export type PortfolioFrontmatter = {
   slug?: string;

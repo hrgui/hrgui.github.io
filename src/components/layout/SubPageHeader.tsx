@@ -1,8 +1,8 @@
-import React from "react";
+import { ComponentChildren } from "preact";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
-  children?: React.ReactNode;
+  children?: ComponentChildren;
   bgClassName?: string;
   className?: string;
 };

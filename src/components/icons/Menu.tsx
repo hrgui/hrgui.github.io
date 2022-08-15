@@ -1,6 +1,6 @@
-import React from "react";
+import { JSX } from "preact";
 
-interface Props extends Omit<React.HTMLProps<SVGSVGElement>, "crossOrigin"> {
+interface Props extends Omit<JSX.HTMLAttributes<SVGSVGElement>, "crossOrigin"> {
   className?: string;
 }
 

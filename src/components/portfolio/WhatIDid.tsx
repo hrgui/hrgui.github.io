@@ -1,4 +1,3 @@
-import React from "react";
 import { PortfolioFrontmatter } from "types/frontmatter";
 
 type Props = Pick<PortfolioFrontmatter, "whatIDid">;

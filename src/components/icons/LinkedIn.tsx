@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
+import { JSX } from "preact";
 
-interface Props extends React.SVGProps<SVGSVGElement> {}
+interface Props extends JSX.HTMLAttributes<SVGSVGElement> {}
 
 const LinkedIn = ({ className, ...props }: Props) => {
   const _className = twMerge("w-6 h-6 fill-current", className);

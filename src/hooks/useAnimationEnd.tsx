@@ -1,4 +1,5 @@
-import { RefObject, useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
+import type { RefObject } from "preact";
 
 export function useAnimationEnd(elementRef: RefObject<Element>) {
   const [animationEnded, setAnimationEnded] = useState(false);

@@ -1,5 +1,7 @@
+import { ComponentChildren } from "preact";
+
 type Props = {
-  children: React.ReactNode;
+  children: ComponentChildren;
 };
 
 const BlogEntry = ({ children }: Props) => {

@@ -1,4 +1,4 @@
-import { cloneElement } from "preact";
+import { cloneElement, JSX } from "preact";
 import Drawer from "../layout/Drawer";
 import Logo from "@/components/app/Logo";
 
@@ -6,7 +6,7 @@ type Props = {
   links: JSX.Element[];
   isOpen?: boolean;
   onLinkClicked?: () => void;
-} & React.HTMLProps<HTMLElement>;
+} & JSX.HTMLAttributes<HTMLElement>;
 
 const NavDrawer = ({ isOpen = false, links, onLinkClicked }: Props) => {
   return (

@@ -1,9 +1,10 @@
 import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed";
+import { ComponentChildren } from "preact";
 import { PortfolioFrontmatter } from "../../types/frontmatter";
 import PortfolioMedia from "./PortfolioMedia";
 import WhatIDid from "./WhatIDid";
 
-type Props = PortfolioFrontmatter & { children?: React.ReactNode };
+type Props = PortfolioFrontmatter & { children?: ComponentChildren };
 
 const PortfolioEntry = ({
   title,
