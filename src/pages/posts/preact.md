@@ -2,7 +2,7 @@
 layout: ../../layouts/blog.astro
 title: "Going from React to Preact"
 date: "08/15/2022"
-excerpt: "I've crossed the dark side to the light: I switched to Preact for this blog."
+excerpt: "I've crossed the dark side to the light: I switched to Preact for this website only. I still will develop websites and web apps in React though."
 ---
 
 <a href="https://preactjs.com/" target="__blank">
@@ -13,11 +13,11 @@ excerpt: "I've crossed the dark side to the light: I switched to Preact for this
   </div>
 </a>
 
-I made the jump from [React](https://reactjs.org/) to [Preact](https://preactjs.com/) just recently for this blog. It was interesting.
+I made the jump from [React](https://reactjs.org/) to [Preact](https://preactjs.com/) just recently for this website. It was interesting.
 
 # Why did I do it?
 
-My mission for this blog is to always chase after speed. Make the website extremely fast without sacrificing anything.
+My mission for this website is to always chase after speed. Make the website extremely fast without sacrificing anything.
 
 > Fast 3kB alternative to React with the same modern API
 
@@ -26,7 +26,7 @@ My mission for this blog is to always chase after speed. Make the website extrem
 
 In total, that would be **44.5 kb**, while Preact alone is just [4kB](https://bundlephobia.com/package/preact@10.10.2) minified and gzipped. That's a **10x** reduction!
 
-Note that I did not add [preact-compat](https://preactjs.com/guide/v10/switching-to-preact/), because for my use case in the blog, I don't need it.
+Note that I did not add [preact-compat](https://preactjs.com/guide/v10/switching-to-preact/), because for my use case in the website, I don't need it.
 
 There's also performance claims [that preact's faster](https://javascript.plainenglish.io/i-built-the-same-app-with-react-and-preact-here-are-the-differences-b0da382a6f72), but for what I have here, it is probably negligible.
 
@@ -88,3 +88,13 @@ To see these changes in action, here were the relevant commits:
 - https://github.com/hrgui/hrgui.github.io/commit/9bcbc051169f783ee409a2db129d02a0466503d7 - the initial preact conversion
 - https://github.com/hrgui/hrgui.github.io/commit/ddd2d1b0b8fdc7402ac8c35eba081cb8c687dd5d - fix that I needed to make Vite happy with chart.js (it doesn't support ESM yet)
 - https://github.com/hrgui/hrgui.github.io/commit/fcfbc87a54025b6f616e6fa3d37d1cf226a4774a - for TypeScript
+
+---
+
+# Addendum
+
+> Fitting a square peg in a round hole.
+
+Don't get me wrong. It doesn't mean that if I converted my website to Preact that I'll move everything to React. I'll only do it if it makes sense. I work on my website by myself, and the website is very minimal in footprint. It also gives me good practice to become a better Frontend Engineer than relying on React libraries like material-ui or react-bootstrap for my site. So that is why I moved my entire website to Preact. I am always trying to improve my craft, or what we call, surpass my limits (anime reference).
+
+Moving actual, real-life applications with large teams with Preact requires a lot of research and buy-in from the team. If the team isn't for it, I would not do it. It just carries more tech debt. Later on, they might re-convert it back to React.
