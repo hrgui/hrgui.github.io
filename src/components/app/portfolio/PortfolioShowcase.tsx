@@ -19,10 +19,10 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
               <a
                 href={`/portfolio/${item.slug}`}
                 key={i}
-                className=" text-gray-200 block mb-4 hover:text-gray-100 sm:opacity-75 sm:hover:opacity-100 transition-all z-0 w-full h-52 overflow-hidden relative"
+                className=" text-gray-200 block mb-4 hover:text-gray-100 sm:opacity-75 sm:hover:opacity-100 transition-all z-0 w-full h-52 overflow-hidden relative rounded-lg"
               >
                 <img
-                  className="object-cover absolute h-52 z-10 w-full rounded-lg"
+                  className="object-cover absolute h-52 z-10 w-full rounded-lg hover:scale-105 transition-all"
                   loading="lazy"
                   src={item.thumbnail}
                   alt={item.title}
