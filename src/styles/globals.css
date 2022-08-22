@@ -68,14 +68,3 @@
 .carousel__item img {
   @apply w-full h-[300px] lg:h-[600px] object-cover;
 }
-
-.carousel__dot {
-  all: unset;
-  @apply w-4 h-4 bg-black ml-2 cursor-pointer transition-all opacity-70 hover:opacity-100;
-  border-radius: 1rem;
-  border: 1px solid #666;
-}
-
-.carousel__dot.active {
-  @apply opacity-100;
-}

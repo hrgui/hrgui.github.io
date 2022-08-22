@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "preact/hooks";
 import { cloneElement, toChildArray, JSX } from "preact";
 import debounce from "lodash.debounce";
 import classnames from "classnames";
+import SliderDot from "./SliderDot";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   isAutoPlay?: boolean;
@@ -193,16 +194,14 @@ export default function Slider({
       >
         &raquo;
       </button>
-      <div className="flex items-center justify-center w-full absolute bottom-0 z-10">
+      <div className="flex items-center space-x-3 justify-center w-full mt-4 bottom-0 z-10">
         {images.map((img, i) => (
-          <button
+          <SliderDot
+            active={currentIndex === i}
             aria-label={`Navigate to Item ${i + 1}`}
             onClick={() => handleChangeImage(i)}
-            className={classnames("carousel__dot", {
-              active: currentIndex === i,
-            })}
             key={i}
-          ></button>
+          />
         ))}
       </div>
     </div>
