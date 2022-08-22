@@ -74,7 +74,7 @@ const { data, status, error, fetchNextPage, hasNextPage } = useInfiniteQuery(
 
 The `useInfiniteQuery` hook has a method that we can leverage, `fetchNextPage`, which we can call whenever the dummy element we have is in view.
 
-I've written up an example. See it action [here](https://www.harmanradix.com/infinite-scroll-demo). The code is [here](https://github.com/hrgui/infinite-scroll-demo).
+I've written up an example. See it action [here](https://www.hrgui.dev/infinite-scroll-demo). The code is [here](https://github.com/hrgui/infinite-scroll-demo).
 
 ## Closing Thoughts
 

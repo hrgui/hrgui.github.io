@@ -5,13 +5,13 @@
   title: "infinite-scroll-demo",
   slug: "infinite-scroll-demo",
   githubUrl: "https://github.com/hrgui/infinite-scroll-demo",
-  demoUrl: "https://www.harmanradix.com/infinite-scroll-demo",
+  demoUrl: "https://www.hrgui.dev/infinite-scroll-demo",
   thumbnail: "/images/portfolio/infinite-scroll-demo.png",
   iframe:
     {
       scrolling: "yes",
       height: 538,
-      src: "https://www.harmanradix.com/infinite-scroll-demo",
+      src: "https://www.hrgui.dev/infinite-scroll-demo",
     },
   whatIDid:
     [

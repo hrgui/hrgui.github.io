@@ -5,10 +5,9 @@
   title: "tips",
   slug: "tips",
   githubUrl: "https://github.com/hrgui/tips",
-  demoUrl: "https://www.harmanradix.com/tips",
+  demoUrl: "https://www.hrgui.dev/tips",
   thumbnail: "/images/portfolio/tips.png",
-  iframe:
-    { scrolling: "no", height: 530, src: "https://www.harmanradix.com/tips" },
+  iframe: { scrolling: "no", height: 530, src: "https://www.hrgui.dev/tips" },
   whatIDid:
     ["Created a tips calculator application for tipping at restaurants"],
   technologiesUsed:

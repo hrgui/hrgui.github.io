@@ -6,9 +6,9 @@ test("should render a basic portfolio entry with thumbnail and images without cr
   render(
     <PortfolioEntry
       title="Title"
-      demoUrl="https://www.harmanradix.com"
-      githubUrl="https://www.harmanradix.com"
-      urls={["https://www.harmanradix.com"]}
+      demoUrl="https://www.hrgui.dev"
+      githubUrl="https://www.hrgui.dev"
+      urls={["https://www.hrgui.dev"]}
       whatIDid={["whatidid1", "whatidid2", "whatidid3"]}
       thumbnail={"test.jpg"}
       images={[
@@ -16,7 +16,7 @@ test("should render a basic portfolio entry with thumbnail and images without cr
         { src: "test1.jpg", thumbnail: "test1.jpg" },
         { src: "test2.jpg", thumbnail: "test2.jpg" },
       ]}
-      iframe={{ src: "https://www.harmanradix.com" }}
+      iframe={{ src: "https://www.hrgui.dev" }}
       technologiesUsed={[
         { type: "CSS", value: 91.3 },
         { type: "HTML", value: 8.7 },
@@ -26,9 +26,7 @@ test("should render a basic portfolio entry with thumbnail and images without cr
   expect(screen.getByText("Title")).toBeInTheDocument();
   expect(screen.getByText("Open Link / Demo in new Tab")).toBeInTheDocument();
   expect(screen.getByText("View Github Code")).toBeInTheDocument();
-  expect(
-    screen.getByText("Visit https://www.harmanradix.com")
-  ).toBeInTheDocument();
+  expect(screen.getByText("Visit https://www.hrgui.dev")).toBeInTheDocument();
   expect(screen.getByText("What I Did")).toBeInTheDocument();
   expect(screen.getByText("Technologies Used")).toBeInTheDocument();
   expect(screen.getByText("whatidid1")).toBeInTheDocument();
@@ -40,7 +38,7 @@ test("should render a basic portfolio entry with thumbnail without crashing", as
   render(
     <PortfolioEntry
       title="Title"
-      demoUrl="https://www.harmanradix.com"
+      demoUrl="https://www.hrgui.dev"
       whatIDid={["whatidid1", "whatidid2", "whatidid3"]}
       thumbnail={"test.jpg"}
     />

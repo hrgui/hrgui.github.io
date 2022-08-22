@@ -6,12 +6,12 @@
   thumbnail: "/images/portfolio/angryBirds.png",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-angrybird",
-  demoUrl: "https://www.harmanradix.com/css3-angrybird/",
+  demoUrl: "https://www.hrgui.dev/css3-angrybird/",
   iframe:
     {
       scrolling: "no",
       height: 850,
-      src: "https://www.harmanradix.com/css3-angrybird/",
+      src: "https://www.hrgui.dev/css3-angrybird/",
     },
   whatIDid:
     [

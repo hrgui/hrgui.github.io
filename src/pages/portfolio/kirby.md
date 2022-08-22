@@ -5,14 +5,10 @@
   slug: "kirby",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-kirby",
-  demoUrl: "https://www.harmanradix.com/css3-kirby/",
+  demoUrl: "https://www.hrgui.dev/css3-kirby/",
   thumbnail: "/images/portfolio/kirby.gif",
   iframe:
-    {
-      scrolling: "no",
-      height: 550,
-      src: "https://www.harmanradix.com/css3-kirby/",
-    },
+    { scrolling: "no", height: 550, src: "https://www.hrgui.dev/css3-kirby/" },
   whatIDid: ["Recreated one of my favorite characters, Kirby with just CSS"],
   technologiesUsed:
     [{ type: "CSS", value: 91.3 }, { type: "HTML", value: 8.7 }],
