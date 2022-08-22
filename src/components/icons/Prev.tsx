@@ -7,7 +7,7 @@ interface Props extends Omit<JSX.HTMLAttributes<SVGSVGElement>, "crossOrigin"> {
 
 const Prev = ({ className: inputtedClassName, ...props }: Props) => {
   const className = twMerge(
-    `w-4 h-4 text-white sm:w-5 sm:h-5 dark:text-gray-800`,
+    `w-4 h-4 text-white sm:w-5 sm:h-5`,
     inputtedClassName
   );
 
