@@ -3,6 +3,9 @@ import { cloneElement, toChildArray, JSX } from "preact";
 import debounce from "lodash.debounce";
 import classnames from "classnames";
 import SliderDot from "./SliderDot";
+import Next from "@/components/icons/Next";
+import Prev from "@/components/icons/Prev";
+import SliderNavButton from "./SliderNavButton";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   isAutoPlay?: boolean;
@@ -181,19 +184,18 @@ export default function Slider({
         {getStagedImages(images, currentIndex)}
       </div>
 
-      <button
-        className="text-gray-500 dark:text-gray-300 bg-black p-4 absolute top-[50%]"
-        onClick={() => handleChangeImage(currentIndex - 1)}
-      >
-        &laquo;
-      </button>
-
-      <button
-        className="text-gray-500 dark:text-gray-300 bg-black p-4 absolute top-[50%] right-0"
+      <SliderNavButton onClick={() => handleChangeImage(currentIndex - 1)}>
+        <Prev />
+        <span className="sr-only">Previous</span>
+      </SliderNavButton>
+      <SliderNavButton
+        className="right-0"
         onClick={() => handleChangeImage(currentIndex + 1)}
       >
-        &raquo;
-      </button>
+        <Next />
+        <span className="sr-only">Next</span>
+      </SliderNavButton>
+
       <div className="flex items-center space-x-3 justify-center w-full mt-4 bottom-0 z-10">
         {images.map((img, i) => (
           <SliderDot
