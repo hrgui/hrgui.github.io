@@ -82,7 +82,7 @@ const PortfolioEntry = ({
             )}
           </div>
 
-          <div className="prose dark:prose-invert prose-sm md:prose-md md:prose-lg lg:prose-xl">
+          <div className="prose dark:prose-invert max-w-[1536px] prose-sm md:prose-md md:prose-lg lg:prose-xl">
             <main>{children}</main>
           </div>
         </div>
