@@ -11,7 +11,7 @@ Websites like [LinkedIn](https://www.linkedin.com/), [Twitter](https://twitter.c
 
 [react-window](https://github.com/bvaughn/react-window) or [react-virtualized](https://bvaughn.github.io/react-virtualized/) are two libraries that I used to jump to when developing for infinite scroll. They're two great libraries that know how to deal with long lists, and only renders what is needed at the time. It's also more efficient than what I am about to eventually describe because of what it keeps.
 
-I used to even fork an entire lib, maintained my own [@hrgui/react-infinite-scroll](https://github.com/hrgui/react-infinite-scroll), which is a fork of https://github.com/danbovey/react-infinite-scroller, which is another fork of https://github.com/guillaumervls/react-infinite-scroll. This was in one of my blog posts about Class VS Hooks part 2. The flow required the following:
+I used to even fork an entire lib, maintained my own [@hrgui/react-infinite-scroll](https://github.com/hrgui/react-infinite-scroll), which is a fork of https://github.com/danbovey/react-infinite-scroller, which is another fork of https://github.com/guillaumervls/react-infinite-scroll. This was in one of my blog posts about [Class VS Hooks part 2](/posts/react-class-vs-function-2-closures-and-memory). The flow required the following:
 
 - Attach a scroll listener to a component.
 - Attach a mousewheel, resize listener also.
