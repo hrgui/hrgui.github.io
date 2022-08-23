@@ -3,7 +3,7 @@
   layout: "../../layouts/portfolio.astro",
   title: "Red (Angry Birds) (CSS3 Challenge)",
   slug: "angryBirds",
-  thumbnail: "/images/portfolio/angryBirds.png",
+  thumbnail: "/images/portfolio/angryBirds.webp",
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-angrybird",
   demoUrl: "https://www.hrgui.dev/css3-angrybird/",

@@ -6,7 +6,7 @@
   category: "github",
   githubUrl: "https://github.com/hrgui/css3-kirby",
   demoUrl: "https://www.hrgui.dev/css3-kirby/",
-  thumbnail: "/images/portfolio/kirby.gif",
+  thumbnail: "/images/portfolio/kirby.webp",
   iframe:
     { scrolling: "no", height: 550, src: "https://www.hrgui.dev/css3-kirby/" },
   whatIDid: ["Recreated one of my favorite characters, Kirby with just CSS"],

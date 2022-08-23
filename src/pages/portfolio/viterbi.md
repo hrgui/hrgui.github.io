@@ -4,7 +4,7 @@
   category: "work",
   title: "USC Viterbi School of Engineering",
   slug: "viterbi",
-  thumbnail: "/images/portfolio/viterbi/thumbnail.jpg",
+  thumbnail: "/images/portfolio/viterbi/thumbnail.webp",
   urls:
     [
       "https://viterbi.usc.edu",
@@ -13,16 +13,16 @@
   images:
     [
       {
-        src: "/images/portfolio/viterbi/images/viterbi-1.jpg",
-        thumbnail: "/images/portfolio/viterbi/slider/viterbi-1.jpg",
+        src: "/images/portfolio/viterbi/images/viterbi-1.webp",
+        thumbnail: "/images/portfolio/viterbi/slider/viterbi-1.webp",
       },
       {
-        src: "/images/portfolio/viterbi/images/viterbi-2.jpg",
-        thumbnail: "/images/portfolio/viterbi/slider/viterbi-2.jpg",
+        src: "/images/portfolio/viterbi/images/viterbi-2.webp",
+        thumbnail: "/images/portfolio/viterbi/slider/viterbi-2.webp",
       },
       {
-        src: "/images/portfolio/viterbi/images/viterbi-3.jpg",
-        thumbnail: "/images/portfolio/viterbi/slider/viterbi-3.jpg",
+        src: "/images/portfolio/viterbi/images/viterbi-3.webp",
+        thumbnail: "/images/portfolio/viterbi/slider/viterbi-3.webp",
       },
     ],
   whatIDid:

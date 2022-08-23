@@ -87,7 +87,7 @@ I believe how it does this is through Web Components. While inspecting the outpu
 
 <div class="aspect-w-16 aspect-h-9 bg-black">
   <div class="flex items-center justify-center">
-    <img class="w-3/4"  src="/images/blog/islands-architecture-1.png">
+    <img class="w-3/4"  src="/images/blog/islands-architecture-1.webp">
   </div>
 </div>
 

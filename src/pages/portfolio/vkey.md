@@ -4,28 +4,28 @@
   title: "VKEY",
   slug: "vkey",
   category: "work",
-  thumbnail: "/images/portfolio/vkey/thumbnail.jpg",
+  thumbnail: "/images/portfolio/vkey/thumbnail.webp",
   images:
     [
       {
-        src: "/images/portfolio/vkey/images/vkey-1.jpg",
-        thumbnail: "/images/portfolio/vkey/slider/vkey-1.jpg",
+        src: "/images/portfolio/vkey/images/vkey-1.webp",
+        thumbnail: "/images/portfolio/vkey/slider/vkey-1.webp",
       },
       {
-        src: "/images/portfolio/vkey/images/vkey-2.jpg",
-        thumbnail: "/images/portfolio/vkey/slider/vkey-2.jpg",
+        src: "/images/portfolio/vkey/images/vkey-2.webp",
+        thumbnail: "/images/portfolio/vkey/slider/vkey-2.webp",
       },
       {
-        src: "/images/portfolio/vkey/images/vkey-3.jpg",
-        thumbnail: "/images/portfolio/vkey/slider/vkey-3.jpg",
+        src: "/images/portfolio/vkey/images/vkey-3.webp",
+        thumbnail: "/images/portfolio/vkey/slider/vkey-3.webp",
       },
       {
-        src: "/images/portfolio/vkey/images/vkey-4.jpg",
-        thumbnail: "/images/portfolio/vkey/slider/vkey-4.jpg",
+        src: "/images/portfolio/vkey/images/vkey-4.webp",
+        thumbnail: "/images/portfolio/vkey/slider/vkey-4.webp",
       },
       {
-        src: "/images/portfolio/vkey/images/vkey-5.jpg",
-        thumbnail: "/images/portfolio/vkey/slider/vkey-5.jpg",
+        src: "/images/portfolio/vkey/images/vkey-5.webp",
+        thumbnail: "/images/portfolio/vkey/slider/vkey-5.webp",
       },
     ],
   whatIDid:

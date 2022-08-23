@@ -133,7 +133,7 @@ export const education: Education[] = [
   {
     key: "usc",
     url: "https://www.usc.edu",
-    imgSrc: "/images/usc.png",
+    imgSrc: "/images/usc.webp",
     title: "University of Southern California",
     description: `Bachelor of Science (B.S.), Computer Science and Engineering,
     Magna Cum Laude`,

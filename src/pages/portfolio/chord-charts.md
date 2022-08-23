@@ -6,7 +6,7 @@
   slug: "chord-charts",
   githubUrl: "https://github.com/hrgui/chord-charts-app",
   demoUrl: "https://chord-charts.vercel.app/",
-  thumbnail: "/images/portfolio/chord-charts.png",
+  thumbnail: "/images/portfolio/chord-charts.webp",
   iframe:
     { scrolling: "no", height: 530, src: "https://chord-charts.vercel.app/" },
   whatIDid: ["Create a web application to store chord charts for musicians"],

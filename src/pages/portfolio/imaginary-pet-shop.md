@@ -6,7 +6,7 @@
   slug: "imaginary-pet-shop",
   githubUrl: "https://github.com/hrgui/imaginary-pet-shop",
   demoUrl: "https://imaginary-pet-shop.vercel.app/",
-  thumbnail: "/images/portfolio/imaginary-pet-shop.png",
+  thumbnail: "/images/portfolio/imaginary-pet-shop.webp",
   iframe:
     {
       scrolling: "yes",

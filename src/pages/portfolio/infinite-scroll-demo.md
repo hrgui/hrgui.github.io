@@ -6,7 +6,7 @@
   slug: "infinite-scroll-demo",
   githubUrl: "https://github.com/hrgui/infinite-scroll-demo",
   demoUrl: "https://www.hrgui.dev/infinite-scroll-demo",
-  thumbnail: "/images/portfolio/infinite-scroll-demo.png",
+  thumbnail: "/images/portfolio/infinite-scroll-demo.webp",
   iframe:
     {
       scrolling: "yes",
