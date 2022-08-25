@@ -1,6 +1,6 @@
 import { cloneElement, JSX } from "preact";
 import Drawer from "../layout/Drawer";
-import Logo from "@/components/app/Logo";
+import Logo from "~/components/app/Logo";
 
 type Props = {
   links: JSX.Element[];

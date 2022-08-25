@@ -3,8 +3,8 @@ import { cloneElement, toChildArray, JSX } from "preact";
 import debounce from "lodash.debounce";
 import classnames from "classnames";
 import SliderDot from "./SliderDot";
-import Next from "@/components/icons/Next";
-import Prev from "@/components/icons/Prev";
+import Next from "~/components/icons/Next";
+import Prev from "~/components/icons/Prev";
 import SliderNavButton from "./SliderNavButton";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {

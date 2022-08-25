@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useRef } from "preact/hooks";
-import AppSocialMedia from "@/components/app/AppSocialMedia";
+import AppSocialMedia from "~/components/app/AppSocialMedia";
 import { twMerge } from "tailwind-merge";
 import { useTransitionEnd } from "hooks/useTransitionEnd";
 

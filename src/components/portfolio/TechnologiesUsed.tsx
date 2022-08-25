@@ -1,5 +1,5 @@
 import { PortfolioTechnology } from "types/frontmatter";
-import Pie from "@/components/charts/Pie";
+import Pie from "~/components/charts/Pie";
 
 interface Props {
   data?: PortfolioTechnology[];

@@ -1,4 +1,4 @@
-import TechnologiesUsed from "@/components/portfolio/TechnologiesUsed";
+import TechnologiesUsed from "~/components/portfolio/TechnologiesUsed";
 import { ComponentChildren } from "preact";
 import { PortfolioFrontmatter } from "../../types/frontmatter";
 import PortfolioMedia from "./PortfolioMedia";

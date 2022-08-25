@@ -1,4 +1,4 @@
-import { threeSellPoints as defaultThreeSellPoints } from "@/constants";
+import { threeSellPoints as defaultThreeSellPoints } from "~/constants";
 import { JSX } from "preact";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {}

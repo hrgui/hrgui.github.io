@@ -1,7 +1,7 @@
-import { GITHUB_URL, LINKEDIN_URL } from "@/constants";
+import { GITHUB_URL, LINKEDIN_URL } from "~/constants";
 import { twMerge } from "tailwind-merge";
-import Github from "@/components/icons/Github";
-import LinkedIn from "@/components/icons/LinkedIn";
+import Github from "~/components/icons/Github";
+import LinkedIn from "~/components/icons/LinkedIn";
 
 type Props = {
   className?: string;

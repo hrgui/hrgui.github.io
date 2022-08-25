@@ -1,4 +1,4 @@
-import { technicalSkills as defaultTechnicalSkills } from "@/constants";
+import { technicalSkills as defaultTechnicalSkills } from "~/constants";
 import { JSX } from "preact";
 
 function TechnicalSection({

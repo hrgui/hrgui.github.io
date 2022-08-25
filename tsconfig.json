@@ -19,10 +19,7 @@
     "jsxImportSource": "preact",
     "baseUrl": "src",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/constants": ["constants.tsx"],
-      "@/layouts": ["layouts/*"],
-      "@": ["."]
+      "~/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

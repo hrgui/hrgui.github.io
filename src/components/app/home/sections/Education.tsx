@@ -1,4 +1,4 @@
-import { education as defaultEducation } from "@/constants";
+import { education as defaultEducation } from "~/constants";
 import { Fragment } from "preact";
 
 export function Education({
