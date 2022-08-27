@@ -4,8 +4,6 @@
   "description": "Portfolio website",
   "private": true,
   "scripts": {
-    "deploy": "gh-pages --dist out --branch master",
-    "predeploy": "yarn build",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
