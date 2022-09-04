@@ -9,6 +9,7 @@ on:
       - "package.json"
       - "vite.config.ts"
       - "astro.config.mjs"
+      - "yarn.lock"
     branches:
       - develop
 jobs:
