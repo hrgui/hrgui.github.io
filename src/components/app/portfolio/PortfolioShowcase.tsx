@@ -7,7 +7,10 @@ interface Props {
 
 export function PortfolioShowcase({ items, hasTitle = true }: Props) {
   return (
-    <div className="p-6 bg-saltpan-200 dark:bg-stone-900 dark:text-gray-200">
+    <div
+      data-testid="section-portfolio"
+      className="p-6 bg-saltpan-200 dark:bg-stone-900 dark:text-gray-200"
+    >
       <div className="container mx-auto">
         {hasTitle && (
           <h1 className="text-3xl font-medium mb-8 mt-3">Portfolio</h1>
