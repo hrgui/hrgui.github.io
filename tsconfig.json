@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["astro/client"],
+    "types": ["astro/client", "vitest/globals"],
     "outDir": "./dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -22,6 +22,6 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
