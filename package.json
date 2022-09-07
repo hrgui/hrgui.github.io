@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "format": "prettier --write \"src/**/*\"",
     "test": "vitest",
-    "test-ui": "vitest --ui"
+    "test-ui": "vitest --ui",
+    "lint": "tsc"
   },
   "dependencies": {},
   "devDependencies": {

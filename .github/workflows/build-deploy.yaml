@@ -34,6 +34,7 @@ jobs:
 
       - name: 🧪 Test
         run: |
+          yarn lint
           yarn test --silent --coverage
           echo "### Test Results 🧪 "  >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`"  >> $GITHUB_STEP_SUMMARY
