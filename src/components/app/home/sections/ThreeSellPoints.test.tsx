@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/preact";
 import { test } from "vitest";
+
 import ThreeSellPoints from "./ThreeSellPoints";
 
 test("should be able to render default ThreeSellPoints", () => {

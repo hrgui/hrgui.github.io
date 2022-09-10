@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/preact";
 import { test } from "vitest";
+
 import Posts from "./Posts";
 
 test("should be able to render no posts without crashing", () => {

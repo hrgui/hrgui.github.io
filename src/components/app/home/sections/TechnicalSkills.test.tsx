@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/preact";
 import { test } from "vitest";
+
 import TechnicalSkills from "./TechnicalSkills";
 
 test("should be able to render default TechnicalSkills", () => {

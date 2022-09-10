@@ -1,12 +1,14 @@
+import classNames from "classnames";
 import { useState } from "preact/hooks";
-import Menu from "../icons/Menu";
+
+import useScrollTrigger from "hooks/useScrollTrigger";
+
 import Logo from "./Logo";
 
-import classNames from "classnames";
-import useScrollTrigger from "hooks/useScrollTrigger";
-import { NavLink } from "../nav/NavLink";
+import Menu from "../icons/Menu";
 import Overlay from "../layout/Overlay";
 import NavDrawer from "../nav/NavDrawer";
+import { NavLink } from "../nav/NavLink";
 
 type Props = {
   currentPathName: string;

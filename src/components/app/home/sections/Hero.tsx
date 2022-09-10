@@ -1,9 +1,10 @@
 import classNames from "classnames";
-import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useRef } from "preact/hooks";
-import AppSocialMedia from "~/components/app/AppSocialMedia";
 import { twMerge } from "tailwind-merge";
+
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useTransitionEnd } from "hooks/useTransitionEnd";
+import AppSocialMedia from "~/components/app/AppSocialMedia";
 
 export function Hero() {
   const headerRef = useRef();

@@ -1,10 +1,12 @@
-import { useState, useCallback, useEffect, useRef } from "preact/hooks";
-import { cloneElement, toChildArray, JSX } from "preact";
-import debounce from "lodash.debounce";
 import classnames from "classnames";
-import SliderDot from "./SliderDot";
+import debounce from "lodash.debounce";
+import { cloneElement, toChildArray, JSX } from "preact";
+import { useState, useCallback, useEffect, useRef } from "preact/hooks";
+
 import Next from "~/components/icons/Next";
 import Prev from "~/components/icons/Prev";
+
+import SliderDot from "./SliderDot";
 import SliderNavButton from "./SliderNavButton";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
@@ -37,7 +39,7 @@ function isInViewport(element: Element) {
 function scrollIntoElementView(
   element: Element,
   elToScrollTo: Element,
-  isJump: boolean = false
+  isJump = false
 ): void {
   if (!element || !elToScrollTo) {
     return;
@@ -112,7 +114,7 @@ export default function Slider({
   const handleChangeImageByScroll = debounce(_handleChangeImageByScroll, 50);
 
   const getStagedImages = (images: any[], currentIndex: number) => {
-    const createProps = (index: number, isDuplicate: boolean = false) => ({
+    const createProps = (index: number, isDuplicate = false) => ({
       "data-carousel-index": index,
       "data-testid": `carousel__item--${index}${
         isDuplicate ? "--duplicate" : ""

@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/preact";
 import { test } from "vitest";
+
 import PortfolioEntry from "./PortfolioEntry";
 
 test("should render a basic portfolio entry with thumbnail and images without crashing", async () => {

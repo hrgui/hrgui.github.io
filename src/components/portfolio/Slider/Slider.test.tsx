@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/preact";
-import { it, describe } from "vitest";
-import Slider from "./Slider";
 import userEvent from "@testing-library/user-event";
+import { it, describe } from "vitest";
+
+import Slider from "./Slider";
 
 it("should render normally without crashing - base case", () => {
   render(

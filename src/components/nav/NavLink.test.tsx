@@ -1,7 +1,8 @@
-import { it, vi, expect } from "vitest";
 import { render, screen } from "@testing-library/preact";
-import { NavLink } from "./NavLink";
 import userEvent from "@testing-library/user-event";
+import { it, vi, expect } from "vitest";
+
+import { NavLink } from "./NavLink";
 
 it("should render a link that accepts Text, and can accept an onClick", async () => {
   const handleClick = vi.fn();

@@ -1,5 +1,6 @@
-import { Frontmatter } from "types/frontmatter";
 import classNames from "classnames";
+
+import { Frontmatter } from "types/frontmatter";
 
 interface Props {
   posts?: Frontmatter[];

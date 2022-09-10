@@ -3,8 +3,9 @@ const headerEntry = useIntersectionObserver(headerRef, {});
   const isHeaderVisible = !!headerEntry?.isIntersecting;
   */
 
-import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useEffect, useRef } from "preact/hooks";
+
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
 type Props = {
   children?: any;

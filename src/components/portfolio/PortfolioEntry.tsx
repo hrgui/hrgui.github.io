@@ -1,8 +1,11 @@
-import TechnologiesUsed from "~/components/portfolio/TechnologiesUsed";
 import { ComponentChildren } from "preact";
-import { PortfolioFrontmatter } from "../../types/frontmatter";
+
+import TechnologiesUsed from "~/components/portfolio/TechnologiesUsed";
+
 import PortfolioMedia from "./PortfolioMedia";
 import WhatIDid from "./WhatIDid";
+
+import { PortfolioFrontmatter } from "../../types/frontmatter";
 
 type Props = PortfolioFrontmatter & { children?: ComponentChildren };
 

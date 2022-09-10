@@ -1,5 +1,5 @@
-import Slider from "~/components/portfolio/Slider/Slider";
 import { PortfolioFrontmatter } from "types/frontmatter";
+import Slider from "~/components/portfolio/Slider/Slider";
 
 type Props = Pick<
   PortfolioFrontmatter,

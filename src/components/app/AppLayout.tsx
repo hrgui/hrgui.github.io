@@ -1,6 +1,7 @@
-import Header from "./Header";
-import Footer from "./Footer";
 import { ComponentChildren } from "preact";
+
+import Footer from "./Footer";
+import Header from "./Header";
 
 interface Props {
   children?: ComponentChildren;

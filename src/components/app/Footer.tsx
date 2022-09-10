@@ -1,5 +1,5 @@
-import Logo from "./Logo";
 import AppSocialMedia from "./AppSocialMedia";
+import Logo from "./Logo";
 
 const Footer = () => {
   function handleBackToTop() {
