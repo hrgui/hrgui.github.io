@@ -53,15 +53,15 @@ const PortfolioEntry = ({
             )}
             {urls &&
               urls.map((url, i) => (
-                <a
+                <Link
                   href={url}
                   key={i}
                   target="_blank"
                   rel="noreferrer"
-                  className="dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors block overflow-hidden overflow-ellipsis"
+                  className="block overflow-hidden overflow-ellipsis"
                 >
                   Visit {url}
-                </a>
+                </Link>
               ))}
           </div>
         </div>
