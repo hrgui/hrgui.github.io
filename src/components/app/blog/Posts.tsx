@@ -1,6 +1,7 @@
 import classNames from "classnames";
 
 import { Frontmatter } from "types/frontmatter";
+import Link from "~/components/layout/Link";
 
 interface Props {
   posts?: Frontmatter[];
@@ -40,10 +41,10 @@ const Posts = ({ posts }: Props) => {
               {post.excerpt}
               <br />
               <br />
-              <a className="block" href={`${post.slug}`}>
-                Read More
-              </a>
             </p>
+            <Link className="block" href={`${post.slug}`}>
+              Read More
+            </Link>
           </div>
         );
       })}
