@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from "vitest/config";
 import preact from "@preact/preset-vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
