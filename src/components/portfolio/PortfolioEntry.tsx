@@ -6,6 +6,7 @@ import PortfolioMedia from "./PortfolioMedia";
 import WhatIDid from "./WhatIDid";
 
 import { PortfolioFrontmatter } from "../../types/frontmatter";
+import Link from "../layout/Link";
 
 type Props = PortfolioFrontmatter & { children?: ComponentChildren };
 
@@ -31,24 +32,24 @@ const PortfolioEntry = ({
 
           <div className="mt-2 mb-2">
             {demoUrl && (
-              <a
+              <Link
                 href={demoUrl}
-                className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+                className="block transition-colors"
                 target="__blank"
                 rel="noreferrer"
               >
                 Open Link / Demo in new Tab
-              </a>
+              </Link>
             )}
             {githubUrl && (
-              <a
+              <Link
                 href={githubUrl}
-                className="block underline font-semibold dark:text-gray-100 text-gray-700 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+                className="block transition-colors"
                 target="_blank"
                 rel="noreferrer"
               >
                 View Github Code
-              </a>
+              </Link>
             )}
             {urls &&
               urls.map((url, i) => (

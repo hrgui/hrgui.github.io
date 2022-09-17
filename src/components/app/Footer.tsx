@@ -1,3 +1,6 @@
+import Link from "~/components/layout/Link";
+import LinkButton from "~/components/layout/LinkButton";
+
 import AppSocialMedia from "./AppSocialMedia";
 import Logo from "./Logo";
 
@@ -24,30 +27,9 @@ const Footer = () => {
           </div>
           <div className="mb-4 mt-4">
             <nav className="flex flex-col">
-              <a
-                href="/"
-                className={
-                  "text-red-700 dark:text-red-500 hover:underline font-medium"
-                }
-              >
-                Home
-              </a>
-              <a
-                href="/posts"
-                className={
-                  "text-red-700 dark:text-red-500 hover-underline font-medium"
-                }
-              >
-                Blog
-              </a>
-              <a
-                href="/portfolio"
-                className={
-                  "text-red-700 dark:text-red-500 hover-underline font-medium"
-                }
-              >
-                Portfolio
-              </a>
+              <Link href="/">Home</Link>
+              <Link href="/posts">Blog</Link>
+              <Link href="/portfolio">Portfolio</Link>
             </nav>
           </div>
         </div>
@@ -57,12 +39,7 @@ const Footer = () => {
           <div>&copy; {new Date().getFullYear()} Harman Goei</div>
           <AppSocialMedia />
           <div>
-            <button
-              onClick={handleBackToTop}
-              className="text-red-700 dark:text-red-500 hover-underline font-medium"
-            >
-              back to top?
-            </button>
+            <LinkButton onClick={handleBackToTop}>back to top?</LinkButton>
           </div>
         </div>
       </div>
