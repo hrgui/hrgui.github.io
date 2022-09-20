@@ -34,7 +34,7 @@ export function Hero() {
           )}
         >
           I ❤️ making{" "}
-          <span className="bg-clip-text text-transparent block sm:inline bg-gradient-to-r from-green-500 to-malibu-500 dark:from-saltpan-500 dark:to-malibu-400">
+          <span className="bg-clip-text text-transparent block sm:inline bg-gradient-to-r from-green-500 to-malibu-500 dark:from-green-500 dark:to-malibu-400">
             cool and awesome{" "}
           </span>
           web/mobile apps.
