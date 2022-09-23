@@ -10,10 +10,10 @@ function TechnicalSection({
   title: JSX.Element | string;
 }) {
   return (
-    <div className="mt-8 mb-8 pb-8" {...props}>
+    <section className="mt-8 mb-8 pb-8" {...props}>
       <h2 className="text-3xl">{title}</h2>
       <div className="pt-8 leading-6">{children}</div>
-    </div>
+    </section>
   );
 }
 
@@ -47,7 +47,7 @@ export function TechnicalSkills({
   };
 
   return (
-    <div
+    <section
       className="p-6 pt-16 pb-16 bg-malibu-200 dark:bg-stone-900 dark:text-gray-100"
       data-testid="section-technical-skills"
     >
@@ -68,7 +68,7 @@ export function TechnicalSkills({
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

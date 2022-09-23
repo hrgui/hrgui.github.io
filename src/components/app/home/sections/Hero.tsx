@@ -13,7 +13,7 @@ export function Hero() {
   const headerAnimationEnded = useTransitionEnd(headerRef);
 
   return (
-    <div
+    <section
       className="flex flex-col justify-center items-start dark:text-gray-200 h-[800px] sm:h-[900px] gplay-bg dark:dark-gplay-bg"
       data-testid="section-hero"
     >
@@ -49,7 +49,7 @@ export function Hero() {
           )}
         />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -8,7 +8,7 @@ export function Education({
   education?: typeof defaultEducation;
 }) {
   return (
-    <div
+    <section
       className="p-6 pt-8 pb-8  dark:bg-neutral-800 dark:text-gray-100  dark:border-stone-700"
       data-testid="section-education"
     >
@@ -51,7 +51,7 @@ export function Education({
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

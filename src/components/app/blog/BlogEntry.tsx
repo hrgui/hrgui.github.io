@@ -8,11 +8,11 @@ type Props = {
 
 const BlogEntry = ({ children }: Props) => {
   return (
-    <div className="pl-6 pr-6">
+    <article className="pl-6 pr-6">
       <div className={blogEntryClassName}>
         <main>{children}</main>
       </div>
-    </div>
+    </article>
   );
 };
 

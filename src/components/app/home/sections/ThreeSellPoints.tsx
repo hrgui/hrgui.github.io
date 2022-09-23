@@ -19,7 +19,7 @@ export function ThreeSellPoints({
   threeSellPoints?: typeof defaultThreeSellPoints;
 }) {
   return (
-    <div
+    <section
       className="p-6 pt-16 pb-16 bg-dolly-200 dark:bg-neutral-800"
       data-testid="section-three-sell-points"
     >
@@ -32,7 +32,7 @@ export function ThreeSellPoints({
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
 

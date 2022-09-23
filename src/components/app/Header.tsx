@@ -41,7 +41,7 @@ const Header = ({ currentPathName }: Props) => {
 
   return (
     <>
-      <div
+      <header
         className={classNames(
           "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-10",
           {
@@ -62,7 +62,7 @@ const Header = ({ currentPathName }: Props) => {
         >
           {links}
         </nav>
-      </div>
+      </header>
       <Overlay
         onClick={handleSetIsOpen}
         className={classNames({
