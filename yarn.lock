@@ -6636,9 +6636,9 @@ synckit@^0.8.0, synckit@^0.8.3:
     tslib "^2.4.0"
 
 tailwind-merge@^1.2.1:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-1.6.0.tgz#dd652005544aa0b04628e69688b7108265f0d441"
-  integrity sha512-lfpys05uZMcVGIbgrrM/HlQGYKiPIcUhs76H1VrXo0gerpYkoLk4zjQTppdyAcBcmpzlzXJw7X0JniUKOr2hkg==
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-1.6.1.tgz#36bd3a63f59860354432a0a7b7ebd04a14141035"
+  integrity sha512-wC/tta/BxpmE/4Qc7WX0OK+ajhetgpJZ+IfQMpUBOv4nWjlxQKbq/FBkcZDX7fVGq2RJBnWa3WzsPz5mUe+g7g==
 
 tailwindcss@^3.0.24, tailwindcss@^3.0.8:
   version "3.1.8"
