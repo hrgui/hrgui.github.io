@@ -6,7 +6,12 @@ import { linkClassName } from "~/theme";
 type Props = {} & JSX.HTMLAttributes<HTMLAnchorElement>;
 
 const Link = ({ className: inputtedClassName, ...props }: Props) => {
-  return <a className={twMerge(linkClassName, inputtedClassName)} {...props} />;
+  return (
+    <a
+      className={twMerge(linkClassName, inputtedClassName as string)}
+      {...props}
+    />
+  );
 };
 
 export default Link;

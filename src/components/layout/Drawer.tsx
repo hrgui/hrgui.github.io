@@ -14,7 +14,7 @@ const Drawer = ({ isOpen = false, children, className, ...props }: Props) => {
           "translate-x-0": isOpen,
           "-translate-x-full": !isOpen,
         },
-        className
+        className as string
       )}
       {...props}
     >

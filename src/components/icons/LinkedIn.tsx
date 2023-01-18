@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 type Props = JSX.HTMLAttributes<SVGSVGElement>;
 
 const LinkedIn = ({ className, ...props }: Props) => {
-  const _className = twMerge("w-6 h-6 fill-current", className);
+  const _className = twMerge("w-6 h-6 fill-current", className as string);
   return (
     <svg
       className={_className}

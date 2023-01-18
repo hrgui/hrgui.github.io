@@ -23,7 +23,7 @@ const SliderDot = ({
       transition-all
   `),
       { [`bg-gray-500 dark:bg-gray-800`]: active },
-      inputtedClassName
+      inputtedClassName as string
     )
   );
 

@@ -7,7 +7,10 @@ type Props = {} & JSX.HTMLAttributes<HTMLButtonElement>;
 
 const LinkButton = ({ className: inputtedClassName, ...props }: Props) => {
   return (
-    <button className={twMerge(linkClassName, inputtedClassName)} {...props} />
+    <button
+      className={twMerge(linkClassName, inputtedClassName as string)}
+      {...props}
+    />
   );
 };
 

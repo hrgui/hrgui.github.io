@@ -15,7 +15,7 @@ const SliderNavButton = ({
       ctl(`
       text-gray-500 dark:text-gray-300 bg-black/70 hover:bg-black transition-all p-2 sm:p-3 absolute top-[40%] lg:top-[45%]
   `),
-      inputtedClassName
+      inputtedClassName as string
     )
   );
 

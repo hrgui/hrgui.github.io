@@ -8,7 +8,7 @@ const Overlay = ({ className, ...props }: Props) => {
   return (
     <div
       className={twMerge(
-        classNames("z-10 fixed inset-0 transition-opacity", className)
+        classNames("z-10 fixed inset-0 transition-opacity", className as string)
       )}
       {...props}
     >
