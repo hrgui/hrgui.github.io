@@ -39,7 +39,9 @@ const fullTitle = siteTitle === title ? title : `${title} | ${siteTitle}`;
   {description && <meta property="twitter:description" content={description} />}
 
   <!-- mermaidjs -->
-  {pageType === "blog" && (
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js" />
-  )}
+  {
+    pageType === "blog" && (
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js" />
+    )
+  }
 </head>
