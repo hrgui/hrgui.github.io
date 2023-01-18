@@ -1,15 +1,10 @@
-import {
-  Chart,
-  PieController,
-  ArcElement,
-  Tooltip,
-} from "chart.js/dist/chart.mjs";
+import { Chart, PieController, ArcElement, Tooltip } from "chart.js";
 import { useEffect, useRef } from "preact/hooks";
 
 Chart.register(PieController, ArcElement, Tooltip);
 
 type Dataset = {
-  data?: number[];
+  data: number[];
   backgroundColor?: string[];
   hoverBackgroundColor?: string[];
 };
