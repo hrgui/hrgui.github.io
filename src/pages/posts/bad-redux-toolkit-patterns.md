@@ -617,7 +617,7 @@ This works, and we did not have to use Redux. However, this has its own share of
 The nice thing about React, and modern frontend technologies is that there is a lot of us that has faced the same kind of problems. To truly make your application code resilient, you can either create your own, or use a library that has solved this problem. That is why I recommend to use the following when we want to scale with data fetching in our frontend applications:
 
 1. [rtk-query](https://redux-toolkit.js.org/rtk-query/overview), which solves the problem of data fetching in Redux entirely, and eliminates a lot of boilerplate. This leaves the option of integrating it with our Redux states, but then it begs the question - do I really need these redux states anymore? What redux do I need now?
-2. [tanstack/query](https://tanstack.com/query/latest) are for folks that do not have Redux in their stack. It does everything `rtk-query` can, but I believe this came first. It also works for Solid, Vue, and Svelte.
+2. [tanstack/query](https://tanstack.com/query/latest) is for data fetching without Redux. Redux can still exist with tanstack/query, and the responsibility for Redux only is dedicated to local state, instead of server state. It does everything `rtk-query` can, but I believe this came first. It also works for Solid, Vue, and Svelte.
 3. [SWR](https://swr.vercel.app/) is an alternative to tanstack/query.
 
 All of these libraries have solved the problems that I have mentioned in today's blog post, and we end up creating more resilient code. Hopefully, this makes data fetching in React more fun, and more to the point of getting data effectively to our users.
