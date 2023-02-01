@@ -158,16 +158,7 @@
     eslint-visitor-keys "^2.1.0"
     semver "^6.3.0"
 
-"@babel/generator@^7.17.9":
-  version "7.20.7"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.7.tgz#f8ef57c8242665c5929fe2e8d82ba75460187b4a"
-  integrity sha512-7wqMOJq8doJMZmP4ApXTzLxSr7+oO2jroJURrVEp6XShrQUObV8Tq/D0NCcoYg2uHqUrjzO0zwBjoYzelxK+sw==
-  dependencies:
-    "@babel/types" "^7.20.7"
-    "@jridgewell/gen-mapping" "^0.3.2"
-    jsesc "^2.5.1"
-
-"@babel/generator@^7.18.2", "@babel/generator@^7.20.7":
+"@babel/generator@^7.17.9", "@babel/generator@^7.18.2", "@babel/generator@^7.20.7":
   version "7.20.14"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.14.tgz#9fa772c9f86a46c6ac9b321039400712b96f64ce"
   integrity sha512-AEmuXHdcD3A52HHXxaTmYlb8q/xMEhoRP67B3T4Oq7lbmSoqroMZzjnGj3+i1io3pdnF8iBYVu4Ilj+c4hBxYg==
@@ -1529,9 +1520,9 @@ astro-eslint-parser@^0.9.0:
     espree "^9.0.0"
 
 astro@^2.0.1:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.2.tgz#a465d8ba066e16bd21e3b6d2a7a1b7aa209ba2fa"
-  integrity sha512-47N1jLWNxSri7kWfIfgcEnQJZWTvd0gXhNC3P2ZHiiurl4nOxFC5ULsW5MDDTjTzQ1S7y1RoaL9XxYm+Rury7w==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.4.tgz#0ae0904bb7450741a541b63b3838c6b40efa0dd6"
+  integrity sha512-VSxFONW4hazODUIzjpoPdSZ4eRMz86pQn375277GhJDDRq/kfA5tSfvDFtySlAeEWrsE9W8tC2Jj3HuYcRYRig==
   dependencies:
     "@astrojs/compiler" "^1.0.1"
     "@astrojs/language-server" "^0.28.3"
