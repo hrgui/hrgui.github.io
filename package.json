@@ -15,7 +15,6 @@
     "lint": "yarn lint:es && tsc",
     "prepare": "husky install"
   },
-  "dependencies": {},
   "devDependencies": {
     "@astrojs/preact": "^2.0.0",
     "@astrojs/tailwind": "^3.0.0",
@@ -31,7 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-react": "^3.0.1",
-    "@vitest/coverage-c8": "^0.27.2",
+    "@vitest/coverage-v8": "^0.32.1",
     "@vitest/ui": "^0.27.2",
     "astro": "^2.0.1",
     "autoprefixer": "^10.4.1",
