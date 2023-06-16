@@ -15,7 +15,7 @@ NOTE: I am assuming you know what Redux is. If you do not, [read about it here](
 2. `createSelector` to create selectors that are powered by `reselect`, which memoizes selector functions. It's to help select data within our store's slice.
 3. [`createAsyncThunk`](https://redux-toolkit.js.org/usage/usage-with-typescript#createasyncthunk) which can do data fetching, and anything promise-related.
 
-However, when used incorrectly, Redux Toolkit will still lead into problems for our users and developer. Let's describe a common scenario: data fetching.
+However, when used incorrectly, Redux Toolkit will still lead into problems for our users and for developers. Let's describe a common scenario: data fetching.
 
 # How to do Data Fetching with Redux Toolkit?
 
