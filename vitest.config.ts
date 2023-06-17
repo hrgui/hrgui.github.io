@@ -12,7 +12,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./src/test/setup.tsx",
-    reporters: [new GithubActionsReporter()],
+    reporters: process.env.CI ? [new GithubActionsReporter()] : undefined,
     coverage: {
       reporter: ["text", "text-summary", "html"],
     },
