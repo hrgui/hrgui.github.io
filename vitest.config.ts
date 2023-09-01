@@ -2,7 +2,7 @@
 
 import preact from "@preact/preset-vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { defineConfig } from "vitest/config";
+import { defineConfig, configDefaults } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +11,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./src/test/setup.tsx",
+    exclude: [...configDefaults.exclude, "e2e/*"],
     coverage: {
       reporter: ["text", "text-summary", "html"],
     },
