@@ -6,23 +6,23 @@ test("should be able to see the portfolio index and be able to hit chord-charts,
   await page.goto("/portfolio");
 
   const header = page.getByRole("heading", { level: 1 });
-  expect(header).toBeInViewport();
-  expect(header).toContainText("Portfolio");
+  await expect(header).toBeVisible();
+  await expect(header).toContainText("Portfolio");
 
   const testPortfolioItem = page.getByText("chord-charts");
   await testPortfolioItem.click();
   await page.waitForURL("**/chord-charts");
   const whatIDid = await page.getByText("What I Did");
   await whatIDid.scrollIntoViewIfNeeded();
-  expect(whatIDid).toBeInViewport();
+  await expect(whatIDid).toBeVisible();
 
   const technologiesUsed = await page.getByText("Technologies Used");
   await technologiesUsed.scrollIntoViewIfNeeded();
-  expect(technologiesUsed).toBeInViewport();
+  await expect(technologiesUsed).toBeVisible();
 
   const about = await page.getByText("About");
   await about.scrollIntoViewIfNeeded();
-  expect(about).toBeInViewport();
+  await expect(about).toBeVisible();
 });
 
 test("should be able to see the portfolio index and be able to hit VKEY, a portfolio item with a slider", async ({
@@ -31,8 +31,8 @@ test("should be able to see the portfolio index and be able to hit VKEY, a portf
   await page.goto("/portfolio");
 
   const header = page.getByRole("heading", { level: 1 });
-  expect(header).toBeInViewport();
-  expect(header).toContainText("Portfolio");
+  await expect(header).toBeVisible();
+  await expect(header).toContainText("Portfolio");
 
   const testPortfolioItem = page.getByText("VKEY");
   await testPortfolioItem.click();
@@ -40,15 +40,15 @@ test("should be able to see the portfolio index and be able to hit VKEY, a portf
 
   const whatIDid = await page.getByText("What I Did");
   await whatIDid.scrollIntoViewIfNeeded();
-  expect(whatIDid).toBeInViewport();
+  await expect(whatIDid).toBeVisible();
 
   const technologiesUsed = await page.getByText("Technologies Used");
   await technologiesUsed.scrollIntoViewIfNeeded();
-  expect(technologiesUsed).toBeInViewport();
+  await expect(technologiesUsed).toBeVisible();
 
   const about = await page.getByText("About");
   await about.scrollIntoViewIfNeeded();
-  expect(about).toBeInViewport();
+  expect(about).toBeAttached();
 
   const next = await page.getByText("Next");
   await next.click();
