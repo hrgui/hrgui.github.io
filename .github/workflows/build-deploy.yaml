@@ -38,7 +38,7 @@ jobs:
           bun lint
           echo "### Test Coverage 🧪 " >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          bun test --silent --coverage >> $GITHUB_STEP_SUMMARY
+          bun run test --silent --coverage >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
       - name: ⚙️ Build
