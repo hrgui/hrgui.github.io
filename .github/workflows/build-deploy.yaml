@@ -42,7 +42,7 @@ jobs:
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
       - name: ⚙️ Build
-        run: bun build
+        run: bun run build
 
       - name: ⚙️ Setup Pages
         if: success()
