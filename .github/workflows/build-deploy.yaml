@@ -32,10 +32,10 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: ⎔ Setup node
+      - name: ⎔ Setup bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: "1.0.0"
+          bun-version: latest
 
       - name: 📥 Download deps
         run: |
