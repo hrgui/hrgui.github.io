@@ -4,14 +4,16 @@
 
 ## Installation
 
+This repo uses bun as the primary source of development.
+
 ```
-yarn
+npm
 ```
 
 ## Running development
 
 ```
-yarn dev
+npm i
 ```
 
 # Tech Stack
