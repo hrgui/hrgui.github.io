@@ -4,6 +4,14 @@
 
 ## Installation
 
+This repo uses `bun` for its primary development, not node.
+
+Follow https://bun.sh/docs/installation
+
+```
+bun install
+```
+
 ```
 yarn
 ```
