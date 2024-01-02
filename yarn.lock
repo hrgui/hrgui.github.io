@@ -66,16 +66,16 @@
     vfile "^6.0.1"
 
 "@astrojs/preact@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-3.0.1.tgz#d27a6ca3fb996997893e5caf2a8e065e12640662"
-  integrity sha512-pAfN+U7J4hw7qijqkBx1ZBpPO+ooa+MkKIgshCozfqsHTp18uPflxQUviz0TEzB5nn7hSndzncWuc3pz/HbtJw==
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-3.0.2.tgz#10a510f8941a1145947ead7f300c4dd2cd4ed60b"
+  integrity sha512-qQ9xoWqX9gwO2n7NVTp4umt5auDgaGtqdKmZMqif6bCuBr1yWpNjWyREb/22iQAcouveybC6wFfiQnC0ewAXzw==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.22.5"
     "@babel/plugin-transform-react-jsx-development" "^7.22.5"
-    "@preact/preset-vite" "^2.5.0"
+    "@preact/preset-vite" "^2.7.0"
     "@preact/signals" "^1.2.1"
     babel-plugin-transform-hook-names "^1.0.2"
-    preact-render-to-string "^6.2.1"
+    preact-render-to-string "^6.3.1"
 
 "@astrojs/prism@^3.0.0":
   version "3.0.0"
@@ -805,7 +805,7 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.24.tgz#58601079e11784d20f82d0585865bb42305c4df3"
   integrity sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==
 
-"@preact/preset-vite@^2.5.0", "@preact/preset-vite@^2.7.0":
+"@preact/preset-vite@^2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.7.0.tgz#6e78b300c6b38aa2c0b49bc74d7d44c6270bba59"
   integrity sha512-m5N0FVtxbCCDxNk55NGhsRpKJChYcupcuQHzMJc/Bll07IKZKn8amwYciyKFS9haU6AgzDAJ/ewvApr6Qg1DHw==
@@ -5514,7 +5514,7 @@ postcss@^8.4.14, postcss@^8.4.23, postcss@^8.4.27, postcss@^8.4.28, postcss@^8.4
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-preact-render-to-string@^6.2.1:
+preact-render-to-string@^6.3.1:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-6.3.1.tgz#2479ebca8e6721cacfcecaa79bd861005a3d9b8f"
   integrity sha512-NQ28WrjLtWY6lKDlTxnFpKHZdpjfF+oE6V4tZ0rTrunHrtZp6Dm0oFrcJalt/5PNeqJz4j1DuZDS0Y6rCBoqDA==
