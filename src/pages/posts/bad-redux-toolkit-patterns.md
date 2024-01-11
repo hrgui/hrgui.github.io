@@ -5,23 +5,29 @@ date: "1/28/2023"
 excerpt: Redux Toolkit is great, but only if used correctly. In this blog post, I'll show some bad redux toolkit code used to do data fetching, and improve it to become resilient for our developers and users.
 ---
 
+_Revised 1/10/2024_
+
 # What is Redux Toolkit?
 
-NOTE: I am assuming you know what Redux is. If you do not, [read about it here](https://redux.js.org/), then come back.
+NOTE: This blog post assumes knowledge of Redux. If not, [read about it here](https://redux.js.org/), then come back.
 
-[Redux Toolkit](https://redux-toolkit.js.org/) is my recommendation of using [Redux](https://redux.js.org/), hands down. It has everything out of the box:
+[Redux Toolkit](https://redux-toolkit.js.org/) is my recommendation of using [Redux](https://redux.js.org/). It has everything out of the box:
 
 1. `createSlice` to create the redux slice - the segment within our redux store where we can store our state. It's also powered with immer, so you're doing the latest and greatest patterns.
 2. `createSelector` to create selectors that are powered by `reselect`, which memoizes selector functions. It's to help select data within our store's slice.
 3. [`createAsyncThunk`](https://redux-toolkit.js.org/usage/usage-with-typescript#createasyncthunk) which can do data fetching, and anything promise-related.
 
-However, when used incorrectly, Redux Toolkit will still lead into problems for our users and for developers. Let's describe a common scenario: data fetching.
+However, when used incorrectly, Redux Toolkit will still lead into problems for our users and for developers.
+
+Let's describe a common scenario on how it can be used incorrectly: **data fetching**.
 
 # How to do Data Fetching with Redux Toolkit?
 
-There are many ways to data fetching with Redux Toolkit. I'll start off with the basic way of fetching data.
+There are many ways to data fetching with Redux Toolkit. I'll start off with one method that works... until it does not.
 
-[`PokeAPI-TypeScript`](https://github.com/monbrey/pokeapi-typescript) is what we will be using to fetch data. It uses the public API [PokeAPI](https://pokeapi.co/). It also provides typings for Pokemon, which makes typing easy.
+For this tutorial, we will be utilizing the following:
+
+- [`PokeAPI-TypeScript`](https://github.com/monbrey/pokeapi-typescript) is what we will be using to fetch data. It uses the public API [PokeAPI](https://pokeapi.co/). It also provides typings for Pokemon, which makes typing easy.
 
 We can use `createSlice` to store the `status` of the data fetching and store the `data` received with the Pokemon.
 
@@ -228,21 +234,21 @@ I've attached this as a codesandbox below:
 
 # And that's it!\*
 
-Thanks for following along on this tutorial. In this tutorial, we learned how to fetch data from a public API using Redux Toolkit's `createSlice` and `createAsyncThunk`.
+Thanks for following along on this tutorial. In this tutorial, we learned how to fetch data from a public API using Redux Toolkit's `createSlice` and `createAsyncThunk`. It works... until...
 
 ---
 
-# That's not what you came here for though... are there problems with the code?
+# Are there problems with the code?
 
-**Yes**, there are significant problems with the code. Here are the problems as bullet points:
+**Yes**, there are **significant code design** problems with the code:
 
-1. The component can only be used once due to our redux state structure.
-2. When 2 or more instances of `<Pokemon />` fetch the same data, it won't reuse the same XHR endpoint, it'll just use it's own.
-3. If we choose to change Pokemon, it will show the previous Pokemon, switch to Loading, then load the next Pokemon
+1. The component can only be used once due to the redux state structure not being normalized.
+2. When 2 or more instances of `<Pokemon />` fetch the same data due to its props, it won't reuse the same data. It'll just cause a refetch of the same data.
+3. If we choose to change Pokemon via the props, it will show the previous Pokemon, switch to Loading, then load the next Pokemon.
 
 Lets improve the code to make it somewhat usable for a production application.
 
-## Problem 1: The component can only be used once due to our redux state structure.
+## Problem 1: The component can only be used once due to the redux state structure not being normalized.
 
 Suppose we do the following:
 
@@ -251,7 +257,7 @@ Suppose we do the following:
 <Pokemon name={"charizard"} />
 ```
 
-What will happen is that Pikachu will show up, then it flickers immediately to Charizard. It could also be the reverse also, depending on what comes first.
+What will happen is that Pikachu will show up, then it flickers immediately to Charizard. It could also be the reverse also, depending on what data comes back first.
 
 That is undesirable. We want to see both Pikachu and Charizard in the screen. How can we achieve something like that?
 
@@ -373,9 +379,9 @@ const { status, data } = useAppSelector((state) => selectPokemon(state, name));
 
 Now we should see both Charizard and Pikachu in our page... but what if we wanted to have 2 charizards and 1 pikachu?
 
-## Problem 2: When 2 or more instances of `<Pokemon />` fetch the same data, it won't reuse the same XHR endpoint, it'll just use it's own.
+## Problem 2: When 2 or more instances of `<Pokemon />` fetch the same data due to its props, it won't reuse the same data. It'll just cause a refetch of the same data.
 
-Ideally, if we have the following scenario, there is no point fetching the same data twice from the API:
+If we have the following scenario:
 
 ```tsx
 <Pokemon name={"pikachu"} />
@@ -383,7 +389,7 @@ Ideally, if we have the following scenario, there is no point fetching the same 
 <Pokemon name={"charizard"} />
 ```
 
-It's a waste to fetch pikachu twice. Imagine having `<Pokemon name={"pikachu"} />` 20 times. Do we want to make 20 calls to the API? Or just one?
+It's a waste to have 2 API calls for `pikachu` twice. Imagine having `<Pokemon name={"pikachu"} />` 20 times. Do we want to make 20 calls to the API? Or just one?
 
 We can do so with just one.
 
@@ -438,16 +444,14 @@ This is an exercise left for the reader. Here are the things to think about:
 The new and improved solution still has issues. I can go on and on, but this becomes increasingly more expensive to maintain. Here are the other concerns that could occur:
 
 1. How do we do retries? What if the first call failed? What happens?
-2. How do we invalidate the cache(s)? We have two of them now. We're wasting space by `O(2n)`.
+2. How do we invalidate the cache(s)? We have two caches now - a promise cache and a data cache. We're wasting space by `O(2n)`.
 3. Why did we have `status !== "succeeded"` as `loading`? This is because we have two states, `idle` and `loading`. We don't have a `idle` state, so we lumped it with `loading`.
 
-In the tutorial, I have written a lot of code. It feels like we require a lot of code just to do data fetching in React. This is where a lot of people start to deliberately hate React, because they immediately jump to conclusions that this is the only maintainable way of writing React.
-
-Don't lose hope though! There are better ways! Let's start with one of them, while still using redux.
+In the tutorial, I have written a lot of code. It feels like we require a lot of code just to do data fetching in React, and a lot of Frontend Engineers fall in the trap that this is the only way. This ends up in a negative sentiment with React, but this is just one way out of the many ways to do data fetching in React. There are other better solutions out there!
 
 # Enter Redux Toolkit Query (rtk-query)
 
-[rtk-query](https://redux-toolkit.js.org/rtk-query/overview) is a powerful data fetching and caching tool included with Redux Toolkit. A lot of the code that I have written today, we can throw away. It ends up becoming maintainable.
+[rtk-query](https://redux-toolkit.js.org/rtk-query/overview) is a powerful data fetching and caching tool included with Redux Toolkit. A lot of the code that I have written today, we can throw away. It ends up becoming maintainable. It also becomes an incremental migration rather than a rewrite of the entire code.
 
 Remember our pokemonSlice? Since we used it for data fetching, **we no longer need it**. In fact, we are going to setup **rtk-query** instead.
 
@@ -489,7 +493,7 @@ endpoints: (builder) => ({
 });
 ```
 
-This tells rtk-query that there is an endpoint called `getPokemonByName`. Since we aren't using `queryFn`, the `query` we pass in is an argument to `baseQuery`.
+This tells `rtk-query` that there is an endpoint called `getPokemonByName`. Since we aren't using `queryFn`, the `query` we pass in is an argument to `baseQuery`.
 
 Our `baseQuery` is defined as the following:
 
@@ -573,7 +577,7 @@ export default ({ name }: Props) => {
 };
 ```
 
-1. We no longer need to use `useEffect`, `dispatch`, `useSelector(...)` explicitly. The code no longer knows it's a part of Redux.
+1. We no longer need to use `useEffect`, `dispatch`, `useSelector(...)` explicitly. The code starts to look like if it doesn't know what Redux is.
 2. We no longer need to maintain our own `status` and handle each case.
 3. Everything is encapsulated into `const { data, isLoading, isError } = useGetPokemonByNameQuery(name)`.
 
@@ -582,17 +586,15 @@ export default ({ name }: Props) => {
      title="pokemon-rtk-query"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+></iframe>
 
 # So what have we learned today?
 
-In my career, I've met a lot of folks that are quick to bash on React. I believe it has to do with the environment they were grown in. They were led to believe that the only way to do React is with Redux.
+In my career, I've met a lot of folks that are quick to bash on React without fully understanding the possibilities. In this blog post, we talked about how Redux requires a good sense of state design for it to become maintainable and scalable across other use cases.
 
-Then they are left to believe that the only way to do data fetching is with Redux, and they are led to believe that it is the only maintainable way. However, as I proved in this blog post, that itself can **also** lead into unmaintainable code, and code that only works for one use case. That was the first example, where we use redux-toolkit's `createSlice`, `createAsyncThunk` with a state slice structure like `{data: IPokemon, status: Status}`.
+It's unfortunate that this is how the Frontend industry had to grow with, which ended up in negative sentiment. However, it doesn't have to be that way, and it requires listening and understanding that there is always a better way to what was written. That is the most important skill that a good frontend engineer needs to have, as it will continue to make them more productive and not be stuck in the past.
 
-If we wanted to reuse the code, call it more than once, we then have to add normalization to our code, which then transforms the state slice structure to `{data: {[name: string]: {data: IPokemon, status: Status}}}`. While that allows us to reuse the code a little bit more, it still has a lot of problems, and the code still becomes less resilient.
-
-At this point, this is where I see a lot of people tend to give up and immediately bash React. React did not tell you to use it with Redux. You chose to do it that way. React could care less. In fact, we could have done the following:
+Now, does data fetching need Redux in the first place? No, it does not. In fact, the following code below is acceptable:
 
 ```tsx
 const [loading, setLoading] = useState(false);
@@ -612,12 +614,12 @@ useEffect(() => {
 }, []);
 ```
 
-This works, and we did not have to use Redux. However, this has its own share of problems that a lot of React developers have faced. It is less code though than what I have shown for the first part of my tutorial, though!
+This works, and we did not have to use Redux. However, this has its own share of problems that a lot of React developers have faced. It is less code though than what I have shown for the first part of the tutorial, though!
 
-The nice thing about React, and modern frontend technologies is that there is a lot of us that has faced the same kind of problems. To truly make your application code resilient, you can either create your own, or use a library that has solved this problem. That is why I recommend to use the following when we want to scale with data fetching in our frontend applications:
+React, unlike angular.js is not prescriptive on how state is set, or how data is obtained. Data fetching can be done in many ways, and in this blog post, I've demonstrated a couple of them. Each way has their flaws. However, the React community has came up with a couple of solutions to solving the flaws into libraries that I recommend using:
 
 1. [rtk-query](https://redux-toolkit.js.org/rtk-query/overview), which solves the problem of data fetching in Redux entirely, and eliminates a lot of boilerplate. This leaves the option of integrating it with our Redux states, but then it begs the question - do I really need these redux states anymore? What redux do I need now?
 2. [tanstack/query](https://tanstack.com/query/latest) is for data fetching without Redux. Redux can still exist with tanstack/query, and the responsibility for Redux only is dedicated to local state, instead of server state. It does everything `rtk-query` can, but I believe this came first. It also works for Solid, Vue, and Svelte.
 3. [SWR](https://swr.vercel.app/) is an alternative to tanstack/query.
 
-All of these libraries have solved the problems that I have mentioned in today's blog post, and we end up creating more resilient code. Hopefully, this makes data fetching in React more fun, and more to the point of getting data effectively to our users.
+All of these libraries have solved the problems that I have mentioned in today's blog post, and this ends up creating more resilient code. Hopefully, this makes data fetching in React more fun with less code without needing to worry about the common frontend problems that often face due to improper code design.
