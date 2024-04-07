@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Do I use Redux?"
 date: "11/3/2020"
 excerpt: I am a React Developer. Do I use Redux? Insert attention-grabbing thing here to make you click.

@@ -6,23 +6,21 @@ import BlogEntry from "~/components/app/blog/BlogEntry";
 import BlogSubHeader from "~/components/app/blog/BlogSubHeader";
 import Head from "~/layouts/components/Head.astro";
 
-const { title, description, content } = Astro.props;
-
 export type Props = {
   title?: string;
-  description?: string;
+  excerpt?: string;
+  date?: string;
+  hidden?: boolean;
 };
+
+const { title, excerpt, date, hidden } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <Head title={title} pageType={"blog"} description={description} />
+  <Head title={title} pageType={"blog"} description={excerpt} />
   <AppLayout currentPathName={Astro.url.pathname} client:visible>
-    <BlogSubHeader
-      date={content.date}
-      title={content.title}
-      hidden={content.hidden}
-    />
+    <BlogSubHeader date={date} title={title} hidden={hidden} />
     <BlogEntry>
       <slot />
     </BlogEntry>

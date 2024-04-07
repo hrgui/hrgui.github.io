@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "How I Feel About TypeScript - Part I"
 date: "2/13/2022"
 excerpt: Listen, I use TypeScript, but...

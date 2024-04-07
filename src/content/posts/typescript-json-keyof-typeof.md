@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "The road to becoming a TypeScript Ninja: JSON, keyof, typeof"
 date: "8/25/2022"
 excerpt: "I'm currently on a journey to make myself a TypeScript ninja. Come join me for a long part series of things I learn new on TypeScript!"

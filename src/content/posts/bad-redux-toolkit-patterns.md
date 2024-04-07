@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "How to fix bad Redux-Toolkit code: Data Fetching"
 date: "1/28/2023"
 excerpt: Redux Toolkit is great, but only if used correctly. In this blog post, I'll show some bad redux toolkit code used to do data fetching, and improve it to become resilient for our developers and users.

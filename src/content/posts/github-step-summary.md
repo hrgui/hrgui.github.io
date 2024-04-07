@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "What I use `$GITHUB_STEP_SUMMARY` for"
 date: "7/4/2022"
 excerpt: $GITHUB_STEP_SUMMARY is a useful step in Github Actions. What do I use it for?

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Going from React to Preact"
 date: "08/15/2022"
 excerpt: "I've crossed the dark side to the light: I switched to Preact for this website only. I still will develop websites and web apps in React though."

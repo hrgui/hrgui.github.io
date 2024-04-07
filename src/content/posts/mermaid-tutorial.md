@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Basics of Mermaid Diagrams"
 date: "8/8/2022"
 excerpt: As a software engineer, I often have to create sequence diagrams or flowcharts to demonstrate how the system flow is going to work. I used to do all of this via Google Slides or lucidcharts. Now I have forgotten all of that and use something called Mermaid. Click read more to learn what's possible with it.

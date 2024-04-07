@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "How I do infinite scroll"
 date: "08/21/2022"
 excerpt: "I'll talk about my secret technique about infinite scroll. The same technique is actually used for this site!"

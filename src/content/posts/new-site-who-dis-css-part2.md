@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "New Site, who dis? Part 2: CSS"
 date: "1/8/2022"
 excerpt: Now here's the part 2 - let's talk about my take on CSS and how I approached it in my website.

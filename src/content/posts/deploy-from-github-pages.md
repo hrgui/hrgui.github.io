@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "How I Deploy my personal websites"
 date: "8/7/2022"
 excerpt: I'll talk about how I deploy my personal websites.

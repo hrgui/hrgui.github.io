@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "React Class Components VS Functional Components I: Class Component's this"
 date: "7/5/2020"
 excerpt: This is part I of my long running series of React Class Components VS Functional Components

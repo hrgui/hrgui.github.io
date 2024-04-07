@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Do I know: Webpack?"
 date: "9/11/2022"
 excerpt: Does Harman know how to use Webpack? He just uses Vite for everything.

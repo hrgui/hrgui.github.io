@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "How I work: Code Style"
 date: "9/10/2022"
 excerpt: I'll talk about my philosophy on code style.

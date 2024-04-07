@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "What does it mean to be mobile first?"
 date: "9/16/2022"
 excerpt: Here's my take on what mobile-first means.

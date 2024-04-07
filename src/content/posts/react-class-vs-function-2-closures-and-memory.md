@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "React Class Components VS Functional Components II: Functional Component's Closures, Memory and the Absence of Component Lifecycles"
 date: "7/6/2020"
 excerpt: This is part II of my long running series of React Class Components VS Functional Components. This post talks about some shortcomings about functional components and how class components still got it in the bag.

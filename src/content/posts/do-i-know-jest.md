@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Do I know: Jest and Cypress"
 date: "9/12/2022"
 excerpt: Does Harman know how to use Jest and Cypress? He just uses Vitest for everything.

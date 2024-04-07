@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Part II: I miss TypeScript"
 date: "4/16/2022"
 excerpt: I've been working without TypeScript for the past 2 months. It is... rough.

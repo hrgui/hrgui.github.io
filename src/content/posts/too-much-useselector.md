@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Overusing useSelector() in react-redux"
 date: "5/29/2022"
 excerpt: useSelector is an easy way to get data for your component. Why not just use it for everything?

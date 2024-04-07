@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "Not again..."
 date: "7/30/2022"
 excerpt: I did it again.

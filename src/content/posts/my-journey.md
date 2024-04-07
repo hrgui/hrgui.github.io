@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/blog.astro
 title: "ぼくの旅"
 date: "2/22/2024"
 excerpt: My journey of how I got here today.

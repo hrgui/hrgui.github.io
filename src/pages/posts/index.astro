@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
 import { Frontmatter } from "types/frontmatter";
 import Posts from "~/components/app/blog/Posts";
@@ -7,15 +8,13 @@ import SubPageHeader from "~/components/layout/SubPageHeader";
 const title = `Blog`;
 const description = `Read about Harman's blog posts about the web and things.`;
 
-const posts = await Astro.glob<Frontmatter>("./*.md");
-posts.sort(
-  (a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)
-);
+const posts = await getCollection("posts");
+posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <DefaultPageLayout title={title} description={description}>
   <SubPageHeader>{title}</SubPageHeader>
   <Posts
-    posts={posts.map((post) => ({ ...post.frontmatter, slug: post.url }))}
+    posts={posts.map((post) => ({ ...post.data, slug: `/posts/${post.slug}` }))}
   />
 </DefaultPageLayout>
