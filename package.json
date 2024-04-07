@@ -16,8 +16,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@astrojs/preact": "^3.0.1",
-    "@astrojs/tailwind": "^5.0.4",
+    "@astrojs/preact": "^3.1.2",
+    "@astrojs/tailwind": "^5.1.0",
     "@netlify/classnames-template-literals": "^1.0.3",
     "@playwright/test": "^1.37.1",
     "@preact/preset-vite": "^2.7.0",
@@ -31,7 +31,7 @@
     "@vitejs/plugin-react": "^3.0.1",
     "@vitest/coverage-v8": "^0.32.1",
     "@vitest/ui": "^0.27.2",
-    "astro": "^4.0.7",
+    "astro": "^4.5.16",
     "autoprefixer": "^10.4.16",
     "babel-plugin-istanbul": "^6.1.1",
     "c8": "^7.11.3",
