@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   category: "github",
   title: "imaginary-pet-shop",
   slug: "imaginary-pet-shop",

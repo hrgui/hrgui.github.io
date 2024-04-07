@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   category: "github",
   title: "tips",
   slug: "tips",

@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   category: "work",
   title: "USC Viterbi School of Engineering",
   slug: "viterbi",

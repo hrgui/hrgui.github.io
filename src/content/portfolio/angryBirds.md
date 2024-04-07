@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   title: "Red (Angry Birds) (CSS3 Challenge)",
   slug: "angryBirds",
   thumbnail: "/images/portfolio/angryBirds.webp",

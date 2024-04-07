@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   category: "github",
   title: "chord-charts",
   slug: "chord-charts",

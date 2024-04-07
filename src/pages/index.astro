@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
 import { PortfolioFrontmatter } from "types/frontmatter";
 import { Education } from "~/components/app/home/sections/Education";
@@ -9,9 +10,7 @@ import { PortfolioShowcase } from "~/components/app/portfolio/PortfolioShowcase"
 
 const description = `Hi! I'm Harman. I am a developer who loves to make cool and awesome web applications that rock the world.`;
 
-const portfolioItems = await Astro.glob<PortfolioFrontmatter>(
-  "./portfolio/*.md"
-);
+const portfolioItems = await getCollection("portfolio");
 ---
 
 <DefaultPageLayout description={description}>
@@ -20,6 +19,8 @@ const portfolioItems = await Astro.glob<PortfolioFrontmatter>(
   <TechnicalSkills />
   <Education />
   <PortfolioShowcase
-    items={portfolioItems.map((portfolioItem) => portfolioItem.frontmatter)}
+    items={portfolioItems.map(
+      (item) => ({ ...item.data, slug: item.slug } as PortfolioFrontmatter)
+    )}
   />
 </DefaultPageLayout>

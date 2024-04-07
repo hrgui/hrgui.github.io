@@ -131,6 +131,64 @@ declare module "astro:content" {
     >;
 
   type ContentEntryMap = {
+    portfolio: {
+      "angryBirds.md": {
+        id: "angryBirds.md";
+        slug: "angryBirds";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "chord-charts.md": {
+        id: "chord-charts.md";
+        slug: "chord-charts";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "imaginary-pet-shop.md": {
+        id: "imaginary-pet-shop.md";
+        slug: "imaginary-pet-shop";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "infinite-scroll-demo.md": {
+        id: "infinite-scroll-demo.md";
+        slug: "infinite-scroll-demo";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "kirby.md": {
+        id: "kirby.md";
+        slug: "kirby";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "tips.md": {
+        id: "tips.md";
+        slug: "tips";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "viterbi.md": {
+        id: "viterbi.md";
+        slug: "viterbi";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+      "vkey.md": {
+        id: "vkey.md";
+        slug: "vkey";
+        body: string;
+        collection: "portfolio";
+        data: InferEntrySchema<"portfolio">;
+      } & { render(): Render[".md"] };
+    };
     posts: {
       "apollo-client-testing-gotchas.md": {
         id: "apollo-client-testing-gotchas.md";

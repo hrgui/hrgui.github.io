@@ -1,6 +1,5 @@
 ---
 {
-  layout: "../../layouts/portfolio.astro",
   category: "github",
   title: "infinite-scroll-demo",
   slug: "infinite-scroll-demo",
