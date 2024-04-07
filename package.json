@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*\"",
     "test": "vitest",
     "test-ui": "vitest --ui",
-    "lint:es": "eslint src/**/*",
+    "lint:es": "eslint src",
     "lint": "yarn lint:es && tsc",
     "prepare": "husky install"
   },

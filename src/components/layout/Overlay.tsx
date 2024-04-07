@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { JSX } from "preact";
 import { twMerge } from "tailwind-merge";
 
-type Props = {} & JSX.HTMLAttributes<HTMLDivElement>;
+type Props = JSX.HTMLAttributes<HTMLDivElement>;
 
 const Overlay = ({ className, ...props }: Props) => {
   return (

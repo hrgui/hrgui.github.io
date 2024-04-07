@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 import { linkClassName } from "~/theme";
 
-type Props = {} & JSX.HTMLAttributes<HTMLButtonElement>;
+type Props = JSX.HTMLAttributes<HTMLButtonElement>;
 
 const LinkButton = ({ className: inputtedClassName, ...props }: Props) => {
   return (

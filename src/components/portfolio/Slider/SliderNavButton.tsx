@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { JSX } from "preact";
 import { twMerge } from "tailwind-merge";
 
-type Props = {} & JSX.HTMLAttributes<HTMLButtonElement>;
+type Props = JSX.HTMLAttributes<HTMLButtonElement>;
 
 const SliderNavButton = ({
   className: inputtedClassName,
