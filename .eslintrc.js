@@ -26,6 +26,7 @@ module.exports = {
     "import/extensions": 0,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "@typescript-eslint/triple-slash-reference": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
   settings: {
     "import/parsers": {

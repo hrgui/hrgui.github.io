@@ -1,10 +1,4 @@
-/*
-const headerEntry = useIntersectionObserver(headerRef, {});
-  const isHeaderVisible = !!headerEntry?.isIntersecting;
-  */
-
 import { useEffect, useRef } from "preact/hooks";
-
 import useIntersectionObserver from "hooks/useIntersectionObserver";
 
 type Props = {
@@ -21,6 +15,7 @@ const InView = ({ onInView, ...props }: Props) => {
     if (isHeaderVisible) {
       onInView();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHeaderVisible]);
 
   return <div ref={ref} {...props} />;
