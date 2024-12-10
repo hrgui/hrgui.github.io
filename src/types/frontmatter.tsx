@@ -5,7 +5,7 @@ export interface PortfolioTechnology {
   value?: number;
 }
 
-type PortfolioIframe = JSX.HTMLAttributes<HTMLIFrameElement>;
+type PortfolioIframe = JSX.HTMLAttributes<HTMLIFrameElement> & { src?: string };
 
 export type PortfolioFrontmatter = {
   slug?: string;

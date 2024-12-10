@@ -3,7 +3,11 @@ import { twMerge } from "tailwind-merge";
 
 import { linkClassName } from "~/theme";
 
-type Props = JSX.HTMLAttributes<HTMLAnchorElement>;
+type Props = JSX.HTMLAttributes<HTMLAnchorElement> & {
+  href?: string;
+  target?: string;
+  rel?: string;
+};
 
 const Link = ({ className: inputtedClassName, ...props }: Props) => {
   return (
