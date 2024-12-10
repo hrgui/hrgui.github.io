@@ -37,7 +37,6 @@ dist
 # generated types
 .astro/
 
-
 /test-results/
 /playwright-report/
 /playwright/.cache/
