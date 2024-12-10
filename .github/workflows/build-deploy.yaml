@@ -11,7 +11,7 @@ on:
       - "astro.config.mjs"
       - "yarn.lock"
     branches:
-      - develop
+      - main
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
