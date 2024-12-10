@@ -12,92 +12,106 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default [{
+export default [
+  {
     ignores: ["**/*.css"],
-}, ...fixupConfigRules(compat.extends(
-    "plugin:@typescript-eslint/recommended",
-    "plugin:astro/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-)), {
+  },
+  ...fixupConfigRules(
+    compat.extends(
+      "plugin:@typescript-eslint/recommended",
+      "plugin:astro/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:react-hooks/recommended"
+    )
+  ),
+  {
     plugins: {
-        "@typescript-eslint": fixupPluginRules(typescriptEslint),
-        import: fixupPluginRules(_import),
+      "@typescript-eslint": fixupPluginRules(typescriptEslint),
+      import: fixupPluginRules(_import),
     },
 
     languageOptions: {
-        globals: {
-            ...globals.browser,
-            React: true,
-            JSX: true,
-        },
+      globals: {
+        ...globals.browser,
+        React: true,
+        JSX: true,
+      },
 
-        parser: tsParser,
-        ecmaVersion: "latest",
-        sourceType: "module",
+      parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
 
-        parserOptions: {
-            ecmaFeatures: {
-                jsx: true,
-            },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
         },
+      },
     },
 
-    settings: {
-        "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"],
-        },
+    ignores: ["*.css"],
 
-        "import/resolver": {
-            typescript: {
-                alwaysTryTypes: true,
-            },
+    settings: {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"],
+      },
+
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
         },
+      },
     },
 
     rules: {
-        "import/extensions": 0,
+      "import/extensions": 0,
 
-        "import/no-extraneous-dependencies": ["error", {
-            devDependencies: true,
-        }],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          devDependencies: true,
+        },
+      ],
 
-        "@typescript-eslint/triple-slash-reference": "off",
-        "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/triple-slash-reference": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
-}, {
+  },
+  {
     files: ["**/*.ts", "**/*.tsx", "**/*.astro"],
 
     languageOptions: {
-        ecmaVersion: 5,
-        sourceType: "script",
+      ecmaVersion: 5,
+      sourceType: "script",
 
-        parserOptions: {
-            project: ["./tsconfig.json"],
-        },
+      parserOptions: {
+        project: ["./tsconfig.json"],
+      },
     },
-}, {
+  },
+  {
     files: ["**/*.js", "**/*.jsx"],
 
     settings: {
-        "disable/plugins": "@typescript-eslint",
+      "disable/plugins": "@typescript-eslint",
     },
-}, {
+  },
+  {
     files: ["**/*.astro"],
 
     languageOptions: {
-        parser: parser,
-        ecmaVersion: 5,
-        sourceType: "script",
+      parser: parser,
+      ecmaVersion: 5,
+      sourceType: "script",
 
-        parserOptions: {
-            parser: "@typescript-eslint/parser",
-            extraFileExtensions: [".astro"],
-        },
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
+      },
     },
-}];
+  },
+];

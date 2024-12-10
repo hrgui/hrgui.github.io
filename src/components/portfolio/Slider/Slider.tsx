@@ -89,7 +89,7 @@ export default function Slider({
       );
       scrollIntoElementView(carouselRef.current, elToScrollTo);
     },
-    [setCurrentIndex, images.length, carouselRef.current]
+    [images.length]
   );
 
   const _handleChangeImageByScroll: any = () => {
@@ -162,7 +162,7 @@ export default function Slider({
         scrollIntoElementView(carouselRef.current, currentEl);
       }
     }
-  }, [currentIndex, carouselRef.current]);
+  }, [currentIndex]);
 
   useEffect(() => {
     if (!isAutoPlay) {
