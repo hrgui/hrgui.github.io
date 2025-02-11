@@ -189,4 +189,4 @@ export function Counter() {
 }
 ```
 
-However, in this particular case, we need a reference to `$counter` to mainpulate `$counter`, while in the events and nanostores example, we can just simply do `window.dispatchEvent('CounterRequest')` and add a listener for `CounterResponse` to get or manipulate the counter value. At that point, it really is your choice.
+However, in this particular case, we need a reference to `$counter` to mainpulate `$counter`, while in the events and nanostores example, we can just simply do `window.dispatchEvent(new CustomEvent('CounterRequest'))` and add a listener for `CounterResponse` to get or manipulate the counter value. At that point, it really is your choice.
