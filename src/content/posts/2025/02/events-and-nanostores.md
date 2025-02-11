@@ -147,9 +147,9 @@ window.addEventListener("CounterResponse", (event) => {
 });
 ```
 
-The benefit to this is that we're no longer subjected to React or any UI library or framework. React is known to re-render, which causes events to mount and unmount, causing events to be sent more than once.
+The benefit to this is that we're no longer subjected to the quirks of React or any UI library or framework. React is known to re-render. This may cause events to mount and unmount. This may cause events to be sent more than once due to the re-rendering of components.
 
-That's because Nano Stores is designed for moving logic not related to UI to stores. However, if there's a way to achieve the same thing without Nano Stores, and without useEffect, and with React, then feel free to make a pull request to this repo: https://github.com/hrgui/counter-events.
+That's because Nano Stores is designed for moving logic not related to UI to stores. However, if there's a way to achieve the same thing without Nano Stores, and without useEffect, but still with React, then feel free to make a pull request to this repo: https://github.com/hrgui/counter-events. I did it without using `useState`!
 
 https://github.com/hrgui/counter-events/commit/1ee381a931f5f310811f197e615eba82a436beae is the diff.
 
@@ -189,4 +189,14 @@ export function Counter() {
 }
 ```
 
-However, in this particular case, we need a reference to `$counter` to mainpulate `$counter`, while in the events and nanostores example, we can just simply do `window.dispatchEvent(new CustomEvent('CounterRequest'))` and add a listener for `CounterResponse` to get or manipulate the counter value. At that point, it really is your choice.
+However, in this particular case, we need a reference to `$counter` to manipulate `$counter` in DevTools. We would need to add `$counter` to window, like the following: `window.$counter = $counter`. In in the Custom Events and Nano Stores example, we can just simply do `window.dispatchEvent(new CustomEvent('CounterRequest'))` to get or manipulate the counter value, and add a listener for `CounterResponse` to read the value, e.g. `window.addEventListener('CounterResponse', e => console.log(e.detail))`. Plus, I can add more event listeners if I want to!
+
+Try doing the following: Go to https://www.hrgui.dev/counter-events
+
+1. Open up DevTools
+2. In the console, type the following: `window.addEventListener('CounterResponse', e => console.log(e.detail))`;
+3. Repeat it again 2 more times.
+4. Now run the following: `window.dispatchEvent(new CustomEvent('CounterRequest', {detail: {by: +1}}));`
+5. Run it a couple more times.
+
+Notice that React updates, but in the devtools we also get rhe newly updated values printed 3 times! This is quite useful when thinking about situations where we need to also fire off data to API due to certain situations like an Error.
