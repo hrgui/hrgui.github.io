@@ -1,4 +1,4 @@
-import { PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "types/frontmatter";
 
 interface Props {
   items: PortfolioFrontmatter[];

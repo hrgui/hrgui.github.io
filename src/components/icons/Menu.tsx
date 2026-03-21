@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import type { JSX } from "preact";
 
 interface Props extends Omit<JSX.HTMLAttributes<SVGSVGElement>, "crossOrigin"> {
   className?: string;

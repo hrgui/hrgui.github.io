@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import debounce from "lodash.debounce";
-import { cloneElement, toChildArray, JSX } from "preact";
+import type { JSX } from "preact";
+import { cloneElement, toChildArray } from "preact";
 import { useState, useCallback, useEffect, useRef } from "preact/hooks";
 
 import Next from "~/components/icons/Next";

@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import type { JSX } from "preact";
 import { twMerge } from "tailwind-merge";
 
 type Props = JSX.HTMLAttributes<SVGSVGElement>;

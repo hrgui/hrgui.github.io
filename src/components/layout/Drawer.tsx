@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { JSX } from "preact";
+import type { JSX } from "preact";
 
 type Props = {
   isOpen?: boolean;

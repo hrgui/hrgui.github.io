@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import type { JSX } from "preact";
 
 import { technicalSkills as defaultTechnicalSkills } from "~/constants";
 

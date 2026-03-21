@@ -1,8 +1,9 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "types": ["astro/client", "vitest/globals"],
@@ -22,6 +23,6 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
