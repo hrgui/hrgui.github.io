@@ -9,7 +9,9 @@ test("should be able to see the portfolio index and be able to hit chord-charts,
   await expect(header).toBeVisible();
   await expect(header).toContainText("Portfolio");
 
-  const testPortfolioItem = page.getByText("chord-charts");
+  const testPortfolioItem = page.getByRole("link", {
+    name: "View chord-charts",
+  });
   await testPortfolioItem.click();
   await page.waitForURL("**/chord-charts");
   const whatIDid = await page.getByText("What I Did");
@@ -20,9 +22,9 @@ test("should be able to see the portfolio index and be able to hit chord-charts,
   await technologiesUsed.scrollIntoViewIfNeeded();
   await expect(technologiesUsed).toBeVisible();
 
-  const about = await page.getByText("About");
-  await about.scrollIntoViewIfNeeded();
-  await expect(about).toBeVisible();
+  const contextLabel = page.getByText("project_notes // context");
+  await contextLabel.scrollIntoViewIfNeeded();
+  await expect(contextLabel).toBeVisible();
 });
 
 test("should be able to see the portfolio index and be able to hit VKEY, a portfolio item with a slider", async ({
@@ -34,7 +36,9 @@ test("should be able to see the portfolio index and be able to hit VKEY, a portf
   await expect(header).toBeVisible();
   await expect(header).toContainText("Portfolio");
 
-  const testPortfolioItem = page.getByText("VKEY");
+  const testPortfolioItem = page.getByRole("link", {
+    name: "View VKEY",
+  });
   await testPortfolioItem.click();
   await page.waitForURL("**/vkey");
 
@@ -46,9 +50,9 @@ test("should be able to see the portfolio index and be able to hit VKEY, a portf
   await technologiesUsed.scrollIntoViewIfNeeded();
   await expect(technologiesUsed).toBeVisible();
 
-  const about = await page.getByText("About");
-  await about.scrollIntoViewIfNeeded();
-  expect(about).toBeAttached();
+  const contextLabel = page.getByText("project_notes // context");
+  await contextLabel.scrollIntoViewIfNeeded();
+  await expect(contextLabel).toBeVisible();
 
   const next = await page.getByText("Next");
   await next.click();
