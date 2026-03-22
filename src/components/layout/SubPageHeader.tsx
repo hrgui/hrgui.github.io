@@ -8,7 +8,7 @@ type Props = {
 };
 
 const SubPageHeader = ({ bgClassName, className, children }: Props) => {
-  bgClassName = bgClassName || `circuit-board-bg dark:dark-circuit-board-bg`;
+  bgClassName = bgClassName || `circuit-board-bg`;
 
   return (
     <div

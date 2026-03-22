@@ -24,7 +24,7 @@ const PortfolioEntry = ({
 }: Props) => {
   return (
     <>
-      <div className="p-6 pt-24 sm:pt-28 graph-bg dark:dark-graph-bg">
+      <div className="p-6 pt-24 sm:pt-28 graph-bg">
         <div className="container mx-auto lg:flex lg:justify-between ">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
             {title}

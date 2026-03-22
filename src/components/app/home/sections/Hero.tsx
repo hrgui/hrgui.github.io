@@ -13,7 +13,7 @@ export function Hero() {
 
   return (
     <section
-      className="flex flex-col justify-center items-start dark:text-gray-200 h-[800px] sm:h-[900px] gplay-bg dark:dark-gplay-bg"
+      className="flex flex-col justify-center items-start dark:text-gray-200 h-[800px] sm:h-[900px] gplay-bg"
       data-testid="section-hero"
     >
       <div className="pl-6 sm:p-4 flex flex-col justify-center items-start container mx-auto">
@@ -21,9 +21,9 @@ export function Hero() {
           ref={headerRef}
           className={classNames(
             classNames(
-              `translate-y-1/2 motion-reduce:translate-y-0 font-semibold text-[2.5rem] md:text-6xl xl:text-7xl 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
+              `transition-hero translate-y-1/2 motion-reduce:translate-y-0 font-semibold text-[2.5rem] md:text-6xl xl:text-7xl 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
               {
-                ["transition-hero opacity-100 translate-y-0"]: isHeaderVisible,
+                ["opacity-100 !translate-y-0"]: isHeaderVisible,
               }
             ),
             "leading-tight md:leading-snug xl:leading-snug 2xl:leading-snug"
@@ -37,10 +37,9 @@ export function Hero() {
         </h1>
         <AppSocialMedia
           className={classNames(
-            "translate-y-1/2 motion-reduce:translate-y-0 text-xl opacity-0 motion-reduce:opacity-100 mt-4",
+            "transition-hero translate-y-1/2 motion-reduce:translate-y-0 text-xl opacity-0 motion-reduce:opacity-100 mt-4",
             {
-              ["transition-hero opacity-100 translate-y-0"]:
-                headerAnimationEnded,
+              ["opacity-100 !translate-y-0"]: headerAnimationEnded,
             }
           )}
         />

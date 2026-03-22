@@ -1,9 +1,96 @@
-import { defineConfig, presetWind } from "unocss";
+import { defineConfig } from "unocss";
+import { presetWind3 } from "@unocss/preset-wind3";
 import presetTypography from "@unocss/preset-typography";
 
 export default defineConfig({
   dark: "class",
-  presets: [presetWind(), presetTypography()],
+  presets: [presetWind3(), presetTypography()],
+  preflights: [
+    {
+      getCSS: () => `
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        html {
+          line-height: 1.5;
+          -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        iframe {
+          border: none;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+          padding: 0;
+          margin: 0;
+          font-size: inherit;
+          font-weight: inherit;
+        }
+        
+        p {
+          margin: 0;
+        }
+        
+        ol, ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        
+        button, input, optgroup, select, textarea {
+          font-family: inherit;
+          font-size: 100%;
+          line-height: 1.15;
+          margin: 0;
+        }
+        
+        button {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
+          cursor: pointer;
+        }
+        
+        input {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
+          margin: 0;
+        }
+        
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+        
+        td, th {
+          padding: 0;
+        }
+        
+        img, svg, video, canvas, audio, iframe, embed, object {
+          display: block;
+          vertical-align: middle;
+          max-width: 100%;
+        }
+        
+        a {
+          color: inherit;
+          text-decoration: inherit;
+        }
+      `,
+    },
+  ],
   theme: {
     colors: {
       gray: {
