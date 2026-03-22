@@ -1,0 +1,75 @@
+name: Update Playwright Snapshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch to update snapshots on
+        required: true
+        type: string
+      reason:
+        description: Why this visual update is expected
+        required: true
+        type: string
+      test_path:
+        description: "Optional Playwright test path or grep filter (example: e2e/portfolio.spec.ts)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-snapshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: bunx playwright install --with-deps
+
+      - name: Update Playwright snapshots
+        env:
+          CI: true
+          TEST_PATH: ${{ inputs.test_path }}
+        run: |
+          if [ -n "$TEST_PATH" ]; then
+            bunx playwright test "$TEST_PATH" --update-snapshots
+          else
+            bunx playwright test --update-snapshots
+          fi
+
+      - name: Commit updated snapshots
+        env:
+          BRANCH: ${{ inputs.branch }}
+          REASON: ${{ inputs.reason }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No snapshot updates detected."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git restore --staged playwright-report test-results || true
+
+          if [ -z "$(git diff --cached --name-only)" ]; then
+            echo "No tracked snapshot changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update Playwright snapshots\n\nReason: $REASON"
+          git push origin "HEAD:$BRANCH"
