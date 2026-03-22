@@ -123,10 +123,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: playwright-snapshot-patch
+          path: ${{ runner.temp }}/playwright-snapshot-patch
 
       - name: Apply snapshot patch
         shell: bash
-        run: git apply --index --reject --whitespace=nowarn playwright-snapshots.patch
+        run: git apply --index --reject --whitespace=nowarn "$RUNNER_TEMP/playwright-snapshot-patch/playwright-snapshots.patch"
 
       - name: Commit snapshot updates
         id: commit_snapshot_updates
