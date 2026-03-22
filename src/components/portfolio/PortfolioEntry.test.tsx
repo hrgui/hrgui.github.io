@@ -25,14 +25,20 @@ test("should render a basic portfolio entry with thumbnail and images without cr
     />
   );
   expect(screen.getByText("Title")).toBeInTheDocument();
-  expect(screen.getByText("Open Link / Demo in new Tab")).toBeInTheDocument();
-  expect(screen.getByText("View Github Code")).toBeInTheDocument();
-  expect(screen.getByText("Visit https://www.hrgui.dev")).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Open Demo" })).toBeInTheDocument();
+  expect(
+    screen.getByRole("link", { name: "View GitHub Code" })
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole("link", { name: /Visit\s+https:\/\/www\.hrgui\.dev/ })
+  ).toBeInTheDocument();
   expect(screen.getByText("What I Did")).toBeInTheDocument();
   expect(screen.getByText("Technologies Used")).toBeInTheDocument();
   expect(screen.getByText("whatidid1")).toBeInTheDocument();
   expect(screen.getByTestId("portfolio-media-iframe")).toBeInTheDocument();
-  expect(screen.getByTestId("portfolio-media-slider")).toBeInTheDocument();
+  expect(
+    screen.getByTestId("portfolio-media-iframe-thumbnail")
+  ).toBeInTheDocument();
 });
 
 test("should render a basic portfolio entry with thumbnail without crashing", async () => {
@@ -45,7 +51,7 @@ test("should render a basic portfolio entry with thumbnail without crashing", as
     />
   );
   expect(screen.getByText("Title")).toBeInTheDocument();
-  expect(screen.getByText("Open Link / Demo in new Tab")).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Open Demo" })).toBeInTheDocument();
   expect(screen.getByText("What I Did")).toBeInTheDocument();
   expect(screen.getByText("whatidid1")).toBeInTheDocument();
   expect(screen.getByTestId("portfolio-media-thumbnail")).toBeInTheDocument();
