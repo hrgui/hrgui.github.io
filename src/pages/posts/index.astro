@@ -2,18 +2,31 @@
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
 import Posts from "~/components/app/blog/Posts";
-import SubPageHeader from "~/components/layout/SubPageHeader";
 import type { PostFrontmatter } from "~/types/frontmatter";
 
 const title = `Blog`;
-const description = `Read about Harman's blog posts about the web and things.`;
+const description = `Field notes from the web frontier: code, UI, tooling, and the occasional digital detour.`;
 
 const posts = await getCollection("posts");
 posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <DefaultPageLayout title={title} description={description}>
-  <SubPageHeader>{title}</SubPageHeader>
+  <section class="circuit-board-bg relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28">
+    <div class="container relative z-10 mx-auto">
+      <div class="mb-4 flex items-center gap-4">
+        <p class="label-mono text-primary">system_directory</p>
+        <div class="h-px flex-1 bg-gradient-to-r from-primary via-outline-variant/60 to-outline-variant"></div>
+      </div>
+      <h1 class="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text font-headline text-5xl font-semibold tracking-tight text-transparent sm:text-6xl">
+        {title}<span class="text-primary">.</span>
+      </h1>
+      <p class="mt-5 max-w-3xl text-lg leading-relaxed text-on-surface-muted">
+        {description}
+      </p>
+    </div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent via-background/70 to-background"></div>
+  </section>
   <Posts
     posts={posts.map((post) => ({ ...post.data, slug: `/posts/${post.id}` } as PostFrontmatter))}
   />

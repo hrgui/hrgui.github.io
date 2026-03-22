@@ -44,7 +44,7 @@ const Header = ({ currentPathName }: Props) => {
     <>
       <header
         className={classNames(
-          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-10",
+          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-40",
           {
             "bg-white dark:bg-zinc-900  dark:border-gray-700": trigger,
           }

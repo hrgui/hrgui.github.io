@@ -24,48 +24,58 @@ const PortfolioEntry = ({
 }: Props) => {
   return (
     <>
-      <div className="p-6 pt-24 sm:pt-28 graph-bg">
-        <div className="container mx-auto lg:flex lg:justify-between ">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight">
-            {title}
-          </h1>
+      <section className="graph-bg px-6 pb-10 pt-24 sm:pt-28">
+        <div className="container mx-auto max-w-[1536px] lg:flex lg:items-end lg:justify-between lg:gap-10">
+          <div>
+            <p className="label-mono mb-3 text-primary">
+              project_entry // live_record
+            </p>
+            <h1 className="bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+              {title}
+            </h1>
+          </div>
 
-          <div className="mt-2 mb-2">
-            {demoUrl && (
-              <Link
-                href={demoUrl}
-                className="block transition-colors"
-                target="__blank"
-                rel="noreferrer"
-              >
-                Open Link / Demo in new Tab
-              </Link>
-            )}
-            {githubUrl && (
-              <Link
-                href={githubUrl}
-                className="block transition-colors"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Github Code
-              </Link>
-            )}
-            {urls &&
-              urls.map((url, i) => (
+          <div className="mt-6 rounded-2xl border border-outline-variant bg-surface-container-high p-4 lg:mt-0 lg:min-w-[320px]">
+            <p className="label-mono mb-3 text-on-surface-muted">
+              external_links
+            </p>
+            <div className="space-y-2">
+              {demoUrl && (
                 <Link
-                  href={url}
-                  key={i}
+                  href={demoUrl}
+                  className="block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
+                  target="__blank"
+                  rel="noreferrer"
+                >
+                  Open Demo
+                </Link>
+              )}
+              {githubUrl && (
+                <Link
+                  href={githubUrl}
+                  className="block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
                   target="_blank"
                   rel="noreferrer"
-                  className="block overflow-hidden overflow-ellipsis"
                 >
-                  Visit {url}
+                  View GitHub Code
                 </Link>
-              ))}
+              )}
+              {urls &&
+                urls.map((url, i) => (
+                  <Link
+                    href={url}
+                    key={i}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block overflow-hidden overflow-ellipsis rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
+                  >
+                    Visit {url}
+                  </Link>
+                ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <PortfolioMedia
         title={title}
@@ -74,23 +84,39 @@ const PortfolioEntry = ({
         iframe={iframe}
       />
 
-      <div className="dark:bg-stone-900 pt-12 pb-12">
-        <div className="container pl-6 pr-6 sm:pl-2 sm:pr-2 mx-auto">
-          <div className="md:grid md:grid-cols-12">
-            {whatIDid && <WhatIDid whatIDid={whatIDid} />}
-            {technologiesUsed && (
-              <TechnologiesUsed
-                className={"md:col-span-4"}
-                data={technologiesUsed}
-              />
-            )}
-          </div>
+      <section className="bg-surface py-12">
+        <div className="container mx-auto max-w-[1536px] px-6 sm:px-6 lg:px-8">
+          <div className="space-y-6">
+            <div className="grid gap-6 md:grid-cols-12">
+              {whatIDid && (
+                <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-8">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-primary via-primary-container/70 to-transparent" />
+                  <p className="label-mono mb-4 text-primary">
+                    impact_log // execution
+                  </p>
+                  <WhatIDid whatIDid={whatIDid} />
+                </div>
+              )}
+              {technologiesUsed && (
+                <div className="relative overflow-hidden rounded-3xl border border-tertiary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-4">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-tertiary via-tertiary-container/70 to-transparent" />
+                  <TechnologiesUsed data={technologiesUsed} />
+                </div>
+              )}
+            </div>
 
-          <div className="prose dark:prose-invert max-w-[1536px] prose-sm md:prose-md md:prose-lg lg:prose-xl">
-            <main>{children}</main>
+            <div className="relative overflow-hidden rounded-3xl border border-secondary/30 bg-surface-container-low p-6 shadow-floating sm:p-8">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-secondary via-secondary/70 to-transparent" />
+              <p className="label-mono mb-4 text-secondary">
+                project_notes // context
+              </p>
+              <div className="prose prose-sm max-w-none prose-headings:mt-0 prose-headings:mb-4 dark:prose-invert md:prose-lg lg:prose-xl">
+                <main>{children}</main>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

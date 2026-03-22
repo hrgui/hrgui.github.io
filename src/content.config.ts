@@ -20,6 +20,7 @@ const portfolioItemsCollection = defineCollection({
     date: z.string().optional(),
     title: z.string().optional(),
     category: z.string().optional(),
+    featured: z.boolean().optional(),
     githubUrl: z.string().optional(),
     images: z
       .array(

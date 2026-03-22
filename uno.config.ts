@@ -146,53 +146,82 @@ export default defineConfig<AppTheme>({
   ],
   theme: {
     colors: {
-      background: "var(--color-background)",
-      "on-background": "var(--color-on-background)",
-      primary: "var(--color-primary)",
-      "primary-container": "var(--color-primary-container)",
-      "primary-fixed": "var(--color-primary-fixed)",
-      "primary-fixed-dim": "var(--color-primary-fixed-dim)",
-      "on-primary": "var(--color-on-primary)",
-      "on-primary-container": "var(--color-on-primary-container)",
-      "on-primary-fixed": "var(--color-on-primary-fixed)",
-      "on-primary-fixed-variant": "var(--color-on-primary-fixed-variant)",
-      secondary: "var(--color-secondary)",
-      "secondary-container": "var(--color-secondary-container)",
-      "secondary-fixed": "var(--color-secondary-fixed)",
-      "secondary-fixed-dim": "var(--color-secondary-fixed-dim)",
-      "on-secondary": "var(--color-on-secondary)",
-      "on-secondary-container": "var(--color-on-secondary-container)",
-      "on-secondary-fixed": "var(--color-on-secondary-fixed)",
-      "on-secondary-fixed-variant": "var(--color-on-secondary-fixed-variant)",
-      tertiary: "var(--color-tertiary)",
-      "tertiary-container": "var(--color-tertiary-container)",
-      "tertiary-fixed": "var(--color-tertiary-fixed)",
-      "tertiary-fixed-dim": "var(--color-tertiary-fixed-dim)",
-      "on-tertiary": "var(--color-on-tertiary)",
-      "on-tertiary-container": "var(--color-on-tertiary-container)",
-      "on-tertiary-fixed": "var(--color-on-tertiary-fixed)",
-      "on-tertiary-fixed-variant": "var(--color-on-tertiary-fixed-variant)",
-      error: "var(--color-error)",
-      "error-container": "var(--color-error-container)",
-      "on-error": "var(--color-on-error)",
-      "on-error-container": "var(--color-on-error-container)",
-      surface: "var(--color-surface)",
-      "surface-dim": "var(--color-surface-dim)",
-      "surface-bright": "var(--color-surface-bright)",
-      "surface-container-lowest": "var(--color-surface-container-lowest)",
-      "surface-container-low": "var(--color-surface-container-low)",
-      "surface-container": "var(--color-surface-container)",
-      "surface-container-high": "var(--color-surface-container-high)",
-      "surface-container-highest": "var(--color-surface-container-highest)",
-      "surface-variant": "var(--color-surface-variant)",
-      outline: "var(--color-outline)",
-      "outline-variant": "var(--color-outline-variant)",
-      "surface-tint": "var(--color-surface-tint)",
-      "inverse-primary": "var(--color-inverse-primary)",
-      "inverse-surface": "var(--color-inverse-surface)",
-      "inverse-on-surface": "var(--color-inverse-on-surface)",
-      "on-surface": "var(--color-on-surface)",
-      "on-surface-muted": "var(--color-on-surface-muted)",
+      background: "rgb(var(--color-background-rgb) / <alpha-value>)",
+      "on-background": "rgb(var(--color-on-background-rgb) / <alpha-value>)",
+      primary: "rgb(var(--color-primary-rgb) / <alpha-value>)",
+      "primary-container":
+        "rgb(var(--color-primary-container-rgb) / <alpha-value>)",
+      "primary-fixed": "rgb(var(--color-primary-fixed-rgb) / <alpha-value>)",
+      "primary-fixed-dim":
+        "rgb(var(--color-primary-fixed-dim-rgb) / <alpha-value>)",
+      "on-primary": "rgb(var(--color-on-primary-rgb) / <alpha-value>)",
+      "on-primary-container":
+        "rgb(var(--color-on-primary-container-rgb) / <alpha-value>)",
+      "on-primary-fixed":
+        "rgb(var(--color-on-primary-fixed-rgb) / <alpha-value>)",
+      "on-primary-fixed-variant":
+        "rgb(var(--color-on-primary-fixed-variant-rgb) / <alpha-value>)",
+      secondary: "rgb(var(--color-secondary-rgb) / <alpha-value>)",
+      "secondary-container":
+        "rgb(var(--color-secondary-container-rgb) / <alpha-value>)",
+      "secondary-fixed":
+        "rgb(var(--color-secondary-fixed-rgb) / <alpha-value>)",
+      "secondary-fixed-dim":
+        "rgb(var(--color-secondary-fixed-dim-rgb) / <alpha-value>)",
+      "on-secondary": "rgb(var(--color-on-secondary-rgb) / <alpha-value>)",
+      "on-secondary-container":
+        "rgb(var(--color-on-secondary-container-rgb) / <alpha-value>)",
+      "on-secondary-fixed":
+        "rgb(var(--color-on-secondary-fixed-rgb) / <alpha-value>)",
+      "on-secondary-fixed-variant":
+        "rgb(var(--color-on-secondary-fixed-variant-rgb) / <alpha-value>)",
+      tertiary: "rgb(var(--color-tertiary-rgb) / <alpha-value>)",
+      "tertiary-container":
+        "rgb(var(--color-tertiary-container-rgb) / <alpha-value>)",
+      "tertiary-fixed": "rgb(var(--color-tertiary-fixed-rgb) / <alpha-value>)",
+      "tertiary-fixed-dim":
+        "rgb(var(--color-tertiary-fixed-dim-rgb) / <alpha-value>)",
+      "on-tertiary": "rgb(var(--color-on-tertiary-rgb) / <alpha-value>)",
+      "on-tertiary-container":
+        "rgb(var(--color-on-tertiary-container-rgb) / <alpha-value>)",
+      "on-tertiary-fixed":
+        "rgb(var(--color-on-tertiary-fixed-rgb) / <alpha-value>)",
+      "on-tertiary-fixed-variant":
+        "rgb(var(--color-on-tertiary-fixed-variant-rgb) / <alpha-value>)",
+      error: "rgb(var(--color-error-rgb) / <alpha-value>)",
+      "error-container":
+        "rgb(var(--color-error-container-rgb) / <alpha-value>)",
+      "on-error": "rgb(var(--color-on-error-rgb) / <alpha-value>)",
+      "on-error-container":
+        "rgb(var(--color-on-error-container-rgb) / <alpha-value>)",
+      surface: "rgb(var(--color-surface-rgb) / <alpha-value>)",
+      "surface-dim": "rgb(var(--color-surface-dim-rgb) / <alpha-value>)",
+      "surface-bright": "rgb(var(--color-surface-bright-rgb) / <alpha-value>)",
+      "surface-container-lowest":
+        "rgb(var(--color-surface-container-lowest-rgb) / <alpha-value>)",
+      "surface-container-low":
+        "rgb(var(--color-surface-container-low-rgb) / <alpha-value>)",
+      "surface-container":
+        "rgb(var(--color-surface-container-rgb) / <alpha-value>)",
+      "surface-container-high":
+        "rgb(var(--color-surface-container-high-rgb) / <alpha-value>)",
+      "surface-container-highest":
+        "rgb(var(--color-surface-container-highest-rgb) / <alpha-value>)",
+      "surface-variant":
+        "rgb(var(--color-surface-variant-rgb) / <alpha-value>)",
+      outline: "rgb(var(--color-outline-rgb) / <alpha-value>)",
+      "outline-variant":
+        "rgb(var(--color-outline-variant-rgb) / <alpha-value>)",
+      "surface-tint": "rgb(var(--color-surface-tint-rgb) / <alpha-value>)",
+      "inverse-primary":
+        "rgb(var(--color-inverse-primary-rgb) / <alpha-value>)",
+      "inverse-surface":
+        "rgb(var(--color-inverse-surface-rgb) / <alpha-value>)",
+      "inverse-on-surface":
+        "rgb(var(--color-inverse-on-surface-rgb) / <alpha-value>)",
+      "on-surface": "rgb(var(--color-on-surface-rgb) / <alpha-value>)",
+      "on-surface-muted":
+        "rgb(var(--color-on-surface-muted-rgb) / <alpha-value>)",
       gray: {
         50: "#f7f7f8",
         100: "#f1f1f2",

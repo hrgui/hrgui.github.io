@@ -1,8 +1,7 @@
 import ctl from "@netlify/classnames-template-literals";
 
 export const linkClassName = ctl(
-  `text-red-700 
-   dark:text-red-400 
+  `text-primary 
    hover:underline 
    font-medium`
 );
@@ -13,7 +12,6 @@ export const blogEntryClassName = ctl(`
   max-w-[1536px] 
   mx-auto 
   
-  prose-a:text-red-700 
-  dark:prose-a:text-red-400 
+  prose-a:text-primary 
   prose-a:no-underline 
   hover:prose-a:underline`);

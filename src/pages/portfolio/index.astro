@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
 import { type PortfolioFrontmatter } from "types/frontmatter";
 import PortfolioShowcase from "~/components/app/portfolio/PortfolioShowcase";
-import SubPageHeader from "~/components/layout/SubPageHeader";
 
 const title = `Portfolio`;
 const description = `View Harman's showcase of work as a developer.`;
@@ -12,12 +11,20 @@ const items = await getCollection("portfolio");
 ---
 
 <DefaultPageLayout title={title} description={description}>
-  <SubPageHeader
-    bgClassName="graph-bg"
-    className="from-pink-400  to-violet-500"
-  >
-    {title}
-  </SubPageHeader>
+  <section class="graph-bg relative overflow-hidden px-6 pb-8 pt-28">
+    <div class="relative z-10 container mx-auto max-w-[1536px] space-y-6">
+      <div class="mb-8 flex items-center gap-4">
+        <p class="label-mono text-tertiary">NODE_ACCESS // PORTFOLIO_GRID</p>
+        <div class="h-px flex-1 bg-gradient-to-r from-tertiary via-outline-variant/60 to-outline-variant"></div>
+      </div>
+      
+      <h1 class="font-headline text-5xl font-semibold tracking-tight bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary bg-clip-text text-transparent sm:text-6xl md:text-7xl">
+        Portfolio.
+      </h1>
+    </div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
+  </section>
+  
   <PortfolioShowcase
     hasTitle={false}
     items={items.map(

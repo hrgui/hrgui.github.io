@@ -12,8 +12,8 @@ function Item({ title, children, ...props }: ItemProps) {
       className="surface-module-raised mb-6 rounded-3xl border border-outline-variant p-6"
       {...props}
     >
-      <p className="label-mono mb-3 text-primary">sell_point</p>
-      <h2 className="mb-3 font-headline text-2xl leading-tight text-on-surface">
+      <p className="label-mono mb-3 text-primary">core</p>
+      <h2 className="mb-3 font-headline font-semibold text-2xl leading-tight text-on-surface">
         {title}
       </h2>
       <p className="text-base leading-relaxed text-on-surface-muted">
