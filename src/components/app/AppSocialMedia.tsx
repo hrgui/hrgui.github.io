@@ -16,7 +16,7 @@ const AppSocialMedia = ({ className }: Props) => {
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="opacity-50 hover:opacity-100 transition-all"
+        className="group rounded p-1 opacity-50 transition-all duration-150 ease-out hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
       >
         <Github />
       </a>
@@ -25,9 +25,9 @@ const AppSocialMedia = ({ className }: Props) => {
         href={LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="opacity-50 hover:opacity-100 transition-all"
+        className="group rounded p-1 opacity-50 transition-all duration-150 ease-out hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
       >
-        <LinkedIn className="hover:text-blue-500" />
+        <LinkedIn className="transition-colors group-hover:text-blue-500 group-focus-visible:text-blue-500" />
       </a>
     </div>
   );

@@ -7,6 +7,29 @@ interface Props {
   hasTitle?: boolean;
 }
 
+const featuredCardClassName =
+  "group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-within:border-primary/70 focus-within:shadow-floating md:flex-row";
+
+const regularCardClassName =
+  "group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-within:border-primary/70 focus-within:shadow-floating";
+
+const cardPageLinkClassName =
+  "absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high";
+
+const titleClassName = "transition-colors group-hover:text-primary";
+
+const descriptionClassName =
+  "block text-base leading-relaxed text-on-surface-muted transition-colors group-hover:text-on-surface";
+
+const viewActionClassName =
+  "rounded bg-primary/10 px-4 py-2 font-semibold text-primary transition-all duration-150 ease-out group-hover:bg-primary/20";
+
+const demoIconClassName =
+  "rounded p-2 text-on-surface-muted transition-colors duration-150 ease-out group-hover:text-primary";
+
+const githubActionClassName =
+  "relative z-20 rounded p-2 text-on-surface-muted transition-all duration-150 ease-out hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-[0.95]";
+
 function generateId(category: string, title: string, index: number): string {
   const categoryPrefix =
     category?.toUpperCase().replace(/-/g, "_") || "PROJECT";
@@ -42,19 +65,21 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
               <div className="space-y-6">
                 {/* Featured Item */}
                 {featuredItem && (
-                  <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all hover:border-primary md:flex-row">
-                    {/* Image Container */}
+                  <div className={featuredCardClassName}>
                     <a
                       href={`/portfolio/${featuredItem.slug}`}
-                      className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0"
-                    >
+                      className={cardPageLinkClassName}
+                      aria-label={`View ${featuredItem.title}`}
+                    />
+                    {/* Image Container */}
+                    <div className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0">
                       <img
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         src={featuredItem.thumbnail}
                         alt={featuredItem.title}
                       />
-                    </a>
+                    </div>
 
                     {/* Content */}
                     <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
@@ -70,20 +95,14 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                           </span>
                         </div>
                         <h2 className="mb-3 font-headline text-3xl font-semibold text-on-surface">
-                          <a
-                            href={`/portfolio/${featuredItem.slug}`}
-                            className="transition-colors hover:text-primary"
-                          >
+                          <span className={titleClassName}>
                             {featuredItem.title}
-                          </a>
+                          </span>
                         </h2>
                         {featuredItem.whatIDid?.[0] && (
-                          <a
-                            href={`/portfolio/${featuredItem.slug}`}
-                            className="block text-base leading-relaxed text-on-surface-muted transition-colors hover:text-on-surface"
-                          >
+                          <span className={descriptionClassName}>
                             {featuredItem.whatIDid[0]}
-                          </a>
+                          </span>
                         )}
                       </div>
 
@@ -104,29 +123,21 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
 
                       {/* Footer with Links */}
                       <div className="flex items-center gap-3">
-                        <a
-                          href={`/portfolio/${featuredItem.slug}`}
-                          className="rounded bg-primary/10 px-4 py-2 font-semibold text-primary transition-colors hover:bg-primary/20"
-                        >
-                          View
-                        </a>
+                        <span className={viewActionClassName}>View</span>
                         {featuredItem.demoUrl && (
-                          <a
-                            href={featuredItem.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
-                            title="Open Demo"
+                          <span
+                            className={demoIconClassName}
+                            aria-hidden="true"
                           >
                             <Next className="w-6 h-6" />
-                          </a>
+                          </span>
                         )}
                         {featuredItem.githubUrl && (
                           <a
                             href={featuredItem.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
+                            className={githubActionClassName}
                             title="View on GitHub"
                           >
                             <Github width={24} height={24} />
@@ -148,22 +159,21 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                     const description = item.whatIDid?.[0] || "";
 
                     return (
-                      <div
-                        key={i}
-                        className="group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all hover:border-primary"
-                      >
-                        {/* Image Container */}
+                      <div key={i} className={regularCardClassName}>
                         <a
                           href={`/portfolio/${item.slug}`}
-                          className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest"
-                        >
+                          className={cardPageLinkClassName}
+                          aria-label={`View ${item.title}`}
+                        />
+                        {/* Image Container */}
+                        <div className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest">
                           <img
                             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             loading="lazy"
                             src={item.thumbnail}
                             alt={item.title}
                           />
-                        </a>
+                        </div>
 
                         {/* Header with ID and Status Badge */}
                         <div className="flex items-center justify-between gap-2 px-4 py-3 text-xs font-mono text-on-surface-muted">
@@ -175,21 +185,15 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                         {/* Content */}
                         <div className="flex flex-1 flex-col gap-3 px-4 py-4">
                           <h2 className="font-headline text-xl font-semibold text-on-surface">
-                            <a
-                              href={`/portfolio/${item.slug}`}
-                              className="transition-colors hover:text-primary"
-                            >
-                              {item.title}
-                            </a>
+                            <span className={titleClassName}>{item.title}</span>
                           </h2>
 
                           {description && (
-                            <a
-                              href={`/portfolio/${item.slug}`}
-                              className="line-clamp-2 block text-sm leading-relaxed text-on-surface-muted transition-colors hover:text-on-surface"
+                            <span
+                              className={`${descriptionClassName} line-clamp-2 text-sm`}
                             >
                               {description}
-                            </a>
+                            </span>
                           )}
 
                           {/* Technologies */}
@@ -210,29 +214,25 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
 
                         {/* Footer with Links */}
                         <div className="flex items-center gap-3 border-t border-outline-variant px-4 py-3">
-                          <a
-                            href={`/portfolio/${item.slug}`}
-                            className="flex-1 rounded bg-primary/10 px-3 py-2 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                          <span
+                            className={`${viewActionClassName} flex-1 px-3 text-center text-sm`}
                           >
                             View
-                          </a>
+                          </span>
                           {item.demoUrl && (
-                            <a
-                              href={item.demoUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
-                              title="Open Demo"
+                            <span
+                              className={demoIconClassName}
+                              aria-hidden="true"
                             >
                               <Next className="w-5 h-5" />
-                            </a>
+                            </span>
                           )}
                           {item.githubUrl && (
                             <a
                               href={item.githubUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
+                              className={githubActionClassName}
                               title="View on GitHub"
                             >
                               <Github width={20} height={20} />
@@ -252,19 +252,21 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
           <div className="space-y-6">
             {/* Featured Item */}
             {featuredItem && (
-              <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all hover:border-primary md:flex-row">
-                {/* Image Container */}
+              <div className={featuredCardClassName}>
                 <a
                   href={`/portfolio/${featuredItem.slug}`}
-                  className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0"
-                >
+                  className={cardPageLinkClassName}
+                  aria-label={`View ${featuredItem.title}`}
+                />
+                {/* Image Container */}
+                <div className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0">
                   <img
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                     src={featuredItem.thumbnail}
                     alt={featuredItem.title}
                   />
-                </a>
+                </div>
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
@@ -280,20 +282,14 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                       </span>
                     </div>
                     <h2 className="mb-3 font-headline text-3xl font-semibold text-on-surface">
-                      <a
-                        href={`/portfolio/${featuredItem.slug}`}
-                        className="transition-colors hover:text-primary"
-                      >
+                      <span className={titleClassName}>
                         {featuredItem.title}
-                      </a>
+                      </span>
                     </h2>
                     {featuredItem.whatIDid?.[0] && (
-                      <a
-                        href={`/portfolio/${featuredItem.slug}`}
-                        className="block text-base leading-relaxed text-on-surface-muted transition-colors hover:text-on-surface"
-                      >
+                      <span className={descriptionClassName}>
                         {featuredItem.whatIDid[0]}
-                      </a>
+                      </span>
                     )}
                   </div>
 
@@ -314,29 +310,18 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
 
                   {/* Footer with Links */}
                   <div className="flex items-center gap-3">
-                    <a
-                      href={`/portfolio/${featuredItem.slug}`}
-                      className="rounded bg-primary/10 px-4 py-2 font-semibold text-primary transition-colors hover:bg-primary/20"
-                    >
-                      View
-                    </a>
+                    <span className={viewActionClassName}>View</span>
                     {featuredItem.demoUrl && (
-                      <a
-                        href={featuredItem.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
-                        title="Open Demo"
-                      >
+                      <span className={demoIconClassName} aria-hidden="true">
                         <Next className="w-6 h-6" />
-                      </a>
+                      </span>
                     )}
                     {featuredItem.githubUrl && (
                       <a
                         href={featuredItem.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
+                        className={githubActionClassName}
                         title="View on GitHub"
                       >
                         <Github width={24} height={24} />
@@ -354,22 +339,21 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                 const description = item.whatIDid?.[0] || "";
 
                 return (
-                  <div
-                    key={i}
-                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all hover:border-primary"
-                  >
-                    {/* Image Container */}
+                  <div key={i} className={regularCardClassName}>
                     <a
                       href={`/portfolio/${item.slug}`}
-                      className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest"
-                    >
+                      className={cardPageLinkClassName}
+                      aria-label={`View ${item.title}`}
+                    />
+                    {/* Image Container */}
+                    <div className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest">
                       <img
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         src={item.thumbnail}
                         alt={item.title}
                       />
-                    </a>
+                    </div>
 
                     {/* Header with ID and Status Badge */}
                     <div className="flex items-center justify-between gap-2 px-4 py-3 text-xs font-mono text-on-surface-muted">
@@ -381,21 +365,15 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                     {/* Content */}
                     <div className="flex flex-1 flex-col gap-3 px-4 py-4">
                       <h2 className="font-headline text-xl font-semibold text-on-surface">
-                        <a
-                          href={`/portfolio/${item.slug}`}
-                          className="transition-colors hover:text-primary"
-                        >
-                          {item.title}
-                        </a>
+                        <span className={titleClassName}>{item.title}</span>
                       </h2>
 
                       {description && (
-                        <a
-                          href={`/portfolio/${item.slug}`}
-                          className="line-clamp-2 block text-sm leading-relaxed text-on-surface-muted transition-colors hover:text-on-surface"
+                        <span
+                          className={`${descriptionClassName} line-clamp-2 text-sm`}
                         >
                           {description}
-                        </a>
+                        </span>
                       )}
 
                       {/* Technologies */}
@@ -416,29 +394,22 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
 
                     {/* Footer with Links */}
                     <div className="flex items-center gap-3 border-t border-outline-variant px-4 py-3">
-                      <a
-                        href={`/portfolio/${item.slug}`}
-                        className="flex-1 rounded bg-primary/10 px-3 py-2 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                      <span
+                        className={`${viewActionClassName} flex-1 px-3 text-center text-sm`}
                       >
                         View
-                      </a>
+                      </span>
                       {item.demoUrl && (
-                        <a
-                          href={item.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
-                          title="Open Demo"
-                        >
+                        <span className={demoIconClassName} aria-hidden="true">
                           <Next className="w-5 h-5" />
-                        </a>
+                        </span>
                       )}
                       {item.githubUrl && (
                         <a
                           href={item.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="rounded p-2 text-on-surface-muted transition-colors hover:text-primary"
+                          className={githubActionClassName}
                           title="View on GitHub"
                         >
                           <Github width={20} height={20} />

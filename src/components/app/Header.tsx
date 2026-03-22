@@ -52,7 +52,7 @@ const Header = ({ currentPathName }: Props) => {
       >
         <button
           onClick={handleSetIsOpen}
-          className="sm:hidden hover:bg-gray-800 hover:opacity-100 p-2 opacity-75 transition-all"
+          className="sm:hidden p-2 opacity-75 rounded border border-outline-variant/60 text-on-surface transition-all duration-150 ease-out hover:opacity-100 hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
         >
           <Menu className="sm:hidden w-12 h-6" />
         </button>

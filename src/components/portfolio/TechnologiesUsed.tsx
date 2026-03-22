@@ -194,7 +194,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
             return (
               <li
                 key={tech.type}
-                className="flex cursor-pointer items-center justify-between rounded-lg border border-outline-variant bg-surface-container-high px-3 py-2 transition-all duration-200 hover:border-primary/60"
+                className="flex cursor-pointer items-center justify-between rounded-lg border border-outline-variant bg-surface-container-high px-3 py-2 transition-all duration-200 hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-low active:scale-[0.99]"
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
                 onFocus={() => setActiveIndex(index)}
