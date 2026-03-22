@@ -58,7 +58,9 @@ jobs:
       - name: Create snapshot patch
         if: steps.detect_changes.outputs.changed == 'true'
         shell: bash
-        run: git diff --binary > playwright-snapshots.patch
+        run: |
+          git add -A
+          git diff --cached --binary > playwright-snapshots.patch
 
       - name: Upload snapshot patch
         if: steps.detect_changes.outputs.changed == 'true'
