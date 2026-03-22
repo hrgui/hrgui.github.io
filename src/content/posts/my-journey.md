@@ -4,18 +4,42 @@ date: "2/22/2024"
 excerpt: My journey of how I got here today.
 ---
 
-I learned to code way back in 1996. I was quite young at the time, but I was surrounded by computers. My dad was into computers, and I felt that I had enjoyment from following in his footsteps. He was an influential model for me. At the time, I wanted to develop a website for my all-time favorite TV show, Power Rangers. This was probably because my dad was learning about the Internet then, and he was also making websites also. I would bring up Microsoft FrontPage 97, which would then help me create HTML pages, which led me to creation of websites that I could then upload via FTP to Geocities. I don't remember what Geocities page I had, but I do remember that I had a picture of a Megazord somewhere.
+I learned to code back in 1996.
 
-That passion grew as I was exposed to more television, which somehow I have integrated into my life. It has made a lot of wonderful memories. I used to remember a memory where back in Indonesia, my uncle and my cousins would gather around with me and my family to watch animated movies. I do have fond memories of those times, as it felt like it was a sense of enjoyment. With those passions, it eventually evolved into making more fan sites of TV shows of games, which eventually became fan sites of Japanese animation, or what we know as anime. Eventually, I had stopped creating fan websites because the Internet was evolving. Social media became the norm, which was how people consume media. People no longer had to make websites to show content. They could just show content on social media platforms like Facebook, or Twitter, which I became a part of.
+I was still a kid, but computers were always around me. My dad loved tech, and I remember wanting to do whatever he was doing. I would open Microsoft FrontPage 97, drag things around, tweak HTML, and upload pages to Geocities through FTP. I cannot remember the URL now, but I still remember one detail clearly: a Megazord image on the page.
 
-In school, I pursued a degree in Computer Science and Engineering due to my passion for computers. There I would then find my core focus to be in user interface development, which could be described as a parallel to my hobby of consuming animation. User interfaces are what people use today to do things on a device in order to get an action done. I then learned that I could also apply my knowledge of web development as a way of making user interfaces (UIs), which became vital to the landscape of the Internet today.
+That was the spark.
 
-Today, I ended up in a role where I am able to take what I learned in school and apply to what I enjoy consuming, which is anime. I work at Crunchyroll as a Staff Software Engineer, in which I helped develop and lead direction of many different new user interface applications for consuming anime in new and emerging living room devices.
+As I got older, the things I loved started showing up in the things I built. I was really into TV and animation. Back in Indonesia, I remember my uncle and cousins gathering with my family to watch animated movies. Those were good memories, and they stayed with me. I kept making fan sites, first for shows and games, and later for anime.
 
-It was a long journey though. I didn’t start off working at Crunchyroll when I first graduated from school. I had first worked as a Software Developer in Test in DIRECTV, who would love to make testing applications to help make testing set top boxes easier. I had learned the principles of testing, I had learned what it takes to apply my core focus in user interface development into practice, where I worked with other engineers whose goal was to help make accurate test results for developers. Afterwards, I decided I wanted to transition to solely focus on UI engineering, which led to my role at OpenX. There I would help other website owners (publishers), monetize the empty spaces they had with advertisements. I would create user interfaces to help publishers figure out the best way of monetizing, set up ad rules, and even help setup ad integration code for publishers directly. From my experiences, one thing stood in common as a rule that I follow: Learn what the user will do, then everything else will follow. That is how I believe how I got to my role today. I felt that I always had anticipated what a user could possibly do, which led me to ensure that I had delivered good user experiences.
+Then the internet changed, and I changed with it.
 
-However, I didn’t always deliver good user experiences. I had learned from my mistakes throughout my career. I felt that a lot of the mistakes come from learning how to communicate, and deeply understand how I arrived at that mistake. I would then learn from it, and I felt that itself was also rewarding, because it came with a heap of knowledge that I would end up inheriting. With that knowledge, I ended up also learning how to be more cautious, and I would then motivate myself to be able to monitor results quantitatively rather than qualitatively. This would end up being in a form of analytical dashboards that I would then monitor to be able to easily spot mistakes and retroactively recover from them.
+Social media became the default place to share content, so fan sites were not as common anymore. But the core excitement never left me. I still loved creating experiences for people.
 
-A proudest moment I had was when I was able to help a fellow anime enjoyer through customer support to be able to consume content in their living room device. No matter what the user had tried, they kept getting an error when trying to play anything at all. I was in the midst of delivering a full rewrite of that living room device’s application, and all I could do for customer support was to ask the user to wait. On the day of the launch of the rewrite, the user was able to enjoy watching anime through their living room device. That gave me a sense of adrenaline, which empowered me to continue developing great user experiences.
+In school, I studied Computer Science and Engineering, and that is where I found my lane: user interface development. UI felt natural to me, almost like a continuation of what I already loved about animation and storytelling. I started seeing web development not just as code on a page, but as a way to shape how people actually feel when they use a product.
 
-If there is something to learn from my journey for those inspired to get into the role of Computer Science, is to do what makes you happy, as that will make your job rewarding. Computer Science isn’t easy though, and there will be mistakes and lessons learned. However, it’s the mistakes that can also come with a heap of knowledge, which then empower us to become better. This allows us to help deliver great experiences for the end user.
+Today, I get to do that at Crunchyroll as a Staff Software Engineer. I have helped build and guide UI applications for anime on living room devices, and honestly, it still feels surreal that my work and my passion overlap this much.
+
+But the path here was not straight.
+
+After graduating, I started at DIRECTV as a Software Developer in Test. I built tools that made set-top-box testing easier and more reliable, and that role taught me discipline and quality at a deep level. Later, I moved to OpenX to focus on UI engineering, where I built interfaces to help publishers monetize inventory, configure ad rules, and integrate ad code.
+
+Across both roles, one lesson kept coming back: understand what users need first, and let everything else follow.
+
+I also made plenty of mistakes.
+
+Some came from communication. Some came from assumptions. Some came from moving too fast. But those moments taught me how to reflect, adjust, and grow. Over time, I became more intentional about measuring outcomes with data. Dashboards and analytics became how I caught issues earlier and recovered faster.
+
+One of the moments I am most proud of came through customer support.
+
+A fellow anime fan could not play content on their living room device, no matter what they tried. At the time, I was helping deliver a full rewrite of that app, and all we could do was ask for patience. On launch day, their issue was fixed, and they could watch again. I still remember how that felt. It was a huge reminder that behind every bug is a real person just trying to enjoy something they love.
+
+If there is one thing I hope people take from my journey, it is this:
+
+<div align="center">
+
+> # "Find work that makes you happy."
+
+</div>
+
+When your work lines up with what you care about, hard days still feel purposeful, wins feel bigger, and the journey feels worth it. Computer Science is not easy, and mistakes are part of the process. But those mistakes can become your best teachers. Keep learning, keep improving, and keep building things that genuinely help people.
