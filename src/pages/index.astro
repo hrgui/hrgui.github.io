@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
-import { PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "types/frontmatter";
 import { Education } from "~/components/app/home/sections/Education";
 import { Hero } from "~/components/app/home/sections/Hero";
 import { TechnicalSkills } from "~/components/app/home/sections/TechnicalSkills";
@@ -20,7 +20,7 @@ const portfolioItems = await getCollection("portfolio");
   <Education />
   <PortfolioShowcase
     items={portfolioItems.map(
-      (item) => ({ ...item.data, slug: item.slug } as PortfolioFrontmatter)
+      (item) => ({ ...item.data, slug: item.id } as PortfolioFrontmatter)
     )}
   />
 </DefaultPageLayout>
