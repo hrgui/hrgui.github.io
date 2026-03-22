@@ -55,6 +55,19 @@ jobs:
             echo "No file changes after update-snapshots."
           fi
 
+      - name: Create snapshot patch
+        if: steps.detect_changes.outputs.changed == 'true'
+        shell: bash
+        run: git diff --binary > playwright-snapshots.patch
+
+      - name: Upload snapshot patch
+        if: steps.detect_changes.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-snapshot-patch
+          path: playwright-snapshots.patch
+          retention-days: 14
+
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
@@ -75,8 +88,83 @@ jobs:
     needs: visual-check
     if: needs.visual-check.outputs.snapshots_changed == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     environment:
       name: playwright-snapshot-approval
     steps:
-      - name: Approved snapshot updates
-        run: echo "Snapshot updates approved."
+      - name: Resolve target branch
+        id: resolve_branch
+        shell: bash
+        run: |
+          branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+
+          if [[ -z "$branch_name" ]]; then
+            echo "Unable to determine target branch."
+            exit 1
+          fi
+
+          if [[ "$branch_name" == "main" ]]; then
+            echo "Snapshot updates cannot be auto-committed to main."
+            exit 1
+          fi
+
+          echo "branch_name=$branch_name" >> "$GITHUB_OUTPUT"
+          echo "Snapshot updates approved for branch: $branch_name"
+
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.resolve_branch.outputs.branch_name }}
+
+      - name: Download snapshot patch
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-snapshot-patch
+
+      - name: Apply snapshot patch
+        shell: bash
+        run: git apply --index --reject --whitespace=nowarn playwright-snapshots.patch
+
+      - name: Commit snapshot updates
+        id: commit_snapshot_updates
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "No snapshot changes to commit after approval."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: update Playwright snapshots"
+          git push origin "HEAD:${{ steps.resolve_branch.outputs.branch_name }}"
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR with snapshot updates
+        if: github.event_name == 'pull_request' && steps.commit_snapshot_updates.outputs.committed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branchName = '${{ steps.resolve_branch.outputs.branch_name }}';
+            const commitSha = '${{ steps.commit_snapshot_updates.outputs.commit_sha }}';
+            const runUrl = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
+            const body = [
+              'Approved Playwright snapshot updates were committed to this branch.',
+              '',
+              `Branch: ${branchName}`,
+              `Commit: ${commitSha}`,
+              '',
+              `Review the Playwright artifacts and report from this workflow run: ${runUrl}`,
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
