@@ -4,6 +4,7 @@ import { useState } from "preact/hooks";
 import useScrollTrigger from "hooks/useScrollTrigger";
 
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 import Menu from "../icons/Menu";
 import Overlay from "../layout/Overlay";
@@ -61,6 +62,7 @@ const Header = ({ currentPathName }: Props) => {
           data-testid="desktop-nav"
         >
           {links}
+          <ThemeToggle />
         </nav>
       </header>
       <Overlay

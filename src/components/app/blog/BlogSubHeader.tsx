@@ -6,7 +6,7 @@ type Props = {
 
 const BlogSubHeader = ({ hidden, date, title }: Props) => {
   return (
-    <div className="pt-28 p-6 pb-0 container mx-auto max-w-none circuit-board-bg dark:dark-circuit-board-bg">
+    <div className="pt-28 p-6 pb-0 container mx-auto max-w-none circuit-board-bg">
       <div className="mb-14 max-w-[1536px] mx-auto">
         {hidden && process.env.NODE_ENV === "development" && (
           <div className="italic flex justify-center">

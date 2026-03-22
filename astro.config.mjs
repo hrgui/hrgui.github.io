@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
+import unoCss from "@unocss/astro";
 import tsconfigPaths from "vite-tsconfig-paths";
 import remarkMermaid from "./utils/remark-mermaid/index.mjs";
 
@@ -12,12 +12,5 @@ export default defineConfig({
   markdown: {
     remarkPlugins: ["remark-gfm", "remark-smartypants", remarkMermaid],
   },
-  integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-    preact(),
-  ],
+  integrations: [unoCss(), preact()],
 });

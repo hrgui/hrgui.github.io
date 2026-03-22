@@ -22,7 +22,7 @@ bun run dev
 - [vitest](https://vitest.dev/) for unit testing
 - [@testing-library/preact](https://preactjs.com/guide/v10/preact-testing-library/) for testing-library
 - [mermaid](https://mermaid-js.github.io/mermaid/#/) for mermaid diagrams for markdown
-- [tailwindcss](https://tailwindcss.com/) for CSS
+- [unocss](https://unocss.dev/) for utility-first CSS
 - [Vercel](https://vercel.com/) for Build Previews
 - [Github Pages](https://pages.github.com/) for Production
 

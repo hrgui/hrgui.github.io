@@ -1,4 +1,5 @@
 ---
+import "uno.css";
 import { siteTitle } from "~/constants";
 
 export type Props = {
@@ -12,11 +13,59 @@ const fullTitle = siteTitle === title ? title : `${title} | ${siteTitle}`;
 ---
 
 <head>
+  <script is:inline>
+    (() => {
+      const html = document.documentElement;
+
+      try {
+        const saved = window.localStorage.getItem("theme-preference");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const resolvedTheme =
+          saved === "light" ? "light" : saved === "dark" || prefersDark ? "dark" : "light";
+
+        html.classList.toggle("dark", resolvedTheme === "dark");
+        html.style.colorScheme = resolvedTheme;
+        html.style.backgroundColor = resolvedTheme === "dark" ? "#0f0f0f" : "#ffffff";
+      } catch {
+        html.classList.remove("dark");
+        html.style.colorScheme = "light";
+        html.style.backgroundColor = "#ffffff";
+      } finally {
+        html.classList.add("theme-ready");
+      }
+    })();
+  </script>
+
   <meta charset="utf-8" />
+  <meta name="color-scheme" content="light dark" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
+
+  <style>
+    html:not(.theme-ready) body {
+      visibility: hidden;
+    }
+
+    :root {
+      color-scheme: light;
+      background-color: #ffffff;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      background-color: #0f0f0f;
+    }
+  </style>
+
+  <noscript>
+    <style>
+      html:not(.theme-ready) body {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
 
   <title>{fullTitle}</title>
   <meta name="title" content={fullTitle} />

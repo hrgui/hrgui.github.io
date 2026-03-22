@@ -54,7 +54,7 @@ So what will allow me to do this?
 # Enter Astro
 
 <a href="https://astro.build/" target="__blank">
-  <div class="aspect-w-16 aspect-h-9 p-4 bg-black">
+  <div class="aspect-[16/9] p-4 bg-black">
     <div class="flex items-center justify-center">
       <img class="w-3/4 h-auto max-h-16 sm:max-h-32" src="/images/blog/astro.svg" alt="Astro">
     </div>
@@ -84,7 +84,7 @@ I believe how it does this is through Web Components. While inspecting the outpu
 
 [Partial Hydration](https://docs.astro.build/en/concepts/islands/) (islands architecture) is the idea that page components can be seperated by islands. Islands are interactive, while static HTML aren't islands. By default, Astro generates every website with 0 client-side JavaScript, by default. If I choose to use a frontend UI component built with a library like React, [Preact](https://preactjs.com/) or Vue, Astro will automatically render it to HTML ahead of time, and then strip out all of the JavaScript. This will allow me to keep my site fast, by only requiring the user to download what they see.
 
-<div class="aspect-w-16 aspect-h-9 bg-black">
+<div class="aspect-[16/9] bg-black">
   <div class="flex items-center justify-center">
     <img class="w-3/4"  src="/images/blog/islands-architecture-1.webp">
   </div>

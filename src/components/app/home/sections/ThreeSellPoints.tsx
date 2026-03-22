@@ -6,7 +6,10 @@ type Props = JSX.HTMLAttributes<HTMLDivElement>;
 
 function Item({ title, children, ...props }: Props) {
   return (
-    <div className="prose prose-md dark:prose-invert mb-6" {...props}>
+    <div
+      className="prose prose-md prose-headings:mt-0 prose-headings:mb-4 prose-p:my-0 dark:prose-invert mb-6"
+      {...props}
+    >
       <h2>{title}</h2>
       <p>{children}</p>
     </div>
