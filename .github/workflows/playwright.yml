@@ -90,7 +90,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
     environment:
       name: playwright-snapshot-approval
     steps:
@@ -144,27 +143,3 @@ jobs:
           git push origin "HEAD:${{ steps.resolve_branch.outputs.branch_name }}"
           echo "committed=true" >> "$GITHUB_OUTPUT"
           echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
-      - name: Comment on PR with snapshot updates
-        if: github.event_name == 'pull_request' && steps.commit_snapshot_updates.outputs.committed == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const branchName = '${{ steps.resolve_branch.outputs.branch_name }}';
-            const commitSha = '${{ steps.commit_snapshot_updates.outputs.commit_sha }}';
-            const runUrl = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
-            const body = [
-              'Approved Playwright snapshot updates were committed to this branch.',
-              '',
-              `Branch: ${branchName}`,
-              `Commit: ${commitSha}`,
-              '',
-              `Review the Playwright artifacts and report from this workflow run: ${runUrl}`,
-            ].join('\n');
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body,
-            });
