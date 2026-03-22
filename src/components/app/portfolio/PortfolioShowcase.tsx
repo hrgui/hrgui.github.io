@@ -42,7 +42,7 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
   const sectionClassName = hasTitle
     ? "bg-surface  px-6 pb-12 pt-8"
     : "bg-surface px-6 py-8";
-  const containerClassName = hasTitle ? "container mx-auto" : "w-full";
+  const containerClassName = "container mx-auto max-w-[1536px]";
 
   return (
     <div data-testid="section-portfolio" className={sectionClassName}>
