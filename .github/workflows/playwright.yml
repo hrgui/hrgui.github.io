@@ -18,6 +18,8 @@ jobs:
   visual-check:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      snapshots_changed: ${{ steps.detect_changes.outputs.changed }}
 
     steps:
       - name: Checkout
@@ -37,9 +39,21 @@ jobs:
         run: bunx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: bunx playwright test
+        run: bunx playwright test --update-snapshots
         env:
           CI: true
+
+      - name: Detect snapshot updates
+        id: detect_changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Playwright update-snapshots modified files."
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No file changes after update-snapshots."
+          fi
 
       - name: Upload Playwright report
         if: always()
@@ -56,3 +70,13 @@ jobs:
           name: playwright-test-results
           path: test-results
           retention-days: 14
+
+  require-approval-if-snapshots-changed:
+    needs: visual-check
+    if: needs.visual-check.outputs.snapshots_changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: playwright-snapshot-approval
+    steps:
+      - name: Approved snapshot updates
+        run: echo "Snapshot updates approved."
