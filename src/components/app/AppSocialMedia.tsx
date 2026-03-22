@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import classNames from "classnames";
 
 import Github from "~/components/icons/Github";
 import LinkedIn from "~/components/icons/LinkedIn";
@@ -10,7 +10,7 @@ type Props = {
 
 const AppSocialMedia = ({ className }: Props) => {
   return (
-    <div className={twMerge("flex gap-2", className)}>
+    <div className={classNames("flex gap-2", className)}>
       <a
         title="View My Github Profile"
         href={GITHUB_URL}

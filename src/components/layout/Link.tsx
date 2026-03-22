@@ -1,5 +1,5 @@
 import type { JSX } from "preact";
-import { twMerge } from "tailwind-merge";
+import classNames from "classnames";
 
 import { linkClassName } from "~/theme";
 
@@ -12,7 +12,7 @@ type Props = JSX.HTMLAttributes<HTMLAnchorElement> & {
 const Link = ({ className: inputtedClassName, ...props }: Props) => {
   return (
     <a
-      className={twMerge(linkClassName, inputtedClassName as string)}
+      className={classNames(linkClassName, inputtedClassName as string)}
       {...props}
     />
   );

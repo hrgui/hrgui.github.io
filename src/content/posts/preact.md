@@ -5,7 +5,7 @@ excerpt: "I've crossed the dark side to the light: I switched to Preact for this
 ---
 
 <a href="https://preactjs.com/" target="__blank">
-  <div class="aspect-w-16 aspect-h-9 p-4 bg-[#673ab8]">
+  <div class="aspect-[16/9] p-4 bg-[#673ab8]">
     <div class="flex items-center justify-center">
       <img class="w-3/4 h-auto max-h-16 sm:max-h-32" src="/images/blog/preact.svg" alt="Preact">
     </div>

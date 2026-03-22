@@ -1,12 +1,12 @@
 import type { JSX } from "preact";
-import { twMerge } from "tailwind-merge";
+import classNames from "classnames";
 
 interface Props extends Omit<JSX.HTMLAttributes<SVGSVGElement>, "crossOrigin"> {
   className?: string;
 }
 
 const Next = ({ className: inputtedClassName, ...props }: Props) => {
-  const className = twMerge(
+  const className = classNames(
     `w-4 h-4 text-white sm:w-5 sm:h-5`,
     inputtedClassName
   );

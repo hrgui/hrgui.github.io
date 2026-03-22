@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { useRef } from "preact/hooks";
-import { twMerge } from "tailwind-merge";
 
 import useIntersectionObserver from "hooks/useIntersectionObserver";
 import { useTransitionEnd } from "hooks/useTransitionEnd";
@@ -21,14 +20,11 @@ export function Hero() {
         <h1
           ref={headerRef}
           className={classNames(
-            twMerge(
-              classNames(
-                `translate-y-1/2 motion-reduce:translate-y-0 font-semibold text-[2.5rem] md:text-6xl xl:text-7xl 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
-                {
-                  ["transition-hero opacity-100 translate-y-0"]:
-                    isHeaderVisible,
-                }
-              )
+            classNames(
+              `translate-y-1/2 motion-reduce:translate-y-0 font-semibold text-[2.5rem] md:text-6xl xl:text-7xl 2xl:text-8xl opacity-0 motion-reduce:opacity-100`,
+              {
+                ["transition-hero opacity-100 translate-y-0"]: isHeaderVisible,
+              }
             ),
             "leading-tight md:leading-snug xl:leading-snug 2xl:leading-snug"
           )}
