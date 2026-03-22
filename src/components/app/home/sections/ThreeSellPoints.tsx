@@ -2,16 +2,23 @@ import type { JSX } from "preact";
 
 import { threeSellPoints as defaultThreeSellPoints } from "~/constants";
 
-type Props = JSX.HTMLAttributes<HTMLDivElement>;
+type ItemProps = JSX.HTMLAttributes<HTMLDivElement> & {
+  title: string;
+};
 
-function Item({ title, children, ...props }: Props) {
+function Item({ title, children, ...props }: ItemProps) {
   return (
     <div
-      className="prose prose-md prose-headings:mt-0 prose-headings:mb-4 prose-p:my-0 dark:prose-invert mb-6"
+      className="surface-module-raised mb-6 rounded-3xl border border-outline-variant p-6"
       {...props}
     >
-      <h2>{title}</h2>
-      <p>{children}</p>
+      <p className="label-mono mb-3 text-primary">sell_point</p>
+      <h2 className="mb-3 font-headline text-2xl leading-tight text-on-surface">
+        {title}
+      </h2>
+      <p className="text-base leading-relaxed text-on-surface-muted">
+        {children}
+      </p>
     </div>
   );
 }
@@ -23,7 +30,7 @@ export function ThreeSellPoints({
 }) {
   return (
     <section
-      className="p-6 pt-16 pb-16 bg-dolly-200 dark:bg-neutral-800"
+      className="bg-surface px-6 pb-16 pt-16"
       data-testid="section-three-sell-points"
     >
       <div className="container mx-auto sm:grid sm:grid-cols-3 sm:gap-8">
