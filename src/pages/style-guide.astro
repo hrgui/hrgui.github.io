@@ -1,0 +1,404 @@
+---
+import DefaultPageLayout from "layouts/default.astro";
+
+const description =
+  "Internal style guide for guipunk_ components, tokens, surfaces, and interaction patterns.";
+
+const palette = [
+  {
+    name: "Primary",
+    role: "Signal / anchor",
+    light: "#00668A",
+    dark: "#8FD6FF",
+    panelClass: "bg-primary text-on-primary",
+    valueClass: "text-on-primary",
+  },
+  {
+    name: "Primary Container",
+    role: "Glow / emphasis",
+    light: "#00E5FF",
+    dark: "#00BFFF",
+    panelClass: "bg-primary-container text-on-primary-container",
+    valueClass: "text-on-primary-container",
+  },
+  {
+    name: "Secondary",
+    role: "Success / vitality",
+    light: "#25A55A",
+    dark: "#66DD8B",
+    panelClass: "bg-secondary text-on-secondary",
+    valueClass: "text-on-secondary",
+  },
+  {
+    name: "Tertiary Container",
+    role: "Alert / contrast",
+    light: "#FF9585",
+    dark: "#FF9585",
+    panelClass: "bg-tertiary-container text-on-tertiary-container",
+    valueClass: "text-on-tertiary-container",
+  },
+  {
+    name: "Surface",
+    role: "Base canvas",
+    light: "#F3F7F7",
+    dark: "#121414",
+    panelClass: "bg-surface text-on-surface border border-outline-variant",
+    valueClass: "text-on-surface-muted",
+  },
+  {
+    name: "Surface High",
+    role: "Raised module",
+    light: "#DCE4E4",
+    dark: "#333535",
+    panelClass:
+      "bg-surface-container-highest text-on-surface border border-outline-variant",
+    valueClass: "text-on-surface-muted",
+  },
+];
+
+const vitals = [
+  { label: "Cortex Load", value: "75%", offset: "62", stroke: "text-primary" },
+  { label: "Thermal Flux", value: "30%", offset: "180", stroke: "text-secondary" },
+  { label: "Sync Rating", value: "92", offset: "20", stroke: "text-tertiary" },
+];
+
+const spacingScale = [
+  { label: "4px / spacing-1", className: "h-4 bg-primary-fixed border border-outline-variant" },
+  { label: "8px / spacing-2", className: "h-8 bg-primary-fixed-dim border border-outline-variant" },
+  { label: "16px / spacing-4", className: "h-16 bg-primary-container border border-primary" },
+  { label: "24px / spacing-6", className: "h-24 bg-primary border border-primary" },
+];
+
+const metadata = [
+  ["user_node", "EG_NODE_01", "text-secondary"],
+  ["uplink_status", "ENCRYPTED_SSL", "text-primary"],
+  ["latency_ms", "0.042ms", "text-on-surface"],
+  ["protocol", "BETA_V4", "text-tertiary"],
+];
+---
+
+<DefaultPageLayout title="Style Guide" description={description}>
+  <main class="relative isolate min-h-screen overflow-hidden bg-background pt-24 text-on-background">
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        class="absolute inset-0 opacity-90 dark:opacity-100"
+        style="background-image: radial-gradient(circle at 12% 8%, rgba(0, 229, 255, 0.16), transparent 28%), radial-gradient(circle at 82% 14%, rgba(37, 165, 90, 0.12), transparent 20%), linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 32%);"
+      ></div>
+      <div
+        class="absolute inset-0 opacity-35 dark:opacity-45"
+        style="background-image: linear-gradient(rgba(113, 120, 126, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(113, 120, 126, 0.08) 1px, transparent 1px); background-size: 100% 4px, 4px 100%;"
+      ></div>
+    </div>
+
+    <div class="relative z-10 mx-auto flex max-w-screen-2xl flex-col gap-18 px-6 pb-24 lg:px-10">
+      <section class="grid gap-8 border-b border-outline-variant pb-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(340px,0.85fr)] lg:items-end">
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="label-mono rounded-full border border-primary bg-primary px-3 py-1 text-on-primary">core_systems_01</span>
+            <span class="label-mono rounded-full border border-secondary bg-secondary px-3 py-1 text-on-secondary">translated_to_unocss</span>
+            <span class="label-mono rounded-full border border-outline-variant bg-surface-container-highest px-3 py-1 text-on-surface">toggle theme in header</span>
+          </div>
+          <div class="space-y-4">
+            <p class="font-mono text-[0.72rem] uppercase tracking-[0.35em] text-primary">guipunk_ // component reference</p>
+            <h1 class="max-w-4xl font-headline text-display-lg text-on-background">
+              Style guide page for tokens, surfaces, and future components.
+            </h1>
+            <p class="max-w-3xl text-lg leading-relaxed text-on-surface-muted">
+              This page translates the design boards in the design directory into the repo's semantic UnoCSS system. Use it as the living place for new modules before they become production components.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#palette" class="cta-hologram inline-flex items-center rounded px-5 py-3 font-headline text-sm font-semibold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5">
+              inspect palette
+            </a>
+            <a href="#components" class="inline-flex items-center rounded border border-outline-variant bg-surface-container-low px-5 py-3 font-headline text-sm font-semibold uppercase tracking-[0.18em] text-on-surface transition-colors hover:border-primary hover:text-primary">
+              browse modules
+            </a>
+          </div>
+        </div>
+
+        <aside class="glass-panel rounded-3xl p-6">
+          <div class="mb-6 flex items-start justify-between gap-4 border-b border-outline-variant pb-4">
+            <div>
+              <p class="label-mono text-primary">master_logo</p>
+              <p class="mt-3 font-headline text-4xl font-bold tracking-[-0.08em] text-primary">guipunk_</p>
+            </div>
+            <div class="rounded-full border border-primary bg-primary px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.24em] text-on-primary">
+              rev_v.04
+            </div>
+          </div>
+          <div class="space-y-3 font-mono text-sm text-on-surface-muted">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+              <span class="uppercase tracking-[0.2em]">Primary Typeface</span>
+              <span class="font-headline text-base text-on-surface">Space Grotesk</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+              <span class="uppercase tracking-[0.2em]">System Voice</span>
+              <span class="text-on-surface">Fira Code / mono</span>
+            </div>
+            <div class="flex items-center justify-between pb-1">
+              <span class="uppercase tracking-[0.2em]">Mood</span>
+              <span class="text-secondary">precision + curiosity</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="surfaces" class="space-y-8">
+        <div class="space-y-2">
+          <p class="label-mono text-secondary">module_manifest_02</p>
+          <h2 class="font-headline text-headline-lg text-on-background">Surfaces and shells</h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="surface-module rounded-3xl border border-outline-variant p-6">
+            <p class="label-mono text-primary">surface_module</p>
+            <h3 class="mt-4 font-headline text-2xl text-on-surface">Base module</h3>
+            <p class="mt-3 leading-relaxed text-on-surface-muted">
+              Default card background for content blocks, specs, and lower-priority supporting UI.
+            </p>
+          </div>
+          <div class="surface-module-raised rounded-3xl border border-outline-variant p-6">
+            <p class="label-mono text-secondary">surface_module_raised</p>
+            <h3 class="mt-4 font-headline text-2xl text-on-surface">Raised module</h3>
+            <p class="mt-3 leading-relaxed text-on-surface-muted">
+              Slight lift for active blocks, dashboard cards, and denser sections that need hierarchy.
+            </p>
+          </div>
+          <div class="glass-panel-strong rounded-3xl p-6">
+            <p class="label-mono text-tertiary">glass_panel_strong</p>
+            <h3 class="mt-4 font-headline text-2xl text-on-surface">Glass shell</h3>
+            <p class="mt-3 leading-relaxed text-on-surface-muted">
+              Use sparingly for hero overlays, floating controls, or high-focus containers with atmosphere.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="palette" class="space-y-8">
+        <div class="space-y-2">
+          <p class="label-mono text-primary">spectral_analysis_03</p>
+          <h2 class="font-headline text-headline-lg text-on-background">Semantic palette</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-3xl border border-outline-variant bg-outline-variant md:grid-cols-2 xl:grid-cols-6">
+          {palette.map((swatch) => (
+            <article class={`${swatch.panelClass} flex min-h-52 flex-col justify-between p-5`}>
+              <div>
+                <p class="font-headline text-lg font-semibold">{swatch.name}</p>
+                <p class="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.22em]">{swatch.role}</p>
+              </div>
+              <div class="space-y-2 font-mono text-[0.72rem] uppercase tracking-[0.2em]">
+                <div class={swatch.valueClass}>light {swatch.light}</div>
+                <div class={swatch.valueClass}>dark {swatch.dark}</div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="typography" class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+        <div class="space-y-10">
+          <div class="space-y-2">
+            <p class="label-mono text-tertiary">signal_clarity_04</p>
+            <h2 class="font-headline text-headline-lg text-on-background">Typography</h2>
+          </div>
+
+          <div class="space-y-10 rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">H1 // SPACE GROTESK</span>
+                <div class="h-px flex-1 bg-outline-variant"></div>
+              </div>
+              <p class="font-headline text-6xl font-bold tracking-[-0.06em] text-on-surface">Laboratory Grade</p>
+            </div>
+
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">H2 // SPACE GROTESK</span>
+                <div class="h-px flex-1 bg-outline-variant"></div>
+              </div>
+              <p class="font-headline text-4xl font-semibold tracking-[-0.04em] text-on-surface">System Initialization</p>
+            </div>
+
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Body // Inter</span>
+                <div class="h-px flex-1 bg-outline-variant"></div>
+              </div>
+              <p class="max-w-3xl text-lg leading-relaxed text-on-surface-muted">
+                The bridge between clinical precision and scientific curiosity. Editorial density, stable hierarchy, and sharp metadata should carry the visual voice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
+          <p class="label-mono text-primary">metadata_display</p>
+          <div class="mt-6 space-y-4">
+            {metadata.map(([label, value, valueClass]) => (
+              <div class="flex items-baseline justify-between border-b border-outline-variant pb-3">
+                <span class="font-mono text-xs uppercase tracking-[0.2em] text-outline">{label}</span>
+                <span class={`font-mono text-sm font-semibold uppercase tracking-[0.14em] ${valueClass}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </section>
+
+      <section id="components" class="space-y-8">
+        <div class="space-y-2">
+          <p class="label-mono text-primary">component_library_05</p>
+          <h2 class="font-headline text-headline-lg text-on-background">Reference components</h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-12">
+          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-4">
+            <p class="label-mono text-outline">01_interactions</p>
+            <div class="mt-6 flex flex-col gap-4">
+              <button class="cta-hologram rounded px-6 py-3 font-headline text-sm font-semibold uppercase tracking-[0.16em] transition-transform hover:-translate-y-0.5">
+                primary_action
+              </button>
+              <button class="rounded border border-primary bg-surface-container-lowest px-6 py-3 font-headline text-sm font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary-fixed">
+                secondary_link
+              </button>
+              <button class="flex items-center gap-2 py-2 text-left font-mono text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-on-surface transition-colors hover:text-primary">
+                <span>01_protocol_bypass</span>
+                <span aria-hidden="true">-&gt;</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-8">
+            <div class="mb-8 flex items-center justify-between">
+              <p class="label-mono text-outline">02_system_vitals</p>
+              <div class="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-secondary">
+                <span class="h-2 w-2 animate-pulse rounded-full bg-secondary"></span>
+                <span>live</span>
+              </div>
+            </div>
+            <div class="grid gap-8 sm:grid-cols-3">
+              {vitals.map((vital) => (
+                <div class="flex flex-col items-center">
+                  <div class="relative mb-4 flex h-24 w-24 items-center justify-center">
+                    <svg viewBox="0 0 96 96" class="h-full w-full -rotate-90 transform">
+                      <circle class="text-outline-variant" cx="48" cy="48" r="40" fill="transparent" stroke="currentColor" stroke-width="2"></circle>
+                      <circle
+                        class={vital.stroke}
+                        cx="48"
+                        cy="48"
+                        r="40"
+                        fill="transparent"
+                        stroke="currentColor"
+                        stroke-width="4"
+                        stroke-dasharray="251"
+                        stroke-dashoffset={vital.offset}
+                      ></circle>
+                    </svg>
+                    <span class="absolute font-headline text-2xl font-bold text-on-surface">{vital.value}</span>
+                  </div>
+                  <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">{vital.label}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-3xl border border-outline-variant bg-neutral-950 shadow-floating lg:col-span-12">
+            <div class="flex items-center justify-between border-b border-white/10 bg-neutral-900 px-4 py-3">
+              <div class="flex gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-tertiary"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-secondary"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-primary-container"></span>
+              </div>
+              <span class="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-white/55">root@guipunk_:/sys/logs</span>
+              <span class="w-8"></span>
+            </div>
+            <div class="space-y-3 overflow-x-auto px-6 py-6 font-mono text-sm leading-relaxed text-white">
+              <div class="flex gap-4"><span class="select-none text-white/20">01</span><p><span class="text-secondary">const</span> <span class="text-primary-container">systemInit</span> = () =&gt; &#123;</p></div>
+              <div class="flex gap-4"><span class="select-none text-white/20">02</span><p class="pl-4"><span class="text-white/60">console</span>.<span class="text-white">log</span>(<span class="text-tertiary">"Initializing Neural Uplink..."</span>);</p></div>
+              <div class="flex gap-4"><span class="select-none text-white/20">03</span><p class="pl-4"><span class="text-secondary">return</span> <span class="text-primary-container">protocol_v04</span>.<span class="text-white">handshake</span>();</p></div>
+              <div class="flex gap-4"><span class="select-none text-white/20">04</span><p>&#125;</p></div>
+              <div class="mt-4 flex gap-4"><span class="select-none text-white/20">05</span><p><span class="text-primary-container">systemInit</span>(); <span class="inline-block h-4 w-2 animate-pulse bg-primary-container align-middle"></span></p></div>
+            </div>
+          </article>
+
+          <article class="glass-panel rounded-3xl p-6 lg:col-span-5">
+            <p class="label-mono text-outline">03_form_controls</p>
+            <div class="mt-6 space-y-4">
+              <label class="block space-y-2">
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">System Search</span>
+                <input
+                  type="text"
+                  placeholder="SYSTEM_SEARCH"
+                  class="w-full rounded-2xl border border-outline-variant bg-surface-container-high px-4 py-3 font-mono text-sm text-primary outline-none transition-colors placeholder:text-outline focus:border-primary"
+                />
+              </label>
+              <label class="block space-y-2">
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Channel Priority</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full bg-primary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-primary-fixed">critical</span>
+                  <span class="rounded-full bg-secondary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-secondary-fixed">stable</span>
+                  <span class="rounded-full bg-tertiary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-tertiary-fixed">watch</span>
+                </div>
+              </label>
+            </div>
+          </article>
+
+          <article class="control-panel rounded-3xl p-6 lg:col-span-7">
+            <p class="label-mono text-outline">04_component_notes</p>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-4">
+                <p class="font-headline text-xl text-on-surface">Keep semantic names</p>
+                <p class="mt-2 text-sm leading-relaxed text-on-surface-muted">Prefer tokens like surface, outline, primary-container, and on-surface over one-off hard-coded color classes.</p>
+              </div>
+              <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-4">
+                <p class="font-headline text-xl text-on-surface">Prototype here first</p>
+                <p class="mt-2 text-sm leading-relaxed text-on-surface-muted">New cards, controls, and composite modules can land here before being extracted into reusable components.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="spacing" class="grid gap-8 lg:grid-cols-[minmax(300px,0.9fr)_minmax(0,1.1fr)]">
+        <div class="space-y-2">
+          <p class="label-mono text-secondary">spatial_geometry_06</p>
+          <h2 class="font-headline text-headline-lg text-on-background">Spacing and grid</h2>
+          <p class="max-w-xl text-lg leading-relaxed text-on-surface-muted">
+            Wide breathing room, strong section breaks, and clear alignment are part of the system. Density should feel intentional, not cramped.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
+            <div class="flex flex-col gap-4">
+              {spacingScale.map((item) => (
+                <div class={`${item.className} flex items-center justify-center rounded-xl font-mono text-[0.68rem] uppercase tracking-[0.2em] text-primary`}>
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border-t-2 border-secondary bg-surface-container-lowest p-4">
+                <p class="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-outline">Grid Columns</p>
+                <p class="mt-2 font-headline text-2xl text-on-surface">12_units</p>
+              </div>
+              <div class="rounded-2xl border-t-2 border-primary bg-surface-container-lowest p-4">
+                <p class="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-outline">Standard Gap</p>
+                <p class="mt-2 font-headline text-2xl text-on-surface">24px</p>
+              </div>
+            </div>
+            <div class="mt-6 rounded-2xl border border-outline-variant bg-background p-4">
+              <div class="grid grid-cols-12 gap-2">
+                {Array.from({ length: 12 }).map(() => (
+                  <div class="h-20 rounded-lg bg-primary-fixed"></div>
+                ))}
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+</DefaultPageLayout>
