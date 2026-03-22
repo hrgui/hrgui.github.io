@@ -6,6 +6,9 @@ interface Props {
   posts?: Frontmatter[];
 }
 
+const postCardClassName =
+  "group flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.995]";
+
 const toDisplayDate = (rawDate?: string) => {
   if (!rawDate) {
     return "UNKNOWN";
@@ -43,7 +46,7 @@ const Posts = ({ posts }: Props) => {
           >
             <a
               href={`${featuredPost.slug}`}
-              className="group flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 transition-colors hover:border-primary lg:col-span-8"
+              className={`${postCardClassName} lg:col-span-8`}
             >
               <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
                 <div className="inline-flex items-center gap-3">
@@ -73,7 +76,7 @@ const Posts = ({ posts }: Props) => {
                 {featuredPost.excerpt}
               </p>
               <div className="mt-auto flex items-center justify-end pt-12">
-                <span className="font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5">
+                <span className="font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
                   Execute_Read -&gt;
                 </span>
               </div>
@@ -82,7 +85,7 @@ const Posts = ({ posts }: Props) => {
             {remainingPosts[0] && (
               <a
                 href={`${remainingPosts[0].slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 transition-colors hover:border-primary lg:col-span-4"
+                className={`${postCardClassName} lg:col-span-4`}
                 data-testid={`posts-${remainingPosts[0].slug}`}
               >
                 <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
@@ -100,7 +103,7 @@ const Posts = ({ posts }: Props) => {
                 <p className="mt-4 text-xl text-on-surface-muted">
                   {remainingPosts[0].excerpt}
                 </p>
-                <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5">
+                <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
                   Read_More -&gt;
                 </p>
               </a>
@@ -116,7 +119,7 @@ const Posts = ({ posts }: Props) => {
                   href={`${post.slug}`}
                   key={post.slug}
                   data-testid={`posts-${post.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 transition-colors hover:border-primary"
+                  className={postCardClassName}
                 >
                   <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
                     <p className="font-mono text-sm text-on-surface-muted">
@@ -142,7 +145,7 @@ const Posts = ({ posts }: Props) => {
                   <p className="mt-4 text-xl text-on-surface-muted">
                     {post.excerpt}
                   </p>
-                  <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5">
+                  <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
                     Read_More -&gt;
                   </p>
                 </a>

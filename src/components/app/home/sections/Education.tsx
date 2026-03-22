@@ -32,7 +32,11 @@ export function Education({
                     className="flex flex-col gap-4 rounded-2xl border border-outline-variant bg-surface-container-high p-5 sm:flex-row sm:items-center"
                   >
                     <div className="w-24 shrink-0">
-                      <a href={url} target="__blank">
+                      <a
+                        href={url}
+                        target="__blank"
+                        className="inline-block rounded-lg transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-95"
+                      >
                         <img
                           loading="lazy"
                           alt={`Open ${title} in a new tab`}

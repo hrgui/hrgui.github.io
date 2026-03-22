@@ -10,6 +10,9 @@ import Link from "../layout/Link";
 
 type Props = PortfolioFrontmatter & { children?: ComponentChildren };
 
+const externalLinkClassName =
+  "block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-[0.99] active:border-primary";
+
 const PortfolioEntry = ({
   title,
   demoUrl,
@@ -43,7 +46,7 @@ const PortfolioEntry = ({
               {demoUrl && (
                 <Link
                   href={demoUrl}
-                  className="block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
+                  className={externalLinkClassName}
                   target="__blank"
                   rel="noreferrer"
                 >
@@ -53,7 +56,7 @@ const PortfolioEntry = ({
               {githubUrl && (
                 <Link
                   href={githubUrl}
-                  className="block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
+                  className={externalLinkClassName}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -67,7 +70,7 @@ const PortfolioEntry = ({
                     key={i}
                     target="_blank"
                     rel="noreferrer"
-                    className="block overflow-hidden overflow-ellipsis rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-colors hover:border-primary"
+                    className={`${externalLinkClassName} overflow-hidden overflow-ellipsis`}
                   >
                     Visit {url}
                   </Link>

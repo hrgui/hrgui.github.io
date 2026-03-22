@@ -25,13 +25,29 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
           {images.map((img, i) => {
             return (
               <div key={i}>
-                <a href={img.src} target="__blank">
+                <a
+                  href={img.src}
+                  target="__blank"
+                  className="block transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset active:scale-[0.995]"
+                >
                   <img alt={title} src={img.thumbnail} />
                 </a>
               </div>
             );
           })}
         </Slider>
+      )}
+      {hasIframe && thumbnail && (
+        <div
+          className="md:hidden"
+          data-testid="portfolio-media-iframe-thumbnail"
+        >
+          <img
+            className="w-screen max-w-none object-cover"
+            alt={title}
+            src={thumbnail}
+          />
+        </div>
       )}
       {hasIframe && (
         <iframe
