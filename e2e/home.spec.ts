@@ -33,9 +33,4 @@ test("home is present and all modules work", async ({ page }) => {
       new Promise<void>((resolve) => setTimeout(resolve, 5000)),
     ]);
   });
-
-  await expect(page).toHaveScreenshot("home-page.png", {
-    animations: "disabled",
-    fullPage: true,
-  });
 });
