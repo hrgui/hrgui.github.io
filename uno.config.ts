@@ -1,10 +1,36 @@
 import { defineConfig } from "unocss";
-import { presetWind3 } from "@unocss/preset-wind3";
-import presetTypography from "@unocss/preset-typography";
+import {
+  presetWind3,
+  type Theme as PresetWind3Theme,
+} from "@unocss/preset-wind3";
+import presetTypography, {
+  type TypographyTheme,
+} from "@unocss/preset-typography";
 
-export default defineConfig({
-  dark: "class",
-  presets: [presetWind3(), presetTypography()],
+type AppTheme = PresetWind3Theme & TypographyTheme;
+
+export default defineConfig<AppTheme>({
+  presets: [presetWind3({ dark: "class" }), presetTypography<AppTheme>()],
+  rules: [
+    [
+      "bg-hologram-gradient",
+      {
+        "background-image": "linear-gradient(135deg, #8fd6ff 0%, #00bfff 100%)",
+      },
+    ],
+    [
+      "bg-bio-signal-gradient",
+      {
+        "background-image": "linear-gradient(135deg, #66dd8b 0%, #25a55a 100%)",
+      },
+    ],
+    [
+      "bg-alert-gradient",
+      {
+        "background-image": "linear-gradient(135deg, #ffbeb3 0%, #ff9585 100%)",
+      },
+    ],
+  ],
   shortcuts: {
     "glass-panel":
       "bg-surface-container-low/72 backdrop-blur-xl border border-outline-variant/15 shadow-ambient",
@@ -259,12 +285,6 @@ export default defineConfig({
         "0 0 0 1px rgba(143, 214, 255, 0.14), 0 0 24px rgba(143, 214, 255, 0.28)",
       "hologram-strong":
         "0 0 0 1px rgba(143, 214, 255, 0.2), 0 0 32px rgba(143, 214, 255, 0.36)",
-    },
-    backgroundImage: {
-      "hologram-gradient": "linear-gradient(135deg, #8fd6ff 0%, #00bfff 100%)",
-      "bio-signal-gradient":
-        "linear-gradient(135deg, #66dd8b 0%, #25a55a 100%)",
-      "alert-gradient": "linear-gradient(135deg, #ffbeb3 0%, #ff9585 100%)",
     },
   },
 });
