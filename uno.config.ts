@@ -5,6 +5,23 @@ import presetTypography from "@unocss/preset-typography";
 export default defineConfig({
   dark: "class",
   presets: [presetWind3(), presetTypography()],
+  shortcuts: {
+    "glass-panel":
+      "bg-surface-container-low/72 backdrop-blur-xl border border-outline-variant/15 shadow-ambient",
+    "glass-panel-strong":
+      "bg-surface-container-high/78 backdrop-blur-2xl border border-outline-variant/15 shadow-floating",
+    "control-panel":
+      "bg-surface-container-lowest/84 backdrop-blur-2xl border border-outline-variant/15",
+    "ghost-border": "border border-outline-variant/15",
+    "cta-hologram":
+      "bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-hologram hover:shadow-hologram-strong",
+    "surface-module": "bg-surface-container-low text-on-surface",
+    "surface-module-raised":
+      "bg-surface-container-high text-on-surface shadow-ambient",
+    "surface-module-highest":
+      "bg-surface-container-highest text-on-surface shadow-floating",
+    "label-mono": "font-mono text-label-sm uppercase tracking-[0.24em]",
+  },
   preflights: [
     {
       getCSS: () => `
@@ -24,7 +41,7 @@ export default defineConfig({
         body {
           margin: 0;
           padding: 0;
-          font-family: system-ui, -apple-system, sans-serif;
+          font-family: "Inter", sans-serif;
         }
 
         iframe {
@@ -36,6 +53,7 @@ export default defineConfig({
           margin: 0;
           font-size: inherit;
           font-weight: inherit;
+          font-family: "Space Grotesk", sans-serif;
         }
         
         p {
@@ -88,11 +106,38 @@ export default defineConfig({
           color: inherit;
           text-decoration: inherit;
         }
+
+        code,
+        kbd,
+        pre,
+        samp {
+          font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
       `,
     },
   ],
   theme: {
     colors: {
+      primary: "#8fd6ff",
+      "primary-container": "#00bfff",
+      "on-primary": "#03131c",
+      secondary: "#66dd8b",
+      "secondary-container": "#25a55a",
+      tertiary: "#ffbeb3",
+      "tertiary-container": "#ff9585",
+      surface: "#121414",
+      "surface-dim": "#0d1010",
+      "surface-bright": "#1a1e1f",
+      "surface-container-lowest": "#171a1b",
+      "surface-container-low": "#1d2223",
+      "surface-container": "#23292a",
+      "surface-container-high": "#2b3334",
+      "surface-container-highest": "#344041",
+      "surface-variant": "#8b9798",
+      "outline-variant": "#a8b7b8",
+      "surface-tint": "#8fd6ff",
+      "on-surface": "#e5f1f2",
+      "on-surface-muted": "#aab6b7",
       gray: {
         50: "#f7f7f8",
         100: "#f1f1f2",
@@ -157,6 +202,69 @@ export default defineConfig({
     fontFamily: {
       sans: '"Inter", sans-serif',
       inter: '"Inter", sans-serif',
+      body: '"Inter", sans-serif',
+      display: '"Space Grotesk", sans-serif',
+      headline: '"Space Grotesk", sans-serif',
+      mono: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      code: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    },
+    fontSize: {
+      "display-lg": [
+        "clamp(3.5rem, 7vw, 6.5rem)",
+        {
+          lineHeight: "0.95",
+          letterSpacing: "-0.04em",
+          fontWeight: "500",
+        },
+      ],
+      "headline-lg": [
+        "clamp(2.25rem, 4vw, 3.5rem)",
+        {
+          lineHeight: "1",
+          letterSpacing: "-0.03em",
+          fontWeight: "500",
+        },
+      ],
+      "title-md": [
+        "1rem",
+        {
+          lineHeight: "1.5rem",
+          letterSpacing: "0.01em",
+          fontWeight: "500",
+        },
+      ],
+      "label-md": [
+        "0.8125rem",
+        {
+          lineHeight: "1.125rem",
+          letterSpacing: "0.16em",
+          fontWeight: "500",
+        },
+      ],
+      "label-sm": [
+        "0.75rem",
+        {
+          lineHeight: "1rem",
+          letterSpacing: "0.24em",
+          fontWeight: "500",
+        },
+      ],
+    },
+    boxShadow: {
+      ambient:
+        "0 0 24px rgba(229, 241, 242, 0.06), 0 0 40px rgba(143, 214, 255, 0.04)",
+      floating:
+        "0 0 32px rgba(229, 241, 242, 0.06), 0 0 56px rgba(143, 214, 255, 0.05)",
+      hologram:
+        "0 0 0 1px rgba(143, 214, 255, 0.14), 0 0 24px rgba(143, 214, 255, 0.28)",
+      "hologram-strong":
+        "0 0 0 1px rgba(143, 214, 255, 0.2), 0 0 32px rgba(143, 214, 255, 0.36)",
+    },
+    backgroundImage: {
+      "hologram-gradient": "linear-gradient(135deg, #8fd6ff 0%, #00bfff 100%)",
+      "bio-signal-gradient":
+        "linear-gradient(135deg, #66dd8b 0%, #25a55a 100%)",
+      "alert-gradient": "linear-gradient(135deg, #ffbeb3 0%, #ff9585 100%)",
     },
   },
 });
