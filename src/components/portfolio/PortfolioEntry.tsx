@@ -5,7 +5,7 @@ import TechnologiesUsed from "~/components/portfolio/TechnologiesUsed";
 import PortfolioMedia from "./PortfolioMedia";
 import WhatIDid from "./WhatIDid";
 
-import { PortfolioFrontmatter } from "../../types/frontmatter";
+import { type PortfolioFrontmatter } from "../../types/frontmatter";
 import Link from "../layout/Link";
 
 type Props = PortfolioFrontmatter & { children?: ComponentChildren };
