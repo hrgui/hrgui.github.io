@@ -104,7 +104,7 @@ export function Hero() {
         </h1>
         {isTypingComplete && (
           <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest px-4 py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
-            <span className="text-secondary">$</span> boot --mode "crt-terminal"
+            <span className="text-secondary">$</span> hrgui --about
           </p>
         )}
         {isTypingComplete && (
