@@ -8,4 +8,6 @@ test("blog is present and all modules work", async ({ page }) => {
 
   const firstBlogTitle = await page.getByRole("heading", { level: 2 }).first();
   await firstBlogTitle.click();
+
+  await expect(page).toHaveURL(/\/posts\/.+/);
 });

@@ -5,13 +5,13 @@
 ## Installation
 
 ```
-yarn
+bun i
 ```
 
 ## Running development
 
 ```
-yarn dev
+bun run dev
 ```
 
 # Tech Stack
