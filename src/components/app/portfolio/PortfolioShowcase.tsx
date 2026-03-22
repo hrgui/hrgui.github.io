@@ -138,6 +138,7 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={githubActionClassName}
+                            aria-label="View on Github"
                             title="View on GitHub"
                           >
                             <Github width={24} height={24} />
@@ -234,6 +235,7 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
                               rel="noopener noreferrer"
                               className={githubActionClassName}
                               title="View on GitHub"
+                              aria-label="View on GitHub"
                             >
                               <Github width={20} height={20} />
                             </a>
