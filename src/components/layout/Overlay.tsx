@@ -7,7 +7,7 @@ const Overlay = ({ className, ...props }: Props) => {
   return (
     <div
       className={classNames(
-        "z-10 fixed inset-0 transition-opacity",
+        "z-50 fixed inset-0 transition-opacity",
         className as string
       )}
       {...props}

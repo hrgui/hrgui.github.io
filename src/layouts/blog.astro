@@ -20,7 +20,12 @@ const { title, excerpt, date, hidden } = Astro.props;
 <html lang="en">
   <Head title={title} pageType={"blog"} description={excerpt} />
   <AppLayout currentPathName={Astro.url.pathname} client:visible>
-    <BlogSubHeader date={date} title={title} hidden={hidden} />
+    <BlogSubHeader
+      date={date}
+      title={title}
+      excerpt={excerpt}
+      hidden={hidden}
+    />
     <BlogEntry>
       <slot />
     </BlogEntry>

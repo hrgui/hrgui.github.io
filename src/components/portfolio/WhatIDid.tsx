@@ -4,13 +4,17 @@ type Props = Pick<PortfolioFrontmatter, "whatIDid">;
 
 const WhatIDid = ({ whatIDid }: Props) => {
   return (
-    <div className="mb-10 md:col-span-8">
-      <h3 className="font-semibold text-2xl md:text-4xl mb-6 text-gray-700 dark:text-gray-200">
+    <div>
+      <h3 className="mb-6 font-headline text-2xl font-semibold text-on-surface md:text-4xl">
         What I Did
       </h3>
-      <ul className="ml-6">
+      <ul className="space-y-3">
         {whatIDid.map((bullet, i) => (
-          <li key={i} className="list-disc">
+          <li
+            key={i}
+            className="rounded-lg border border-outline-variant bg-surface-container-high px-4 py-3 text-on-surface-muted"
+          >
+            <span className="mr-2 text-primary">&gt;</span>
             {bullet}
           </li>
         ))}

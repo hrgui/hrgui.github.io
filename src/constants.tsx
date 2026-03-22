@@ -12,31 +12,28 @@ type SellPoint = {
 export const threeSellPoints: SellPoint[] = [
   {
     title: "Making the web awesome is my passion.",
-    description: `I am a Software Engineer who loves to make interactive web
-    applications. I believe web applications should function great. It
-    should look pleasing to the eye for the best user experience. When
-    people get stuff done in the apps I have worked on, it really gives me
-    that sense of nirvana. It doesn't just stop there. I always try to
-    improve applications and their experiences to be the best as possible
-    as they can be.`,
+    description: `I am a Software Engineer who loves building interactive web
+    applications. I believe great apps should work smoothly and look clean,
+    so people can focus on getting things done. Seeing users succeed with
+    something I helped build is the most rewarding part of my work. I am
+    always refining the experience to make each product better than before.`,
   },
   {
     title: "I will work with anything... to make the web work.",
-    description: `In my career, I have also had to work on things unknown and
-    challenging to me. I have contributed to web backend systems,
-    automation platforms, and mobile applications of all kinds and sorts.
-    Some of them were pleasant, some of them were frankensteined
-    applications. I always try to help contribute making all developer
-    experiences great, so everyone can have great developer experiences.`,
+    description: `Throughout my career, I have taken on unfamiliar and
+    challenging problems. I have contributed to backend systems,
+    automation platforms, and mobile applications across very different
+    codebases. Some were clean, some were heavily patched, but I focus on
+    improving the developer experience so teams can build and ship with
+    confidence.`,
   },
   {
     title: "While my code is compiling...",
-    description: `I love to play my guitar. I love to come up with new awesome guitar
-    licks. I love to watch Japanese animation (anime). All this further
-    stimulates my creativity. Sometimes, I like to combine the two. I
-    would end up learning how to play that favorite theme song in that
-    anime. A dream of mine is if I could combine some of my hobbies and my
-    coding, I will give my 110% to make that experience totally awesome.`,
+    description: `Outside of coding, I play guitar and enjoy Japanese
+    animation (anime). Both constantly fuel my creativity and inspire how I think
+    about building products. I often learn anime theme songs on guitar,
+    and that mix of music and storytelling keeps my ideas fresh. When I can
+    bring those creative influences into software, I do my best work.`,
   },
 ];
 

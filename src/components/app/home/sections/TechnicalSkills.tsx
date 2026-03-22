@@ -24,7 +24,7 @@ const summaryCards = [
   },
   {
     title: "JACK OF ALL TRADES",
-    subtitle: "TECH_SKILLS_I_HAVE",
+    subtitle: "OTHER_TECH_SKILLS_I_HAVE",
     className: "border-l-4 border-l-tertiary text-tertiary",
   },
 ];
@@ -117,11 +117,31 @@ export function TechnicalSkills({
               aria-hidden="true"
               viewBox="0 0 24 24"
               className="h-7 w-7 text-primary"
-              fill="currentColor"
             >
-              <ellipse cx="12" cy="5" rx="8" ry="3" />
-              <path d="M4 9c0 1.7 3.6 3 8 3s8-1.3 8-3v3c0 1.7-3.6 3-8 3s-8-1.3-8-3z" />
-              <path d="M4 15c0 1.7 3.6 3 8 3s8-1.3 8-3v3c0 1.7-3.6 3-8 3s-8-1.3-8-3z" />
+              <path
+                d="M12 2l8 4-8 4-8-4 8-4z"
+                fill="currentColor"
+                fillOpacity="0.2"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 8l8 4-8 4-8-4 8-4z"
+                fill="currentColor"
+                fillOpacity="0.16"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 14l8 4-8 4-8-4 8-4z"
+                fill="currentColor"
+                fillOpacity="0.12"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
 
@@ -151,7 +171,11 @@ export function TechnicalSkills({
 
               return (
                 <TechnicalSection title={title} key={section.key ?? title}>
-                  <ul>{section.items?.map(mapTechnicalSkills)}</ul>
+                  <ul>
+                    {section.items?.map((item, itemIndex) =>
+                      mapTechnicalSkills(item, itemIndex)
+                    )}
+                  </ul>
                 </TechnicalSection>
               );
             })}

@@ -3,6 +3,7 @@
   category: "github",
   title: "chord-charts",
   slug: "chord-charts",
+  featured: true,
   githubUrl: "https://github.com/hrgui/chord-charts-app",
   demoUrl: "https://chord-charts.vercel.app/",
   thumbnail: "/images/portfolio/chord-charts.webp",

@@ -131,8 +131,8 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
       title={`Theme: ${themePreference} (${resolvedTheme})`}
       className={
         isDrawerVariant
-          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left font-medium text-gray-800 transition-colors hover:text-gray-900 hover:bg-red-700 hover:bg-opacity-10 dark:text-gray-200 dark:hover:text-gray-100"
-          : "mr-3 inline-flex h-10 w-10 items-center justify-center rounded border border-gray-300 text-gray-800 transition-colors hover:text-gray-900 hover:bg-red-700 hover:bg-opacity-10 dark:border-gray-700 dark:text-gray-200 dark:hover:text-gray-100"
+          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left font-medium text-on-surface transition-colors hover:text-on-surface hover:bg-surface-container-high"
+          : "mr-3 inline-flex h-10 w-10 items-center justify-center rounded border border-outline-variant text-on-surface transition-colors hover:text-on-surface hover:bg-surface-container-high"
       }
     >
       <ThemeIcon preference={themePreference} />

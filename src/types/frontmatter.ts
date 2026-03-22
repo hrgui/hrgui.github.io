@@ -12,6 +12,7 @@ export type PortfolioFrontmatter = {
   date?: string;
   title?: string;
   category?: string;
+  featured?: boolean;
   githubUrl?: string;
   images?: { src: string; thumbnail: string }[];
   demoUrl?: string;

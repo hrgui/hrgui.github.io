@@ -12,6 +12,7 @@ import SliderNavButton from "./SliderNavButton";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   isAutoPlay?: boolean;
+  isFullBleed?: boolean;
   className?: string;
 }
 
@@ -62,6 +63,7 @@ export default function Slider({
   className,
   children,
   isAutoPlay: defaultIsAutoPlay = true,
+  isFullBleed = false,
   ...props
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -176,8 +178,12 @@ export default function Slider({
     return () => clearInterval(interval);
   }, [currentIndex, handleChangeImage, isAutoPlay]);
 
+  const wrapperClassName = isFullBleed
+    ? "relative w-screen max-w-none"
+    : "relative container mx-auto";
+
   return (
-    <div className="relative container mx-auto">
+    <div className={wrapperClassName}>
       <div
         className={classnames(`carousel`, className, heightClassName)}
         onScroll={handleChangeImageByScroll}

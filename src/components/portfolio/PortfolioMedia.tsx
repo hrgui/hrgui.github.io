@@ -7,15 +7,21 @@ type Props = Pick<
 >;
 
 const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
+  const hasIframe = Boolean(iframe);
+
   return (
-    <div className="bg-neutral-100 dark:bg-neutral-800 pt-4 pb-4">
-      {thumbnail && !images && (
-        <div className="md:hidden" data-testid="portfolio-media-thumbnail">
-          <img className="w-screen" alt={title} src={thumbnail} />
+    <section className="bg-surface-container-lowest/60 py-0">
+      {!hasIframe && thumbnail && !images && (
+        <div data-testid="portfolio-media-thumbnail">
+          <img
+            className="w-screen max-w-none object-cover"
+            alt={title}
+            src={thumbnail}
+          />
         </div>
       )}
-      {images && (
-        <Slider data-testid="portfolio-media-slider">
+      {!hasIframe && images && (
+        <Slider isFullBleed data-testid="portfolio-media-slider">
           {images.map((img, i) => {
             return (
               <div key={i}>
@@ -27,14 +33,14 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
           })}
         </Slider>
       )}
-      {iframe && (
+      {hasIframe && (
         <iframe
           data-testid="portfolio-media-iframe"
-          className="hidden md:block w-full"
+          className="hidden w-screen max-w-none border-y border-outline-variant md:block"
           {...iframe}
         />
       )}
-    </div>
+    </section>
   );
 };
 

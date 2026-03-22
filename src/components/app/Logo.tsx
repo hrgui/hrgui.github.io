@@ -9,11 +9,15 @@ const Logo = ({ className }: Props) => {
     <a href="/">
       <div
         className={classNames(
-          "text-3xl tracking-tight font-medium dark:text-gray-200",
+          "text-3xl tracking-tight font-medium font-headline text-on-surface",
           className
         )}
       >
-        hr<span className="text-red-700 dark:text-red-500">gui</span>
+        hrg
+        <span className="text-primary inline-block animate-cursor-blink">
+          |
+        </span>
+        <span className="text-primary">ui</span>
       </div>
     </a>
   );
