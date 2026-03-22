@@ -58,7 +58,7 @@ VITE_A=foo yarn build
 
 `VITE_A` is defined within a `.env` file.
 
-```dosini
+```ini
 VITE_A="foo"
 ```
 
@@ -141,7 +141,7 @@ Notice how `Od` doesn't have VITE_DEVTOOLS, but it includes the entire import.me
 
 - This is `VITE_DEVTOOLS` defined as "" in a .env file:
 
-```dosini
+```ini
 VITE_DEVTOOLS=""
 ```
 

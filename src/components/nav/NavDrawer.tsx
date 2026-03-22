@@ -1,4 +1,5 @@
-import { cloneElement, JSX } from "preact";
+import type { JSX } from "preact";
+import { cloneElement } from "preact";
 
 import Logo from "~/components/app/Logo";
 

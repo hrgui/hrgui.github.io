@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import type { JSX } from "preact";
 import { twMerge } from "tailwind-merge";
 
 interface Props extends Omit<JSX.HTMLAttributes<SVGSVGElement>, "crossOrigin"> {

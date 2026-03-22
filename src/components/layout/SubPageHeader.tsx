@@ -1,4 +1,4 @@
-import { ComponentChildren } from "preact";
+import type { ComponentChildren } from "preact";
 import { twMerge } from "tailwind-merge";
 
 type Props = {

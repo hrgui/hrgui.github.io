@@ -1,6 +1,6 @@
 import ctl from "@netlify/classnames-template-literals";
 import classNames from "classnames";
-import { JSX } from "preact";
+import type { JSX } from "preact";
 import { twMerge } from "tailwind-merge";
 
 type Props = { active?: boolean } & JSX.HTMLAttributes<HTMLButtonElement>;

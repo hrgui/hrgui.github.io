@@ -1,18 +1,19 @@
 ---
 import { getCollection } from "astro:content";
 import MarkdownPostLayout from "../../layouts/portfolio.astro";
-import { PortfolioFrontmatter } from "~/types/frontmatter";
+import { type PortfolioFrontmatter } from "~/types/frontmatter";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("portfolio");
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { title } = entry.data;
 ---
 

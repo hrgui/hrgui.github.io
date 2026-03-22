@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { Frontmatter } from "types/frontmatter";
+import { type Frontmatter } from "types/frontmatter";
 import Link from "~/components/layout/Link";
 
 interface Props {

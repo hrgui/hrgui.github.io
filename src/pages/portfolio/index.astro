@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "layouts/default.astro";
-import { PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "types/frontmatter";
 import PortfolioShowcase from "~/components/app/portfolio/PortfolioShowcase";
 import SubPageHeader from "~/components/layout/SubPageHeader";
 
@@ -21,7 +21,7 @@ const items = await getCollection("portfolio");
   <PortfolioShowcase
     hasTitle={false}
     items={items.map(
-      (item) => ({ ...item.data, slug: item.slug } as PortfolioFrontmatter)
+      (item) => ({ ...item.data, slug: item.id } as PortfolioFrontmatter)
     )}
   />
 </DefaultPageLayout>
