@@ -1,5 +1,3 @@
-import { Fragment } from "preact";
-
 import { education as defaultEducation } from "~/constants";
 
 export function Education({
@@ -9,46 +7,54 @@ export function Education({
 }) {
   return (
     <section
-      className="p-6 pt-8 pb-8  dark:bg-neutral-800 dark:text-gray-100  dark:border-stone-700"
+      className="bg-surface px-6 pb-12 pt-8"
       data-testid="section-education"
     >
       <div className="container mx-auto">
-        <h1 className="text-3xl font-medium mb-6">Education</h1>
-        <div className="flex items-center">
-          {education?.map(
-            ({
-              key,
-              imgSrc,
-              url,
-              title,
-              description,
-              timeframe: { start, end },
-            }) => {
-              return (
-                <Fragment key={key}>
-                  <div className="w-28 pr-4 shrink-0">
-                    <a href={url} target="__blank">
-                      <img
-                        loading="lazy"
-                        alt={`Open ${imgSrc} in a new tab`}
-                        src={imgSrc}
-                        className="w-20 h-20"
-                      />
-                    </a>
-                  </div>
-                  <div className="dark:text-gray-200">
-                    <h3 className="uppercase dark:text-gray-100 mb-2 font-semibold tracking-wide">
-                      {title}
-                    </h3>
-                    <p>{description}</p>
-                    <p className="text-gray-700 dark:text-gray-100">
-                      {start} - {end}
-                    </p>
-                  </div>
-                </Fragment>
-              );
-            }
-          )}
+        <div className="rounded-3xl border border-outline-variant bg-surface-container-low p-6 sm:p-8">
+          <p className="label-mono mb-2 text-primary">module_02 // education</p>
+          <h1 className="font-headline text-4xl font-semibold text-on-surface">
+            Education
+          </h1>
+          <div className="mt-6 space-y-6">
+            {education?.map(
+              ({
+                key,
+                imgSrc,
+                url,
+                title,
+                description,
+                timeframe: { start, end },
+              }) => {
+                return (
+                  <article
+                    key={key}
+                    className="flex flex-col gap-4 rounded-2xl border border-outline-variant bg-surface-container-high p-5 sm:flex-row sm:items-center"
+                  >
+                    <div className="w-24 shrink-0">
+                      <a href={url} target="__blank">
+                        <img
+                          loading="lazy"
+                          alt={`Open ${title} in a new tab`}
+                          src={imgSrc}
+                          className="h-20 w-20 rounded-lg border border-outline-variant bg-surface-container-lowest object-contain p-2"
+                        />
+                      </a>
+                    </div>
+                    <div>
+                      <h3 className="mb-2 font-headline text-xl font-semibold text-on-surface">
+                        {title}
+                      </h3>
+                      <p className="text-on-surface-muted">{description}</p>
+                      <p className="mt-2 font-mono text-sm uppercase tracking-[0.16em] text-primary">
+                        {start} - {end}
+                      </p>
+                    </div>
+                  </article>
+                );
+              }
+            )}
+          </div>
         </div>
       </div>
     </section>
