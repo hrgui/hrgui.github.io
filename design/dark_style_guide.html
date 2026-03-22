@@ -1,0 +1,810 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>guipunk_ // System Style Guide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#003919",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#1a1c1c",
+              "surface-container-highest": "#333535",
+              "tertiary-fixed": "#ffdad4",
+              "inverse-on-surface": "#2f3131",
+              "on-primary-fixed-variant": "#004c69",
+              error: "#ffb4ab",
+              "on-secondary-container": "#003115",
+              "on-primary-container": "#004a65",
+              "on-primary": "#003549",
+              "on-secondary-fixed-variant": "#005227",
+              "on-error": "#690005",
+              primary: "#8fd6ff",
+              "surface-container-high": "#282a2b",
+              "surface-bright": "#38393a",
+              surface: "#121414",
+              "on-tertiary-container": "#8f0100",
+              "on-background": "#e2e2e2",
+              "on-surface-variant": "#bcc8d1",
+              "surface-container-lowest": "#0c0f0f",
+              "on-surface": "#e2e2e2",
+              "surface-variant": "#333535",
+              "secondary-fixed-dim": "#66dd8b",
+              "primary-fixed": "#c3e8ff",
+              "on-tertiary-fixed-variant": "#930100",
+              "secondary-container": "#25a55a",
+              "primary-fixed-dim": "#7ad0ff",
+              "primary-container": "#00bfff",
+              "surface-tint": "#7ad0ff",
+              "surface-dim": "#121414",
+              "inverse-primary": "#00668a",
+              "secondary-fixed": "#83fba5",
+              "inverse-surface": "#e2e2e2",
+              "on-tertiary-fixed": "#410000",
+              outline: "#87929b",
+              "on-secondary-fixed": "#00210c",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "tertiary-container": "#ff9585",
+              "on-tertiary": "#690100",
+              "surface-container": "#1e2020",
+              background: "#121414",
+              tertiary: "#ffbeb3",
+              "outline-variant": "#3d4850",
+              "on-primary-fixed": "#001e2c",
+              secondary: "#66dd8b",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk"],
+              body: ["Inter"],
+              label: ["Space Grotesk"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #121414;
+        color: #e2e2e2;
+        font-family: "Inter", sans-serif;
+      }
+      .crt-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+          linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.03),
+            rgba(0, 255, 0, 0.01),
+            rgba(0, 0, 255, 0.03)
+          );
+        background-size:
+          100% 3px,
+          3px 100%;
+        pointer-events: none;
+        z-index: 100;
+        opacity: 0.4;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-panel {
+        background: rgba(26, 28, 28, 0.6);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <div class="crt-overlay"></div>
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl shadow-[0_0_15px_rgba(0,191,255,0.1)]"
+    >
+      <div
+        class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <a
+            class="text-xl font-mono text-cyan-400 lowercase animate-pulse tracking-tight font-['Space_Grotesk']"
+            href="#"
+          >
+            guipunk_
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a
+              class="font-['Space_Grotesk'] text-cyan-400 border-b-2 border-cyan-400 pb-1 text-sm tracking-tight transition-all"
+              href="#"
+              >Identity</a
+            >
+            <a
+              class="font-['Space_Grotesk'] text-neutral-500 hover:text-neutral-300 text-sm tracking-tight transition-colors"
+              href="#"
+              >Colors</a
+            >
+            <a
+              class="font-['Space_Grotesk'] text-neutral-500 hover:text-neutral-300 text-sm tracking-tight transition-colors"
+              href="#"
+              >Components</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden md:flex items-center bg-neutral-800/40 rounded-full px-4 py-1.5 border border-outline-variant/20"
+          >
+            <span
+              class="material-symbols-outlined text-sm text-neutral-500 mr-2"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-xs font-mono text-cyan-400 placeholder-neutral-600 w-48"
+              placeholder="SYSTEM_SEARCH"
+              type="text"
+            />
+          </div>
+          <button
+            class="p-2 text-neutral-400 hover:bg-cyan-950/30 hover:text-cyan-200 rounded-lg transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined" data-icon="terminal"
+              >terminal</span
+            >
+          </button>
+          <button
+            class="p-2 text-neutral-400 hover:bg-cyan-950/30 hover:text-cyan-200 rounded-lg transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined" data-icon="settings"
+              >settings</span
+            >
+          </button>
+          <div
+            class="w-8 h-8 rounded-full overflow-hidden border border-cyan-400/30"
+          >
+            <img
+              alt="Researcher Avatar"
+              class="w-full h-full object-cover"
+              data-alt="Avatar profile of a tech researcher"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8RTEE42O0cVsxjjaEkVfcfqSHwUxJua56xFpw5b8w_BDjE2nz6FfCnHUbOp2qws1kDHyD9SjexGSDu3u-Ey-TPgzAoQqNtScCGs4GUlbIlvShnez3g4rQK-Cq6Q7GTmLiFoRmgvOojQbWBPU-E7zLXRkKyGQBrELBena_CzjQqEyLRXbJpN2Zx2wJOHJNnLbi1Pugg1pafXYUMHtYw9Y99X_OuwDAd7sYUzGBUPVuNHfZ3wZxhh25ogznhkkAYKQMhFtfDTL_Jzo"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto">
+      <!-- Brand & Identity Section -->
+      <section class="mb-20">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-8 border-b border-outline-variant/10 pb-4"
+        >
+          <div>
+            <span
+              class="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-2 block"
+              >Core_Systems_01</span
+            >
+            <h1
+              class="text-5xl md:text-7xl font-headline font-bold tracking-tighter text-on-surface"
+            >
+              Brand &amp; Identity
+            </h1>
+          </div>
+          <div class="hidden md:block text-right">
+            <span class="font-mono text-[10px] text-outline uppercase"
+              >rev_v.04</span
+            >
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-surface-container-low p-12 flex items-center justify-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <div
+              class="text-6xl font-headline font-extrabold tracking-tighter text-primary lowercase relative z-10"
+            >
+              guipunk_
+            </div>
+            <div
+              class="absolute top-4 left-4 font-mono text-[10px] text-outline/40"
+            >
+              MASTER_LOGO
+            </div>
+          </div>
+          <div class="flex flex-col justify-center space-y-6">
+            <p
+              class="text-lg text-on-surface-variant font-body leading-relaxed max-w-xl"
+            >
+              The <span class="text-primary">guipunk_</span> identity is a
+              bridge between high-tech precision and scientific curiosity. It
+              prioritizes data density, holographic depth, and a digital-first
+              editorial feel.
+            </p>
+            <div class="flex gap-4">
+              <div
+                class="px-4 py-2 bg-surface-container-high border-l-2 border-primary"
+              >
+                <span class="block font-mono text-[10px] text-outline uppercase"
+                  >Primary_Typeface</span
+                >
+                <span class="font-headline font-bold">Space Grotesk</span>
+              </div>
+              <div
+                class="px-4 py-2 bg-surface-container-high border-l-2 border-secondary"
+              >
+                <span class="block font-mono text-[10px] text-outline uppercase"
+                  >System_Voice</span
+                >
+                <span class="font-mono text-sm">ui-monospace</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Color Palette -->
+      <section class="mb-20">
+        <div class="mb-10">
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.3em] text-secondary mb-2 block"
+            >Spectral_Analysis_02</span
+          >
+          <h2
+            class="text-4xl font-headline font-bold tracking-tight text-on-surface"
+          >
+            Color Palette
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-outline-variant/20 rounded-lg overflow-hidden border border-outline-variant/20"
+        >
+          <!-- Primary -->
+          <div
+            class="bg-primary aspect-square p-4 flex flex-col justify-between group cursor-help transition-all hover:brightness-110"
+          >
+            <span class="font-headline font-bold text-on-primary">Primary</span>
+            <div
+              class="font-mono text-[10px] text-on-primary uppercase opacity-70"
+            >
+              #8FD6FF
+            </div>
+          </div>
+          <!-- Primary Container -->
+          <div
+            class="bg-primary-container aspect-square p-4 flex flex-col justify-between group cursor-help transition-all hover:brightness-110"
+          >
+            <span class="font-headline font-bold text-on-primary-container"
+              >Cyan Glow</span
+            >
+            <div
+              class="font-mono text-[10px] text-on-primary-container uppercase opacity-70"
+            >
+              #00BFFF
+            </div>
+          </div>
+          <!-- Secondary -->
+          <div
+            class="bg-secondary aspect-square p-4 flex flex-col justify-between group cursor-help transition-all hover:brightness-110"
+          >
+            <span class="font-headline font-bold text-on-secondary"
+              >Success</span
+            >
+            <div
+              class="font-mono text-[10px] text-on-secondary uppercase opacity-70"
+            >
+              #66DD8B
+            </div>
+          </div>
+          <!-- Tertiary -->
+          <div
+            class="bg-tertiary-container aspect-square p-4 flex flex-col justify-between group cursor-help transition-all hover:brightness-110"
+          >
+            <span class="font-headline font-bold text-on-tertiary-container"
+              >Alert</span
+            >
+            <div
+              class="font-mono text-[10px] text-on-tertiary-container uppercase opacity-70"
+            >
+              #FF9585
+            </div>
+          </div>
+          <!-- Surface -->
+          <div
+            class="bg-surface aspect-square p-4 flex flex-col justify-between border-l border-outline-variant/20"
+          >
+            <span class="font-headline font-bold text-on-surface">Surface</span>
+            <div
+              class="font-mono text-[10px] text-on-surface uppercase opacity-70"
+            >
+              #121414
+            </div>
+          </div>
+          <!-- Container -->
+          <div
+            class="bg-surface-container-highest aspect-square p-4 flex flex-col justify-between"
+          >
+            <span class="font-headline font-bold text-on-surface"
+              >Elevated</span
+            >
+            <div
+              class="font-mono text-[10px] text-on-surface uppercase opacity-70"
+            >
+              #333535
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Typography -->
+      <section class="mb-20">
+        <div class="mb-10">
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.3em] text-tertiary mb-2 block"
+            >Signal_Clarity_03</span
+          >
+          <h2
+            class="text-4xl font-headline font-bold tracking-tight text-on-surface"
+          >
+            Typography
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="space-y-12">
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[10px] text-outline"
+                  >H1 // SPACE GROTESK BOLD</span
+                >
+                <div class="h-px flex-grow bg-outline-variant/20"></div>
+              </div>
+              <p class="text-6xl font-headline font-bold tracking-tighter">
+                Laboratory Grade
+              </p>
+            </div>
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[10px] text-outline"
+                  >H2 // SPACE GROTESK SEMIBOLD</span
+                >
+                <div class="h-px flex-grow bg-outline-variant/20"></div>
+              </div>
+              <p class="text-4xl font-headline font-semibold tracking-tight">
+                System Initialization
+              </p>
+            </div>
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <span class="font-mono text-[10px] text-outline"
+                  >BODY // INTER REGULAR</span
+                >
+                <div class="h-px flex-grow bg-outline-variant/20"></div>
+              </div>
+              <p class="text-lg text-on-surface-variant leading-relaxed">
+                The bridge between clinical precision and boundless curiosity.
+                Inspired by advanced laboratory aesthetics at the edge of the
+                world.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/10"
+          >
+            <div class="mb-6">
+              <span
+                class="font-mono text-[10px] text-primary uppercase mb-4 block tracking-widest"
+                >Metadata_Display</span
+              >
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-baseline border-b border-outline-variant/10 pb-2"
+                >
+                  <span class="font-mono text-xs text-outline uppercase"
+                    >user_node</span
+                  >
+                  <span class="font-mono text-sm text-secondary"
+                    >EG_NODE_01</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-baseline border-b border-outline-variant/10 pb-2"
+                >
+                  <span class="font-mono text-xs text-outline uppercase"
+                    >uplink_status</span
+                  >
+                  <span class="font-mono text-sm text-primary"
+                    >ENCRYPTED_SSL</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-baseline border-b border-outline-variant/10 pb-2"
+                >
+                  <span class="font-mono text-xs text-outline uppercase"
+                    >latency_ms</span
+                  >
+                  <span class="font-mono text-sm text-on-surface">0.042ms</span>
+                </div>
+                <div
+                  class="flex justify-between items-baseline border-b border-outline-variant/10 pb-2"
+                >
+                  <span class="font-mono text-xs text-outline uppercase"
+                    >protocol</span
+                  >
+                  <span class="font-mono text-sm text-tertiary">BETA_V4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Components Grid -->
+      <section class="mb-20">
+        <div class="mb-10">
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-2 block"
+            >Module_Manifest_04</span
+          >
+          <h2
+            class="text-4xl font-headline font-bold tracking-tight text-on-surface"
+          >
+            Component Library
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <!-- Buttons Card -->
+          <div
+            class="md:col-span-4 bg-surface-container-low p-6 flex flex-col gap-6 group hover:bg-surface-container transition-colors"
+          >
+            <span
+              class="font-mono text-[10px] text-outline uppercase tracking-widest"
+              >01_Interactions</span
+            >
+            <div class="flex flex-col gap-4">
+              <button
+                class="bg-primary text-on-primary font-headline font-bold py-3 px-6 rounded hover:shadow-[0_0_15px_rgba(143,214,255,0.4)] transition-all active:scale-[0.98]"
+              >
+                PRIMARY_ACTION
+              </button>
+              <button
+                class="bg-transparent text-primary border border-primary/30 font-headline font-bold py-3 px-6 rounded hover:bg-primary/5 transition-all"
+              >
+                SECONDARY_LINK
+              </button>
+              <button
+                class="text-on-surface font-mono text-[10px] tracking-widest uppercase py-2 hover:text-primary transition-colors text-left flex items-center gap-2"
+              >
+                <span>01_PROTOCOL_BYPASS</span>
+                <span class="material-symbols-outlined text-[10px]"
+                  >arrow_forward</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Gauges/Stats -->
+          <div
+            class="md:col-span-8 bg-surface-container-low p-6 group hover:bg-surface-container transition-colors"
+          >
+            <div class="flex justify-between items-center mb-8">
+              <span
+                class="font-mono text-[10px] text-outline uppercase tracking-widest"
+                >02_System_Vitals</span
+              >
+              <div class="flex gap-2">
+                <span
+                  class="w-2 h-2 rounded-full bg-secondary animate-pulse"
+                ></span>
+                <span class="font-mono text-[10px] text-secondary">LIVE</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div class="flex flex-col items-center">
+                <div
+                  class="relative w-24 h-24 mb-4 flex items-center justify-center"
+                >
+                  <svg class="w-full h-full transform -rotate-90">
+                    <circle
+                      class="text-outline-variant/20"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    ></circle>
+                    <circle
+                      class="text-primary"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-dasharray="251"
+                      stroke-dashoffset="62"
+                      stroke-width="4"
+                    ></circle>
+                  </svg>
+                  <span class="absolute font-headline text-2xl font-bold"
+                    >75%</span
+                  >
+                </div>
+                <span class="font-mono text-[10px] text-outline uppercase"
+                  >Cortex_Load</span
+                >
+              </div>
+              <div class="flex flex-col items-center">
+                <div
+                  class="relative w-24 h-24 mb-4 flex items-center justify-center"
+                >
+                  <svg class="w-full h-full transform -rotate-90">
+                    <circle
+                      class="text-outline-variant/20"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    ></circle>
+                    <circle
+                      class="text-secondary"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-dasharray="251"
+                      stroke-dashoffset="180"
+                      stroke-width="4"
+                    ></circle>
+                  </svg>
+                  <span class="absolute font-headline text-2xl font-bold"
+                    >30%</span
+                  >
+                </div>
+                <span class="font-mono text-[10px] text-outline uppercase"
+                  >Thermal_Flux</span
+                >
+              </div>
+              <div class="flex flex-col items-center">
+                <div
+                  class="relative w-24 h-24 mb-4 flex items-center justify-center"
+                >
+                  <svg class="w-full h-full transform -rotate-90">
+                    <circle
+                      class="text-outline-variant/20"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    ></circle>
+                    <circle
+                      class="text-tertiary"
+                      cx="48"
+                      cy="48"
+                      fill="transparent"
+                      r="40"
+                      stroke="currentColor"
+                      stroke-dasharray="251"
+                      stroke-dashoffset="20"
+                      stroke-width="4"
+                    ></circle>
+                  </svg>
+                  <span class="absolute font-headline text-2xl font-bold"
+                    >92</span
+                  >
+                </div>
+                <span class="font-mono text-[10px] text-outline uppercase"
+                  >Sync_Rating</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Terminal Card -->
+          <div
+            class="md:col-span-12 bg-neutral-900 rounded-lg overflow-hidden border border-outline-variant/20"
+          >
+            <div
+              class="bg-surface-container-highest px-4 py-2 flex items-center justify-between border-b border-outline-variant/20"
+            >
+              <div class="flex gap-1.5">
+                <div class="w-2 h-2 rounded-full bg-tertiary/40"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-secondary-container/40"
+                ></div>
+                <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+              </div>
+              <span class="font-mono text-[10px] text-outline"
+                >root@guipunk_:/sys/logs</span
+              >
+              <div class="w-10"></div>
+            </div>
+            <div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+              <div class="flex gap-4">
+                <span class="text-outline/30 select-none">01</span>
+                <p>
+                  <span class="text-secondary">const</span>
+                  <span class="text-primary">systemInit</span> = () =&gt; {
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="text-outline/30 select-none">02</span>
+                <p class="pl-4">
+                  <span class="text-outline">console</span>.<span
+                    class="text-on-surface"
+                    >log</span
+                  >(<span class="text-tertiary"
+                    >"Initializing Neural Uplink..."</span
+                  >);
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="text-outline/30 select-none">03</span>
+                <p class="pl-4">
+                  <span class="text-secondary">return</span>
+                  <span class="text-primary">protocol_v04</span>.<span
+                    class="text-on-surface"
+                    >handshake</span
+                  >();
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="text-outline/30 select-none">04</span>
+                <p>}</p>
+              </div>
+              <div class="flex gap-4 mt-4">
+                <span class="text-outline/30 select-none">05</span>
+                <p>
+                  <span class="text-primary">systemInit</span>();
+                  <span
+                    class="inline-block w-2 h-4 bg-primary/60 align-middle animate-pulse"
+                  ></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Layout & Spacing -->
+      <section class="mb-20">
+        <div class="mb-10">
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.3em] text-secondary mb-2 block"
+            >Spatial_Geometry_05</span
+          >
+          <h2
+            class="text-4xl font-headline font-bold tracking-tight text-on-surface"
+          >
+            Spacing &amp; Grid
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-surface-container-low p-10 border border-outline-variant/10 rounded-lg"
+          >
+            <div class="flex flex-col gap-4">
+              <div
+                class="h-4 bg-primary/20 flex items-center justify-center font-mono text-[8px] text-primary uppercase"
+              >
+                4px / spacing-1
+              </div>
+              <div
+                class="h-8 bg-primary/30 flex items-center justify-center font-mono text-[8px] text-primary uppercase"
+              >
+                8px / spacing-2
+              </div>
+              <div
+                class="h-16 bg-primary/40 flex items-center justify-center font-mono text-[8px] text-primary uppercase"
+              >
+                16px / spacing-4
+              </div>
+              <div
+                class="h-24 bg-primary/50 flex items-center justify-center font-mono text-[8px] text-primary uppercase"
+              >
+                24px / spacing-6
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center space-y-6">
+            <p class="text-on-surface-variant leading-relaxed">
+              Spacing is high-contrast. We use wide margins to let critical data
+              points breathe, emphasizing their importance within the HUD.
+              Asymmetry is intentional to break traditional web templates.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="p-4 bg-surface-container-high border-t border-secondary/40"
+              >
+                <span class="font-mono text-[10px] text-outline block mb-1"
+                  >Grid_Columns</span
+                >
+                <span class="font-headline font-bold text-xl">12_Units</span>
+              </div>
+              <div
+                class="p-4 bg-surface-container-high border-t border-primary/40"
+              >
+                <span class="font-mono text-[10px] text-outline block mb-1"
+                  >Standard_Gap</span
+                >
+                <span class="font-headline font-bold text-xl">24px</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full border-t border-neutral-800/30 bg-neutral-950 tonal-shift bg-neutral-900"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto"
+      >
+        <div class="mb-8 md:mb-0">
+          <div
+            class="text-cyan-500 font-bold font-mono text-[10px] uppercase tracking-widest mb-2 opacity-80 hover:opacity-100 transition-opacity"
+          >
+            hrgui_labs // egghead_node_01
+          </div>
+          <div class="text-neutral-600 font-mono text-[10px] tracking-widest">
+            SYSTEM_CLOCK // 02:44:11:004
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8">
+          <a
+            class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-cyan-300 transition-colors"
+            href="#"
+            >protocol_v.04</a
+          >
+          <a
+            class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-cyan-300 transition-colors"
+            href="#"
+            >system_logs</a
+          >
+          <a
+            class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-cyan-300 transition-colors"
+            href="#"
+            >terminal_access</a
+          >
+        </div>
+        <div class="mt-8 md:mt-0 flex gap-4">
+          <div class="w-2 h-2 rounded-full bg-cyan-500/50 animate-pulse"></div>
+          <div class="w-2 h-2 rounded-full bg-cyan-500/20"></div>
+          <div class="w-2 h-2 rounded-full bg-cyan-500/10"></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
