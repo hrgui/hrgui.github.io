@@ -55,7 +55,7 @@ export function PortfolioShowcase({ items, hasTitle = true }: Props) {
             <h1 className="font-headline text-4xl font-semibold text-on-surface">
               Portfolio
             </h1>
-            <p className="mt-3 max-w-2xl text-on-surface-muted">
+            <p className="mt-3 text-on-surface-muted">
               Built in the digital underground: apps, UI experiments, and
               creative code modules I designed and shipped, from React tools to
               interactive front-end prototypes.
