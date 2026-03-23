@@ -30,10 +30,10 @@ const PortfolioEntry = ({
       <section className="graph-bg px-6 pb-10 pt-24 sm:pt-28">
         <div className="container mx-auto max-w-[1536px] lg:flex lg:items-end lg:justify-between lg:gap-10">
           <div>
-            <p className="label-mono mb-3 text-primary">
+            <p className="label-mono mb-3 text-tertiary">
               project_entry // live_record
             </p>
-            <h1 className="bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+            <h1 className="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
               {title}
             </h1>
           </div>
