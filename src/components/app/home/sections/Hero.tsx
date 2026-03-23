@@ -120,6 +120,13 @@ export function Hero() {
             backgroundSize: "6px 6px",
           }}
         />
+        <div
+          className="absolute inset-x-0 bottom-0 h-52 sm:h-64"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, rgb(var(--color-surface-rgb) / 0) 0%, rgb(var(--color-surface-rgb) / 0.3) 42%, rgb(var(--color-surface-container-low-rgb) / 0.8) 74%, rgb(var(--color-surface-container-low-rgb) / 1) 100%)",
+          }}
+        />
       </div>
 
       <div className="container relative z-10 mx-auto flex flex-col items-start justify-center pl-6 pt-24 sm:p-4 sm:pt-32">
