@@ -16,6 +16,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^5.0.2",
     "@astrojs/preact": "5.0.2",
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
@@ -56,6 +57,8 @@
     "preact": "^10.25.4",
     "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",
+    "remark-gfm": "^4.0.1",
+    "remark-smartypants": "^3.0.2",
     "ts-essentials": "^10.0.4",
     "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0",
@@ -66,5 +69,6 @@
   "overrides": {
     "preact": "^10.25.1",
     "@preact/preset-vite": "^2.9.3"
-  }
+  },
+  "dependencies": {}
 }

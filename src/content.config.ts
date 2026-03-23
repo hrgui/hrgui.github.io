@@ -5,7 +5,7 @@ import { z } from "astro/zod";
 
 // Define a `loader` and `schema` for each collection
 const postsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/posts" }),
   schema: z.object({
     title: z.string(),
     date: z.string(),
@@ -15,7 +15,7 @@ const postsCollection = defineCollection({
 });
 
 const portfolioItemsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/portfolio" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/portfolio" }),
   schema: z.object({
     date: z.string().optional(),
     title: z.string().optional(),

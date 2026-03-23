@@ -1,6 +1,9 @@
 import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import unoCss from "@unocss/astro";
+import remarkGfm from "remark-gfm";
+import remarkSmartypants from "remark-smartypants";
 import tsconfigPaths from "vite-tsconfig-paths";
 import remarkMermaid from "./utils/remark-mermaid/index.mjs";
 
@@ -10,7 +13,7 @@ export default defineConfig({
     plugins: [tsconfigPaths()],
   },
   markdown: {
-    remarkPlugins: ["remark-gfm", "remark-smartypants", remarkMermaid],
+    remarkPlugins: [remarkGfm, remarkSmartypants, remarkMermaid],
   },
-  integrations: [unoCss(), preact()],
+  integrations: [mdx(), unoCss(), preact()],
 });
