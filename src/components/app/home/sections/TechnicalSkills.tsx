@@ -13,19 +13,25 @@ const sectionTitleMap: Record<string, string> = {
 
 const summaryCards = [
   {
+    key: "javascript",
     title: "JavaScript",
     subtitle: "LOGIC_ENGINE_V8",
-    className: "border-l-4 border-l-primary text-primary",
+    className: "text-primary",
+    accentClassName: "bg-gradient-to-r from-primary to-primary-container",
   },
   {
+    key: "html-css",
     title: "HTML/CSS",
     subtitle: "STRUCTURAL_UI_CORE",
-    className: "border-l-4 border-l-secondary text-secondary",
+    className: "text-secondary",
+    accentClassName: "bg-gradient-to-r from-secondary to-primary",
   },
   {
+    key: "other",
     title: "JACK OF ALL TRADES",
     subtitle: "OTHER_TECH_SKILLS_I_HAVE",
-    className: "border-l-4 border-l-tertiary text-tertiary",
+    className: "text-tertiary",
+    accentClassName: "bg-gradient-to-r from-tertiary to-primary-fixed",
   },
 ];
 
@@ -41,16 +47,28 @@ const getSectionTitle = (section: TechnicalSkillSection, index: number) => {
   return `Section ${index + 1}`;
 };
 
+const countLeafItems = (item: TechnicalSkillItem): number => {
+  if (typeof item === "string") {
+    return 1;
+  }
+
+  return item.items.reduce(
+    (total, subItem) => total + countLeafItems(subItem),
+    0
+  );
+};
+
 function TechnicalSection({
   title,
   children,
+  className,
   ...props
 }: Omit<JSX.HTMLAttributes<HTMLDivElement>, "title"> & {
   title: string;
 }) {
   return (
     <section
-      className="mt-8 mb-8 rounded-3xl border border-outline-variant bg-surface-container-low p-6"
+      className={`rounded-3xl border border-outline-variant bg-surface-container-low p-6 ${className ?? ""}`}
       aria-label={title}
       {...props}
     >
@@ -65,8 +83,8 @@ function NestedList({
 }: JSX.HTMLAttributes<HTMLUListElement> & { depth?: number }) {
   const nestedClassName =
     depth === 0
-      ? "mt-3 space-y-2"
-      : "mt-3 space-y-2 rounded-xl border border-outline-variant bg-surface-container-high p-4";
+      ? "mt-3 space-y-3"
+      : "mt-3 space-y-3 rounded-xl border border-outline-variant bg-surface-container-high/80 p-4";
 
   return <ul className={nestedClassName} {...props} />;
 }
@@ -76,6 +94,10 @@ export function TechnicalSkills({
 }: {
   technicalSkills?: typeof defaultTechnicalSkills;
 }) {
+  const summaryCardMap = Object.fromEntries(
+    summaryCards.map((card) => [card.key, card])
+  );
+
   const mapTechnicalSkills = (
     item: TechnicalSkillItem,
     index: number,
@@ -83,23 +105,39 @@ export function TechnicalSkills({
   ): JSX.Element => {
     if (typeof item === "string") {
       return (
-        <li key={index} className="pl-4 text-on-surface-muted">
-          <span className="mr-2 text-primary">&gt;</span>
+        <li
+          key={index}
+          className="rounded-lg border border-transparent py-0.5 pl-4 text-on-surface-muted transition-colors duration-150 ease-out hover:border-outline-variant/60 hover:bg-surface-container"
+        >
+          <span className="mr-2 text-primary/90">&gt;</span>
           {item}
         </li>
       );
     }
 
     const { title, items: subitems } = item;
+    const leafCount = countLeafItems(item);
 
     return (
       <li key={index} className="pt-1 text-on-surface">
-        <p className="pl-4 font-medium text-on-surface">{title}</p>
-        <NestedList depth={depth + 1}>
-          {subitems.map((subItem, subIndex) =>
-            mapTechnicalSkills(subItem, subIndex, depth + 1)
-          )}
-        </NestedList>
+        <details className="group rounded-xl border border-outline-variant/90 bg-surface-container-high/60 p-3">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-md px-2 py-1 font-medium text-on-surface marker:hidden">
+            <span className="pr-2 leading-tight">{title}</span>
+            <span className="inline-flex items-center gap-2 text-xs text-on-surface-muted">
+              <span className="rounded-full border border-outline-variant px-2 py-0.5 font-mono tracking-[0.08em]">
+                {leafCount}
+              </span>
+              <span className="text-primary transition-transform duration-200 ease-out group-open:rotate-90">
+                &gt;
+              </span>
+            </span>
+          </summary>
+          <NestedList depth={depth + 1}>
+            {subitems.map((subItem, subIndex) =>
+              mapTechnicalSkills(subItem, subIndex, depth + 1)
+            )}
+          </NestedList>
+        </details>
       </li>
     );
   };
@@ -149,34 +187,48 @@ export function TechnicalSkills({
             Core Proficiencies
           </h1>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {summaryCards.map((card) => (
-              <article
-                key={card.title}
-                className={`rounded-2xl bg-surface-container-high p-6 ${card.className}`}
-              >
-                <h2 className="font-headline text-4xl leading-tight sm:text-3xl">
-                  {card.title}
-                </h2>
-                <p className="mt-3 font-mono text-sm uppercase tracking-[0.12em] text-on-surface-muted">
-                  {card.subtitle}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-8 sm:grid sm:grid-cols-3 sm:gap-8">
+          <div className="mt-10 space-y-6">
             {technicalSkills?.map((section, index) => {
               const title = getSectionTitle(section, index);
+              const card = (section.key && summaryCardMap[section.key]) ||
+                summaryCards[index] || {
+                  title,
+                  subtitle: "TECH_MODULE",
+                  className: "text-on-surface",
+                  accentClassName:
+                    "bg-gradient-to-r from-outline to-outline-variant",
+                };
 
               return (
-                <TechnicalSection title={title} key={section.key ?? title}>
-                  <ul>
-                    {section.items?.map((item, itemIndex) =>
-                      mapTechnicalSkills(item, itemIndex)
-                    )}
-                  </ul>
-                </TechnicalSection>
+                <div
+                  key={section.key ?? title}
+                  className="rounded-3xl border border-outline-variant/80 bg-surface-container-low/40 p-4 sm:p-6"
+                >
+                  <div className="grid gap-4 md:grid-cols-[minmax(220px,280px)_1fr] md:items-start md:gap-6">
+                    <article
+                      className={`relative overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high p-6 ${card.className}`}
+                    >
+                      <div
+                        aria-hidden="true"
+                        className={`absolute inset-x-0 top-0 h-1 opacity-70 ${card.accentClassName}`}
+                      />
+                      <h2 className="font-headline text-4xl leading-tight sm:text-3xl">
+                        {card.title}
+                      </h2>
+                      <p className="mt-3 font-mono text-sm uppercase tracking-[0.12em] text-on-surface-muted">
+                        {card.subtitle}
+                      </p>
+                    </article>
+
+                    <TechnicalSection title={title} className="mb-0 h-full">
+                      <ul className="space-y-3">
+                        {section.items?.map((item, itemIndex) =>
+                          mapTechnicalSkills(item, itemIndex)
+                        )}
+                      </ul>
+                    </TechnicalSection>
+                  </div>
+                </div>
               );
             })}
           </div>
