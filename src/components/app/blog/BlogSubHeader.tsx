@@ -43,7 +43,7 @@ const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
           </h1>
 
           {excerpt && (
-            <p className="mt-6 max-w-4xl text-lg leading-relaxed text-on-surface-muted sm:text-xl">
+            <p className="mt-6 text-lg leading-relaxed text-on-surface-muted sm:text-xl">
               {excerpt}
             </p>
           )}

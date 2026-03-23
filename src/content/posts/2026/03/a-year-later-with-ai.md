@@ -1,7 +1,7 @@
 ---
 title: "A Year Later: Me and AI"
 date: "3/22/2026"
-excerpt: I finally update this site... a year later, making it more what I wanted to seek after, and all that  is thanks to AI.
+excerpt: A year later, I made my futuristic vision of this site a reality; AI helped with execution, but the creative direction stayed mine.
 ---
 
 Over the weekend I got inspired to try [Stitch](http://stitch.withgoogle.com/), a vibe-design tool that helps people like me who struggle to land a solid color scheme from scratch. I have been catching up on One Piece lately, and the rebellious, lab-coat energy of Dr. Vegapunk's aesthetic really grabbed me. I used that as a starting point, layered in some Iron Man vibes, and pushed it toward something unmistakably technical — because if you are reading this, that is exactly what you are going to get from me.
@@ -32,8 +32,10 @@ With unocss I can target exactly what I need. That matters to me because I work 
 
 Yes, I use AI. But let me be clear about what that actually looks like: AI augments my workflow — it does not run it.
 
-I am in the loop at every step. I review the output, push back when something is off, and make the final call. My frustration is not with the tool itself — it is with the expectation that AI should replace creativity entirely. I have yet to encounter a piece of AI-generated art that stands on its own as something genuinely meaningful. Creativity is still human.
+I will never, ever hand my workflow to AI and skip review. Every output gets checked by me before it ships.
 
-To me, AI is infrastructure — no different from a computer or an operating system. It helps me write faster, phrase things more clearly, and stay in flow when I sit down with my morning cup of tea. It handles the mechanical parts so I can spend more energy on the parts that actually need a human.
+I am in the loop at every step. I review the output, push back when something is off, and make the final call. My frustration is not with the tool itself: it is with the expectation that AI should replace creativity entirely. I have yet to encounter a piece of AI-generated art that stands on its own as something genuinely meaningful. Creativity is still human.
+
+To me, AI is infrastructure: no different from a computer or an operating system. It helps me write faster, phrase things more clearly, and stay in flow when I sit down with my morning cup of tea. It handles the mechanical parts so I can spend more energy on the parts that actually need a human.
 
 AI is not here to replace people. It is here to work alongside them. The sooner we treat it that way, the better we will all get at using it well.
