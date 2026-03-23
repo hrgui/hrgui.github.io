@@ -2,10 +2,20 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import AppSocialMedia from "~/components/app/AppSocialMedia";
 
+const HERO_COMMAND_PROMPT = "$";
+const HERO_COMMAND_BODY = " about";
+const HERO_COMMAND_TEXT = `${HERO_COMMAND_PROMPT}${HERO_COMMAND_BODY}`;
 const HERO_PREFIX = "I build ";
 const HERO_HIGHLIGHT = "cool and awesome";
-const HERO_SUFFIX = " web and mobile apps.";
+const HERO_SUFFIX = "web and mobile apps.";
 const HERO_TEXT = `${HERO_PREFIX}${HERO_HIGHLIGHT}${HERO_SUFFIX}`;
+const TYPING_INTERVAL_MS = 42;
+const HERO_COMMAND_DELAY_MS = 500;
+const HERO_COMMAND_DELAY_TICKS = Math.ceil(
+  HERO_COMMAND_DELAY_MS / TYPING_INTERVAL_MS
+);
+const HERO_TOTAL_TYPED_CHARS =
+  HERO_COMMAND_TEXT.length + HERO_COMMAND_DELAY_TICKS + HERO_TEXT.length;
 
 export function Hero() {
   const intervalRef = useRef<number | null>(null);
@@ -13,13 +23,13 @@ export function Hero() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setTypedChars(HERO_TEXT.length);
+      setTypedChars(HERO_TOTAL_TYPED_CHARS);
       return;
     }
 
     intervalRef.current = window.setInterval(() => {
       setTypedChars((current) => {
-        if (current >= HERO_TEXT.length) {
+        if (current >= HERO_TOTAL_TYPED_CHARS) {
           if (intervalRef.current !== null) {
             window.clearInterval(intervalRef.current);
             intervalRef.current = null;
@@ -30,7 +40,7 @@ export function Hero() {
 
         return current + 1;
       });
-    }, 42);
+    }, TYPING_INTERVAL_MS);
 
     return () => {
       if (intervalRef.current !== null) {
@@ -40,22 +50,43 @@ export function Hero() {
     };
   }, []);
 
+  const typedCommandChars = Math.min(typedChars, HERO_COMMAND_TEXT.length);
+  const typedCommandPrompt = HERO_COMMAND_PROMPT.slice(
+    0,
+    Math.min(typedCommandChars, HERO_COMMAND_PROMPT.length)
+  );
+  const typedCommandBody = HERO_COMMAND_BODY.slice(
+    0,
+    Math.max(0, typedCommandChars - HERO_COMMAND_PROMPT.length)
+  );
+  const heroTypedChars = Math.max(
+    0,
+    typedChars - HERO_COMMAND_TEXT.length - HERO_COMMAND_DELAY_TICKS
+  );
+
   const typedPrefix = HERO_PREFIX.slice(
     0,
-    Math.min(typedChars, HERO_PREFIX.length)
+    Math.min(heroTypedChars, HERO_PREFIX.length)
   );
   const typedHighlight = HERO_HIGHLIGHT.slice(
     0,
     Math.max(
       0,
-      Math.min(typedChars - HERO_PREFIX.length, HERO_HIGHLIGHT.length)
+      Math.min(heroTypedChars - HERO_PREFIX.length, HERO_HIGHLIGHT.length)
     )
   );
   const typedSuffix = HERO_SUFFIX.slice(
     0,
-    Math.max(0, typedChars - HERO_PREFIX.length - HERO_HIGHLIGHT.length)
+    Math.max(0, heroTypedChars - HERO_PREFIX.length - HERO_HIGHLIGHT.length)
   );
-  const isTypingComplete = typedChars >= HERO_TEXT.length;
+  const isTypingComplete = heroTypedChars >= HERO_TEXT.length;
+  const isTypingCommand = typedCommandChars < HERO_COMMAND_TEXT.length;
+  const isCommandPaused =
+    !isTypingCommand &&
+    heroTypedChars === 0 &&
+    typedChars < HERO_TOTAL_TYPED_CHARS;
+  const isHeroTypingStarted = heroTypedChars > 0;
+  const isTypingSuffix = typedSuffix.length > 0;
 
   return (
     <section
@@ -89,22 +120,43 @@ export function Hero() {
       </div>
 
       <div className="container relative z-10 mx-auto flex flex-col items-start justify-center pl-6 pt-24 sm:p-4 sm:pt-32">
-        <p className="label-mono mb-4 text-primary">terminal_session_01</p>
-        <h1 className="max-w-5xl font-headline text-[2.6rem] font-semibold leading-tight tracking-[-0.04em] md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug">
-          {typedPrefix}
-          <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent sm:inline">
-            {typedHighlight}
-          </span>
-          {typedSuffix}
-          {!isTypingComplete && (
-            <span className="ml-1 inline-block animate-pulse font-mono text-primary">
+        <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
+          <span className="text-secondary">{typedCommandPrompt}</span>
+          {typedCommandBody}
+          {(isTypingCommand || isCommandPaused) && (
+            <span className="ml-1 inline-block animate-cursor-blink font-mono text-secondary">
               |
+            </span>
+          )}
+        </p>
+        <h1 className="font-headline text-[2.6rem] font-semibold leading-tight tracking-[-0.04em] md:text-6xl md:leading-snug xl:text-7xl xl:leading-snug 2xl:text-8xl 2xl:leading-snug">
+          <span className="block">
+            {typedPrefix}
+            {typedHighlight && (
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {typedHighlight}
+              </span>
+            )}
+            {!isTypingComplete && !isTypingSuffix && isHeroTypingStarted && (
+              <span className="ml-1 inline-block animate-cursor-blink font-mono text-primary">
+                |
+              </span>
+            )}
+          </span>
+          {(isTypingSuffix || isTypingComplete) && (
+            <span className="block">
+              {typedSuffix}
+              {!isTypingComplete && isTypingSuffix && (
+                <span className="ml-1 inline-block animate-pulse font-mono text-primary">
+                  |
+                </span>
+              )}
             </span>
           )}
         </h1>
         {isTypingComplete && (
-          <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest px-4 py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
-            <span className="text-secondary">$</span> hrgui --about
+          <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
+            <span className="text-secondary">// quick_links</span>
           </p>
         )}
         {isTypingComplete && (
