@@ -30,7 +30,7 @@ export function ThreeSellPoints({
 }) {
   return (
     <section
-      className="relative -mt-10 bg-surface-container-low px-6 pb-16 pt-20 sm:-mt-12"
+      className="relative -mt-6 bg-surface px-6 pb-16 pt-16 sm:-mt-8"
       data-testid="section-three-sell-points"
     >
       <div className="container mx-auto sm:grid sm:grid-cols-3 sm:gap-8">

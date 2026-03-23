@@ -233,6 +233,18 @@ body {
   animation: cursor-blink 1.8s steps(1, end) infinite;
 }
 
+.dark .shadow-ambient {
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.34),
+    0 0 16px rgba(143, 214, 255, 0.02) !important;
+}
+
+.dark .shadow-floating {
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.42),
+    0 0 22px rgba(143, 214, 255, 0.03) !important;
+}
+
 @layer components {
   .gplay-bg {
     background-color: #f7f7f8;
