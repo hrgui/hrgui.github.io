@@ -93,34 +93,37 @@ export function Hero() {
       className="gplay-bg relative isolate flex h-[800px] flex-col items-start justify-center overflow-hidden bg-surface text-on-surface sm:h-[900px]"
       data-testid="section-hero"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
         <div
-          className="absolute inset-0 opacity-35"
+          className="absolute inset-0 opacity-100 dark:opacity-100"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.12) 50%)",
-            backgroundSize: "100% 3px",
+              "radial-gradient(circle at 12% 8%, rgba(0, 229, 255, 0.24), transparent 30%), radial-gradient(circle at 82% 14%, rgba(37, 165, 90, 0.18), transparent 24%), linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 36%)",
           }}
         />
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-45 dark:hidden"
           style={{
             backgroundImage:
-              "linear-gradient(90deg, rgba(0, 102, 138, 0.12), rgba(37, 165, 90, 0.08), rgba(255, 84, 73, 0.12))",
-            backgroundSize: "3px 100%",
+              "radial-gradient(circle, rgba(113, 120, 126, 0.18) 1px, transparent 1.2px)",
+            backgroundSize: "6px 6px",
           }}
         />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden opacity-45 dark:block"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 18% 18%, rgba(0, 102, 138, 0.28), transparent 30%), radial-gradient(circle at 78% 24%, rgba(37, 165, 90, 0.18), transparent 22%)",
+              "radial-gradient(circle, rgba(113, 120, 126, 0.16) 1px, transparent 1.2px)",
+            backgroundSize: "6px 6px",
           }}
         />
       </div>
 
       <div className="container relative z-10 mx-auto flex flex-col items-start justify-center pl-6 pt-24 sm:p-4 sm:pt-32">
-        <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
+        <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest py-2 px-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
           <span className="text-secondary">{typedCommandPrompt}</span>
           {typedCommandBody}
           {(isTypingCommand || isCommandPaused) && (
@@ -155,7 +158,7 @@ export function Hero() {
           )}
         </h1>
         {isTypingComplete && (
-          <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
+          <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest px-2 py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
             <span className="text-secondary">// quick_links</span>
           </p>
         )}
