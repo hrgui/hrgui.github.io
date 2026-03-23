@@ -1,3 +1,5 @@
+import { toDisplayDate } from "./utils";
+
 type Props = {
   hidden?: boolean;
   date?: string;
@@ -12,7 +14,7 @@ const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
         {date && (
           <div className="mb-8 flex items-center gap-4">
             <div className="flex items-center gap-2 whitespace-nowrap font-mono text-sm text-primary bg-primary/10 px-2 py-1 rounded tracking-widest">
-              <span>{date} //</span>
+              <span className={"uppercase"}>{toDisplayDate(date)} //</span>
               <span className="text-primary">ENTRY_RECORD</span>
               {hidden && process.env.NODE_ENV === "development" && (
                 <span className="rounded bg-tertiary/18 px-2 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-tertiary">
