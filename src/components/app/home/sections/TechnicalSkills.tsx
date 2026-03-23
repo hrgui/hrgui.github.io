@@ -110,7 +110,7 @@ export function TechnicalSkills({
       data-testid="section-technical-skills"
     >
       <div className="container mx-auto">
-        <div className="rounded-[2rem] border border-primary/35 bg-surface-container-lowest px-6 py-8 shadow-floating sm:px-10 sm:py-12">
+        <div className="rounded-[2rem] border border-primary/30 dark:border-primary/18 bg-surface-container-lowest px-6 py-8 shadow-floating sm:px-10 sm:py-12">
           <div className="mb-10 flex items-center justify-between">
             <p className="label-mono text-primary">module_01 // tech_stack</p>
             <svg

@@ -124,7 +124,7 @@ export function Hero() {
           className="absolute inset-x-0 bottom-0 h-52 sm:h-64"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgb(var(--color-surface-rgb) / 0) 0%, rgb(var(--color-surface-rgb) / 0.3) 42%, rgb(var(--color-surface-container-low-rgb) / 0.8) 74%, rgb(var(--color-surface-container-low-rgb) / 1) 100%)",
+              "linear-gradient(180deg, rgb(var(--color-surface-rgb) / 0) 0%, rgb(var(--color-surface-rgb) / 0.34) 42%, rgb(var(--color-surface-rgb) / 0.9) 76%, rgb(var(--color-surface-rgb) / 1) 100%)",
           }}
         />
       </div>
