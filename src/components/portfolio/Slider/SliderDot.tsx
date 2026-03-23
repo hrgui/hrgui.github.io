@@ -14,13 +14,13 @@ const SliderDot = ({
       w-3 
       h-3 
       rounded-full 
-      bg-gray-500/50 
-      dark:bg-gray-800/50 
-      hover:bg-gray-500 
-      dark:hover:bg-gray-800 
+      hover:bg-primary/70 
       transition-all
   `),
-    { [`bg-gray-500 dark:bg-gray-800`]: active },
+    {
+      "bg-on-surface/30": !active,
+      "bg-primary": active,
+    },
     inputtedClassName as string
   );
 

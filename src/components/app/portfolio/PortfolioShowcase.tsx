@@ -5,6 +5,7 @@ import Next from "~/components/icons/Next";
 interface Props {
   items: PortfolioFrontmatter[];
   hasTitle?: boolean;
+  containerClassName?: string;
 }
 
 const featuredCardClassName =
@@ -36,14 +37,16 @@ function generateId(category: string, title: string, index: number): string {
   return `ID: ${categoryPrefix}_0x${String(index + 1).padStart(2, "0")}`;
 }
 
-export function PortfolioShowcase({ items, hasTitle = true }: Props) {
+export function PortfolioShowcase({
+  items,
+  hasTitle = true,
+  containerClassName = "container mx-auto max-w-[1536px]",
+}: Props) {
   const featuredItem = items?.find((item) => item.featured);
   const regularItems = items?.filter((item) => !item.featured);
   const sectionClassName = hasTitle
     ? "bg-surface  px-6 pb-12 pt-8"
     : "bg-surface px-6 py-8";
-  const containerClassName = "container mx-auto max-w-[1536px]";
-
   return (
     <div data-testid="section-portfolio" className={sectionClassName}>
       <div className={containerClassName}>

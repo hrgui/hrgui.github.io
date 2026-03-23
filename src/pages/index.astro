@@ -19,6 +19,7 @@ const portfolioItems = await getCollection("portfolio");
   <TechnicalSkills />
   <Education />
   <PortfolioShowcase
+    containerClassName="container mx-auto"
     items={portfolioItems.map(
       (item) => ({ ...item.data, slug: item.id } as PortfolioFrontmatter)
     )}
