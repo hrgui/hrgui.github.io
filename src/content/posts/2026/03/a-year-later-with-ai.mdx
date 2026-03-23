@@ -4,6 +4,8 @@ date: "3/22/2026"
 excerpt: A year later, I made my futuristic vision of this site a reality; AI helped with execution, but the creative direction stayed mine.
 ---
 
+import ImageGallery from "~/components/blog/ImageGallery";
+
 Over the weekend I got inspired to try [Stitch](http://stitch.withgoogle.com/), a vibe-design tool that helps people like me who struggle to land a solid color scheme from scratch. I have been catching up on One Piece lately, and the rebellious, lab-coat energy of Dr. Vegapunk's aesthetic really grabbed me. I used that as a starting point, layered in some Iron Man vibes, and pushed it toward something unmistakably technical — because if you are reading this, that is exactly what you are going to get from me.
 
 You might have reservations about AI, and honestly, I get it. RAM prices are up, every product launch has "AI-powered" stamped on it, and the hype is exhausting. But after years of working with it, one thing has stayed true: whenever I ask AI to do something creative, I am still the one who has to shape the result. Creativity and judgment are human. The design you see here was AI-assisted, but I reviewed every decision, pushed back constantly, and steered it the whole way.
@@ -21,6 +23,57 @@ Now they are. Every dark and light color is a deliberate counterpart to the othe
 ## A refreshed theme
 
 The theme is an evolution of what I had before, pushed further toward the direction I always wanted: futuristic, technical, unmistakably computer-brained. This is just the start — the site will keep evolving.
+
+<ImageGallery
+  client:load
+  caption="Before and after comparisons of the 2026 redesign"
+  images={[
+    {
+      src: "/images/blog/2026-redesign/before_and_after-home.webp",
+      alt: "Home page before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-home-light.webp",
+      alt: "Home page light mode before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-home-light-colors.webp",
+      alt: "Home page light colors before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-home-light-colors-2.webp",
+      alt: "Home page light colors variant before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-home-techskills.webp",
+      alt: "Technical skills section before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-blog-entry.webp",
+      alt: "Blog entry page before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-blog-index.webp",
+      alt: "Blog index page before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-portfolio-entry.webp",
+      alt: "Portfolio entry page before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-portfolio-entry-2.webp",
+      alt: "Portfolio entry page variant before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/before_and_after-portfolio-index.webp",
+      alt: "Portfolio index page before and after",
+    },
+    {
+      src: "/images/blog/2026-redesign/compare_light_and_dark-home-techskills.webp",
+      alt: "Light and dark mode comparison of technical skills section",
+    },
+  ]}
+/>
 
 Getting there was not painless. Stitch kept refusing to output a proper 1:1 light and dark mode, which drove me up the wall. But what it did give me was a solid foundation — a "Copy to Clipboard" export that generates an HTML page with [Tailwind 4](https://tailwindcss.com/blog/tailwindcss-v4) baked in, which I used as a starting point.
 

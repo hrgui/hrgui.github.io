@@ -14,6 +14,7 @@ interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   isAutoPlay?: boolean;
   isFullBleed?: boolean;
   className?: string;
+  onIndexChange?: (index: number) => void;
 }
 
 /**
@@ -64,13 +65,24 @@ export default function Slider({
   children,
   isAutoPlay: defaultIsAutoPlay = true,
   isFullBleed = false,
+  onIndexChange,
   ...props
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay] = useState(defaultIsAutoPlay);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>();
+  const firstRenderRef = useRef(true);
   const images = toChildArray(children);
   const heightClassName = `h-[300px] lg:h-[600px]`;
+
+  useEffect(() => {
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+      return;
+    }
+    onIndexChange?.(currentIndex);
+  }, [currentIndex, onIndexChange]);
 
   const handleChangeImage = useCallback(
     function (newIndex) {
@@ -115,6 +127,13 @@ export default function Slider({
   };
 
   const handleChangeImageByScroll = debounce(_handleChangeImageByScroll, 50);
+
+  const handleImageClick = (e: MouseEvent) => {
+    const target = e.target as HTMLImageElement;
+    if (target.tagName === "IMG") {
+      setIsDialogOpen(true);
+    }
+  };
 
   const getStagedImages = (images: any[], currentIndex: number) => {
     const createProps = (index: number, isDuplicate = false) => ({
@@ -179,42 +198,86 @@ export default function Slider({
   }, [currentIndex, handleChangeImage, isAutoPlay]);
 
   const wrapperClassName = isFullBleed
-    ? "relative w-screen max-w-none"
+    ? "relative w-full max-w-none"
     : "relative container mx-auto";
 
   return (
-    <div className={wrapperClassName}>
-      <div
-        className={classnames(`carousel`, className, heightClassName)}
-        onScroll={handleChangeImageByScroll}
-        ref={carouselRef}
-        {...props}
-      >
-        {getStagedImages(images, currentIndex)}
+    <>
+      <div className={wrapperClassName}>
+        <div
+          className={classnames(`carousel`, className, heightClassName)}
+          onScroll={handleChangeImageByScroll}
+          onClick={handleImageClick}
+          ref={carouselRef}
+          {...props}
+        >
+          {getStagedImages(images, currentIndex)}
+        </div>
+
+        <SliderNavButton onClick={() => handleChangeImage(currentIndex - 1)}>
+          <Prev />
+          <span className="sr-only">Previous</span>
+        </SliderNavButton>
+        <SliderNavButton
+          className="right-0"
+          onClick={() => handleChangeImage(currentIndex + 1)}
+        >
+          <Next />
+          <span className="sr-only">Next</span>
+        </SliderNavButton>
+
+        <div className="flex items-center space-x-3 justify-center w-full mt-4 bottom-0 z-10">
+          {images.map((img, i) => (
+            <SliderDot
+              active={currentIndex === i}
+              aria-label={`Navigate to Item ${i + 1}`}
+              onClick={() => handleChangeImage(i)}
+              key={i}
+            />
+          ))}
+        </div>
       </div>
 
-      <SliderNavButton onClick={() => handleChangeImage(currentIndex - 1)}>
-        <Prev />
-        <span className="sr-only">Previous</span>
-      </SliderNavButton>
-      <SliderNavButton
-        className="right-0"
-        onClick={() => handleChangeImage(currentIndex + 1)}
-      >
-        <Next />
-        <span className="sr-only">Next</span>
-      </SliderNavButton>
-
-      <div className="flex items-center space-x-3 justify-center w-full mt-4 bottom-0 z-10">
-        {images.map((img, i) => (
-          <SliderDot
-            active={currentIndex === i}
-            aria-label={`Navigate to Item ${i + 1}`}
-            onClick={() => handleChangeImage(i)}
-            key={i}
-          />
-        ))}
-      </div>
-    </div>
+      {isDialogOpen && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+          onClick={() => setIsDialogOpen(false)}
+        >
+          <div
+            className="relative max-h-[90vh] max-w-[90vw]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsDialogOpen(false)}
+              className="absolute -top-10 right-0 text-white hover:text-surface-container transition-colors"
+              aria-label="Close dialog"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            {images[currentIndex] &&
+              cloneElement(images[currentIndex] as any, {
+                className:
+                  "max-h-[90vh] max-w-[90vw] object-contain cursor-pointer",
+                onClick: (e: MouseEvent) => {
+                  const target = e.target as HTMLImageElement;
+                  if (target.src) {
+                    window.open(target.src, "_blank");
+                  }
+                },
+              })}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
