@@ -41,7 +41,7 @@ export function Education({
                           loading="lazy"
                           alt={`Open ${title} in a new tab`}
                           src={imgSrc}
-                          className="h-20 w-20 rounded-lg border border-outline-variant bg-surface-container-lowest object-contain p-2"
+                          className="h-20 w-20 rounded-lg border border-outline-variant object-contain p-2"
                         />
                       </a>
                     </div>
@@ -49,7 +49,9 @@ export function Education({
                       <h3 className="mb-2 font-headline text-xl font-semibold text-on-surface">
                         {title}
                       </h3>
-                      <p className="text-on-surface-muted">{description}</p>
+                      <p className="text-on-surface-muted tracking">
+                        {description}
+                      </p>
                       <p className="mt-2 font-mono text-sm uppercase tracking-[0.16em] text-primary">
                         {start} - {end}
                       </p>
