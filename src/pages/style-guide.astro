@@ -62,19 +62,6 @@ const vitals = [
   { label: "Sync Rating", value: "92", offset: "20", stroke: "text-tertiary" },
 ];
 
-const spacingScale = [
-  { label: "4px / spacing-1", className: "h-4 bg-primary-fixed border border-outline-variant" },
-  { label: "8px / spacing-2", className: "h-8 bg-primary-fixed-dim border border-outline-variant" },
-  { label: "16px / spacing-4", className: "h-16 bg-primary-container border border-primary" },
-  { label: "24px / spacing-6", className: "h-24 bg-primary border border-primary" },
-];
-
-const metadata = [
-  ["user_node", "EG_NODE_01", "text-secondary"],
-  ["uplink_status", "ENCRYPTED_SSL", "text-primary"],
-  ["latency_ms", "0.042ms", "text-on-surface"],
-  ["protocol", "BETA_V4", "text-tertiary"],
-];
 ---
 
 <DefaultPageLayout title="Style Guide" description={description}>
@@ -99,11 +86,11 @@ const metadata = [
             <span class="label-mono rounded-full border border-outline-variant bg-surface-container-highest px-3 py-1 text-on-surface">toggle theme in header</span>
           </div>
           <div class="space-y-4">
-            <p class="font-mono text-[0.72rem] uppercase tracking-[0.35em] text-primary">guipunk_ // component reference</p>
-            <h1 class="max-w-4xl font-headline text-display-lg text-on-background">
+            <p class="font-mono text-[0.72rem] uppercase tracking-[0.35em] text-primary">hrgui // component reference</p>
+            <h1 class="font-headline text-display-lg text-on-background">
               Style guide page for tokens, surfaces, and future components.
             </h1>
-            <p class="max-w-3xl text-lg leading-relaxed text-on-surface-muted">
+            <p class="text-lg leading-relaxed text-on-surface-muted">
               This page translates the design boards in the design directory into the repo's semantic UnoCSS system. Use it as the living place for new modules before they become production components.
             </p>
           </div>
@@ -116,32 +103,6 @@ const metadata = [
             </a>
           </div>
         </div>
-
-        <aside class="glass-panel rounded-3xl p-6">
-          <div class="mb-6 flex items-start justify-between gap-4 border-b border-outline-variant pb-4">
-            <div>
-              <p class="label-mono text-primary">master_logo</p>
-              <p class="mt-3 font-headline text-4xl font-bold tracking-[-0.08em] text-primary">guipunk_</p>
-            </div>
-            <div class="rounded-full border border-primary bg-primary px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.24em] text-on-primary">
-              rev_v.04
-            </div>
-          </div>
-          <div class="space-y-3 font-mono text-sm text-on-surface-muted">
-            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
-              <span class="uppercase tracking-[0.2em]">Primary Typeface</span>
-              <span class="font-headline text-base text-on-surface">Space Grotesk</span>
-            </div>
-            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
-              <span class="uppercase tracking-[0.2em]">System Voice</span>
-              <span class="text-on-surface">Fira Code / mono</span>
-            </div>
-            <div class="flex items-center justify-between pb-1">
-              <span class="uppercase tracking-[0.2em]">Mood</span>
-              <span class="text-secondary">precision + curiosity</span>
-            </div>
-          </div>
-        </aside>
       </section>
 
       <section id="surfaces" class="space-y-8">
@@ -195,53 +156,59 @@ const metadata = [
         </div>
       </section>
 
-      <section id="typography" class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+      <section id="typography" class="space-y-8">
         <div class="space-y-10">
           <div class="space-y-2">
             <p class="label-mono text-tertiary">signal_clarity_04</p>
             <h2 class="font-headline text-headline-lg text-on-background">Typography</h2>
           </div>
 
-          <div class="space-y-10 rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
-            <div>
+          <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.55fr)]">
+            <div class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
               <div class="mb-4 flex items-center gap-4">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">H1 // SPACE GROTESK</span>
+                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Headers // SPACE GROTESK</span>
                 <div class="h-px flex-1 bg-outline-variant"></div>
               </div>
-              <p class="font-headline text-6xl font-bold tracking-[-0.06em] text-on-surface">Laboratory Grade</p>
-            </div>
+              <div class="gap-4 flex flex-col">
+                <h1 class="font-headline text-headline-lg tracking-[-0.06em] text-on-surface">This is text-headline-lg</h1>
 
-            <div>
-              <div class="mb-4 flex items-center gap-4">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">H2 // SPACE GROTESK</span>
-                <div class="h-px flex-1 bg-outline-variant"></div>
+              <h1 class="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text font-headline text-4xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+                This is used for blog
+              </h1>
+
+              <h1 class="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+                This is used for portfolio
+              </h1>
+
+
               </div>
-              <p class="font-headline text-4xl font-semibold tracking-[-0.04em] text-on-surface">System Initialization</p>
             </div>
 
-            <div>
-              <div class="mb-4 flex items-center gap-4">
+            <div class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient flex flex-col gap-4">
+              <div class="mb-4 flex items-center gap-2">
                 <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Body // Inter</span>
                 <div class="h-px flex-1 bg-outline-variant"></div>
               </div>
-              <p class="max-w-3xl text-lg leading-relaxed text-on-surface-muted">
+              <p class="text-lg leading-relaxed text-on-surface-muted">
                 The bridge between clinical precision and scientific curiosity. Editorial density, stable hierarchy, and sharp metadata should carry the visual voice.
               </p>
+
+              <div class="mb-8 flex items-center gap-4">
+            <div class="flex items-center gap-2 whitespace-nowrap font-mono text-sm text-primary bg-primary/10 px-2 py-1 rounded tracking-widest">
+              <span>BLOG_DATE //</span>
+              <span class="text-primary">ENTRY_RECORD</span>
+            </div>
+            <div class="h-px flex-1 bg-gradient-to-r from-primary via-outline-variant/60 to-outline-variant"></div>
+          </div>
+
+          <div class="mb-8 flex items-center gap-4">
+        <p class="label-mono text-tertiary">NODE_ACCESS // PORTFOLIO_GRID</p>
+        <div class="h-px flex-1 bg-gradient-to-r from-tertiary via-outline-variant/60 to-outline-variant"></div>
+      </div>
+
             </div>
           </div>
         </div>
-
-        <aside class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
-          <p class="label-mono text-primary">metadata_display</p>
-          <div class="mt-6 space-y-4">
-            {metadata.map(([label, value, valueClass]) => (
-              <div class="flex items-baseline justify-between border-b border-outline-variant pb-3">
-                <span class="font-mono text-xs uppercase tracking-[0.2em] text-outline">{label}</span>
-                <span class={`font-mono text-sm font-semibold uppercase tracking-[0.14em] ${valueClass}`}>{value}</span>
-              </div>
-            ))}
-          </div>
-        </aside>
       </section>
 
       <section id="components" class="space-y-8">
@@ -251,23 +218,7 @@ const metadata = [
         </div>
 
         <div class="grid gap-6 lg:grid-cols-12">
-          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-4">
-            <p class="label-mono text-outline">01_interactions</p>
-            <div class="mt-6 flex flex-col gap-4">
-              <button class="cta-hologram rounded px-6 py-3 font-headline text-sm font-semibold uppercase tracking-[0.16em] transition-transform hover:-translate-y-0.5">
-                primary_action
-              </button>
-              <button class="rounded border border-primary bg-surface-container-lowest px-6 py-3 font-headline text-sm font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary-fixed">
-                secondary_link
-              </button>
-              <button class="flex items-center gap-2 py-2 text-left font-mono text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-on-surface transition-colors hover:text-primary">
-                <span>01_protocol_bypass</span>
-                <span aria-hidden="true">-&gt;</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-8">
+          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-6">
             <div class="mb-8 flex items-center justify-between">
               <p class="label-mono text-outline">02_system_vitals</p>
               <div class="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-secondary">
@@ -301,7 +252,7 @@ const metadata = [
             </div>
           </article>
 
-          <article class="overflow-hidden rounded-3xl border border-outline-variant bg-neutral-950 shadow-floating lg:col-span-12">
+          <article class="overflow-hidden rounded-3xl border border-outline-variant bg-neutral-950 shadow-floating lg:col-span-6">
             <div class="flex items-center justify-between border-b border-white/10 bg-neutral-900 px-4 py-3">
               <div class="flex gap-2">
                 <span class="h-2.5 w-2.5 rounded-full bg-tertiary"></span>
@@ -320,29 +271,7 @@ const metadata = [
             </div>
           </article>
 
-          <article class="glass-panel rounded-3xl p-6 lg:col-span-5">
-            <p class="label-mono text-outline">03_form_controls</p>
-            <div class="mt-6 space-y-4">
-              <label class="block space-y-2">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">System Search</span>
-                <input
-                  type="text"
-                  placeholder="SYSTEM_SEARCH"
-                  class="w-full rounded-2xl border border-outline-variant bg-surface-container-high px-4 py-3 font-mono text-sm text-primary outline-none transition-colors placeholder:text-outline focus:border-primary"
-                />
-              </label>
-              <label class="block space-y-2">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Channel Priority</span>
-                <div class="flex flex-wrap gap-2">
-                  <span class="rounded-full bg-primary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-primary-fixed">critical</span>
-                  <span class="rounded-full bg-secondary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-secondary-fixed">stable</span>
-                  <span class="rounded-full bg-tertiary-fixed px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-on-tertiary-fixed">watch</span>
-                </div>
-              </label>
-            </div>
-          </article>
-
-          <article class="control-panel rounded-3xl p-6 lg:col-span-7">
+          <article class="control-panel rounded-3xl p-6 lg:col-span-12">
             <p class="label-mono text-outline">04_component_notes</p>
             <div class="mt-6 grid gap-4 sm:grid-cols-2">
               <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-4">
@@ -357,53 +286,11 @@ const metadata = [
           </article>
         </div>
       </section>
-
-      <section id="spacing" class="grid gap-8 lg:grid-cols-[minmax(300px,0.9fr)_minmax(0,1.1fr)]">
-        <div class="space-y-2">
-          <p class="label-mono text-secondary">spatial_geometry_06</p>
-          <h2 class="font-headline text-headline-lg text-on-background">Spacing and grid</h2>
-          <p class="max-w-xl text-lg leading-relaxed text-on-surface-muted">
-            Wide breathing room, strong section breaks, and clear alignment are part of the system. Density should feel intentional, not cramped.
-          </p>
-        </div>
-
-        <div class="grid gap-6 lg:grid-cols-2">
-          <article class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
-            <div class="flex flex-col gap-4">
-              {spacingScale.map((item) => (
-                <div class={`${item.className} flex items-center justify-center rounded-xl font-mono text-[0.68rem] uppercase tracking-[0.2em] text-primary`}>
-                  {item.label}
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border-t-2 border-secondary bg-surface-container-lowest p-4">
-                <p class="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-outline">Grid Columns</p>
-                <p class="mt-2 font-headline text-2xl text-on-surface">12_units</p>
-              </div>
-              <div class="rounded-2xl border-t-2 border-primary bg-surface-container-lowest p-4">
-                <p class="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-outline">Standard Gap</p>
-                <p class="mt-2 font-headline text-2xl text-on-surface">24px</p>
-              </div>
-            </div>
-            <div class="mt-6 rounded-2xl border border-outline-variant bg-background p-4">
-              <div class="grid grid-cols-12 gap-2">
-                {Array.from({ length: 12 }).map(() => (
-                  <div class="h-20 rounded-lg bg-primary-fixed"></div>
-                ))}
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <div class="space-y-4">
         <div class="flex items-center gap-4">
-          <p class="label-mono text-secondary">more_surfaces_07</p> <div class="h-px flex-1 bg-outline-variant"></div>
+          <p class="label-mono text-secondary">more_surfaces_06</p> <div class="h-px flex-1 bg-outline-variant"></div>
         </div>
+        <h2 class="font-headline text-headline-lg text-on-background">Other Components</h2>
 
         <div class="flex gap-4 w-full">
             <div class="px-4 py-2 bg-surface-container-high border-l-2 border-l-solid border-primary flex-1">

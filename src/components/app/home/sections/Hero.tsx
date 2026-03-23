@@ -143,9 +143,36 @@ export function Hero() {
           <span className="block">
             {typedPrefix}
             {typedHighlight && (
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                {typedHighlight}
-              </span>
+              <a
+                href="/portfolio"
+                className="group relative inline-block no-underline"
+              >
+                <span
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-55 dark:hidden"
+                  aria-hidden="true"
+                  style={{
+                    filter: "blur(3.5px) saturate(1.08) brightness(1.08)",
+                    textShadow:
+                      "0 0 8px rgb(var(--color-primary-rgb) / 0.24), 0 0 12px rgb(var(--color-secondary-rgb) / 0.2)",
+                  }}
+                >
+                  {typedHighlight}
+                </span>
+                <span
+                  className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-65 dark:block"
+                  aria-hidden="true"
+                  style={{
+                    filter: "blur(6px) saturate(1.2) brightness(1.15)",
+                    textShadow:
+                      "0 0 16px rgb(var(--color-primary-rgb) / 0.42), 0 0 24px rgb(var(--color-secondary-rgb) / 0.34)",
+                  }}
+                >
+                  {typedHighlight}
+                </span>
+                <span className="relative bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  {typedHighlight}
+                </span>
+              </a>
             )}
             {!isTypingComplete && !isTypingSuffix && isHeroTypingStarted && (
               <span className="ml-1 inline-block animate-cursor-blink font-mono text-primary">
