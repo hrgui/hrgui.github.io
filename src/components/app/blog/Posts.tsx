@@ -9,7 +9,7 @@ interface Props {
 }
 
 const postCardClassName =
-  "group flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.995]";
+  "group flex h-full flex-col rounded-2xl border border-solid border-surface-container-low bg-surface-container-low px-7 py-8 transition-all duration-150 ease-out hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.995]";
 
 const toNodeId = (index: number) =>
   `SYSLOG_${String(index + 1).padStart(2, "0")}`;
