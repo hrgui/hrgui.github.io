@@ -14,10 +14,21 @@ const externalLinkClassName =
   "block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-[0.99] active:border-primary";
 
 const accentLineBaseClassName =
-  "pointer-events-none absolute inset-x-5 top-0 h-px rounded-full";
+  "pointer-events-none absolute top-0 h-px rounded-full";
 
-const accentGlowBaseClassName =
-  "pointer-events-none absolute inset-x-10 top-0 h-3 blur-md";
+const accentGlowBaseClassName = "pointer-events-none absolute top-0 blur-md";
+
+const accentLineGeometry = {
+  impact: "inset-x-6 sm:inset-x-10",
+  technology: "inset-x-4 sm:inset-x-7",
+  notes: "inset-x-10 sm:inset-x-14",
+};
+
+const accentGlowGeometry = {
+  impact: "inset-x-14 sm:inset-x-24 h-4 blur-lg",
+  technology: "inset-x-8 sm:inset-x-12 h-3 blur-md",
+  notes: "inset-x-20 sm:inset-x-28 h-3 blur-md",
+};
 
 const PortfolioEntry = ({
   title,
@@ -100,10 +111,10 @@ const PortfolioEntry = ({
               {whatIDid && (
                 <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-8">
                   <div
-                    className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-primary/80 to-transparent dark:via-primary/60`}
+                    className={`${accentLineBaseClassName} ${accentLineGeometry.impact} bg-gradient-to-r from-transparent via-primary/80 to-transparent dark:via-primary/60`}
                   />
                   <div
-                    className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-primary/22`}
+                    className={`${accentGlowBaseClassName} ${accentGlowGeometry.impact} bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-primary/22`}
                   />
                   <p className="label-mono mb-4 text-primary">
                     impact_log // execution
@@ -114,10 +125,10 @@ const PortfolioEntry = ({
               {technologiesUsed && (
                 <div className="relative overflow-hidden rounded-3xl border border-tertiary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-4">
                   <div
-                    className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-tertiary/80 to-transparent dark:via-tertiary/60`}
+                    className={`${accentLineBaseClassName} ${accentLineGeometry.technology} bg-gradient-to-r from-transparent via-tertiary/80 to-transparent dark:via-tertiary/60`}
                   />
                   <div
-                    className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-tertiary/30 to-transparent dark:via-tertiary/22`}
+                    className={`${accentGlowBaseClassName} ${accentGlowGeometry.technology} bg-gradient-to-r from-transparent via-tertiary/30 to-transparent dark:via-tertiary/22`}
                   />
                   <TechnologiesUsed data={technologiesUsed} />
                 </div>
@@ -126,10 +137,10 @@ const PortfolioEntry = ({
 
             <div className="relative overflow-hidden rounded-3xl border border-secondary/30 bg-surface-container-low p-6 shadow-floating sm:p-8">
               <div
-                className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-secondary/80 to-transparent dark:via-secondary/60`}
+                className={`${accentLineBaseClassName} ${accentLineGeometry.notes} bg-gradient-to-r from-transparent via-secondary/80 to-transparent dark:via-secondary/60`}
               />
               <div
-                className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-secondary/30 to-transparent dark:via-secondary/22`}
+                className={`${accentGlowBaseClassName} ${accentGlowGeometry.notes} bg-gradient-to-r from-transparent via-secondary/30 to-transparent dark:via-secondary/22`}
               />
               <p className="label-mono mb-4 text-secondary">
                 project_notes // context
