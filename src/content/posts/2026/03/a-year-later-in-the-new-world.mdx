@@ -18,11 +18,9 @@ That is how I think about AI: it augments my workflow, it does not run it. I am 
 
 The color theme now actually means something, rather than being thrown together. Previously I was modelling it after an anime that had triangles as a heavy motif in its intro. At the same time, I got a bit obsessed with black and red. Dark mode looked great; light mode looked like a paint explosion due to the anime. They never felt like two sides of the same coin.
 
-Now they are. Every dark and light color is a deliberate counterpart to the other. There is also a dedicated toggle with three states: light, dark, and system — which just follows whatever your OS is set to.
+That's the problem Stitch solved for me. Instead of hastily throwing colors together, it gave me something I could actually work with — a cohesive foundation that I could then tweak and refine. Now they are deliberate counterparts to each other. Every dark and light color is a thoughtful pair, not an afterthought. There is also a dedicated toggle with three states: light, dark, and system — which just follows whatever your OS is set to.
 
 ## A refreshed theme
-
-The theme is an evolution of what I had before, pushed further toward the direction I always wanted: futuristic, technical, unmistakably computer-brained. This is just the start — the site will keep evolving.
 
 <ImageGallery
   client:load
@@ -75,15 +73,21 @@ The theme is an evolution of what I had before, pushed further toward the direct
   ]}
 />
 
-Getting there was not painless. Stitch kept refusing to output a proper 1:1 light and dark mode, which drove me up the wall. But what it did give me was a solid foundation — a "Copy to Clipboard" export that generates an HTML page with [Tailwind 4](https://tailwindcss.com/blog/tailwindcss-v4) baked in, which I used as a starting point.
+The theme is an evolution of what I had before, pushed further toward the direction I always wanted: futuristic, technical, unmistakably computer-brained. This is just the start: the site will keep evolving. This design is an evolution from what I had before, not a total redesign.
 
-I do not actually use Tailwind, though. I use [unocss](https://unocss.dev/). Tailwind is opinionated by design — CSS Variables everywhere, layers everywhere, and good luck trying to opt out of any of it. That level of opinion is limiting when you need precise control.
+![Early Stitch concept used as reference for the redesign](/images/blog/2026-redesign/stitch-design.webp)
+
+Getting there was not painless. Stitch kept refusing to output a proper 1:1 light and dark mode, which drove me up the wall. But what it did give me was a solid foundation: a "Copy to Clipboard" export that generates an HTML page with [Tailwind 4](https://tailwindcss.com/blog/tailwindcss-v4) baked in, which I used as a starting point. I did not use any of the art Stitch generated, and I had to discard a lot of it because it felt tacky and obviously AI-made. In the end, only about 25% of what Stitch produced made it into production.
+
+I do not actually use Tailwind, though. I use [unocss](https://unocss.dev/). Tailwind is opinionated by design: CSS Variables everywhere, layers everywhere, and [good luck trying to opt out of any of it](https://tailwindcss.com/docs/compatibility). That level of opinion is limiting when you need precise control.
 
 With unocss I can target exactly what I need. That matters to me because I work across a lot of older platforms that people use every day without realizing they are web-based. I am always conscious of every byte of HTML, JS, and CSS that ships.
 
 # My take on AI, the New World of Coding
 
-Yes, I use AI. But let me be clear about what that actually looks like: AI augments my workflow: it does not run it.
+Yes, I utilize AI. But let me be clear about what that actually looks like: AI augments my workflow, it does not run it.
+
+Here is the thing, though: I understand the pressure. In this new world of coding, everyone expects extremely faster output. There is an unspoken expectation in work that if a tool exists to speed you up, you should use it: if you don't, well, you're just working harder for the same result. If I refused to touch AI, I would be grinding nights and weekends just to keep up. That is not a principled stance; that is just burnout in slow motion. So I use it. But I use it with care.
 
 I will never, ever hand my workflow to AI and skip review. Every output gets checked by me before it ships.
 
