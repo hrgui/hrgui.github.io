@@ -9,13 +9,13 @@ interface Props {
 }
 
 const featuredCardClassName =
-  "group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-within:border-primary/70 focus-within:shadow-floating md:flex-row";
+  "group relative flex flex-col overflow-hidden rounded-2xl border border-solid border-surface-container-low bg-surface-container-low transition-all duration-150 ease-out hover:border-primary/60 focus-within:border-primary/60 focus-within:shadow-floating active:scale-[0.995] md:flex-row";
 
 const regularCardClassName =
-  "group relative flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container focus-within:border-primary/70 focus-within:shadow-floating";
+  "group relative flex flex-col overflow-hidden rounded-2xl border border-solid border-surface-container-low bg-surface-container-low transition-all duration-150 ease-out hover:border-primary/60 focus-within:border-primary/60 focus-within:shadow-floating active:scale-[0.995]";
 
 const cardPageLinkClassName =
-  "absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high";
+  "absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const titleClassName = "transition-colors group-hover:text-primary";
 
