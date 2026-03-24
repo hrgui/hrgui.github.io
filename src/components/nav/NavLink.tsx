@@ -25,7 +25,7 @@ export const NavLink = ({
       className={classNames(
         "relative font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset",
         isActive
-          ? "text-primary hover:text-primary bg-surface-container-high border-l-2 border-primary sm:border-l-0 sm:rounded-none sm:bg-transparent sm:border-transparent"
+          ? "text-primary hover:text-primary bg-surface-container-high sm:rounded-none sm:bg-transparent"
           : "text-on-surface hover:text-on-surface hover:bg-surface-container-high active:bg-surface-container"
       )}
       onClick={onClick}
@@ -33,8 +33,12 @@ export const NavLink = ({
     >
       {isActive && (
         <>
+          {/* desktop: top glow */}
           <span className="pointer-events-none absolute inset-x-3 top-0 hidden h-px rounded-full bg-gradient-to-r from-transparent via-primary/85 to-transparent sm:block" />
           <span className="pointer-events-none absolute inset-x-5 top-0 hidden h-4 blur-md bg-gradient-to-r from-transparent via-primary/35 to-transparent sm:block" />
+          {/* mobile: left glow */}
+          <span className="pointer-events-none absolute left-0 inset-y-3 sm:hidden w-px rounded-full bg-gradient-to-b from-transparent via-primary/85 to-transparent" />
+          <span className="pointer-events-none absolute left-0 inset-y-5 sm:hidden w-4 blur-md bg-gradient-to-b from-transparent via-primary/35 to-transparent" />
         </>
       )}
       {children}
