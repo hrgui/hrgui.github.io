@@ -14,10 +14,27 @@ type Props = {
 
 const NavDrawer = ({ isOpen = false, links, onLinkClicked }: Props) => {
   return (
-    <Drawer className="sm:hidden" isOpen={isOpen}>
-      <Logo className="flex items-center pl-5 h-16 border-b-2 border-gray-700 mb-2" />
-      {links.map((link) => cloneElement(link, { onClick: onLinkClicked }))}
-      <ThemeToggle variant="drawer" />
+    <Drawer className="sm:hidden graph-bg" isOpen={isOpen}>
+      {/* Top corner glow */}
+      <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
+      {/* Logo header */}
+      <div className="relative flex items-center pl-5 h-16">
+        <Logo />
+        {/* bottom separator with glow */}
+        <span className="pointer-events-none absolute inset-x-4 bottom-0 h-px rounded-full bg-gradient-to-r from-transparent via-outline-variant to-transparent" />
+        <span className="pointer-events-none absolute inset-x-8 bottom-0 h-3 blur-md bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+
+      {/* Nav links */}
+      <nav className="mt-2">
+        {links.map((link) => cloneElement(link, { onClick: onLinkClicked }))}
+      </nav>
+
+      {/* Footer */}
+      <div className="relative mt-2">
+        <span className="pointer-events-none absolute inset-x-4 top-0 h-px rounded-full bg-gradient-to-r from-transparent via-outline-variant to-transparent" />
+        <ThemeToggle variant="drawer" />
+      </div>
     </Drawer>
   );
 };
