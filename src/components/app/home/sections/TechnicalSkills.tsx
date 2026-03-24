@@ -17,21 +17,21 @@ const summaryCards = [
     title: "JavaScript",
     subtitle: "LOGIC_ENGINE_V8",
     className: "text-primary",
-    accentClassName: "bg-gradient-to-r from-primary to-primary-container",
+    accentBorderClassName: "border-primary",
   },
   {
     key: "html-css",
     title: "HTML/CSS",
     subtitle: "STRUCTURAL_UI_CORE",
     className: "text-secondary",
-    accentClassName: "bg-gradient-to-r from-secondary to-primary",
+    accentBorderClassName: "border-secondary",
   },
   {
     key: "other",
     title: "JACK OF ALL TRADES",
     subtitle: "OTHER_TECH_SKILLS_I_HAVE",
     className: "text-tertiary",
-    accentClassName: "bg-gradient-to-r from-tertiary to-primary-fixed",
+    accentBorderClassName: "border-tertiary",
   },
 ];
 
@@ -195,8 +195,7 @@ export function TechnicalSkills({
                   title,
                   subtitle: "TECH_MODULE",
                   className: "text-on-surface",
-                  accentClassName:
-                    "bg-gradient-to-r from-outline to-outline-variant",
+                  accentBorderClassName: "border-outline",
                 };
 
               return (
@@ -206,12 +205,8 @@ export function TechnicalSkills({
                 >
                   <div className="grid gap-4 md:grid-cols-[minmax(220px,280px)_1fr] md:items-start md:gap-6">
                     <article
-                      className={`relative overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high p-6 ${card.className}`}
+                      className={`relative overflow-hidden p-6 border-solid border-t-0 border-r-0 border-l-0 border-b-2 md:border-b-0 md:border-l-2 ${card.className} ${card.accentBorderClassName}`}
                     >
-                      <div
-                        aria-hidden="true"
-                        className={`absolute inset-x-0 top-0 h-1 opacity-70 ${card.accentClassName}`}
-                      />
                       <h2 className="font-headline text-4xl leading-tight sm:text-3xl">
                         {card.title}
                       </h2>
