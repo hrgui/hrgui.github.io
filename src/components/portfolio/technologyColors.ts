@@ -51,23 +51,7 @@ export function getTechColor(type: string | undefined, index: number) {
 }
 
 export function getReadableTechTextColor(hex: string) {
-  const { r, g, b } = hexToRgb(hex);
-  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-
-  if (luminance < 0.42) {
-    const boost = 0.42;
-    const rr = Math.round(r + (255 - r) * boost);
-    const gg = Math.round(g + (255 - g) * boost);
-    const bb = Math.round(b + (255 - b) * boost);
-    return `rgb(${rr}, ${gg}, ${bb})`;
-  }
-
-  if (luminance > 0.82) {
-    const damp = 0.86;
-    return `rgb(${Math.round(r * damp)}, ${Math.round(g * damp)}, ${Math.round(b * damp)})`;
-  }
-
-  return `rgb(${r}, ${g}, ${b})`;
+  return `color-mix(in srgb, var(--color-on-surface) 82%, ${hex} 18%)`;
 }
 
 export function getTechBadgeStyle(type: string | undefined, index: number) {
