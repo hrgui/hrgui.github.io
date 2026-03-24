@@ -1,49 +1,17 @@
 import { type PortfolioTechnology } from "types/frontmatter";
 import type { JSX } from "preact";
 import { useState } from "preact/hooks";
+import {
+  getTechColor,
+  hexToRgba,
+} from "~/components/portfolio/technologyColors";
 
 interface Props {
   data?: PortfolioTechnology[];
   className?: string;
 }
 
-export const techColors = {
-  JAVASCRIPT: "#f1e05a",
-  HTML: "#e34c26",
-  CSS: "#563d7c",
-  PHP: "#4F5D95",
-  MYSQL: "#00758F",
-  POSTGRESQL: "#1e6692",
-  FIREBASE: "#FFA000",
-  WORDPRESS: "#21759b",
-};
-
-const fallbackColors = ["#67C9FF", "#6EE7B7", "#C084FC", "#F59E0B", "#F87171"];
 const SLICE_GAP_PERCENT = 0.7;
-
-function getTechColor(type: string | undefined, index: number) {
-  if (type && type in techColors) {
-    return techColors[type as keyof typeof techColors];
-  }
-  return fallbackColors[index % fallbackColors.length];
-}
-
-function hexToRgba(hex: string, alpha: number) {
-  const normalized = hex.replace("#", "");
-  const value =
-    normalized.length === 3
-      ? normalized
-          .split("")
-          .map((char) => char + char)
-          .join("")
-      : normalized;
-
-  const num = Number.parseInt(value, 16);
-  const r = (num >> 16) & 255;
-  const g = (num >> 8) & 255;
-  const b = num & 255;
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
 
 function polarToCartesian(
   cx: number,

@@ -1,4 +1,5 @@
 import { type PortfolioFrontmatter } from "types/frontmatter";
+import { getTechBadgeStyle } from "~/components/portfolio/technologyColors";
 import Github from "~/components/icons/Github";
 import Next from "~/components/icons/Next";
 
@@ -116,7 +117,8 @@ export function PortfolioShowcase({
                             {featuredItem.technologiesUsed.map((tech, idx) => (
                               <span
                                 key={idx}
-                                className="rounded bg-secondary/20 px-2 py-1 font-mono text-xs uppercase tracking-wider text-secondary"
+                                className="rounded border px-2 py-1 font-mono text-xs uppercase tracking-wider"
+                                style={getTechBadgeStyle(tech.type, idx)}
                               >
                                 {tech.type}
                               </span>
@@ -207,7 +209,8 @@ export function PortfolioShowcase({
                                 {item.technologiesUsed.map((tech, idx) => (
                                   <span
                                     key={idx}
-                                    className="rounded bg-secondary/20 px-2 py-1 text-xs uppercase tracking-wider text-secondary"
+                                    className="rounded border px-2 py-1 text-xs font-mono uppercase tracking-wider"
+                                    style={getTechBadgeStyle(tech.type, idx)}
                                   >
                                     {tech.type}
                                   </span>
@@ -305,7 +308,8 @@ export function PortfolioShowcase({
                         {featuredItem.technologiesUsed.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="rounded bg-secondary/20 px-2 py-1 font-mono text-xs uppercase tracking-wider text-secondary"
+                            className="rounded border px-2 py-1 font-mono text-xs uppercase tracking-wider"
+                            style={getTechBadgeStyle(tech.type, idx)}
                           >
                             {tech.type}
                           </span>
@@ -388,7 +392,8 @@ export function PortfolioShowcase({
                             {item.technologiesUsed.map((tech, idx) => (
                               <span
                                 key={idx}
-                                className="rounded bg-secondary/20 px-2 py-1 text-xs uppercase tracking-wider text-secondary"
+                                className="rounded border font-mono px-2 py-1 text-xs uppercase tracking-wider"
+                                style={getTechBadgeStyle(tech.type, idx)}
                               >
                                 {tech.type}
                               </span>
