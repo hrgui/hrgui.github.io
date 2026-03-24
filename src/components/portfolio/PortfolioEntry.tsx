@@ -13,6 +13,12 @@ type Props = PortfolioFrontmatter & { children?: ComponentChildren };
 const externalLinkClassName =
   "block rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 transition-all duration-150 ease-out hover:border-primary/70 hover:bg-surface-container hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-[0.99] active:border-primary";
 
+const accentLineBaseClassName =
+  "pointer-events-none absolute inset-x-5 top-0 h-px rounded-full";
+
+const accentGlowBaseClassName =
+  "pointer-events-none absolute inset-x-10 top-0 h-3 blur-md";
+
 const PortfolioEntry = ({
   title,
   demoUrl,
@@ -93,7 +99,12 @@ const PortfolioEntry = ({
             <div className="grid gap-6 md:grid-cols-12">
               {whatIDid && (
                 <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-8">
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-primary via-primary-container/70 to-transparent" />
+                  <div
+                    className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-primary/80 to-transparent dark:via-primary/60`}
+                  />
+                  <div
+                    className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-primary/22`}
+                  />
                   <p className="label-mono mb-4 text-primary">
                     impact_log // execution
                   </p>
@@ -102,14 +113,24 @@ const PortfolioEntry = ({
               )}
               {technologiesUsed && (
                 <div className="relative overflow-hidden rounded-3xl border border-tertiary/30 bg-surface-container-low p-6 shadow-floating sm:p-8 md:col-span-4">
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-tertiary via-tertiary-container/70 to-transparent" />
+                  <div
+                    className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-tertiary/80 to-transparent dark:via-tertiary/60`}
+                  />
+                  <div
+                    className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-tertiary/30 to-transparent dark:via-tertiary/22`}
+                  />
                   <TechnologiesUsed data={technologiesUsed} />
                 </div>
               )}
             </div>
 
             <div className="relative overflow-hidden rounded-3xl border border-secondary/30 bg-surface-container-low p-6 shadow-floating sm:p-8">
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-secondary via-secondary/70 to-transparent" />
+              <div
+                className={`${accentLineBaseClassName} bg-gradient-to-r from-transparent via-secondary/80 to-transparent dark:via-secondary/60`}
+              />
+              <div
+                className={`${accentGlowBaseClassName} bg-gradient-to-r from-transparent via-secondary/30 to-transparent dark:via-secondary/22`}
+              />
               <p className="label-mono mb-4 text-secondary">
                 project_notes // context
               </p>
