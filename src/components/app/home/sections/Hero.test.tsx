@@ -5,5 +5,9 @@ import Hero from "./Hero";
 
 test("should be able to render default Hero", () => {
   render(<Hero />);
-  expect(screen.getByText(/cool and awesome/)).toBeInTheDocument();
+  expect(
+    screen.getByText(/cool and awesome/i, {
+      selector: ":not([aria-hidden='true'])",
+    })
+  ).toBeInTheDocument();
 });
