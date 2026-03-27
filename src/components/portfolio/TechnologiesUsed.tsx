@@ -145,9 +145,6 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
                   fill="rgba(0, 0, 0, 0.001)"
                   className="cursor-pointer"
                   onMouseEnter={() => setActiveIndex(index)}
-                  onFocus={() => setActiveIndex(index)}
-                  onBlur={() => setActiveIndex(null)}
-                  tabIndex={0}
                 />
               ))}
             </svg>
