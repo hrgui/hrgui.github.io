@@ -1,6 +1,7 @@
 import { type PortfolioTechnology } from "~/types/frontmatter";
 import type { JSX } from "preact";
 import { useState } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 import {
   getTechColor,
   hexToRgba,
@@ -51,6 +52,7 @@ function describeDonutSlicePath(startPercent: number, endPercent: number) {
 }
 
 const TechnologiesUsed = ({ className, ...props }: Props) => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const technologies = (props.data || [])
@@ -102,7 +104,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
   return (
     <div className={className}>
       <h3 className="mb-6 font-headline text-2xl font-semibold text-on-surface md:text-4xl">
-        Technologies Used
+        {t("portfolio.technologiesUsed.heading")}
       </h3>
 
       <div className="grid gap-6 md:grid-cols-[220px_1fr] md:items-center">

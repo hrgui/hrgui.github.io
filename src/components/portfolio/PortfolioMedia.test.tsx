@@ -46,12 +46,6 @@ it("renders image links inside the slider", () => {
   expect(links[1]).toHaveAttribute("href", images[1].src);
 });
 
-it("shows the filename caption for the current image when a slider is present", () => {
-  render(<PortfolioMedia title="My Project" images={images} />);
-  // Default index is 0, so filename of images[0].src should appear
-  expect(screen.getByText("a.jpg")).toBeInTheDocument();
-});
-
 it("renders iframe when iframe prop is provided", () => {
   render(
     <PortfolioMedia

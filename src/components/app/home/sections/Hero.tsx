@@ -1,23 +1,26 @@
 import { useEffect, useRef, useState } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import AppSocialMedia from "~/components/app/AppSocialMedia";
 
 const HERO_COMMAND_PROMPT = "$";
-const HERO_COMMAND_BODY = " about";
-const HERO_COMMAND_TEXT = `${HERO_COMMAND_PROMPT}${HERO_COMMAND_BODY}`;
-const HERO_PREFIX = "I build ";
-const HERO_HIGHLIGHT = "cool and awesome";
-const HERO_SUFFIX = "web and mobile apps.";
-const HERO_TEXT = `${HERO_PREFIX}${HERO_HIGHLIGHT}${HERO_SUFFIX}`;
 const TYPING_INTERVAL_MS = 42;
 const HERO_COMMAND_DELAY_MS = 500;
 const HERO_COMMAND_DELAY_TICKS = Math.ceil(
   HERO_COMMAND_DELAY_MS / TYPING_INTERVAL_MS
 );
-const HERO_TOTAL_TYPED_CHARS =
-  HERO_COMMAND_TEXT.length + HERO_COMMAND_DELAY_TICKS + HERO_TEXT.length;
 
 export function Hero() {
+  const { t } = useTranslation();
+  const HERO_COMMAND_BODY = t("hero.commandBody");
+  const HERO_COMMAND_TEXT = `${HERO_COMMAND_PROMPT}${HERO_COMMAND_BODY}`;
+  const HERO_PREFIX = t("hero.prefix");
+  const HERO_HIGHLIGHT = t("hero.highlight");
+  const HERO_SUFFIX = t("hero.suffix");
+  const HERO_TEXT = `${HERO_PREFIX}${HERO_HIGHLIGHT}${HERO_SUFFIX}`;
+  const HERO_TOTAL_TYPED_CHARS =
+    HERO_COMMAND_TEXT.length + HERO_COMMAND_DELAY_TICKS + HERO_TEXT.length;
+
   const intervalRef = useRef<number | null>(null);
   const [typedChars, setTypedChars] = useState(0);
 
@@ -193,7 +196,7 @@ export function Hero() {
         </h1>
         {isTypingComplete && (
           <p className="mt-5 rounded border border-outline-variant bg-surface-container-lowest px-2 py-2 font-mono text-sm tracking-[0.08em] text-on-surface-muted">
-            <span className="text-secondary">// quick_links</span>
+            <span className="text-secondary">{t("hero.quickLinks")}</span>
           </p>
         )}
         {isTypingComplete && (

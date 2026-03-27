@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useState } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import useScrollTrigger from "~/hooks/useScrollTrigger";
 
@@ -16,6 +17,7 @@ type Props = {
 };
 
 const Header = ({ currentPathName }: Props) => {
+  const { t } = useTranslation();
   const [isOpen, setisOpen] = useState(false);
   const handleSetIsOpen = () => setisOpen(!isOpen);
   const trigger = useScrollTrigger({
@@ -26,17 +28,17 @@ const Header = ({ currentPathName }: Props) => {
   // NOTE: this needs a key because of use in the Drawer
   const links = [
     <NavLink currentPathName={currentPathName} key="home" href="/" exact>
-      Home
+      {t("nav.home")}
     </NavLink>,
     <NavLink currentPathName={currentPathName} key="blog" href="/posts">
-      Blog
+      {t("nav.blog")}
     </NavLink>,
     <NavLink
       currentPathName={currentPathName}
       key="portfolio"
       href="/portfolio"
     >
-      Portfolio
+      {t("nav.portfolio")}
     </NavLink>,
   ];
 

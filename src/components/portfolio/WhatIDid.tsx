@@ -1,12 +1,15 @@
+import { useTranslation } from "~/i18n/context";
+
 import { type PortfolioFrontmatter } from "~/types/frontmatter";
 
 type Props = Pick<PortfolioFrontmatter, "whatIDid">;
 
 const WhatIDid = ({ whatIDid }: Props) => {
+  const { t } = useTranslation();
   return (
     <div>
       <h3 className="mb-6 font-headline text-2xl font-semibold text-on-surface md:text-4xl">
-        What I Did
+        {t("portfolio.whatIDid.heading")}
       </h3>
       <ul className="space-y-3">
         {whatIDid.map((bullet, i) => (

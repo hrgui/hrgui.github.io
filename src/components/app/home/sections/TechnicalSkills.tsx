@@ -1,4 +1,5 @@
 import type { JSX } from "preact";
+import { useTranslation } from "~/i18n/context";
 
 import { technicalSkills as defaultTechnicalSkills } from "~/constants";
 
@@ -94,6 +95,7 @@ export function TechnicalSkills({
 }: {
   technicalSkills?: typeof defaultTechnicalSkills;
 }) {
+  const { t } = useTranslation();
   const summaryCardMap = Object.fromEntries(
     summaryCards.map((card) => [card.key, card])
   );
@@ -150,7 +152,9 @@ export function TechnicalSkills({
       <div className="container mx-auto">
         <div className="rounded-[2rem] border border-primary/30 dark:border-primary/18 bg-surface-container-lowest px-6 py-8 shadow-floating sm:px-10 sm:py-12">
           <div className="mb-10 flex items-center justify-between">
-            <p className="label-mono text-primary">module_01 // tech_stack</p>
+            <p className="label-mono text-primary">
+              {t("home.technicalSkills.moduleLabel")}
+            </p>
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -184,7 +188,7 @@ export function TechnicalSkills({
           </div>
 
           <h1 className="font-headline text-4xl font-semibold text-on-surface sm:text-6xl">
-            Core Proficiencies
+            {t("home.technicalSkills.heading")}
           </h1>
 
           <div className="mt-10 space-y-6">

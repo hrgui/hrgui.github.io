@@ -1,4 +1,5 @@
 import type { JSX } from "preact";
+import { useTranslation } from "~/i18n/context";
 
 import { threeSellPoints as defaultThreeSellPoints } from "~/constants";
 
@@ -7,12 +8,15 @@ type ItemProps = JSX.HTMLAttributes<HTMLDivElement> & {
 };
 
 function Item({ title, children, ...props }: ItemProps) {
+  const { t } = useTranslation();
   return (
     <div
       className="surface-module-raised mb-6 rounded-3xl border border-outline-variant p-6"
       {...props}
     >
-      <p className="label-mono mb-3 text-primary">core</p>
+      <p className="label-mono mb-3 text-primary">
+        {t("home.sellPoints.moduleLabel")}
+      </p>
       <h2 className="mb-3 font-headline font-semibold text-2xl leading-tight text-on-surface">
         {title}
       </h2>

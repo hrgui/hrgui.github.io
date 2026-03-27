@@ -17,9 +17,9 @@ const { title, excerpt, date, hidden } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={Astro.currentLocale ?? "en"}>
   <Head title={title} pageType={"blog"} description={excerpt} />
-  <AppLayout currentPathName={Astro.url.pathname} client:visible>
+  <AppLayout currentPathName={Astro.url.pathname} locale={Astro.currentLocale ?? "en"} client:visible>
     <BlogSubHeader
       date={date}
       title={title}

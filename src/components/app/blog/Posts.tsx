@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "~/i18n/context";
 
 import { type Frontmatter } from "~/types/frontmatter";
 
@@ -15,6 +16,7 @@ const toNodeId = (index: number) =>
   `SYSLOG_${String(index + 1).padStart(2, "0")}`;
 
 const Posts = ({ posts }: Props) => {
+  const { t } = useTranslation();
   const visiblePosts =
     posts?.filter(
       (post) => !(post.hidden && process.env.NODE_ENV !== "development")
@@ -38,7 +40,7 @@ const Posts = ({ posts }: Props) => {
                 <div className="inline-flex items-center gap-3">
                   {isNew(featuredPost.date) && (
                     <span className="rounded bg-secondary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
-                      New
+                      {t("blog.posts.newBadge")}
                     </span>
                   )}
                   <p className="font-mono text-sm text-on-surface-muted">
@@ -65,7 +67,7 @@ const Posts = ({ posts }: Props) => {
               </p>
               <div className="mt-auto flex items-center justify-end pt-12">
                 <span className="font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                  Execute_Read -&gt;
+                  {t("blog.posts.executeRead")}
                 </span>
               </div>
             </a>
@@ -92,7 +94,7 @@ const Posts = ({ posts }: Props) => {
                   {remainingPosts[0].excerpt}
                 </p>
                 <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                  Read_More -&gt;
+                  {t("blog.posts.readMore")}
                 </p>
               </a>
             )}
@@ -134,7 +136,7 @@ const Posts = ({ posts }: Props) => {
                     {post.excerpt}
                   </p>
                   <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                    Read_More -&gt;
+                    {t("blog.posts.readMore")}
                   </p>
                 </a>
               );
@@ -144,7 +146,7 @@ const Posts = ({ posts }: Props) => {
 
         {visiblePosts.length === 0 && (
           <div className="rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 text-on-surface-muted">
-            No posts available.
+            {t("blog.posts.noPosts")}
           </div>
         )}
       </div>

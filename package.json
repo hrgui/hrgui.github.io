@@ -1,20 +1,6 @@
 {
   "name": "hrgui",
   "version": "2026.03.22",
-  "description": "Portfolio website",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev --port 3000",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "format": "prettier --write \"src/**/*\"",
-    "test": "vitest",
-    "test-ui": "vitest --ui",
-    "lint:es": "eslint src",
-    "lint": "yarn lint:es && tsc",
-    "prepare": "husky"
-  },
   "devDependencies": {
     "@astrojs/mdx": "^5.0.2",
     "@astrojs/preact": "5.0.2",
@@ -66,9 +52,22 @@
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.0"
   },
+  "description": "Portfolio website",
   "overrides": {
     "preact": "^10.25.1",
     "@preact/preset-vite": "^2.9.3"
   },
-  "dependencies": {}
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 3000",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write \"src/**/*\"",
+    "test": "vitest",
+    "test-ui": "vitest --ui",
+    "lint:es": "eslint src",
+    "lint": "yarn lint:es && tsc",
+    "prepare": "husky"
+  }
 }
