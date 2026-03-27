@@ -1,4 +1,4 @@
-import { type PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "~/types/frontmatter";
 import { getTechBadgeStyle } from "~/components/portfolio/technologyColors";
 import Github from "~/components/icons/Github";
 import Next from "~/components/icons/Next";

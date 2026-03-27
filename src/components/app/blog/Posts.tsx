@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { type Frontmatter } from "types/frontmatter";
+import { type Frontmatter } from "~/types/frontmatter";
 
 import { toDisplayDate } from "./utils";
 
