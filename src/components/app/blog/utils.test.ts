@@ -16,10 +16,16 @@ describe("isNew", () => {
     expect(isNew("not-a-date")).toBe(false);
   });
 
-  test("returns true when post date is exactly now", () => {
+  test("returns true when post date is earlier the same day", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-03-27T12:00:00Z"));
-    expect(isNew("2026-03-27")).toBe(true);
+    expect(isNew("2026-03-27T10:00:00Z")).toBe(true);
+  });
+
+  test("returns true when post date is yesterday (calendar day)", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-03-27T12:00:00Z"));
+    expect(isNew("2026-03-26")).toBe(true);
   });
 
   test("returns true when post date is 23 hours ago", () => {
@@ -28,10 +34,10 @@ describe("isNew", () => {
     expect(isNew("2026-03-26T13:00:00Z")).toBe(true);
   });
 
-  test("returns false when post date is more than 24 hours ago", () => {
+  test("returns false when post date is 2 or more calendar days ago", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-03-27T12:00:00Z"));
-    expect(isNew("2026-03-26T11:59:59Z")).toBe(false);
+    expect(isNew("2026-03-25")).toBe(false);
   });
 
   test("returns false when post date is in the future", () => {
