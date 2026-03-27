@@ -1,5 +1,4 @@
 import { type PortfolioFrontmatter } from "~/types/frontmatter";
-import { useState } from "preact/hooks";
 import Slider from "~/components/portfolio/Slider/Slider";
 
 type Props = Pick<
@@ -8,7 +7,6 @@ type Props = Pick<
 >;
 
 const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const hasIframe = Boolean(iframe);
 
   return (
@@ -24,11 +22,7 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
       )}
       {!hasIframe && images && (
         <>
-          <Slider
-            isFullBleed
-            data-testid="portfolio-media-slider"
-            onIndexChange={setCurrentImageIndex}
-          >
+          <Slider isFullBleed data-testid="portfolio-media-slider">
             {images.map((img, i) => {
               return (
                 <div key={i}>
@@ -43,11 +37,6 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
               );
             })}
           </Slider>
-          <div className="bg-surface-container-lowest/60 py-3 px-4 text-center">
-            <p className="text-sm text-on-surface/70">
-              {images[currentImageIndex]?.src.split("/").pop() || ""}
-            </p>
-          </div>
         </>
       )}
       {hasIframe && thumbnail && (

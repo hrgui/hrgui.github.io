@@ -131,6 +131,7 @@ export default function Slider({
   const handleImageClick = (e: MouseEvent) => {
     const target = e.target as HTMLImageElement;
     if (target.tagName === "IMG") {
+      e.preventDefault();
       setIsDialogOpen(true);
     }
   };
@@ -269,9 +270,11 @@ export default function Slider({
                 className:
                   "max-h-[90vh] max-w-[90vw] object-contain cursor-pointer",
                 onClick: (e: MouseEvent) => {
+                  e.stopPropagation();
                   const target = e.target as HTMLImageElement;
                   if (target.src) {
                     window.open(target.src, "_blank");
+                    setIsDialogOpen(false);
                   }
                 },
               })}
