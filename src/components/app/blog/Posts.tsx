@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import { type Frontmatter } from "~/types/frontmatter";
 
-import { toDisplayDate } from "./utils";
+import { toDisplayDate, isNew } from "./utils";
 
 interface Props {
   posts?: Frontmatter[];
@@ -36,9 +36,11 @@ const Posts = ({ posts }: Props) => {
             >
               <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
                 <div className="inline-flex items-center gap-3">
-                  <span className="rounded bg-secondary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
-                    New
-                  </span>
+                  {isNew(featuredPost.date) && (
+                    <span className="rounded bg-secondary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
+                      New
+                    </span>
+                  )}
                   <p className="font-mono text-sm text-on-surface-muted">
                     {toDisplayDate(featuredPost.date)}
                   </p>
