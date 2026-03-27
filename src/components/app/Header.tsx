@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState } from "preact/hooks";
 
-import useScrollTrigger from "hooks/useScrollTrigger";
+import useScrollTrigger from "~/hooks/useScrollTrigger";
 
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";

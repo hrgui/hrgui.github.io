@@ -1,4 +1,4 @@
-import { type PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "~/types/frontmatter";
 import { useState } from "preact/hooks";
 import Slider from "~/components/portfolio/Slider/Slider";
 

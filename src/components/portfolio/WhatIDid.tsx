@@ -1,4 +1,4 @@
-import { type PortfolioFrontmatter } from "types/frontmatter";
+import { type PortfolioFrontmatter } from "~/types/frontmatter";
 
 type Props = Pick<PortfolioFrontmatter, "whatIDid">;
 

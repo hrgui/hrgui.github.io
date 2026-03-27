@@ -1,4 +1,4 @@
-import { type PortfolioTechnology } from "types/frontmatter";
+import { type PortfolioTechnology } from "~/types/frontmatter";
 import type { JSX } from "preact";
 import { useState } from "preact/hooks";
 import {
