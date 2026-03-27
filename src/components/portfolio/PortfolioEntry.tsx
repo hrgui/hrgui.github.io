@@ -55,48 +55,49 @@ const PortfolioEntry = ({
             </h1>
           </div>
 
-          <div className="mt-6 rounded-2xl border border-outline-variant bg-surface-container-high p-4 lg:mt-0 lg:min-w-[320px]">
-            <p className="label-mono mb-3 text-on-surface-muted">
-              external_links
-            </p>
-            <div className="space-y-2">
-              {demoUrl && (
-                <Link
-                  href={demoUrl}
-                  className={externalLinkClassName}
-                  target="__blank"
-                  rel="noreferrer"
-                >
-                  Open Demo
-                </Link>
-              )}
-              {githubUrl && (
-                <Link
-                  href={githubUrl}
-                  className={externalLinkClassName}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View GitHub Code
-                </Link>
-              )}
-              {urls &&
-                urls.map((url, i) => (
+          {(demoUrl || githubUrl || (urls && urls.length > 0)) && (
+            <div className="mt-6 rounded-2xl border border-outline-variant bg-surface-container-high p-4 lg:mt-0 lg:min-w-[320px]">
+              <p className="label-mono mb-3 text-on-surface-muted">
+                external_links
+              </p>
+              <div className="space-y-2">
+                {demoUrl && (
                   <Link
-                    href={url}
-                    key={i}
+                    href={demoUrl}
+                    className={externalLinkClassName}
+                    target="__blank"
+                    rel="noreferrer"
+                  >
+                    Open Demo
+                  </Link>
+                )}
+                {githubUrl && (
+                  <Link
+                    href={githubUrl}
+                    className={externalLinkClassName}
                     target="_blank"
                     rel="noreferrer"
-                    className={`${externalLinkClassName} overflow-hidden overflow-ellipsis`}
                   >
-                    Visit {url}
+                    View GitHub Code
                   </Link>
-                ))}
+                )}
+                {urls &&
+                  urls.map((url, i) => (
+                    <Link
+                      href={url}
+                      key={i}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${externalLinkClassName} overflow-hidden overflow-ellipsis`}
+                    >
+                      Visit {url}
+                    </Link>
+                  ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
-
       <PortfolioMedia
         title={title}
         images={images}
