@@ -1,3 +1,5 @@
+import { useTranslation } from "~/i18n/context";
+
 import { toDisplayDate } from "./utils";
 
 type Props = {
@@ -8,6 +10,7 @@ type Props = {
 };
 
 const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
+  const { t } = useTranslation();
   return (
     <section className="circuit-board-bg relative overflow-hidden px-6 pb-8 pt-28">
       <div className="relative z-10 container mx-auto max-w-[1536px]">
@@ -15,10 +18,12 @@ const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
           <div className="mb-8 flex items-center gap-4">
             <div className="flex items-center gap-2 whitespace-nowrap font-mono text-sm text-primary bg-primary/10 px-2 py-1 rounded tracking-widest">
               <span className={"uppercase"}>{toDisplayDate(date)} //</span>
-              <span className="text-primary">ENTRY_RECORD</span>
+              <span className="text-primary">
+                {t("blog.subHeader.entryRecord")}
+              </span>
               {hidden && process.env.NODE_ENV === "development" && (
                 <span className="rounded bg-tertiary/18 px-2 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-tertiary">
-                  Hidden Draft
+                  {t("blog.subHeader.hiddenDraft")}
                 </span>
               )}
             </div>
@@ -29,14 +34,13 @@ const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
         <div className="mb-8">
           {!date && hidden && process.env.NODE_ENV === "development" && (
             <div className="mb-5 inline-flex rounded bg-tertiary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-tertiary">
-              Hidden Draft
+              {t("blog.subHeader.hiddenDraft")}
             </div>
           )}
 
           {hidden && process.env.NODE_ENV === "development" && (
             <div className="mb-6 max-w-3xl rounded-2xl border border-tertiary/40 bg-tertiary/10 px-4 py-3 text-sm text-on-surface">
-              You are looking at a hidden post. Remove `hidden: true` or set it
-              to `false` to publish this post.
+              {t("blog.subHeader.hiddenWarning")}
             </div>
           )}
 

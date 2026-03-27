@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "~/i18n/context";
 
 import Github from "~/components/icons/Github";
 import LinkedIn from "~/components/icons/LinkedIn";
@@ -9,11 +10,12 @@ type Props = {
 };
 
 const AppSocialMedia = ({ className }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className={classNames("flex gap-2", className)}>
       <a
-        title="View My GitHub Profile"
-        aria-label="View My GitHub Profile"
+        title={t("social.github")}
+        aria-label={t("social.github")}
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
@@ -22,8 +24,8 @@ const AppSocialMedia = ({ className }: Props) => {
         <Github aria-hidden="true" />
       </a>
       <a
-        title="View My LinkedIn Profile"
-        aria-label="View My LinkedIn Profile"
+        title={t("social.linkedin")}
+        aria-label={t("social.linkedin")}
         href={LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"

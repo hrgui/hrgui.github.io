@@ -1,4 +1,5 @@
 import type { ComponentChildren } from "preact";
+import { useTranslation } from "~/i18n/context";
 
 import TechnologiesUsed from "~/components/portfolio/TechnologiesUsed";
 
@@ -42,13 +43,14 @@ const PortfolioEntry = ({
   technologiesUsed,
   children,
 }: Props) => {
+  const { t } = useTranslation();
   return (
     <>
       <section className="graph-bg px-6 pb-10 pt-24 sm:pt-28">
         <div className="container mx-auto max-w-[1536px] lg:flex lg:items-end lg:justify-between lg:gap-10">
           <div>
             <p className="label-mono mb-3 text-tertiary">
-              project_entry // live_record
+              {t("portfolio.entry.projectLabel")}
             </p>
             <h1 className="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
               {title}
@@ -58,7 +60,7 @@ const PortfolioEntry = ({
           {(demoUrl || githubUrl || (urls && urls.length > 0)) && (
             <div className="mt-6 rounded-2xl border border-outline-variant bg-surface-container-high p-4 lg:mt-0 lg:min-w-[320px]">
               <p className="label-mono mb-3 text-on-surface-muted">
-                external_links
+                {t("portfolio.entry.externalLinksLabel")}
               </p>
               <div className="space-y-2">
                 {demoUrl && (
@@ -68,7 +70,7 @@ const PortfolioEntry = ({
                     target="__blank"
                     rel="noreferrer"
                   >
-                    Open Demo
+                    {t("portfolio.entry.openDemo")}
                   </Link>
                 )}
                 {githubUrl && (
@@ -78,7 +80,7 @@ const PortfolioEntry = ({
                     target="_blank"
                     rel="noreferrer"
                   >
-                    View GitHub Code
+                    {t("portfolio.entry.viewGithubCode")}
                   </Link>
                 )}
                 {urls &&
@@ -90,7 +92,7 @@ const PortfolioEntry = ({
                       rel="noreferrer"
                       className={`${externalLinkClassName} overflow-hidden overflow-ellipsis`}
                     >
-                      Visit {url}
+                      {t("portfolio.entry.visitUrl", { url })}
                     </Link>
                   ))}
               </div>
@@ -118,7 +120,7 @@ const PortfolioEntry = ({
                     className={`${accentGlowBaseClassName} ${accentGlowGeometry.impact} bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-primary/22`}
                   />
                   <p className="label-mono mb-4 text-primary">
-                    impact_log // execution
+                    {t("portfolio.entry.impactLabel")}
                   </p>
                   <WhatIDid whatIDid={whatIDid} />
                 </div>
@@ -144,7 +146,7 @@ const PortfolioEntry = ({
                 className={`${accentGlowBaseClassName} ${accentGlowGeometry.notes} bg-gradient-to-r from-transparent via-secondary/30 to-transparent dark:via-secondary/22`}
               />
               <p className="label-mono mb-4 text-secondary">
-                project_notes // context
+                {t("portfolio.entry.notesLabel")}
               </p>
               <div className="prose prose-sm max-w-none prose-headings:mt-0 prose-headings:mb-4 dark:prose-invert md:prose-lg lg:prose-xl">
                 <main>{children}</main>

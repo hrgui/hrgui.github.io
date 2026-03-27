@@ -1,3 +1,5 @@
+import { useTranslation } from "~/i18n/context";
+
 import { type PortfolioFrontmatter } from "~/types/frontmatter";
 import { getTechBadgeStyle } from "~/components/portfolio/technologyColors";
 import Github from "~/components/icons/Github";
@@ -43,6 +45,7 @@ export function PortfolioShowcase({
   hasTitle = true,
   containerClassName = "container mx-auto max-w-[1536px]",
 }: Props) {
+  const { t } = useTranslation();
   const featuredItem = items?.find((item) => item.featured);
   const regularItems = items?.filter((item) => !item.featured);
   const sectionClassName = hasTitle
@@ -54,15 +57,13 @@ export function PortfolioShowcase({
         {hasTitle && (
           <div className="mb-8 rounded-3xl border border-outline-variant bg-surface-container-lowest p-6 sm:p-8">
             <p className="label-mono mb-2 text-primary">
-              module_03 // portfolio
+              {t("portfolio.showcase.moduleLabel")}
             </p>
             <h1 className="font-headline text-4xl font-semibold text-on-surface">
-              Portfolio
+              {t("portfolio.showcase.heading")}
             </h1>
             <p className="mt-3 text-on-surface-muted">
-              Built in the digital underground: apps, UI experiments, and
-              creative code modules I designed and shipped, from React tools to
-              interactive front-end prototypes.
+              {t("portfolio.showcase.description")}
             </p>
 
             <div className="mt-8">
@@ -73,7 +74,9 @@ export function PortfolioShowcase({
                     <a
                       href={`/portfolio/${featuredItem.slug}`}
                       className={cardPageLinkClassName}
-                      aria-label={`View ${featuredItem.title}`}
+                      aria-label={t("portfolio.showcase.viewItem", {
+                        title: featuredItem.title,
+                      })}
                     />
                     {/* Image Container */}
                     <div className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0">
@@ -128,7 +131,9 @@ export function PortfolioShowcase({
 
                       {/* Footer with Links */}
                       <div className="flex items-center gap-3">
-                        <span className={viewActionClassName}>View</span>
+                        <span className={viewActionClassName}>
+                          {t("portfolio.showcase.viewAction")}
+                        </span>
                         {featuredItem.demoUrl && (
                           <span
                             className={demoIconClassName}
@@ -143,8 +148,10 @@ export function PortfolioShowcase({
                             target="_blank"
                             rel="noopener noreferrer"
                             className={githubActionClassName}
-                            aria-label="View on Github"
-                            title="View on GitHub"
+                            aria-label={t(
+                              "portfolio.showcase.viewOnGithubShort"
+                            )}
+                            title={t("portfolio.showcase.viewOnGithub")}
                           >
                             <Github width={24} height={24} />
                           </a>
@@ -169,7 +176,9 @@ export function PortfolioShowcase({
                         <a
                           href={`/portfolio/${item.slug}`}
                           className={cardPageLinkClassName}
-                          aria-label={`View ${item.title}`}
+                          aria-label={t("portfolio.showcase.viewItem", {
+                            title: item.title,
+                          })}
                         />
                         {/* Image Container */}
                         <div className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest">
@@ -224,7 +233,7 @@ export function PortfolioShowcase({
                           <span
                             className={`${viewActionClassName} flex-1 px-3 text-center text-sm`}
                           >
-                            View
+                            {t("portfolio.showcase.viewAction")}
                           </span>
                           {item.demoUrl && (
                             <span
@@ -240,8 +249,8 @@ export function PortfolioShowcase({
                               target="_blank"
                               rel="noopener noreferrer"
                               className={githubActionClassName}
-                              title="View on GitHub"
-                              aria-label="View on GitHub"
+                              title={t("portfolio.showcase.viewOnGithub")}
+                              aria-label={t("portfolio.showcase.viewOnGithub")}
                             >
                               <Github width={20} height={20} />
                             </a>
@@ -264,7 +273,9 @@ export function PortfolioShowcase({
                 <a
                   href={`/portfolio/${featuredItem.slug}`}
                   className={cardPageLinkClassName}
-                  aria-label={`View ${featuredItem.title}`}
+                  aria-label={t("portfolio.showcase.viewItem", {
+                    title: featuredItem.title,
+                  })}
                 />
                 {/* Image Container */}
                 <div className="relative block h-80 w-full overflow-hidden bg-surface-container-lowest md:h-auto md:w-2/5 md:flex-shrink-0">
@@ -319,7 +330,9 @@ export function PortfolioShowcase({
 
                   {/* Footer with Links */}
                   <div className="flex items-center gap-3">
-                    <span className={viewActionClassName}>View</span>
+                    <span className={viewActionClassName}>
+                      {t("portfolio.showcase.viewAction")}
+                    </span>
                     {featuredItem.demoUrl && (
                       <span className={demoIconClassName} aria-hidden="true">
                         <Next className="w-6 h-6" />
@@ -331,7 +344,7 @@ export function PortfolioShowcase({
                         target="_blank"
                         rel="noopener noreferrer"
                         className={githubActionClassName}
-                        title="View on GitHub"
+                        title={t("portfolio.showcase.viewOnGithub")}
                       >
                         <Github width={24} height={24} />
                       </a>
@@ -352,7 +365,9 @@ export function PortfolioShowcase({
                     <a
                       href={`/portfolio/${item.slug}`}
                       className={cardPageLinkClassName}
-                      aria-label={`View ${item.title}`}
+                      aria-label={t("portfolio.showcase.viewItem", {
+                        title: item.title,
+                      })}
                     />
                     {/* Image Container */}
                     <div className="relative block h-52 w-full overflow-hidden rounded-t-2xl bg-surface-container-lowest">
@@ -407,7 +422,7 @@ export function PortfolioShowcase({
                       <span
                         className={`${viewActionClassName} flex-1 px-3 text-center text-sm`}
                       >
-                        View
+                        {t("portfolio.showcase.viewAction")}
                       </span>
                       {item.demoUrl && (
                         <span className={demoIconClassName} aria-hidden="true">
@@ -420,7 +435,7 @@ export function PortfolioShowcase({
                           target="_blank"
                           rel="noopener noreferrer"
                           className={githubActionClassName}
-                          title="View on GitHub"
+                          title={t("portfolio.showcase.viewOnGithub")}
                         >
                           <Github width={20} height={20} />
                         </a>

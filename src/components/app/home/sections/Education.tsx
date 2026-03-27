@@ -1,3 +1,5 @@
+import { useTranslation } from "~/i18n/context";
+
 import { education as defaultEducation } from "~/constants";
 
 export function Education({
@@ -5,6 +7,7 @@ export function Education({
 }: {
   education?: typeof defaultEducation;
 }) {
+  const { t } = useTranslation();
   return (
     <section
       className="bg-surface px-6 pb-12 pt-8"
@@ -12,20 +15,16 @@ export function Education({
     >
       <div className="container mx-auto">
         <div className="rounded-3xl border border-outline-variant bg-surface-container-low p-6 sm:p-8">
-          <p className="label-mono mb-2 text-primary">module_02 // education</p>
+          <p className="label-mono mb-2 text-primary">
+            {t("home.education.moduleLabel")}
+          </p>
           <h1 className="font-headline text-4xl font-semibold text-on-surface">
-            Education
+            {t("home.education.heading")}
           </h1>
           <div className="mt-6 space-y-6">
             {education?.map(
-              ({
-                key,
-                imgSrc,
-                url,
-                title,
-                description,
-                timeframe: { start, end },
-              }) => {
+              ({ key, imgSrc, url, timeframe: { start, end } }) => {
+                const title = t(`home.education.${key}.title`);
                 return (
                   <article
                     key={key}
@@ -39,7 +38,7 @@ export function Education({
                       >
                         <img
                           loading="lazy"
-                          alt={`Open ${title} in a new tab`}
+                          alt={t("home.education.imgAlt", { title })}
                           src={imgSrc}
                           className="h-20 w-20 rounded-lg border border-outline-variant object-contain p-2"
                         />
@@ -50,7 +49,7 @@ export function Education({
                         {title}
                       </h3>
                       <p className="text-on-surface-muted tracking">
-                        {description}
+                        {t(`home.education.${key}.description`)}
                       </p>
                       <p className="mt-2 font-mono text-sm uppercase tracking-[0.16em] text-primary">
                         {start} - {end}

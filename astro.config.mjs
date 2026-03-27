@@ -16,4 +16,11 @@ export default defineConfig({
     remarkPlugins: [remarkGfm, remarkSmartypants, remarkMermaid],
   },
   integrations: [mdx(), unoCss(), preact()],
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

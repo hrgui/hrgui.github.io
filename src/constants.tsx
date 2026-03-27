@@ -4,39 +4,6 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/hrgui";
 
 export const siteTitle = "hrgui";
 
-type SellPoint = {
-  title: string;
-  description: string;
-};
-
-export const threeSellPoints: SellPoint[] = [
-  {
-    title: "Making the web awesome is my passion.",
-    description: `I am a Software Engineer who loves building interactive web
-    applications. I believe great apps should work smoothly and look clean,
-    so people can focus on getting things done. Seeing users succeed with
-    something I helped build is the most rewarding part of my work. I am
-    always refining the experience to make each product better than before.`,
-  },
-  {
-    title: "I will work with anything... to make the web work.",
-    description: `Throughout my career, I have taken on unfamiliar and
-    challenging problems. I have contributed to backend systems,
-    automation platforms, and mobile applications across very different
-    codebases. Some were clean, some were heavily patched, but I focus on
-    improving the developer experience so teams can build and ship with
-    confidence.`,
-  },
-  {
-    title: "While my code is compiling...",
-    description: `Outside of coding, I play guitar and enjoy Japanese
-    animation (anime). Both constantly fuel my creativity and inspire how I think
-    about building products. I often learn anime theme songs on guitar,
-    and that mix of music and storytelling keeps my ideas fresh. When I can
-    bring those creative influences into software, I do my best work.`,
-  },
-];
-
 type TechnicalSkillSection = {
   key?: string;
   title: string | JSX.Element;
@@ -121,8 +88,6 @@ type Education = {
   key: string;
   url: string;
   imgSrc: string;
-  title: string;
-  description: string;
   timeframe: { start: number | string; end: number | string };
 };
 
@@ -131,9 +96,6 @@ export const education: Education[] = [
     key: "usc",
     url: "https://www.usc.edu",
     imgSrc: "/images/usc.webp",
-    title: "University of Southern California",
-    description: `Bachelor of Science (B.S.), Computer Science and Engineering,
-    Magna Cum Laude`,
     timeframe: { start: 2010, end: 2013 },
   },
 ];
