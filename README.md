@@ -74,6 +74,41 @@ Then create `src/pages/es/index.astro` (mirroring `src/pages/index.astro`). Astr
 
 > **Note on islands**: All home-page sections are grouped inside `<HomeSections locale={...} client:visible />`, which wraps them in a single `I18nProvider`. Each Astro `client:*` island is an isolated Preact tree, so any new island components that use `useTranslation()` must also receive `locale` and render inside an `I18nProvider`.
 
+## Non-standard / fun locales
+
+For locales that aren't real BCP 47 language codes (e.g. a "backward" locale that reverses all strings for testing), use Astro's locale **object syntax** to decouple the URL path from the `lang` attribute:
+
+```js
+// astro.config.mjs
+i18n: {
+  locales: [
+    "en",
+    { path: "backward", codes: ["en-x-backward"] },
+  ],
+  defaultLocale: "en",
+  routing: { prefixDefaultLocale: false },
+},
+```
+
+- **`path`** — the URL segment (`/backward/`)
+- **`codes`** — what goes in `<html lang="...">`. Using `en-x-backward` is a valid BCP 47 private-use extension: screen readers treat it as English while still accurately describing the variant.
+
+Because `Astro.currentLocale` resolves to the first entry in `codes` (`"en-x-backward"`), you must pass `locale` explicitly in the page rather than relying on `Astro.currentLocale`:
+
+```astro
+<!-- src/pages/backward/index.astro -->
+<DefaultPageLayout description={description}>
+  <HomeSections locale="backward" ... client:visible />
+</DefaultPageLayout>
+```
+
+Then register `"backward"` in `src/i18n/context.tsx` alongside its locale file:
+
+```ts
+import backward from "~/i18n/locales/backward";
+const locales: Record<string, Translation> = { en, backward };
+```
+
 ## TODO: Scale with `getStaticPaths`
 
 The current approach (one folder per locale, e.g. `src/pages/es/index.astro`) works but doesn't scale — each new locale requires duplicating every page file.
