@@ -23,14 +23,8 @@ export function Education({
           </h1>
           <div className="mt-6 space-y-6">
             {education?.map(
-              ({
-                key,
-                imgSrc,
-                url,
-                title,
-                description,
-                timeframe: { start, end },
-              }) => {
+              ({ key, imgSrc, url, timeframe: { start, end } }) => {
+                const title = t(`home.education.${key}.title`);
                 return (
                   <article
                     key={key}
@@ -55,7 +49,7 @@ export function Education({
                         {title}
                       </h3>
                       <p className="text-on-surface-muted tracking">
-                        {description}
+                        {t(`home.education.${key}.description`)}
                       </p>
                       <p className="mt-2 font-mono text-sm uppercase tracking-[0.16em] text-primary">
                         {start} - {end}

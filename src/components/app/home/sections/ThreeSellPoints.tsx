@@ -1,8 +1,6 @@
 import type { JSX } from "preact";
 import { useTranslation } from "~/i18n/context";
 
-import { threeSellPoints as defaultThreeSellPoints } from "~/constants";
-
 type ItemProps = JSX.HTMLAttributes<HTMLDivElement> & {
   title: string;
 };
@@ -27,24 +25,23 @@ function Item({ title, children, ...props }: ItemProps) {
   );
 }
 
-export function ThreeSellPoints({
-  threeSellPoints = defaultThreeSellPoints,
-}: {
-  threeSellPoints?: typeof defaultThreeSellPoints;
-}) {
+export function ThreeSellPoints() {
+  const { t } = useTranslation();
   return (
     <section
       className="relative -mt-6 bg-surface px-6 pb-16 pt-16 sm:-mt-8"
       data-testid="section-three-sell-points"
     >
       <div className="container mx-auto sm:grid sm:grid-cols-3 sm:gap-8">
-        {threeSellPoints.map(({ title, description }) => {
-          return (
-            <Item key={title} title={title}>
-              {description}
-            </Item>
-          );
-        })}
+        <Item title={t("home.sellPoints.passion.title")}>
+          {t("home.sellPoints.passion.description")}
+        </Item>
+        <Item title={t("home.sellPoints.versatile.title")}>
+          {t("home.sellPoints.versatile.description")}
+        </Item>
+        <Item title={t("home.sellPoints.offWork.title")}>
+          {t("home.sellPoints.offWork.description")}
+        </Item>
       </div>
     </section>
   );

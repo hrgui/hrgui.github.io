@@ -18,12 +18,12 @@ test("should be able to render passed in education", () => {
           key: "pcc",
           imgSrc: "/images/pcc.png",
           url: "https://pasadena.edu/",
-          title: "Pasadena City College",
-          description: "",
           timeframe: { start: 2008, end: 2010 },
         },
       ]}
     />
   );
-  expect(screen.getByText(/Pasadena City College/)).toBeInTheDocument();
+  const links = screen.getAllByRole("link");
+  expect(links[0]).toHaveAttribute("href", "https://pasadena.edu/");
+  expect(screen.getByText(/2008/)).toBeInTheDocument();
 });

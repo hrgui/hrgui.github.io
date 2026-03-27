@@ -2,11 +2,7 @@
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "~/layouts/default.astro";
 import { type PortfolioFrontmatter } from "~/types/frontmatter";
-import { Education } from "~/components/app/home/sections/Education";
-import { Hero } from "~/components/app/home/sections/Hero";
-import { TechnicalSkills } from "~/components/app/home/sections/TechnicalSkills";
-import { ThreeSellPoints } from "~/components/app/home/sections/ThreeSellPoints";
-import { PortfolioShowcase } from "~/components/app/portfolio/PortfolioShowcase";
+import { HomeSections } from "~/components/app/home/HomeSections";
 
 const description = `Hi! I'm Harman. I am a developer who loves to make cool and awesome web applications that rock the world.`;
 
@@ -14,14 +10,12 @@ const portfolioItems = await getCollection("portfolio");
 ---
 
 <DefaultPageLayout description={description}>
-  <Hero client:visible />
-  <ThreeSellPoints />
-  <TechnicalSkills />
-  <Education />
-  <PortfolioShowcase
+  <HomeSections
+    locale={Astro.currentLocale ?? "en"}
     containerClassName="container mx-auto"
     items={portfolioItems.map(
       (item) => ({ ...item.data, slug: item.id } as PortfolioFrontmatter)
     )}
+    client:visible
   />
 </DefaultPageLayout>

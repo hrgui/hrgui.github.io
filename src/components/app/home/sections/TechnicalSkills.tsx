@@ -15,22 +15,22 @@ const sectionTitleMap: Record<string, string> = {
 const summaryCards = [
   {
     key: "javascript",
-    title: "JavaScript",
-    subtitle: "LOGIC_ENGINE_V8",
+    titleKey: "home.technicalSkills.javascript.title",
+    subtitleKey: "home.technicalSkills.javascript.subtitle",
     className: "text-primary",
     accentBorderClassName: "border-primary",
   },
   {
     key: "html-css",
-    title: "HTML/CSS",
-    subtitle: "STRUCTURAL_UI_CORE",
+    titleKey: "home.technicalSkills.htmlCss.title",
+    subtitleKey: "home.technicalSkills.htmlCss.subtitle",
     className: "text-secondary",
     accentBorderClassName: "border-secondary",
   },
   {
     key: "other",
-    title: "JACK OF ALL TRADES",
-    subtitle: "OTHER_TECH_SKILLS_I_HAVE",
+    titleKey: "home.technicalSkills.other.title",
+    subtitleKey: "home.technicalSkills.other.subtitle",
     className: "text-tertiary",
     accentBorderClassName: "border-tertiary",
   },
@@ -196,11 +196,15 @@ export function TechnicalSkills({
               const title = getSectionTitle(section, index);
               const card = (section.key && summaryCardMap[section.key]) ||
                 summaryCards[index] || {
-                  title,
-                  subtitle: "TECH_MODULE",
+                  titleKey: undefined,
+                  subtitleKey: undefined,
                   className: "text-on-surface",
                   accentBorderClassName: "border-outline",
                 };
+              const cardTitle = card.titleKey ? t(card.titleKey) : title;
+              const cardSubtitle = card.subtitleKey
+                ? t(card.subtitleKey)
+                : "TECH_MODULE";
 
               return (
                 <div
@@ -212,10 +216,10 @@ export function TechnicalSkills({
                       className={`relative overflow-hidden p-6 border-solid border-t-0 border-r-0 border-l-0 border-b-2 md:border-b-0 md:border-l-2 ${card.className} ${card.accentBorderClassName}`}
                     >
                       <h2 className="font-headline text-4xl leading-tight sm:text-3xl">
-                        {card.title}
+                        {cardTitle}
                       </h2>
                       <p className="mt-3 font-mono text-sm uppercase tracking-[0.12em] text-on-surface-muted">
-                        {card.subtitle}
+                        {cardSubtitle}
                       </p>
                     </article>
 
