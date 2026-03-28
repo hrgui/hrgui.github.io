@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useEffect, useState } from "preact/hooks";
 import { useTranslation } from "~/i18n/context";
 
 import { type Frontmatter } from "~/types/frontmatter";
@@ -17,6 +18,11 @@ const toNodeId = (index: number) =>
 
 const Posts = ({ posts }: Props) => {
   const { t } = useTranslation();
+  // isNew uses new Date() — must be evaluated client-side only so the static
+  // build doesn't bake in a stale "today" value that never updates on GitHub Pages.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const checkIsNew = (date?: string) => mounted && isNew(date);
   const visiblePosts =
     posts?.filter(
       (post) => !(post.hidden && process.env.NODE_ENV !== "development")
@@ -38,7 +44,7 @@ const Posts = ({ posts }: Props) => {
             >
               <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
                 <div className="inline-flex items-center gap-3">
-                  {isNew(featuredPost.date) && (
+                  {checkIsNew(featuredPost.date) && (
                     <span className="rounded bg-secondary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
                       {t("blog.posts.newBadge")}
                     </span>

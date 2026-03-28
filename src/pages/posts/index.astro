@@ -29,5 +29,6 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
   </section>
   <Posts
     posts={posts.map((post) => ({ ...post.data, slug: `/posts/${post.id}` } as PostFrontmatter))}
+    client:visible
   />
 </DefaultPageLayout>
