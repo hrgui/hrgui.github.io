@@ -50,7 +50,7 @@ export function PortfolioItem({
       <a
         href={`/portfolio/${item.slug}`}
         className={cardPageLinkClassName}
-        aria-label={item.title}
+        aria-label={`View ${item.title}`}
       />
 
       {/* Image */}
