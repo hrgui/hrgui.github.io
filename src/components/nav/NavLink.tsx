@@ -23,26 +23,22 @@ export const NavLink = ({
     <a
       href={href}
       className={classNames(
-        "relative flex h-16 items-center px-6 text-sm font-medium transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset sm:h-9 sm:rounded-md sm:px-3",
+        "relative font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset",
         isActive
-          ? "text-fg bg-surface-overlay sm:bg-transparent"
-          : "text-fg-muted hover:text-fg hover:bg-surface-overlay"
+          ? "text-accent hover:text-accent bg-surface-overlay/50 sm:rounded-none sm:bg-transparent"
+          : "text-fg hover:text-fg hover:bg-surface-overlay/50 active:bg-surface-overlay"
       )}
       onClick={onClick}
       aria-current={isActive ? "page" : undefined}
     >
       {isActive && (
         <>
-          {/* desktop: accent underline */}
-          <span
-            className="pointer-events-none absolute inset-x-3 -bottom-[14px] hidden h-0.5 rounded-full bg-accent sm:block"
-            aria-hidden="true"
-          />
-          {/* mobile: accent edge */}
-          <span
-            className="pointer-events-none absolute inset-y-3 left-0 w-0.5 rounded-full bg-accent sm:hidden"
-            aria-hidden="true"
-          />
+          {/* desktop: top glow */}
+          <span className="pointer-events-none absolute inset-x-3 top-0 hidden h-px rounded-full bg-gradient-to-r from-transparent via-accent/85 to-transparent sm:block" />
+          <span className="pointer-events-none absolute inset-x-5 top-0 hidden h-4 blur-md bg-gradient-to-r from-transparent via-accent/35 to-transparent sm:block" />
+          {/* mobile: left glow */}
+          <span className="pointer-events-none absolute left-0 inset-y-3 sm:hidden w-px rounded-full bg-gradient-to-b from-transparent via-accent/85 to-transparent" />
+          <span className="pointer-events-none absolute left-0 inset-y-5 sm:hidden w-4 blur-md bg-gradient-to-b from-transparent via-accent/35 to-transparent" />
         </>
       )}
       {children}

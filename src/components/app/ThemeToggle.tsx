@@ -28,7 +28,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        className="h-[18px] w-[18px]"
+        className="h-5 w-5"
         fill="none"
         stroke="currentColor"
         aria-hidden="true"
@@ -48,7 +48,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        className="h-[18px] w-[18px]"
+        className="h-5 w-5"
         fill="none"
         stroke="currentColor"
         aria-hidden="true"
@@ -67,7 +67,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      className="h-[18px] w-[18px]"
+      className="h-5 w-5"
       fill="none"
       stroke="currentColor"
       aria-hidden="true"
@@ -132,7 +132,7 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
       className={
         isDrawerVariant
           ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left text-sm font-medium text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
-          : "inline-flex h-9 w-9 items-center justify-center rounded-full border border-solid border-border-control text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-ring active:scale-95"
+          : "ml-1 inline-flex h-10 w-10 items-center justify-center rounded-md text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay focus-ring active:scale-95"
       }
     >
       <ThemeIcon preference={themePreference} />

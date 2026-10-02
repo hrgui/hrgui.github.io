@@ -61,11 +61,10 @@ const Header = ({ currentPathName }: Props) => {
         </button>
         <Logo />
         <nav
-          className="hidden h-16 items-center gap-1 sm:flex"
+          className="hidden h-16 items-center sm:flex"
           data-testid="desktop-nav"
         >
           {links}
-          <span className="mx-2 h-5 w-px bg-grid-line" aria-hidden="true" />
           <ThemeToggle />
         </nav>
       </header>
