@@ -9,57 +9,47 @@ export function Education({
 }) {
   const { t } = useTranslation();
   return (
-    <section
-      className="bg-surface px-6 pb-12 pt-8"
-      data-testid="section-education"
-    >
-      <div className="container mx-auto">
-        <div className="rounded-3xl border border-outline-variant bg-surface-container-low p-6 sm:p-8">
-          <p className="label-mono mb-2 text-primary">
-            {t("home.education.moduleLabel")}
-          </p>
-          <h1 className="font-headline text-4xl font-semibold text-on-surface">
-            {t("home.education.heading")}
-          </h1>
-          <div className="mt-6 space-y-6">
-            {education?.map(
-              ({ key, imgSrc, url, timeframe: { start, end } }) => {
-                const title = t(`home.education.${key}.title`);
-                return (
-                  <article
-                    key={key}
-                    className="flex flex-col gap-4 rounded-2xl border border-outline-variant bg-surface-container-high p-5 sm:flex-row sm:items-center"
-                  >
-                    <div className="w-24 shrink-0">
-                      <a
-                        href={url}
-                        target="__blank"
-                        className="inline-block rounded-lg transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:scale-95"
-                      >
-                        <img
-                          loading="lazy"
-                          alt={t("home.education.imgAlt", { title })}
-                          src={imgSrc}
-                          className="h-20 w-20 rounded-lg border border-outline-variant object-contain p-2"
-                        />
-                      </a>
-                    </div>
-                    <div>
-                      <h3 className="mb-2 font-headline text-xl font-semibold text-on-surface">
-                        {title}
-                      </h3>
-                      <p className="text-on-surface-muted tracking">
-                        {t(`home.education.${key}.description`)}
-                      </p>
-                      <p className="mt-2 font-mono text-sm uppercase tracking-[0.16em] text-primary">
-                        {start} - {end}
-                      </p>
-                    </div>
-                  </article>
-                );
-              }
-            )}
+    <section className="hr-frame" data-testid="section-education">
+      <div className="hr-frame-col">
+        <div className="hr-frame-grid">
+          <div className="hr-frame-cell">
+            <p className="label-mono mb-4 text-success">
+              {t("home.education.moduleLabel")}
+            </p>
+            <h1 className="text-headline text-fg md:text-display-md">
+              {t("home.education.heading")}
+            </h1>
           </div>
+          {education?.map(({ key, imgSrc, url, timeframe: { start, end } }) => {
+            const title = t(`home.education.${key}.title`);
+            return (
+              <article key={key} className="hr-frame-grid hr-frame-grid--aside">
+                <div className="hr-frame-cell flex items-center gap-4">
+                  <a
+                    href={url}
+                    target="__blank"
+                    className="inline-block shrink-0 rounded-lg transition-transform duration-150 ease-out focus-ring active:scale-95"
+                  >
+                    <img
+                      loading="lazy"
+                      alt={t("home.education.imgAlt", { title })}
+                      src={imgSrc}
+                      className="h-16 w-16 rounded-lg border border-solid border-border-muted bg-surface object-contain p-2"
+                    />
+                  </a>
+                  <p className="font-mono text-sm text-fg-subtle">
+                    {start} → {end}
+                  </p>
+                </div>
+                <div className="hr-frame-cell">
+                  <h3 className="mb-2 text-title-lg text-fg">{title}</h3>
+                  <p className="text-fg-muted">
+                    {t(`home.education.${key}.description`)}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

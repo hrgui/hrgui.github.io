@@ -107,7 +107,7 @@ const PortfolioEntry = ({
         iframe={iframe}
       />
 
-      <section className="bg-surface py-12">
+      <section className="bg-canvas py-12">
         <div className="container mx-auto max-w-[1536px] px-6 sm:px-6 lg:px-8">
           <div className="space-y-6">
             <div className="grid gap-6 md:grid-cols-12">

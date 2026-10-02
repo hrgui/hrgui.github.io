@@ -11,20 +11,16 @@ const items = await getCollection("portfolio");
 ---
 
 <DefaultPageLayout title={title} description={description}>
-  <section class="graph-bg relative overflow-hidden px-6 pb-8 pt-28">
-    <div class="relative z-10 container mx-auto max-w-[1536px] space-y-6">
-      <div class="mb-8 flex items-center gap-4">
-        <p class="label-mono text-tertiary">NODE_ACCESS // PORTFOLIO_GRID</p>
-        <div class="h-px flex-1 bg-gradient-to-r from-tertiary via-outline-variant/60 to-outline-variant"></div>
-      </div>
-      
-      <h1 class="font-headline text-5xl font-semibold tracking-tight bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary bg-clip-text text-transparent sm:text-6xl md:text-7xl">
-        Portfolio.
+  <section class="hr-stage border-b border-b-solid border-grid-line">
+    <div class="hr-frame-col px-6 pb-14 pt-32 md:px-12 md:pt-36">
+      <p class="label-mono text-coral">NODE_ACCESS // PORTFOLIO_GRID</p>
+      <h1 class="mt-4 font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-fg md:text-display-md">
+        Portfolio<span class="text-coral">.</span>
       </h1>
+      <p class="mt-4 max-w-[60ch] text-lead text-fg-muted">{description}</p>
     </div>
-    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
   </section>
-  
+
   <PortfolioShowcase
     hasTitle={false}
     items={items.map(

@@ -6,18 +6,18 @@ interface Props {
 
 const Logo = ({ className }: Props) => {
   return (
-    <a href="/">
+    <a href="/" className="rounded-sm focus-ring" aria-label="hrgui home">
       <div
         className={classNames(
-          "text-3xl tracking-tight font-medium font-headline text-on-surface",
+          "font-display text-[1.75rem] font-extrabold leading-none tracking-[-0.04em] text-fg",
           className
         )}
       >
         hrg
-        <span className="text-primary inline-block animate-cursor-blink">
+        <span className="mx-[0.02em] inline-block animate-cursor-blink font-mono font-normal text-accent">
           |
         </span>
-        <span className="text-primary">ui</span>
+        <span className="text-accent">ui</span>
       </div>
     </a>
   );

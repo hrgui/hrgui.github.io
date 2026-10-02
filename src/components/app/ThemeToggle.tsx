@@ -28,7 +28,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        className="h-5 w-5"
+        className="h-[18px] w-[18px]"
         fill="none"
         stroke="currentColor"
         aria-hidden="true"
@@ -48,7 +48,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        className="h-5 w-5"
+        className="h-[18px] w-[18px]"
         fill="none"
         stroke="currentColor"
         aria-hidden="true"
@@ -67,7 +67,7 @@ const ThemeIcon = ({ preference }: { preference: ThemePreference }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      className="h-5 w-5"
+      className="h-[18px] w-[18px]"
       fill="none"
       stroke="currentColor"
       aria-hidden="true"
@@ -131,8 +131,8 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
       title={`Theme: ${themePreference} (${resolvedTheme})`}
       className={
         isDrawerVariant
-          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left font-medium text-on-surface transition-all duration-150 ease-out hover:text-on-surface hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset active:bg-surface-container"
-          : "mr-3 inline-flex h-10 w-10 items-center justify-center rounded border border-outline-variant text-on-surface transition-all duration-150 ease-out hover:text-on-surface hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left text-sm font-medium text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+          : "inline-flex h-9 w-9 items-center justify-center rounded-full border border-solid border-border-control text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-ring active:scale-95"
       }
     >
       <ThemeIcon preference={themePreference} />

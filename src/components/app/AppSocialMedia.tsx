@@ -19,7 +19,7 @@ const AppSocialMedia = ({ className }: Props) => {
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group rounded p-1 opacity-50 transition-all duration-150 ease-out hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+        className="group rounded-md p-1.5 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-ring active:scale-95"
       >
         <Github aria-hidden="true" />
       </a>
@@ -29,12 +29,9 @@ const AppSocialMedia = ({ className }: Props) => {
         href={LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group rounded p-1 opacity-50 transition-all duration-150 ease-out hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+        className="group rounded-md p-1.5 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-ring active:scale-95"
       >
-        <LinkedIn
-          aria-hidden="true"
-          className="transition-colors group-hover:text-blue-500 group-focus-visible:text-blue-500"
-        />
+        <LinkedIn aria-hidden="true" />
       </a>
     </div>
   );

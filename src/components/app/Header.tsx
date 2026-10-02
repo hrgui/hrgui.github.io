@@ -46,24 +46,26 @@ const Header = ({ currentPathName }: Props) => {
     <>
       <header
         className={classNames(
-          "flex fixed items-center h-16 border-gray-300 sm:justify-between w-full transition-colors z-40",
-          {
-            "bg-white dark:bg-zinc-900  dark:border-gray-700": trigger,
-          }
+          "fixed z-40 flex h-16 w-full items-center gap-3 border-b border-b-solid px-4 transition-colors duration-200 sm:justify-between sm:px-6",
+          trigger
+            ? "border-grid-line bg-canvas/80 backdrop-blur-md"
+            : "border-transparent bg-transparent"
         )}
       >
         <button
           onClick={handleSetIsOpen}
-          className="sm:hidden p-2 opacity-75 rounded border border-outline-variant/60 text-on-surface transition-all duration-150 ease-out hover:opacity-100 hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+          aria-label="Open navigation"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-solid border-border-control text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay focus-ring sm:hidden"
         >
-          <Menu className="sm:hidden w-12 h-6" />
+          <Menu className="h-5 w-5" />
         </button>
-        <Logo className="sm:pl-5" />
+        <Logo />
         <nav
-          className="hidden sm:flex h-16 justify-center items-center"
+          className="hidden h-16 items-center gap-1 sm:flex"
           data-testid="desktop-nav"
         >
           {links}
+          <span className="mx-2 h-5 w-px bg-grid-line" aria-hidden="true" />
           <ThemeToggle />
         </nav>
       </header>

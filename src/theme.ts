@@ -1,14 +1,14 @@
 import ctl from "@netlify/classnames-template-literals";
 
 export const linkClassName = ctl(
-  `text-primary 
-   hover:underline 
+  `text-accent
+  hover:underline hover:underline-offset-3
   font-medium
-  transition-all duration-150 ease-out
+  transition-colors duration-150 ease-out
   focus-visible:outline-none
   focus-visible:underline
-  focus-visible:ring-2 focus-visible:ring-primary/70
-  focus-visible:ring-offset-2
+  focus-visible:ring-2 focus-visible:ring-accent
+  focus-visible:ring-offset-2 focus-visible:ring-offset-canvas
   active:opacity-85`
 );
 
@@ -18,6 +18,6 @@ export const blogEntryClassName = ctl(`
   max-w-[1536px] 
   mx-auto 
   
-  prose-a:text-primary 
+  prose-a:text-accent 
   prose-a:no-underline 
   hover:prose-a:underline`);

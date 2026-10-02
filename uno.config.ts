@@ -46,7 +46,17 @@ export default defineConfig<AppTheme>({
       "bg-surface-container-high text-on-surface shadow-ambient",
     "surface-module-highest":
       "bg-surface-container-highest text-on-surface shadow-floating",
-    "label-mono": "font-mono text-label-sm uppercase tracking-[0.24em]",
+    "label-mono": "font-mono text-label-sm uppercase tracking-[0.14em]",
+    "focus-ring":
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
+    btn: "inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-solid border-transparent text-sm font-medium no-underline whitespace-nowrap cursor-pointer transition-colors duration-150 ease-out focus-ring disabled:opacity-50 disabled:pointer-events-none",
+    "btn-lg": "h-12 px-6 text-base",
+    "btn-sm": "h-8 px-3 text-[13px]",
+    "btn-primary": "btn bg-cta text-fg-on-emphasis hover:bg-cta-hover",
+    "btn-secondary":
+      "btn bg-transparent text-fg border-border-control hover:bg-surface-overlay hover:border-fg-subtle",
+    "btn-accent": "btn bg-accent-emphasis text-on-accent hover:bg-accent",
+    "btn-ghost": "btn bg-transparent text-fg hover:bg-surface-overlay",
   },
   preflights: [
     {
@@ -67,7 +77,7 @@ export default defineConfig<AppTheme>({
         body {
           margin: 0;
           padding: 0;
-          font-family: "Inter", sans-serif;
+          font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
           background-color: var(--color-background);
           color: var(--color-on-background);
         }
@@ -81,7 +91,7 @@ export default defineConfig<AppTheme>({
           margin: 0;
           font-size: inherit;
           font-weight: inherit;
-          font-family: "Space Grotesk", sans-serif;
+          font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
         }
         
         p {
@@ -139,13 +149,40 @@ export default defineConfig<AppTheme>({
         kbd,
         pre,
         samp {
-          font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
       `,
     },
   ],
   theme: {
     colors: {
+      // hrgui v2 design-system tokens
+      canvas: "rgb(var(--color-canvas-rgb) / <alpha-value>)",
+      "canvas-inset": "rgb(var(--color-canvas-inset-rgb) / <alpha-value>)",
+      "surface-raised": "rgb(var(--color-surface-raised-rgb) / <alpha-value>)",
+      "surface-overlay":
+        "rgb(var(--color-surface-overlay-rgb) / <alpha-value>)",
+      fg: "rgb(var(--color-fg-rgb) / <alpha-value>)",
+      "fg-muted": "rgb(var(--color-fg-muted-rgb) / <alpha-value>)",
+      "fg-subtle": "rgb(var(--color-fg-subtle-rgb) / <alpha-value>)",
+      "fg-on-emphasis": "rgb(var(--color-fg-on-emphasis-rgb) / <alpha-value>)",
+      "border-muted": "rgb(var(--color-border-muted-rgb) / <alpha-value>)",
+      "border-control": "rgb(var(--color-border-control-rgb) / <alpha-value>)",
+      accent: "rgb(var(--color-accent-rgb) / <alpha-value>)",
+      "accent-emphasis":
+        "rgb(var(--color-accent-emphasis-rgb) / <alpha-value>)",
+      "on-accent": "rgb(var(--color-on-accent-rgb) / <alpha-value>)",
+      success: "rgb(var(--color-success-rgb) / <alpha-value>)",
+      cta: "rgb(var(--color-cta-rgb) / <alpha-value>)",
+      "cta-hover": "rgb(var(--color-cta-hover-rgb) / <alpha-value>)",
+      coral: "rgb(var(--color-coral-rgb) / <alpha-value>)",
+      "grid-line": "rgb(var(--color-grid-line-rgb) / <alpha-value>)",
+      "frame-bg": "rgb(var(--color-frame-bg-rgb) / <alpha-value>)",
+      // "border" is a utility name, so the mid border color is exposed as "edge"
+      edge: "rgb(var(--color-border-rgb) / <alpha-value>)",
+      "accent-muted": "var(--color-accent-muted)",
+      "success-muted": "var(--color-success-muted)",
+      "coral-muted": "var(--color-coral-muted)",
       background: "rgb(var(--color-background-rgb) / <alpha-value>)",
       "on-background": "rgb(var(--color-on-background-rgb) / <alpha-value>)",
       primary: "rgb(var(--color-primary-rgb) / <alpha-value>)",
@@ -284,21 +321,57 @@ export default defineConfig<AppTheme>({
       },
     },
     fontFamily: {
-      sans: '"Inter", sans-serif',
-      inter: '"Inter", sans-serif',
-      body: '"Inter", sans-serif',
-      display: '"Space Grotesk", sans-serif',
-      headline: '"Space Grotesk", sans-serif',
-      mono: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-      code: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      sans: '"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif',
+      inter:
+        '"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif',
+      body: '"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif',
+      display:
+        '"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif',
+      headline:
+        '"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif',
+      mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      code: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
     fontSize: {
-      "display-lg": [
-        "clamp(3.5rem, 7vw, 6.5rem)",
+      "display-xl": [
+        "5rem",
         {
-          "line-height": "0.95",
+          "line-height": "5.25rem",
           "letter-spacing": "-0.04em",
-          "font-weight": "500",
+          "font-weight": "800",
+        },
+      ],
+      "display-md": [
+        "3.5rem",
+        {
+          "line-height": "3.75rem",
+          "letter-spacing": "-0.035em",
+          "font-weight": "800",
+        },
+      ],
+      headline: [
+        "2.5rem",
+        {
+          "line-height": "2.875rem",
+          "letter-spacing": "-0.025em",
+          "font-weight": "700",
+        },
+      ],
+      "title-lg": [
+        "1.5rem",
+        {
+          "line-height": "2rem",
+          "letter-spacing": "-0.01em",
+          "font-weight": "600",
+        },
+      ],
+      lead: ["1.25rem", { "line-height": "1.875rem" }],
+      "display-lg": [
+        "clamp(2.75rem, 7vw, 5rem)",
+        {
+          "line-height": "1.05",
+          "letter-spacing": "-0.04em",
+          "font-weight": "800",
         },
       ],
       "headline-lg": [
@@ -329,20 +402,20 @@ export default defineConfig<AppTheme>({
         "0.75rem",
         {
           "line-height": "1rem",
-          "letter-spacing": "0.24em",
+          "letter-spacing": "0.14em",
           "font-weight": "500",
         },
       ],
     },
     boxShadow: {
-      ambient:
-        "0 0 24px rgba(229, 241, 242, 0.06), 0 0 40px rgba(143, 214, 255, 0.04)",
-      floating:
-        "0 0 32px rgba(229, 241, 242, 0.06), 0 0 56px rgba(143, 214, 255, 0.05)",
-      hologram:
-        "0 0 0 1px rgba(143, 214, 255, 0.14), 0 0 24px rgba(143, 214, 255, 0.28)",
-      "hologram-strong":
-        "0 0 0 1px rgba(143, 214, 255, 0.2), 0 0 32px rgba(143, 214, 255, 0.36)",
+      card: "var(--shadow-card)",
+      glow: "var(--shadow-glow)",
+      overlay: "var(--shadow-overlay)",
+      // v1 names, kept for existing pages
+      ambient: "var(--shadow-card)",
+      floating: "var(--shadow-card)",
+      hologram: "var(--shadow-glow)",
+      "hologram-strong": "var(--shadow-glow)",
     },
   },
 });

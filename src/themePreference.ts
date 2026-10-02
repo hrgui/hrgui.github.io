@@ -47,7 +47,7 @@ export const applyThemePreference = (
   const html = document.documentElement;
   html.classList.toggle(DARK_CLASS_NAME, resolvedTheme === "dark");
   html.style.colorScheme = resolvedTheme;
-  html.style.backgroundColor = resolvedTheme === "dark" ? "#0f0f0f" : "#ffffff";
+  html.style.backgroundColor = resolvedTheme === "dark" ? "#0d1117" : "#ffffff";
 
   if (options.persist && typeof window !== "undefined") {
     window.localStorage.setItem(THEME_STORAGE_KEY, preference);

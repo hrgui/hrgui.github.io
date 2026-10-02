@@ -23,22 +23,26 @@ export const NavLink = ({
     <a
       href={href}
       className={classNames(
-        "relative font-medium flex sm:justify-center items-center pl-6 pr-6 h-16 transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset",
+        "relative flex h-16 items-center px-6 text-sm font-medium transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset sm:h-9 sm:rounded-md sm:px-3",
         isActive
-          ? "text-primary hover:text-primary bg-surface-container-high/50 sm:rounded-none sm:bg-transparent"
-          : "text-on-surface hover:text-on-surface hover:bg-surface-container-high/50 active:bg-surface-container"
+          ? "text-fg bg-surface-overlay sm:bg-transparent"
+          : "text-fg-muted hover:text-fg hover:bg-surface-overlay"
       )}
       onClick={onClick}
       aria-current={isActive ? "page" : undefined}
     >
       {isActive && (
         <>
-          {/* desktop: top glow */}
-          <span className="pointer-events-none absolute inset-x-3 top-0 hidden h-px rounded-full bg-gradient-to-r from-transparent via-primary/85 to-transparent sm:block" />
-          <span className="pointer-events-none absolute inset-x-5 top-0 hidden h-4 blur-md bg-gradient-to-r from-transparent via-primary/35 to-transparent sm:block" />
-          {/* mobile: left glow */}
-          <span className="pointer-events-none absolute left-0 inset-y-3 sm:hidden w-px rounded-full bg-gradient-to-b from-transparent via-primary/85 to-transparent" />
-          <span className="pointer-events-none absolute left-0 inset-y-5 sm:hidden w-4 blur-md bg-gradient-to-b from-transparent via-primary/35 to-transparent" />
+          {/* desktop: accent underline */}
+          <span
+            className="pointer-events-none absolute inset-x-3 -bottom-[14px] hidden h-0.5 rounded-full bg-accent sm:block"
+            aria-hidden="true"
+          />
+          {/* mobile: accent edge */}
+          <span
+            className="pointer-events-none absolute inset-y-3 left-0 w-0.5 rounded-full bg-accent sm:hidden"
+            aria-hidden="true"
+          />
         </>
       )}
       {children}

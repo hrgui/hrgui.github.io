@@ -16,40 +16,41 @@ export function PortfolioShowcase({
   const { t } = useTranslation();
   const featuredItem = items?.find((item) => item.featured);
   const regularItems = items?.filter((item) => !item.featured);
-  const sectionClassName = hasTitle
-    ? "bg-surface px-6 pb-12 pt-8"
-    : "bg-surface px-6 py-8";
-
-  return (
-    <div data-testid="section-portfolio" className={sectionClassName}>
-      <div className={containerClassName}>
-        {hasTitle && (
-          <div className="mb-8 rounded-3xl border border-outline-variant bg-surface-container-lowest p-6 sm:p-8">
-            <p className="label-mono mb-2 text-primary">
-              {t("portfolio.showcase.moduleLabel")}
-            </p>
-            <h1 className="font-headline text-4xl font-semibold text-on-surface">
-              {t("portfolio.showcase.heading")}
-            </h1>
-            <p className="mt-3 text-on-surface-muted">
-              {t("portfolio.showcase.description")}
-            </p>
-
-            <div className="mt-8">
+  if (hasTitle) {
+    return (
+      <section className="hr-frame" data-testid="section-portfolio">
+        <div className="hr-frame-col">
+          <div className="hr-frame-grid">
+            <div className="hr-frame-cell">
+              <p className="label-mono mb-4 text-coral">
+                {t("portfolio.showcase.moduleLabel")}
+              </p>
+              <h1 className="text-headline text-fg md:text-display-md">
+                {t("portfolio.showcase.heading")}
+              </h1>
+              <p className="mt-4 max-w-[60ch] text-lead text-fg-muted">
+                {t("portfolio.showcase.description")}
+              </p>
+            </div>
+            <div className="hr-frame-cell">
               <PortfolioItems
                 regularItems={regularItems}
                 featuredItem={featuredItem}
               />
             </div>
           </div>
-        )}
+        </div>
+      </section>
+    );
+  }
 
-        {!hasTitle && (
-          <PortfolioItems
-            regularItems={regularItems}
-            featuredItem={featuredItem}
-          />
-        )}
+  return (
+    <div data-testid="section-portfolio" className="bg-canvas px-6 py-8">
+      <div className={containerClassName}>
+        <PortfolioItems
+          regularItems={regularItems}
+          featuredItem={featuredItem}
+        />
       </div>
     </div>
   );
