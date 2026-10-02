@@ -28,7 +28,7 @@
   --color-frame-bg: #ffffff;
   --color-glow-accent: rgba(0, 191, 255, 0.18);
   --color-glow-success: rgba(37, 165, 90, 0.14);
-  --color-grid-dot: rgba(113, 120, 126, 0.2);
+  --color-grid-dot: rgba(113, 120, 126, 0.09);
   /* legacy (Material-style) names, mapped onto the v2 palette */
   --color-background: #ffffff;
   --color-on-background: #1f2328;
@@ -178,7 +178,7 @@
   --color-frame-bg: #010409;
   --color-glow-accent: rgba(0, 191, 255, 0.28);
   --color-glow-success: rgba(63, 209, 122, 0.2);
-  --color-grid-dot: rgba(139, 148, 158, 0.16);
+  --color-grid-dot: rgba(139, 148, 158, 0.07);
   /* legacy (Material-style) names, mapped onto the v2 palette */
   --color-background: #0d1117;
   --color-on-background: #f0f6fc;
