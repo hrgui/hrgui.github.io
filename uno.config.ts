@@ -47,9 +47,9 @@ export default defineConfig<AppTheme>({
     "surface-module-highest":
       "bg-surface-container-highest text-on-surface shadow-floating",
     "label-mono": "font-mono text-label-sm uppercase tracking-[0.14em]",
-    "focus-ring":
+    "hr-focus-ring":
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
-    btn: "inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-solid border-transparent text-sm font-medium no-underline whitespace-nowrap cursor-pointer transition-colors duration-150 ease-out focus-ring disabled:opacity-50 disabled:pointer-events-none",
+    btn: "inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-solid border-transparent text-sm font-medium no-underline whitespace-nowrap cursor-pointer transition-colors duration-150 ease-out hr-focus-ring disabled:opacity-50 disabled:pointer-events-none",
     "btn-lg": "h-12 px-6 text-base",
     "btn-sm": "h-8 px-3 text-[13px]",
     "btn-primary": "btn bg-cta text-fg-on-emphasis hover:bg-cta-hover",

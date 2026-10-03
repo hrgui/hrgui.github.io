@@ -6,10 +6,10 @@ import AppSocialMedia from "./AppSocialMedia";
 import Logo from "./Logo";
 
 const footerLinkClassName =
-  "w-fit rounded-sm font-mono text-sm text-fg-muted no-underline transition-colors duration-150 ease-out hover:text-accent focus-ring";
+  "w-fit rounded-sm font-mono text-sm text-fg-muted no-underline transition-colors duration-150 ease-out hover:text-accent hr-focus-ring";
 
 const footerBackToTopClassName =
-  "rounded-sm font-mono text-sm text-accent transition-colors duration-150 ease-out hover:underline hover:underline-offset-4 focus-ring";
+  "rounded-sm font-mono text-sm text-accent transition-colors duration-150 ease-out hover:underline hover:underline-offset-4 hr-focus-ring";
 
 const Footer = () => {
   const { t } = useTranslation();

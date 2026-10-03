@@ -6,7 +6,7 @@ interface Props {
 
 const Logo = ({ className }: Props) => {
   return (
-    <a href="/" className="rounded-sm focus-ring" aria-label="hrgui home">
+    <a href="/" className="rounded-sm hr-focus-ring" aria-label="hrgui home">
       <div
         className={classNames(
           "font-display text-[1.75rem] font-extrabold leading-none tracking-[-0.04em] text-fg",

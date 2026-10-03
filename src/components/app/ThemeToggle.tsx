@@ -132,7 +132,7 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
       className={
         isDrawerVariant
           ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left text-sm font-medium text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
-          : "ml-1 inline-flex h-10 w-10 items-center justify-center rounded-md text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay focus-ring active:scale-95"
+          : "ml-1 inline-flex h-10 w-10 items-center justify-center rounded-md text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay hr-focus-ring active:scale-95"
       }
     >
       <ThemeIcon preference={themePreference} />

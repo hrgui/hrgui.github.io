@@ -120,7 +120,7 @@ export function Hero() {
             {typedHighlight && (
               <a
                 href="/portfolio"
-                className="group relative inline-block rounded-sm sm:whitespace-nowrap no-underline focus-ring"
+                className="group relative inline-block rounded-sm sm:whitespace-nowrap no-underline hr-focus-ring"
               >
                 <span
                   className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent to-success bg-clip-text text-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-55 dark:hidden"

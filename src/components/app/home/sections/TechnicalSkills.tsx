@@ -120,7 +120,7 @@ export function TechnicalSkills({
     return (
       <li key={index} className="pt-1 text-fg">
         <details className="group rounded-lg border border-solid border-border-muted bg-surface p-2">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-sm px-2 py-1 font-semibold text-fg marker:hidden focus-ring">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-sm px-2 py-1 font-semibold text-fg marker:hidden hr-focus-ring">
             <span className="pr-2 leading-tight">{title}</span>
             <span className="inline-flex items-center gap-2 text-xs text-fg-muted">
               <span className="rounded-full px-2 py-0.5 font-mono shadow-[inset_0_0_0_1px_var(--color-border)]">

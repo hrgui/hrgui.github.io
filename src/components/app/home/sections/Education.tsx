@@ -28,7 +28,7 @@ export function Education({
                   <a
                     href={url}
                     target="__blank"
-                    className="inline-block shrink-0 rounded-lg transition-transform duration-150 ease-out focus-ring active:scale-95"
+                    className="inline-block shrink-0 rounded-lg transition-transform duration-150 ease-out hr-focus-ring active:scale-95"
                   >
                     <img
                       loading="lazy"
