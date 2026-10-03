@@ -3,6 +3,7 @@ import debounce from "lodash.debounce";
 import type { JSX } from "preact";
 import { cloneElement, toChildArray } from "preact";
 import { useState, useCallback, useEffect, useRef } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import Next from "~/components/icons/Next";
 import Prev from "~/components/icons/Prev";
@@ -68,6 +69,7 @@ export default function Slider({
   onIndexChange,
   ...props
 }: Props) {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay] = useState(defaultIsAutoPlay);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -231,7 +233,7 @@ export default function Slider({
           {images.map((img, i) => (
             <SliderDot
               active={currentIndex === i}
-              aria-label={`Navigate to Item ${i + 1}`}
+              aria-label={t("portfolio.slider.goToItem", { number: i + 1 })}
               onClick={() => handleChangeImage(i)}
               key={i}
             />
@@ -251,7 +253,7 @@ export default function Slider({
             <button
               onClick={() => setIsDialogOpen(false)}
               className="absolute -top-10 right-0 text-white hover:text-surface-container transition-colors"
-              aria-label="Close dialog"
+              aria-label={t("portfolio.slider.closeDialog")}
             >
               <svg
                 width="32"

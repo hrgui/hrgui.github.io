@@ -194,7 +194,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
 
           {technologies.length === 0 && (
             <li className="border-b border-b-solid border-border-muted px-2 py-2.5 text-sm text-fg-muted">
-              No technology data available.
+              {t("portfolio.technologiesUsed.empty")}
             </li>
           )}
         </ul>

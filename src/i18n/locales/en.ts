@@ -3,10 +3,18 @@ const en = {
     home: "Home",
     blog: "Blog",
     portfolio: "Portfolio",
+    openMenu: "Open navigation",
+    homeLink: "hrgui home",
+  },
+  theme: {
+    toggleLabel: "Theme: {{preference}}. Click to switch to {{next}}.",
+    toggleTitle: "Theme: {{preference}} ({{resolved}})",
+    current: "Theme: {{preference}}",
   },
   footer: {
     bio: "Harman Goei (hrgui) is a developer that loves to make cool and awesome web applications. His strength is in HTML, CSS, JavaScript, but he is willing to code anywhere in the stack to make the web be awesome.",
     backToTop: "back to top?",
+    sitemapLabel: "~/sitemap",
     copyright: "© {{year}} Harman Goei",
   },
   social: {
@@ -76,6 +84,12 @@ const en = {
       viewOnGithub: "View on GitHub",
       viewOnGithubShort: "View on Github",
       viewItem: "View {{title}}",
+      viewProject: "View project",
+      itemOnGithub: "{{title}} on GitHub",
+      featuredLabel: "★ featured // {{id}}",
+      itemLabel: "> {{id}}",
+      moreLabel: "// more_on_github",
+      moreLink: "See everything else I've shipped",
     },
     entry: {
       projectLabel: "project_entry // live_record",
@@ -85,6 +99,10 @@ const en = {
       visitUrl: "Visit {{url}}",
       impactLabel: "impact_log // execution",
       notesLabel: "project_notes // context",
+    },
+    slider: {
+      goToItem: "Navigate to Item {{number}}",
+      closeDialog: "Close dialog",
     },
     technologiesUsed: {
       heading: "Technologies Used",
@@ -100,6 +118,7 @@ const en = {
       executeRead: "Read the post",
       readMore: "Read post",
       noPosts: "No posts available.",
+      hiddenSuffix: " (hidden)",
     },
     subHeader: {
       entryRecord: "ENTRY_RECORD",

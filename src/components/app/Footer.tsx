@@ -32,7 +32,9 @@ const Footer = () => {
             </p>
           </div>
           <div className="hr-frame-cell">
-            <p className="label-mono mb-4 text-accent">~/sitemap</p>
+            <p className="label-mono mb-4 text-accent">
+              {t("footer.sitemapLabel")}
+            </p>
             <nav className="flex flex-col gap-2">
               <a href="/" className={footerLinkClassName}>
                 {`> ${t("nav.home").toLowerCase()}`}

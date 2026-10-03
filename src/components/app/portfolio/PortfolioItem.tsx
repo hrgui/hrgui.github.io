@@ -1,4 +1,5 @@
 import Github from "~/components/icons/Github";
+import { useTranslation } from "~/i18n/context";
 import { getTechColor } from "~/components/portfolio/technologyColors";
 
 function generateId(
@@ -16,6 +17,7 @@ export function PortfolioItem({
   variant = "regular", // "featured"
   index,
 }) {
+  const { t } = useTranslation();
   const isFeatured = variant === "featured";
 
   const id = generateId(item.category || "", isFeatured, index);
@@ -30,13 +32,14 @@ export function PortfolioItem({
       <a
         href={`/portfolio/${item.slug}`}
         className="absolute inset-0 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
-        aria-label={`View ${item.title}`}
+        aria-label={t("portfolio.showcase.viewItem", { title: item.title })}
       />
 
       <div className="hr-project-copy flex flex-col items-start pr-6 md:pr-12">
         <p className="label-mono mb-4 text-fg-subtle">
-          {isFeatured ? "★ featured // " : "> "}
-          {id}
+          {isFeatured
+            ? t("portfolio.showcase.featuredLabel", { id })
+            : t("portfolio.showcase.itemLabel", { id })}
         </p>
 
         <h2
@@ -77,13 +80,17 @@ export function PortfolioItem({
 
         <div className="mt-auto flex h-[3.25rem] items-end gap-4">
           <div className="flex h-7 items-center gap-4">
-            <span className="hr-link">View project</span>
+            <span className="hr-link">
+              {t("portfolio.showcase.viewProject")}
+            </span>
             {item.githubUrl && (
               <a
                 href={item.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${item.title} on GitHub`}
+                aria-label={t("portfolio.showcase.itemOnGithub", {
+                  title: item.title,
+                })}
                 className="relative z-20 rounded-md p-1 text-fg-muted transition-colors duration-150 hover:bg-surface-overlay hover:text-fg hr-focus-ring"
               >
                 <Github width={20} height={20} aria-hidden="true" />

@@ -54,7 +54,7 @@ const Header = ({ currentPathName }: Props) => {
       >
         <button
           onClick={handleSetIsOpen}
-          aria-label="Open navigation"
+          aria-label={t("nav.openMenu")}
           className="-ml-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay hr-focus-ring sm:hidden"
         >
           <Menu className="h-5 w-5" />

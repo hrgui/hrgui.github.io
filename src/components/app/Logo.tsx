@@ -1,12 +1,18 @@
 import classNames from "classnames";
+import { useTranslation } from "~/i18n/context";
 
 interface Props {
   className?: string;
 }
 
 const Logo = ({ className }: Props) => {
+  const { t } = useTranslation();
   return (
-    <a href="/" className="rounded-sm hr-focus-ring" aria-label="hrgui home">
+    <a
+      href="/"
+      className="rounded-sm hr-focus-ring"
+      aria-label={t("nav.homeLink")}
+    >
       <div
         className={classNames(
           "font-display text-[1.75rem] font-extrabold leading-none tracking-[-0.04em] text-fg",

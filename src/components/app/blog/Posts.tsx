@@ -59,7 +59,9 @@ const Posts = ({ posts }: Props) => {
   );
 
   const hiddenSuffix = (hidden?: boolean) =>
-    hidden && process.env.NODE_ENV === "development" ? " (hidden)" : "";
+    hidden && process.env.NODE_ENV === "development"
+      ? t("blog.posts.hiddenSuffix")
+      : "";
 
   return (
     <section className="hr-frame">

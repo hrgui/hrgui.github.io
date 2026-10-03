@@ -1,4 +1,5 @@
 import { GITHUB_URL } from "~/constants";
+import { useTranslation } from "~/i18n/context";
 import { PortfolioItem } from "./PortfolioItem";
 
 // Fill the rest of the last row so the ruled grid never has a hole.
@@ -11,6 +12,7 @@ const LG_SPAN = [
 ];
 
 export function PortfolioItems({ featuredItem, regularItems }) {
+  const { t } = useTranslation();
   const count = regularItems?.length ?? 0;
   const mdRemainder = count % 2;
   const lgRemainder = count % 3;
@@ -30,14 +32,16 @@ export function PortfolioItems({ featuredItem, regularItems }) {
         <div
           className={`hr-frame-cell hidden ${MD_SPAN[mdRemainder]} ${LG_SPAN[lgRemainder]}`}
         >
-          <p className="label-mono mb-3 text-fg-subtle">// more_on_github</p>
+          <p className="label-mono mb-3 text-fg-subtle">
+            {t("portfolio.showcase.moreLabel")}
+          </p>
           <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hr-link"
           >
-            See everything else I've shipped
+            {t("portfolio.showcase.moreLink")}
           </a>
         </div>
       )}

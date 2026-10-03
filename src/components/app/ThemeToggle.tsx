@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import {
   applyThemePreference,
@@ -88,6 +89,7 @@ type Props = {
 };
 
 const ThemeToggle = ({ variant = "icon" }: Props) => {
+  const { t } = useTranslation();
   const [themePreference, setThemePreference] =
     useState<ThemePreference>("system");
 
@@ -125,10 +127,14 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
     <button
       type="button"
       onClick={handleToggleTheme}
-      aria-label={`Theme: ${themePreference}. Click to switch to ${getNextThemePreference(
-        themePreference
-      )}.`}
-      title={`Theme: ${themePreference} (${resolvedTheme})`}
+      aria-label={t("theme.toggleLabel", {
+        preference: themePreference,
+        next: getNextThemePreference(themePreference),
+      })}
+      title={t("theme.toggleTitle", {
+        preference: themePreference,
+        resolved: resolvedTheme,
+      })}
       className={
         isDrawerVariant
           ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left text-sm font-medium text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
@@ -137,7 +143,9 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
     >
       <ThemeIcon preference={themePreference} />
       {isDrawerVariant && (
-        <span className="capitalize">Theme: {themePreference}</span>
+        <span className="capitalize">
+          {t("theme.current", { preference: themePreference })}
+        </span>
       )}
     </button>
   );
