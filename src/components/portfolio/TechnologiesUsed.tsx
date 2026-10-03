@@ -107,10 +107,12 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
         {t("portfolio.technologiesUsed.heading")}
       </h3>
 
-      <div className="grid gap-6">
-        <div className="mx-auto">
+      {/* Donut and legend sit side by side when the cell is wide enough and
+          wrap to a stack when it isn't, so they never overflow the cell. */}
+      <div className="flex flex-wrap items-center gap-x-10 gap-y-8">
+        <div className="mx-auto shrink-0 sm:mx-0">
           <div
-            className="relative h-44 w-44 rounded-full border border-outline-variant/70 shadow-floating transition-all duration-300 ease-out"
+            className="relative h-44 w-44 rounded-full transition-all duration-300 ease-out"
             style={donutStyle}
             aria-hidden="true"
           >
@@ -125,7 +127,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
               />
             )}
             <div
-              className="absolute inset-8 rounded-full border bg-surface-container-low transition-colors duration-300"
+              className="absolute inset-8 rounded-full border border-solid border-border-muted bg-frame-bg transition-colors duration-300"
               style={{
                 borderColor:
                   activeSlice !== null
@@ -153,7 +155,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
           </div>
         </div>
 
-        <ul className="space-y-2">
+        <ul className="min-w-[13rem] flex-1 border-t border-t-solid border-border-muted">
           {slices.map((tech, index) => {
             const percentage =
               total > 0 ? Math.round((tech.value / total) * 100) : 0;
@@ -161,7 +163,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
             return (
               <li
                 key={tech.type}
-                className="flex cursor-pointer items-center justify-between rounded-lg border border-outline-variant bg-surface-container-high px-3 py-2 transition-all duration-200 hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-low active:scale-[0.99]"
+                className="flex cursor-pointer items-center justify-between gap-4 border-b border-b-solid border-border-muted px-2 py-2.5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
                 onFocus={() => setActiveIndex(index)}
@@ -171,22 +173,19 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
                   backgroundColor: isActive
                     ? hexToRgba(tech.color, 0.12)
                     : undefined,
-                  borderColor: isActive
-                    ? hexToRgba(tech.color, 0.6)
-                    : undefined,
                 }}
               >
-                <div className="flex items-center gap-2">
+                <div className="flex min-w-0 items-center gap-2.5">
                   <span
-                    className="h-2.5 w-2.5 rounded-sm"
+                    className="h-2 w-2 shrink-0 rounded-full"
                     style={{ backgroundColor: tech.color }}
                     aria-hidden="true"
                   />
-                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-on-surface">
+                  <span className="truncate font-mono text-xs uppercase tracking-[0.12em] text-fg">
                     {tech.type}
                   </span>
                 </div>
-                <span className="font-mono text-xs text-on-surface-muted">
+                <span className="shrink-0 font-mono text-xs tabular-nums text-fg-muted">
                   {percentage}%
                 </span>
               </li>
@@ -194,7 +193,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
           })}
 
           {technologies.length === 0 && (
-            <li className="rounded-lg border border-outline-variant bg-surface-container-high px-3 py-2 text-sm text-on-surface-muted">
+            <li className="border-b border-b-solid border-border-muted px-2 py-2.5 text-sm text-fg-muted">
               No technology data available.
             </li>
           )}
