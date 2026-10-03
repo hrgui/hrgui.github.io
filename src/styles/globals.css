@@ -24,7 +24,7 @@
   --color-success-muted: rgba(26, 127, 55, 0.1);
   --color-coral: #c4321f;
   --color-coral-muted: rgba(196, 50, 31, 0.1);
-  --color-grid-line: #d1d9e0;
+  --color-grid-line: #e4e8ec;
   --color-frame-bg: #ffffff;
   --color-glow-accent: rgba(0, 191, 255, 0.18);
   --color-glow-success: rgba(37, 165, 90, 0.14);
@@ -96,7 +96,7 @@
   --color-cta-rgb: 31 136 61;
   --color-cta-hover-rgb: 26 127 55;
   --color-coral-rgb: 196 50 31;
-  --color-grid-line-rgb: 209 217 224;
+  --color-grid-line-rgb: 228 232 236;
   --color-frame-bg-rgb: 255 255 255;
   --color-background-rgb: 255 255 255;
   --color-on-background-rgb: 31 35 40;
@@ -174,7 +174,7 @@
   --color-success-muted: rgba(63, 209, 122, 0.15);
   --color-coral: #ff8a78;
   --color-coral-muted: rgba(255, 138, 120, 0.15);
-  --color-grid-line: #30363d;
+  --color-grid-line: #21262d;
   --color-frame-bg: #010409;
   --color-glow-accent: rgba(0, 191, 255, 0.28);
   --color-glow-success: rgba(63, 209, 122, 0.2);
@@ -246,7 +246,7 @@
   --color-cta-rgb: 35 134 54;
   --color-cta-hover-rgb: 28 124 53;
   --color-coral-rgb: 255 138 120;
-  --color-grid-line-rgb: 48 54 61;
+  --color-grid-line-rgb: 33 38 45;
   --color-frame-bg-rgb: 1 4 9;
   --color-background-rgb: 13 17 23;
   --color-on-background-rgb: 240 246 252;
@@ -433,9 +433,35 @@ body {
 }
 /* Column widths mirror UnoCSS's responsive `container` (up to 1536px). */
 .hr-frame-col {
-  width: 100%;
+  /* Always keep a gutter so the column's side rules stay visible and the
+     full-bleed horizontal rules cross them (the "ruled sheet" look). */
+  width: calc(100% - 2rem);
   margin: 0 auto;
   border-inline: 1px solid var(--color-grid-line);
+  position: relative;
+}
+/* Registration marks: a small + where each band's top rule crosses the
+   column edges. */
+.hr-frame > .hr-frame-col:not(.hr-frame-col--bare)::before,
+.hr-frame > .hr-frame-col:not(.hr-frame-col--bare)::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--color-border), var(--color-border)) center / 9px 1px
+      no-repeat,
+    linear-gradient(var(--color-border), var(--color-border)) center / 1px 9px
+      no-repeat;
+}
+.hr-frame > .hr-frame-col:not(.hr-frame-col--bare)::before {
+  left: -5px;
+}
+.hr-frame > .hr-frame-col:not(.hr-frame-col--bare)::after {
+  right: -5px;
 }
 @media (min-width: 640px) {
   .hr-frame-col {
