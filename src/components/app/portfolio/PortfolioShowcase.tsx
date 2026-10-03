@@ -5,14 +5,11 @@ import { PortfolioItems } from "./PortfolioItems";
 interface Props {
   items: PortfolioFrontmatter[];
   hasTitle?: boolean;
+  /** @deprecated the grid now follows the shared frame column */
   containerClassName?: string;
 }
 
-export function PortfolioShowcase({
-  items,
-  hasTitle = true,
-  containerClassName = "container mx-auto max-w-[1536px]",
-}: Props) {
+export function PortfolioShowcase({ items, hasTitle = true }: Props) {
   const { t } = useTranslation();
   const featuredItem = items?.find((item) => item.featured);
   const regularItems = items?.filter((item) => !item.featured);
@@ -32,12 +29,10 @@ export function PortfolioShowcase({
                 {t("portfolio.showcase.description")}
               </p>
             </div>
-            <div className="hr-frame-cell">
-              <PortfolioItems
-                regularItems={regularItems}
-                featuredItem={featuredItem}
-              />
-            </div>
+            <PortfolioItems
+              regularItems={regularItems}
+              featuredItem={featuredItem}
+            />
           </div>
         </div>
       </section>
@@ -45,14 +40,14 @@ export function PortfolioShowcase({
   }
 
   return (
-    <div data-testid="section-portfolio" className="bg-canvas px-6 py-8">
-      <div className={containerClassName}>
+    <section data-testid="section-portfolio" className="hr-frame">
+      <div className="hr-frame-col">
         <PortfolioItems
           regularItems={regularItems}
           featuredItem={featuredItem}
         />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -691,3 +691,49 @@ body {
     grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
   }
 }
+
+/* Project cells (portfolio): 1 → 2 → 3 columns */
+@media (min-width: 768px) {
+  .hr-frame-grid--cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .hr-frame-grid--cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Featured project: copy left, screenshot bleeding off the right/bottom (stacked below 1024px) */
+@media (min-width: 1024px) {
+  .hr-project--featured {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    column-gap: 3rem;
+    align-items: stretch;
+  }
+  .hr-project--featured > .hr-frame-media {
+    margin-top: 0;
+    min-height: 340px;
+    max-height: 420px;
+    align-self: end;
+  }
+  .hr-project--featured > .hr-project-copy {
+    padding-bottom: 3rem;
+  }
+}
+
+/* Regular project cells: copy grows, screenshot is a fixed-height strip pinned
+   to the bottom, so screenshots line up across a row. */
+.hr-frame-grid--cards
+  > .hr-frame-cell--bleed:not(.hr-project--featured)
+  > .hr-project-copy {
+  flex: 1;
+}
+.hr-frame-grid--cards
+  > .hr-frame-cell--bleed:not(.hr-project--featured)
+  > .hr-frame-media {
+  flex: none;
+  height: 220px;
+  min-height: 0;
+}
