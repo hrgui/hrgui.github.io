@@ -23,8 +23,8 @@ export function Education({
           {education?.map(({ key, imgSrc, url, timeframe: { start, end } }) => {
             const title = t(`home.education.${key}.title`);
             return (
-              <article key={key} className="hr-frame-grid hr-frame-grid--aside">
-                <div className="hr-frame-cell flex items-center gap-4">
+              <article key={key} className="hr-frame-grid hr-frame-grid--logo">
+                <div className="hr-frame-cell flex items-center md:justify-center">
                   <a
                     href={url}
                     target="__blank"
@@ -37,14 +37,14 @@ export function Education({
                       className="h-16 w-16 rounded-lg border border-solid border-border-muted bg-surface object-contain p-2"
                     />
                   </a>
-                  <p className="font-mono text-sm text-fg-subtle">
-                    {start} → {end}
-                  </p>
                 </div>
                 <div className="hr-frame-cell">
                   <h3 className="mb-2 text-title-lg text-fg">{title}</h3>
                   <p className="text-fg-muted">
                     {t(`home.education.${key}.description`)}
+                  </p>
+                  <p className="label-mono mt-3 text-fg-subtle">
+                    {start} – {end}
                   </p>
                 </div>
               </article>
