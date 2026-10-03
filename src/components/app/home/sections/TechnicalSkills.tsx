@@ -79,10 +79,11 @@ function NestedList({
   depth = 0,
   ...props
 }: JSX.HTMLAttributes<HTMLUListElement> & { depth?: number }) {
+  // Nested items hang off a thin guide line instead of sitting in a box.
   const nestedClassName =
     depth === 0
-      ? "mt-2 space-y-1"
-      : "mt-2 space-y-1 border-l border-l-solid border-border-muted pl-3";
+      ? "border-t border-t-solid border-grid-line"
+      : "mb-3 ml-3 border-l border-l-solid border-grid-line pl-4";
 
   return <ul className={nestedClassName} {...props} />;
 }
@@ -102,13 +103,22 @@ export function TechnicalSkills({
     index: number,
     depth = 0
   ): JSX.Element => {
+    // Top-level items are hairline rows (like What I Did and the tech
+    // legend); nested items are plain lines under the guide.
+    const rowClassName =
+      depth === 0 ? "border-b border-b-solid border-grid-line" : "";
+
     if (typeof item === "string") {
       return (
         <li
           key={index}
-          className="rounded-sm px-3 py-1 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg"
+          className={`${rowClassName} flex gap-3 px-2 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay/50 hover:text-fg ${
+            depth === 0 ? "py-3" : "py-1.5"
+          }`}
         >
-          <span className="mr-2 font-mono text-accent">&gt;</span>
+          <span className="font-mono text-accent" aria-hidden="true">
+            &gt;
+          </span>
           {item}
         </li>
       );
@@ -118,9 +128,13 @@ export function TechnicalSkills({
     const leafCount = countLeafItems(item);
 
     return (
-      <li key={index} className="pt-1 text-fg">
-        <details className="group rounded-lg border border-solid border-border-muted bg-surface p-2">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-sm px-2 py-1 font-semibold text-fg marker:hidden hr-focus-ring">
+      <li key={index} className={`${rowClassName} text-fg`}>
+        <details className="group">
+          <summary
+            className={`flex cursor-pointer list-none items-center justify-between gap-3 px-2 font-semibold text-fg transition-colors duration-150 ease-out marker:hidden hover:bg-surface-overlay/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+              depth === 0 ? "py-3" : "py-1.5"
+            }`}
+          >
             <span className="pr-2 leading-tight">{title}</span>
             <span className="inline-flex items-center gap-2 text-xs text-fg-muted">
               <span className="rounded-full px-2 py-0.5 font-mono shadow-[inset_0_0_0_1px_var(--color-border)]">
@@ -216,11 +230,11 @@ export function TechnicalSkills({
                 </article>
 
                 <TechnicalSection title={title}>
-                  <ul className="space-y-1">
+                  <NestedList>
                     {section.items?.map((item, itemIndex) =>
                       mapTechnicalSkills(item, itemIndex)
                     )}
-                  </ul>
+                  </NestedList>
                 </TechnicalSection>
               </div>
             );

@@ -155,7 +155,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
           </div>
         </div>
 
-        <ul className="min-w-[13rem] flex-1 border-t border-t-solid border-border-muted">
+        <ul className="min-w-[13rem] flex-1 border-t border-t-solid border-grid-line">
           {slices.map((tech, index) => {
             const percentage =
               total > 0 ? Math.round((tech.value / total) * 100) : 0;
@@ -163,7 +163,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
             return (
               <li
                 key={tech.type}
-                className="flex cursor-pointer items-center justify-between gap-4 border-b border-b-solid border-border-muted px-2 py-2.5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+                className="flex cursor-pointer items-center justify-between gap-4 border-b border-b-solid border-grid-line px-2 py-2.5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
                 onFocus={() => setActiveIndex(index)}
@@ -193,7 +193,7 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
           })}
 
           {technologies.length === 0 && (
-            <li className="border-b border-b-solid border-border-muted px-2 py-2.5 text-sm text-fg-muted">
+            <li className="border-b border-b-solid border-grid-line px-2 py-2.5 text-sm text-fg-muted">
               {t("portfolio.technologiesUsed.empty")}
             </li>
           )}
