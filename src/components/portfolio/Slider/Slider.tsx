@@ -49,8 +49,12 @@ function scrollIntoElementView(
     return;
   }
 
-  const elToScrollToBoundingClientRect = elToScrollTo.getBoundingClientRect();
-  const left = element.scrollLeft + elToScrollToBoundingClientRect.left;
+  // Measure relative to the container, not the viewport: the slider isn't
+  // always full-bleed (e.g. inside a centred article column).
+  const left =
+    element.scrollLeft +
+    elToScrollTo.getBoundingClientRect().left -
+    element.getBoundingClientRect().left;
 
   return element.scrollTo({
     top: 0,
@@ -140,6 +144,8 @@ export default function Slider({
 
   const getStagedImages = (images: any[], currentIndex: number) => {
     const createProps = (index: number, isDuplicate = false) => ({
+      // The wrap-around clones need their own keys, or Preact sees duplicates.
+      key: isDuplicate ? `duplicate-${index}` : `item-${index}`,
       "data-carousel-index": index,
       "data-testid": `carousel__item--${index}${
         isDuplicate ? "--duplicate" : ""
