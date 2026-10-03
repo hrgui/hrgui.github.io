@@ -777,3 +777,20 @@ body {
     grid-template-columns: auto minmax(0, 1fr);
   }
 }
+
+/* Footer: a solid aqua divide across the full width (GitHub-style) and a
+   faint aqua tint on the footer's cells. The aqua rule replaces the usual
+   hairline + registration marks at the top. */
+.hr-footer {
+  --color-frame-bg: color-mix(
+    in srgb,
+    var(--color-canvas-inset) 96%,
+    var(--color-accent-emphasis)
+  );
+  background: var(--color-frame-bg);
+  border-top: 2px solid var(--color-accent-emphasis);
+}
+.hr-frame.hr-footer > .hr-frame-col:not(.hr-frame-col--bare)::before,
+.hr-frame.hr-footer > .hr-frame-col:not(.hr-frame-col--bare)::after {
+  content: none;
+}

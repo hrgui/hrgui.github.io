@@ -20,7 +20,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="hr-frame hr-frame--end bg-canvas-inset text-fg"
+      className="hr-frame hr-frame--end hr-footer text-fg"
       data-testid="footer"
     >
       <div className="hr-frame-col">
