@@ -44,7 +44,7 @@ const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
             </div>
           )}
 
-          <h1 className="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text font-headline text-4xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+          <h1 className="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text pb-[0.12em] !leading-[1.15] font-headline text-4xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
             {title}
           </h1>
 

@@ -52,7 +52,7 @@ const PortfolioEntry = ({
             <p className="label-mono mb-3 text-tertiary">
               {t("portfolio.entry.projectLabel")}
             </p>
-            <h1 className="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+            <h1 className="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text pb-[0.12em] !leading-[1.15] font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
               {title}
             </h1>
           </div>
