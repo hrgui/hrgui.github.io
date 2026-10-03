@@ -17,22 +17,19 @@ const summaryCards = [
     key: "javascript",
     titleKey: "home.technicalSkills.javascript.title",
     subtitleKey: "home.technicalSkills.javascript.subtitle",
-    className: "text-primary",
-    accentBorderClassName: "border-primary",
+    className: "text-accent",
   },
   {
     key: "html-css",
     titleKey: "home.technicalSkills.htmlCss.title",
     subtitleKey: "home.technicalSkills.htmlCss.subtitle",
-    className: "text-secondary",
-    accentBorderClassName: "border-secondary",
+    className: "text-success",
   },
   {
     key: "other",
     titleKey: "home.technicalSkills.other.title",
     subtitleKey: "home.technicalSkills.other.subtitle",
-    className: "text-tertiary",
-    accentBorderClassName: "border-tertiary",
+    className: "text-coral",
   },
 ];
 
@@ -69,11 +66,11 @@ function TechnicalSection({
 }) {
   return (
     <section
-      className={`rounded-3xl border border-outline-variant bg-surface-container-low p-6 ${className ?? ""}`}
+      className={`hr-frame-cell ${className ?? ""}`}
       aria-label={title}
       {...props}
     >
-      <div className="leading-6 text-on-surface-muted">{children}</div>
+      <div className="leading-6 text-fg-muted">{children}</div>
     </section>
   );
 }
@@ -82,10 +79,11 @@ function NestedList({
   depth = 0,
   ...props
 }: JSX.HTMLAttributes<HTMLUListElement> & { depth?: number }) {
+  // Nested items hang off a thin guide line instead of sitting in a box.
   const nestedClassName =
     depth === 0
-      ? "mt-3 space-y-3"
-      : "mt-3 space-y-3 rounded-xl border border-outline-variant bg-surface-container-high/80 p-4";
+      ? "border-t border-t-solid border-grid-line"
+      : "mb-3 ml-3 border-l border-l-solid border-grid-line pl-4";
 
   return <ul className={nestedClassName} {...props} />;
 }
@@ -105,13 +103,22 @@ export function TechnicalSkills({
     index: number,
     depth = 0
   ): JSX.Element => {
+    // Top-level items are hairline rows (like What I Did and the tech
+    // legend); nested items are plain lines under the guide.
+    const rowClassName =
+      depth === 0 ? "border-b border-b-solid border-grid-line" : "";
+
     if (typeof item === "string") {
       return (
         <li
           key={index}
-          className="rounded-lg border border-transparent py-0.5 pl-4 text-on-surface-muted transition-colors duration-150 ease-out hover:border-outline-variant/60 hover:bg-surface-container"
+          className={`${rowClassName} flex gap-3 px-2 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay/50 hover:text-fg ${
+            depth === 0 ? "py-3" : "py-1.5"
+          }`}
         >
-          <span className="mr-2 text-primary/90">&gt;</span>
+          <span className="font-mono text-accent" aria-hidden="true">
+            &gt;
+          </span>
           {item}
         </li>
       );
@@ -121,15 +128,19 @@ export function TechnicalSkills({
     const leafCount = countLeafItems(item);
 
     return (
-      <li key={index} className="pt-1 text-on-surface">
-        <details className="group rounded-xl border border-outline-variant/90 bg-surface-container-high/60 p-3">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-md px-2 py-1 font-medium text-on-surface marker:hidden">
+      <li key={index} className={`${rowClassName} text-fg`}>
+        <details className="group">
+          <summary
+            className={`flex cursor-pointer list-none items-center justify-between gap-3 px-2 font-semibold text-fg transition-colors duration-150 ease-out marker:hidden hover:bg-surface-overlay/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+              depth === 0 ? "py-3" : "py-1.5"
+            }`}
+          >
             <span className="pr-2 leading-tight">{title}</span>
-            <span className="inline-flex items-center gap-2 text-xs text-on-surface-muted">
-              <span className="rounded-full border border-outline-variant px-2 py-0.5 font-mono tracking-[0.08em]">
+            <span className="inline-flex items-center gap-2 text-xs text-fg-muted">
+              <span className="rounded-full px-2 py-0.5 font-mono shadow-[inset_0_0_0_1px_var(--color-border)]">
                 {leafCount}
               </span>
-              <span className="text-primary transition-transform duration-200 ease-out group-open:rotate-90">
+              <span className="font-mono text-accent transition-transform duration-200 ease-out group-open:rotate-90">
                 &gt;
               </span>
             </span>
@@ -145,20 +156,22 @@ export function TechnicalSkills({
   };
 
   return (
-    <section
-      className="bg-surface px-6 pb-16"
-      data-testid="section-technical-skills"
-    >
-      <div className="container mx-auto">
-        <div className="rounded-[2rem] border border-primary/30 dark:border-primary/18 bg-surface-container-lowest px-6 py-8 shadow-floating sm:px-10 sm:py-12">
-          <div className="mb-10 flex items-center justify-between">
-            <p className="label-mono text-primary">
-              {t("home.technicalSkills.moduleLabel")}
-            </p>
+    <section className="hr-frame" data-testid="section-technical-skills">
+      <div className="hr-frame-col">
+        <div className="hr-frame-grid">
+          <div className="hr-frame-cell flex items-end justify-between gap-6">
+            <div>
+              <p className="label-mono mb-4 text-accent">
+                {t("home.technicalSkills.moduleLabel")}
+              </p>
+              <h1 className="text-headline text-fg md:text-display-md">
+                {t("home.technicalSkills.heading")}
+              </h1>
+            </div>
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
-              className="h-7 w-7 text-primary"
+              className="hidden h-8 w-8 shrink-0 text-accent sm:block"
             >
               <path
                 d="M12 2l8 4-8 4-8-4 8-4z"
@@ -187,54 +200,45 @@ export function TechnicalSkills({
             </svg>
           </div>
 
-          <h1 className="font-headline text-4xl font-semibold text-on-surface sm:text-6xl">
-            {t("home.technicalSkills.heading")}
-          </h1>
+          {technicalSkills?.map((section, index) => {
+            const title = getSectionTitle(section, index);
+            const card = (section.key && summaryCardMap[section.key]) ||
+              summaryCards[index] || {
+                titleKey: undefined,
+                subtitleKey: undefined,
+                className: "text-fg",
+              };
+            const cardTitle = card.titleKey ? t(card.titleKey) : title;
+            const cardSubtitle = card.subtitleKey
+              ? t(card.subtitleKey)
+              : "TECH_MODULE";
 
-          <div className="mt-10 space-y-6">
-            {technicalSkills?.map((section, index) => {
-              const title = getSectionTitle(section, index);
-              const card = (section.key && summaryCardMap[section.key]) ||
-                summaryCards[index] || {
-                  titleKey: undefined,
-                  subtitleKey: undefined,
-                  className: "text-on-surface",
-                  accentBorderClassName: "border-outline",
-                };
-              const cardTitle = card.titleKey ? t(card.titleKey) : title;
-              const cardSubtitle = card.subtitleKey
-                ? t(card.subtitleKey)
-                : "TECH_MODULE";
+            return (
+              <div
+                key={section.key ?? title}
+                className="hr-frame-grid hr-frame-grid--aside"
+              >
+                <article className="hr-frame-cell">
+                  <h2
+                    className={`text-title-lg md:text-headline ${card.className}`}
+                  >
+                    {cardTitle}
+                  </h2>
+                  <p className="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">
+                    {cardSubtitle}
+                  </p>
+                </article>
 
-              return (
-                <div
-                  key={section.key ?? title}
-                  className="rounded-3xl border border-outline-variant/80 bg-surface-container-low/40 p-4 sm:p-6"
-                >
-                  <div className="grid gap-4 md:grid-cols-[minmax(220px,280px)_1fr] md:items-start md:gap-6">
-                    <article
-                      className={`relative overflow-hidden p-6 border-solid border-t-0 border-r-0 border-l-0 border-b-2 md:border-b-0 md:border-l-2 ${card.className} ${card.accentBorderClassName}`}
-                    >
-                      <h2 className="font-headline text-4xl leading-tight sm:text-3xl">
-                        {cardTitle}
-                      </h2>
-                      <p className="mt-3 font-mono text-sm uppercase tracking-[0.12em] text-on-surface-muted">
-                        {cardSubtitle}
-                      </p>
-                    </article>
-
-                    <TechnicalSection title={title} className="mb-0 h-full">
-                      <ul className="space-y-3">
-                        {section.items?.map((item, itemIndex) =>
-                          mapTechnicalSkills(item, itemIndex)
-                        )}
-                      </ul>
-                    </TechnicalSection>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                <TechnicalSection title={title}>
+                  <NestedList>
+                    {section.items?.map((item, itemIndex) =>
+                      mapTechnicalSkills(item, itemIndex)
+                    )}
+                  </NestedList>
+                </TechnicalSection>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

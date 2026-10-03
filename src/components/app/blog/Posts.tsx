@@ -10,11 +10,20 @@ interface Props {
   posts?: Frontmatter[];
 }
 
-const postCardClassName =
-  "group flex h-full flex-col rounded-2xl border border-solid border-surface-container-low bg-surface-container-low px-7 py-8 transition-all duration-150 ease-out hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.995]";
+const postCellClassName =
+  "hr-frame-cell group flex flex-col no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent";
 
 const toNodeId = (index: number) =>
   `SYSLOG_${String(index + 1).padStart(2, "0")}`;
+
+// Empty cells that close the last row so the ruled grid never has a hole.
+// Literal class names so UnoCSS can see them.
+const MD_FILL = ["md:hidden", "md:block md:col-span-1"];
+const LG_FILL = [
+  "lg:hidden",
+  "lg:block lg:col-span-2",
+  "lg:block lg:col-span-1",
+];
 
 const Posts = ({ posts }: Props) => {
   const { t } = useTranslation();
@@ -30,131 +39,102 @@ const Posts = ({ posts }: Props) => {
 
   const [featuredPost, ...remainingPosts] = visiblePosts;
 
+  // featured spans 2 columns: md row = featured alone, lg row = featured + 1
+  const mdFill = remainingPosts.length % 2;
+  const lgFill = Math.max(remainingPosts.length - 1, 0) % 3;
+  const showFill = featuredPost && (mdFill > 0 || lgFill > 0);
+
+  const renderMeta = (date: string | undefined, index: number) => (
+    <div className="mb-6 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.14em]">
+      <div className="inline-flex items-center gap-3">
+        {checkIsNew(date) && (
+          <span className="rounded-full bg-success-muted px-2.5 py-0.5 font-semibold text-success">
+            {t("blog.posts.newBadge")}
+          </span>
+        )}
+        <span className="text-fg-muted">{toDisplayDate(date)}</span>
+      </div>
+      <span className="text-fg-subtle">{toNodeId(index)}</span>
+    </div>
+  );
+
+  const hiddenSuffix = (hidden?: boolean) =>
+    hidden && process.env.NODE_ENV === "development"
+      ? t("blog.posts.hiddenSuffix")
+      : "";
+
   return (
-    <section className="bg-background px-6 pb-20 pt-8">
-      <div className="container mx-auto space-y-6">
-        {featuredPost && (
-          <article
-            className="grid gap-6 lg:grid-cols-12"
-            data-testid={`posts-${featuredPost.slug}`}
-          >
+    <section className="hr-frame">
+      <div className="hr-frame-col">
+        <div className="hr-frame-grid hr-frame-grid--cards">
+          {featuredPost && (
             <a
               href={`${featuredPost.slug}`}
-              className={`${postCardClassName} lg:col-span-8`}
+              className={`${postCellClassName} md:col-span-2`}
+              data-testid={`posts-${featuredPost.slug}`}
             >
-              <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
-                <div className="inline-flex items-center gap-3">
-                  {checkIsNew(featuredPost.date) && (
-                    <span className="rounded bg-secondary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
-                      {t("blog.posts.newBadge")}
-                    </span>
-                  )}
-                  <p className="font-mono text-sm text-on-surface-muted">
-                    {toDisplayDate(featuredPost.date)}
-                  </p>
-                </div>
-                <span>{toNodeId(0)}</span>
-              </div>
+              {renderMeta(featuredPost.date, 0)}
               <h2
                 className={classNames(
-                  "font-headline text-3xl leading-tight text-on-surface sm:text-5xl font-semibold",
-                  {
-                    italic: featuredPost.hidden,
-                  }
+                  "max-w-[22ch] text-headline text-fg transition-colors duration-150 group-hover:text-accent md:text-display-md",
+                  { italic: featuredPost.hidden }
                 )}
               >
-                {featuredPost.title}{" "}
-                {featuredPost.hidden &&
-                  process.env.NODE_ENV === "development" &&
-                  `(hidden)`}
+                {featuredPost.title}
+                {hiddenSuffix(featuredPost.hidden)}
               </h2>
-              <p className="mt-6 max-w-4xl text-2xl text-on-surface-muted">
-                {featuredPost.excerpt}
-              </p>
-              <div className="mt-auto flex items-center justify-end pt-12">
-                <span className="font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                  {t("blog.posts.executeRead")}
-                </span>
-              </div>
+              {featuredPost.excerpt && (
+                <p className="mt-5 max-w-[60ch] text-lead text-fg-muted">
+                  {featuredPost.excerpt}
+                </p>
+              )}
+              <span className="hr-link mt-auto pt-10">
+                {t("blog.posts.executeRead")}
+              </span>
             </a>
+          )}
 
-            {remainingPosts[0] && (
-              <a
-                href={`${remainingPosts[0].slug}`}
-                className={`${postCardClassName} lg:col-span-4`}
-                data-testid={`posts-${remainingPosts[0].slug}`}
+          {remainingPosts.map((post, index) => (
+            <a
+              href={`${post.slug}`}
+              key={post.slug}
+              data-testid={`posts-${post.slug}`}
+              className={postCellClassName}
+            >
+              {renderMeta(post.date, index + 1)}
+              <h3
+                className={classNames(
+                  "text-title-lg text-fg transition-colors duration-150 group-hover:text-accent",
+                  { italic: post.hidden }
+                )}
               >
-                <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
-                  <p className="font-mono text-sm text-on-surface-muted">
-                    {toDisplayDate(remainingPosts[0].date)}
-                  </p>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-outline">
-                    {toNodeId(1)}
-                  </p>
-                </div>
-
-                <h3 className="mt-3 font-headline text-4xl leading-tight text-on-surface font-semibold">
-                  {remainingPosts[0].title}
-                </h3>
-                <p className="mt-4 text-xl text-on-surface-muted">
-                  {remainingPosts[0].excerpt}
+                {post.title}
+                {hiddenSuffix(post.hidden)}
+              </h3>
+              {post.excerpt && (
+                <p className="mt-3 line-clamp-3 text-fg-muted">
+                  {post.excerpt}
                 </p>
-                <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                  {t("blog.posts.readMore")}
-                </p>
-              </a>
-            )}
-          </article>
-        )}
+              )}
+              <span className="hr-link mt-auto pt-8">
+                {t("blog.posts.readMore")}
+              </span>
+            </a>
+          ))}
 
-        {remainingPosts.length > 1 && (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {remainingPosts.slice(1).map((post, index) => {
-              return (
-                <a
-                  href={`${post.slug}`}
-                  key={post.slug}
-                  data-testid={`posts-${post.slug}`}
-                  className={postCardClassName}
-                >
-                  <div className="mb-7 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-outline">
-                    <p className="font-mono text-sm text-on-surface-muted">
-                      {toDisplayDate(post.date)}
-                    </p>
-                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-outline">
-                      {toNodeId(index + 2)}
-                    </p>
-                  </div>
-                  <h3
-                    className={classNames(
-                      "font-headline text-4xl leading-tight text-on-surface font-semibold",
-                      {
-                        italic: post.hidden,
-                      }
-                    )}
-                  >
-                    {post.title}{" "}
-                    {post.hidden &&
-                      process.env.NODE_ENV === "development" &&
-                      `(hidden)`}
-                  </h3>
-                  <p className="mt-4 text-xl text-on-surface-muted">
-                    {post.excerpt}
-                  </p>
-                  <p className="mt-auto pt-8 text-right font-mono text-sm uppercase tracking-[0.16em] text-primary transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-                    {t("blog.posts.readMore")}
-                  </p>
-                </a>
-              );
-            })}
-          </div>
-        )}
+          {showFill && (
+            <div
+              className={`hr-frame-cell hidden ${MD_FILL[mdFill]} ${LG_FILL[lgFill]}`}
+              aria-hidden="true"
+            />
+          )}
 
-        {visiblePosts.length === 0 && (
-          <div className="rounded-2xl border border-outline-variant bg-surface-container-low px-7 py-8 text-on-surface-muted">
-            {t("blog.posts.noPosts")}
-          </div>
-        )}
+          {visiblePosts.length === 0 && (
+            <div className="hr-frame-cell col-span-full text-fg-muted">
+              {t("blog.posts.noPosts")}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

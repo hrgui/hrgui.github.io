@@ -25,7 +25,7 @@ const fullTitle = siteTitle === title ? title : `${title} | ${siteTitle}`;
 
         html.classList.toggle("dark", resolvedTheme === "dark");
         html.style.colorScheme = resolvedTheme;
-        html.style.backgroundColor = resolvedTheme === "dark" ? "#0f0f0f" : "#ffffff";
+        html.style.backgroundColor = resolvedTheme === "dark" ? "#0d1117" : "#ffffff";
       } catch {
         html.classList.remove("dark");
         html.style.colorScheme = "light";
@@ -55,7 +55,7 @@ const fullTitle = siteTitle === title ? title : `${title} | ${siteTitle}`;
 
     :root.dark {
       color-scheme: dark;
-      background-color: #0f0f0f;
+      background-color: #0d1117;
     }
   </style>
 

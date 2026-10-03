@@ -40,3 +40,6 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# local dev-server config for the Claude app
+/.claude/launch.json

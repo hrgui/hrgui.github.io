@@ -13,7 +13,7 @@ export type Props = {
 ---
 
 <!DOCTYPE html>
-<html lang={Astro.currentLocale ?? "en"} class="dark:bg-neutral-800">
+<html lang={Astro.currentLocale ?? "en"}>
   <Head title={title} description={description} />
   <AppLayout currentPathName={Astro.url.pathname} locale={Astro.currentLocale ?? "en"} client:visible>
     <slot />

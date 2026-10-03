@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import {
   applyThemePreference,
@@ -88,6 +89,7 @@ type Props = {
 };
 
 const ThemeToggle = ({ variant = "icon" }: Props) => {
+  const { t } = useTranslation();
   const [themePreference, setThemePreference] =
     useState<ThemePreference>("system");
 
@@ -125,19 +127,25 @@ const ThemeToggle = ({ variant = "icon" }: Props) => {
     <button
       type="button"
       onClick={handleToggleTheme}
-      aria-label={`Theme: ${themePreference}. Click to switch to ${getNextThemePreference(
-        themePreference
-      )}.`}
-      title={`Theme: ${themePreference} (${resolvedTheme})`}
+      aria-label={t("theme.toggleLabel", {
+        preference: themePreference,
+        next: getNextThemePreference(themePreference),
+      })}
+      title={t("theme.toggleTitle", {
+        preference: themePreference,
+        resolved: resolvedTheme,
+      })}
       className={
         isDrawerVariant
-          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left font-medium text-on-surface transition-all duration-150 ease-out hover:text-on-surface hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset active:bg-surface-container"
-          : "mr-3 inline-flex h-10 w-10 items-center justify-center rounded border border-outline-variant text-on-surface transition-all duration-150 ease-out hover:text-on-surface hover:bg-surface-container-high focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+          ? "inline-flex h-16 w-full items-center gap-2 px-6 text-left text-sm font-medium text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+          : "ml-1 inline-flex h-10 w-10 items-center justify-center rounded-md text-fg transition-colors duration-150 ease-out hover:bg-surface-overlay hr-focus-ring active:scale-95"
       }
     >
       <ThemeIcon preference={themePreference} />
       {isDrawerVariant && (
-        <span className="capitalize">Theme: {themePreference}</span>
+        <span className="capitalize">
+          {t("theme.current", { preference: themePreference })}
+        </span>
       )}
     </button>
   );

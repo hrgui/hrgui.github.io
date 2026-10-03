@@ -10,7 +10,7 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
   const hasIframe = Boolean(iframe);
 
   return (
-    <section className="bg-surface-container-lowest/60 py-0">
+    <div className="bg-canvas-inset">
       {!hasIframe && thumbnail && !images && (
         <div data-testid="portfolio-media-thumbnail">
           <img
@@ -29,7 +29,7 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
                   <a
                     href={img.src}
                     target="__blank"
-                    className="block transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-inset active:scale-[0.995] cursor-pointer"
+                    className="block transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset active:scale-[0.995] cursor-pointer"
                   >
                     <img alt={title} src={img.thumbnail} />
                   </a>
@@ -54,11 +54,11 @@ const PortfolioMedia = ({ images, thumbnail, title, iframe }: Props) => {
       {hasIframe && (
         <iframe
           data-testid="portfolio-media-iframe"
-          className="hidden w-full max-w-none border-y border-outline-variant md:block"
+          className="hidden w-full max-w-none md:block"
           {...iframe}
         />
       )}
-    </section>
+    </div>
   );
 };
 

@@ -1,16 +1,15 @@
 import { useTranslation } from "~/i18n/context";
 
-import Link from "~/components/layout/Link";
 import LinkButton from "~/components/layout/LinkButton";
 
 import AppSocialMedia from "./AppSocialMedia";
 import Logo from "./Logo";
 
 const footerLinkClassName =
-  "font-mono text-sm uppercase tracking-[0.16em] text-primary transition-all duration-150 ease-out hover:text-primary-container hover:underline hover:decoration-2 hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:opacity-80";
+  "w-fit rounded-sm font-mono text-sm text-fg-muted no-underline transition-colors duration-150 ease-out hover:text-accent hr-focus-ring";
 
 const footerBackToTopClassName =
-  "font-mono text-sm uppercase tracking-[0.16em] text-primary transition-all duration-150 ease-out hover:text-primary-container hover:underline hover:decoration-2 hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-high active:opacity-80";
+  "rounded-sm font-mono text-sm text-accent transition-colors duration-150 ease-out hover:underline hover:underline-offset-4 hr-focus-ring";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -20,36 +19,37 @@ const Footer = () => {
   }
 
   return (
-    <div
-      className="bg-gray-200 dark:bg-neutral-800 dark:text-gray-200"
+    <footer
+      className="hr-frame hr-frame--end hr-footer text-fg"
       data-testid="footer"
     >
-      <div className="container mx-auto">
-        <div className="p-6 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8">
-          <div>
+      <div className="hr-frame-col">
+        <div className="hr-frame-grid hr-frame-grid--2">
+          <div className="hr-frame-cell">
             <Logo />
-            <p className="prose prose-sm dark:text-gray-200 mt-4 mb-4">
+            <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-muted">
               {t("footer.bio")}
             </p>
           </div>
-          <div className="mb-4 mt-4">
-            <nav className="flex flex-col gap-1">
-              <Link href="/" className={footerLinkClassName}>
-                {t("nav.home")}
-              </Link>
-              <Link href="/posts" className={footerLinkClassName}>
-                {t("nav.blog")}
-              </Link>
-              <Link href="/portfolio" className={footerLinkClassName}>
-                {t("nav.portfolio")}
-              </Link>
+          <div className="hr-frame-cell">
+            <p className="label-mono mb-4 text-accent">
+              {t("footer.sitemapLabel")}
+            </p>
+            <nav className="flex flex-col gap-2">
+              <a href="/" className={footerLinkClassName}>
+                {`> ${t("nav.home").toLowerCase()}`}
+              </a>
+              <a href="/posts" className={footerLinkClassName}>
+                {`> ${t("nav.blog").toLowerCase()}`}
+              </a>
+              <a href="/portfolio" className={footerLinkClassName}>
+                {`> ${t("nav.portfolio").toLowerCase()}`}
+              </a>
             </nav>
           </div>
         </div>
-      </div>
-      <div className="p-6 bg-gray-200 dark:bg-neutral-800 border-t-2 border-gray-300 dark:border-neutral-700 dark:text-gray-200">
-        <div className="container mx-auto flex justify-between">
-          <div className="font-mono text-sm uppercase tracking-[0.12em] text-on-surface-muted">
+        <div className="flex flex-col gap-4 border-t border-t-solid border-grid-line px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-12">
+          <div className="font-mono text-xs text-fg-subtle">
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </div>
           <AppSocialMedia />
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

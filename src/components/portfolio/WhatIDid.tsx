@@ -8,16 +8,18 @@ const WhatIDid = ({ whatIDid }: Props) => {
   const { t } = useTranslation();
   return (
     <div>
-      <h3 className="mb-6 font-headline text-2xl font-semibold text-on-surface md:text-4xl">
+      <h3 className="mb-6 text-headline text-fg">
         {t("portfolio.whatIDid.heading")}
       </h3>
-      <ul className="space-y-3">
+      <ul className="border-t border-t-solid border-grid-line">
         {whatIDid.map((bullet, i) => (
           <li
             key={i}
-            className="rounded-lg border border-outline-variant bg-surface-container-high px-4 py-3 text-on-surface-muted"
+            className="flex gap-3 border-b border-b-solid border-grid-line py-3 text-fg-muted"
           >
-            <span className="mr-2 text-primary">&gt;</span>
+            <span className="font-mono text-accent" aria-hidden="true">
+              &gt;
+            </span>
             {bullet}
           </li>
         ))}

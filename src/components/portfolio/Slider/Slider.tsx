@@ -3,6 +3,7 @@ import debounce from "lodash.debounce";
 import type { JSX } from "preact";
 import { cloneElement, toChildArray } from "preact";
 import { useState, useCallback, useEffect, useRef } from "preact/hooks";
+import { useTranslation } from "~/i18n/context";
 
 import Next from "~/components/icons/Next";
 import Prev from "~/components/icons/Prev";
@@ -48,8 +49,12 @@ function scrollIntoElementView(
     return;
   }
 
-  const elToScrollToBoundingClientRect = elToScrollTo.getBoundingClientRect();
-  const left = element.scrollLeft + elToScrollToBoundingClientRect.left;
+  // Measure relative to the container, not the viewport: the slider isn't
+  // always full-bleed (e.g. inside a centred article column).
+  const left =
+    element.scrollLeft +
+    elToScrollTo.getBoundingClientRect().left -
+    element.getBoundingClientRect().left;
 
   return element.scrollTo({
     top: 0,
@@ -68,6 +73,7 @@ export default function Slider({
   onIndexChange,
   ...props
 }: Props) {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay] = useState(defaultIsAutoPlay);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -138,6 +144,8 @@ export default function Slider({
 
   const getStagedImages = (images: any[], currentIndex: number) => {
     const createProps = (index: number, isDuplicate = false) => ({
+      // The wrap-around clones need their own keys, or Preact sees duplicates.
+      key: isDuplicate ? `duplicate-${index}` : `item-${index}`,
       "data-carousel-index": index,
       "data-testid": `carousel__item--${index}${
         isDuplicate ? "--duplicate" : ""
@@ -231,7 +239,7 @@ export default function Slider({
           {images.map((img, i) => (
             <SliderDot
               active={currentIndex === i}
-              aria-label={`Navigate to Item ${i + 1}`}
+              aria-label={t("portfolio.slider.goToItem", { number: i + 1 })}
               onClick={() => handleChangeImage(i)}
               key={i}
             />
@@ -251,7 +259,7 @@ export default function Slider({
             <button
               onClick={() => setIsDialogOpen(false)}
               className="absolute -top-10 right-0 text-white hover:text-surface-container transition-colors"
-              aria-label="Close dialog"
+              aria-label={t("portfolio.slider.closeDialog")}
             >
               <svg
                 width="32"
