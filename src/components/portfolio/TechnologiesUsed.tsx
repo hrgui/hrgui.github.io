@@ -103,11 +103,11 @@ const TechnologiesUsed = ({ className, ...props }: Props) => {
 
   return (
     <div className={className}>
-      <h3 className="mb-6 font-headline text-2xl font-semibold text-on-surface md:text-4xl">
+      <h3 className="mb-6 text-headline text-fg">
         {t("portfolio.technologiesUsed.heading")}
       </h3>
 
-      <div className="grid gap-6 md:grid-cols-[220px_1fr] md:items-center">
+      <div className="grid gap-6">
         <div className="mx-auto">
           <div
             className="relative h-44 w-44 rounded-full border border-outline-variant/70 shadow-floating transition-all duration-300 ease-out"

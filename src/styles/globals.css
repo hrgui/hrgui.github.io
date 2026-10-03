@@ -737,3 +737,10 @@ body {
   height: 220px;
   min-height: 0;
 }
+
+/* Project page: wide content column + narrow side column */
+@media (min-width: 1024px) {
+  .hr-frame-grid--entry {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
