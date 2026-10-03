@@ -11,13 +11,3 @@ export const linkClassName = ctl(
   focus-visible:ring-offset-2 focus-visible:ring-offset-canvas
   active:opacity-85`
 );
-
-export const blogEntryClassName = ctl(`
-  prose dark:prose-invert 
-  prose-md lg:prose-lg 
-  max-w-[1536px] 
-  mx-auto 
-  
-  prose-a:text-accent 
-  prose-a:no-underline 
-  hover:prose-a:underline`);

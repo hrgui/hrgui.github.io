@@ -11,51 +11,45 @@ type Props = {
 
 const BlogSubHeader = ({ hidden, date, title, excerpt }: Props) => {
   const { t } = useTranslation();
+  const isDevHidden = hidden && process.env.NODE_ENV === "development";
+
   return (
-    <section className="circuit-board-bg relative overflow-hidden px-6 pb-8 pt-28">
-      <div className="relative z-10 container mx-auto max-w-[1536px]">
-        {date && (
-          <div className="mb-8 flex items-center gap-4">
-            <div className="flex items-center gap-2 whitespace-nowrap font-mono text-sm text-primary bg-primary/10 px-2 py-1 rounded tracking-widest">
-              <span className={"uppercase"}>{toDisplayDate(date)} //</span>
-              <span className="text-primary">
-                {t("blog.subHeader.entryRecord")}
-              </span>
-              {hidden && process.env.NODE_ENV === "development" && (
-                <span className="rounded bg-tertiary/18 px-2 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-tertiary">
+    <section className="hr-stage">
+      <div className="hr-frame-col hr-frame-col--bare px-6 pb-14 pt-32 md:px-12 md:pt-36">
+        {/* Same centred reading width as the article body */}
+        <div className="mx-auto max-w-[960px]">
+          {(date || isDevHidden) && (
+            <div className="mb-5 flex flex-wrap items-center gap-3">
+              {date && (
+                <p className="label-mono text-accent">
+                  {toDisplayDate(date)} // {t("blog.subHeader.entryRecord")}
+                </p>
+              )}
+              {isDevHidden && (
+                <span className="rounded-full bg-coral-muted px-2.5 py-0.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-coral">
                   {t("blog.subHeader.hiddenDraft")}
                 </span>
               )}
             </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-primary via-outline-variant/60 to-outline-variant"></div>
-          </div>
-        )}
-
-        <div className="mb-8">
-          {!date && hidden && process.env.NODE_ENV === "development" && (
-            <div className="mb-5 inline-flex rounded bg-tertiary/18 px-2 py-1 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-tertiary">
-              {t("blog.subHeader.hiddenDraft")}
-            </div>
           )}
 
-          {hidden && process.env.NODE_ENV === "development" && (
-            <div className="mb-6 max-w-3xl rounded-2xl border border-tertiary/40 bg-tertiary/10 px-4 py-3 text-sm text-on-surface">
+          {isDevHidden && (
+            <p className="mb-6 max-w-[60ch] border-l-2 border-l-solid border-coral pl-4 text-sm text-fg-muted">
               {t("blog.subHeader.hiddenWarning")}
-            </div>
+            </p>
           )}
 
-          <h1 className="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text pb-[0.12em] !leading-[1.15] font-headline text-4xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+          <h1 className="max-w-[24ch] bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text pb-[0.12em] !leading-[1.1] font-display text-[2.5rem] font-extrabold tracking-[-0.035em] text-transparent md:text-display-md">
             {title}
           </h1>
 
           {excerpt && (
-            <p className="mt-6 text-lg leading-relaxed text-on-surface-muted sm:text-xl">
+            <p className="mt-5 max-w-[60ch] text-lead text-fg-muted">
               {excerpt}
             </p>
           )}
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
     </section>
   );
 };

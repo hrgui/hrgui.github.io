@@ -794,3 +794,72 @@ body {
 .hr-frame.hr-footer > .hr-frame-col:not(.hr-frame-col--bare)::after {
   content: none;
 }
+
+/* Prose mapped onto the design tokens. Both the normal and "invert" (dark)
+   variables point at the same tokens, since the tokens already switch with
+   the theme. */
+.hr-prose.prose {
+  --un-prose-body: var(--color-fg-muted);
+  --un-prose-headings: var(--color-fg);
+  --un-prose-lead: var(--color-fg-muted);
+  --un-prose-links: var(--color-accent);
+  --un-prose-bold: var(--color-fg);
+  --un-prose-counters: var(--color-fg-subtle);
+  --un-prose-bullets: var(--color-accent);
+  --un-prose-hr: var(--color-grid-line);
+  --un-prose-quotes: var(--color-fg);
+  --un-prose-quote-borders: var(--color-accent-emphasis);
+  --un-prose-captions: var(--color-fg-subtle);
+  --un-prose-code: var(--color-fg);
+  --un-prose-pre-code: var(--color-fg);
+  --un-prose-pre-bg: var(--color-canvas-inset);
+  --un-prose-th-borders: var(--color-grid-line);
+  --un-prose-td-borders: var(--color-grid-line);
+  --un-prose-kbd: var(--color-fg);
+  --un-prose-invert-body: var(--color-fg-muted);
+  --un-prose-invert-headings: var(--color-fg);
+  --un-prose-invert-lead: var(--color-fg-muted);
+  --un-prose-invert-links: var(--color-accent);
+  --un-prose-invert-bold: var(--color-fg);
+  --un-prose-invert-counters: var(--color-fg-subtle);
+  --un-prose-invert-bullets: var(--color-accent);
+  --un-prose-invert-hr: var(--color-grid-line);
+  --un-prose-invert-quotes: var(--color-fg);
+  --un-prose-invert-quote-borders: var(--color-accent-emphasis);
+  --un-prose-invert-captions: var(--color-fg-subtle);
+  --un-prose-invert-code: var(--color-fg);
+  --un-prose-invert-pre-code: var(--color-fg);
+  --un-prose-invert-pre-bg: var(--color-canvas-inset);
+  --un-prose-invert-th-borders: var(--color-grid-line);
+  --un-prose-invert-td-borders: var(--color-grid-line);
+  --un-prose-invert-kbd: var(--color-fg);
+}
+.hr-prose :where(h1, h2, h3, h4) {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.hr-prose :where(a) {
+  text-underline-offset: 3px;
+}
+.hr-prose :where(:not(pre) > code) {
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: var(--color-surface-raised);
+  font-size: 0.875em;
+  font-weight: 500;
+}
+.hr-prose :where(:not(pre) > code)::before,
+.hr-prose :where(:not(pre) > code)::after {
+  content: none;
+}
+.hr-prose :where(pre) {
+  border: 1px solid var(--color-grid-line);
+  border-radius: 12px;
+}
+.hr-prose :where(img) {
+  border-radius: 12px;
+}
+.hr-prose :where(blockquote) {
+  font-style: normal;
+}
