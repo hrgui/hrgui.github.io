@@ -97,8 +97,8 @@ const en = {
   blog: {
     posts: {
       newBadge: "New",
-      executeRead: "Execute_Read ->",
-      readMore: "Read_More ->",
+      executeRead: "Read the post",
+      readMore: "Read post",
       noPosts: "No posts available.",
     },
     subHeader: {
