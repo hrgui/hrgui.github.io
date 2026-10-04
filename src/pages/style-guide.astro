@@ -1,314 +1,574 @@
 ---
 import DefaultPageLayout from "~/layouts/default.astro";
+import globalsCss from "~/styles/globals.css?raw";
 
+const title = "Style guide";
 const description =
-  "Internal style guide for guipunk_ components, tokens, surfaces, and interaction patterns.";
+  "The hrgui design system on one page: tokens, type, the framed grid and the components the site is built from.";
 
-const palette = [
+/**
+ * Token values are read straight from globals.css, so this page can't drift
+ * from the stylesheet. Only the grouping and the usage notes live here.
+ */
+function readTokens(selector: string) {
+  const start = globalsCss.indexOf(`${selector} {`);
+  const block = globalsCss.slice(start, globalsCss.indexOf("\n}", start));
+  const tokens: Record<string, string> = {};
+  for (const [, name, value] of block.matchAll(/--([a-z0-9-]+):\s*([^;]+);/g)) {
+    tokens[name] = value.replace(/\s+/g, " ").trim();
+  }
+  return tokens;
+}
+
+const light = readTokens(":root");
+const dark = readTokens(".dark");
+
+const colorGroups = [
   {
-    name: "Primary",
-    role: "Signal / anchor",
-    light: "#00668A",
-    dark: "#8FD6FF",
-    panelClass: "bg-primary text-on-primary",
-    valueClass: "text-on-primary",
+    title: "Canvas and surface",
+    note: "Grounds, from deepest to most raised.",
+    tokens: [
+      { name: "canvas-inset", usage: "Deepest ground: code windows, the dark frame fill." },
+      { name: "canvas", usage: "Page background." },
+      { name: "surface", usage: "Chips, media wells and cards sitting on canvas." },
+      { name: "surface-raised", usage: "Code-window title bars, menus." },
+      { name: "surface-overlay", usage: "Hover fill for rows and ghost buttons." },
+    ],
   },
   {
-    name: "Primary Container",
-    role: "Glow / emphasis",
-    light: "#00E5FF",
-    dark: "#00BFFF",
-    panelClass: "bg-primary-container text-on-primary-container",
-    valueClass: "text-on-primary-container",
+    title: "Foreground",
+    note: "Three steps of text. All pass AA on every ground.",
+    tokens: [
+      { name: "fg", usage: "Headlines and body copy." },
+      { name: "fg-muted", usage: "Leads, descriptions, secondary text." },
+      { name: "fg-subtle", usage: "Metadata, line numbers, quiet eyebrows." },
+      { name: "fg-on-emphasis", usage: "Text on cta fills." },
+    ],
   },
   {
-    name: "Secondary",
-    role: "Success / vitality",
-    light: "#25A55A",
-    dark: "#66DD8B",
-    panelClass: "bg-secondary text-on-secondary",
-    valueClass: "text-on-secondary",
+    title: "Border and frame",
+    note: "Hairlines carry the structure, so fills stay flat.",
+    tokens: [
+      { name: "grid-line", usage: "Frame rules, cell dividers, hairline rows." },
+      { name: "frame-bg", usage: "Fill of frame cells and their band." },
+      { name: "border-muted", usage: "Chip, code-window and media outlines." },
+      { name: "border", usage: "Counters, hover outlines. Utility name: edge." },
+      { name: "border-control", usage: "Secondary-button and input borders." },
+    ],
   },
   {
-    name: "Tertiary Container",
-    role: "Alert / contrast",
-    light: "#FF9585",
-    dark: "#FF9585",
-    panelClass: "bg-tertiary-container text-on-tertiary-container",
-    valueClass: "text-on-tertiary-container",
+    title: "Brand",
+    note: "Cyan leads. Green and coral number the second and third of a set.",
+    tokens: [
+      { name: "accent", usage: "Links, mono eyebrows, the logo cursor, focus ring." },
+      { name: "accent-emphasis", usage: "Accent fills and the footer divide." },
+      { name: "on-accent", usage: "Text on accent-emphasis fills." },
+      { name: "accent-muted", usage: "Tint behind accent text, highlighted code line." },
+      { name: "success", usage: "The $ prompt, passing checks, second-column accent." },
+      { name: "cta", usage: "Primary button fill. One per view." },
+      { name: "cta-hover", usage: "Hover fill for cta." },
+      { name: "success-muted", usage: "Tint behind added code lines." },
+      { name: "coral", usage: "Third-column accent, keywords in code." },
+      { name: "coral-muted", usage: "Tint behind coral text." },
+    ],
   },
   {
-    name: "Surface",
-    role: "Base canvas",
-    light: "#F3F7F7",
-    dark: "#121414",
-    panelClass: "bg-canvas text-on-surface border border-outline-variant",
-    valueClass: "text-on-surface-muted",
+    title: "Decoration",
+    note: "Hero stage only. Never carries meaning.",
+    tokens: [
+      { name: "glow-accent", usage: "Hero radial glow, top left." },
+      { name: "glow-success", usage: "Hero radial glow, top right." },
+      { name: "grid-dot", usage: "The 8px dot grid behind stage headers." },
+    ],
+  },
+].map((group) => ({
+  ...group,
+  tokens: group.tokens.map((token) => ({
+    ...token,
+    light: light[`color-${token.name}`],
+    dark: dark[`color-${token.name}`],
+  })),
+}));
+
+const typeStyles = [
+  {
+    name: "display-xl",
+    spec: "80/84 · 800 · -0.04em",
+    usage: "Home hero only.",
+    className: "text-[2.75rem] font-extrabold !leading-[1.05] tracking-[-0.04em] md:text-display-xl",
+    sample: "Ships pixels.",
   },
   {
-    name: "Surface High",
-    role: "Raised module",
-    light: "#DCE4E4",
-    dark: "#333535",
-    panelClass:
-      "bg-surface-container-highest text-on-surface border border-outline-variant",
-    valueClass: "text-on-surface-muted",
+    name: "display-md",
+    spec: "56/60 · 800 · -0.035em",
+    usage: "Page titles and section openers.",
+    className: "text-headline md:text-display-md",
+    sample: "Technical skills",
+  },
+  {
+    name: "headline",
+    spec: "40/46 · 700 · -0.025em",
+    usage: "Featured project and group titles.",
+    className: "text-title-lg md:text-headline",
+    sample: "Frontend at scale",
+  },
+  {
+    name: "title-lg",
+    spec: "24/32 · 600 · -0.01em",
+    usage: "Cell titles.",
+    className: "text-title-lg",
+    sample: "Passionate about the craft",
+  },
+  {
+    name: "lead",
+    spec: "20/30 · 400",
+    usage: "Paragraph under a title, in fg-muted.",
+    className: "text-lead text-fg-muted",
+    sample: "I build fast, accessible interfaces and the tooling behind them.",
+  },
+  {
+    name: "body",
+    spec: "16/24 · 400",
+    usage: "Default copy.",
+    className: "text-base leading-relaxed text-fg-muted",
+    sample: "Most of my week is TypeScript, design systems and CI pipelines.",
+  },
+  {
+    name: "label-mono",
+    spec: "JetBrains Mono · 12/16 · 500 · 0.14em · uppercase",
+    usage: "Eyebrow above titles.",
+    className: "label-mono text-accent",
+    sample: "01 // core",
+  },
+  {
+    name: "code",
+    spec: "JetBrains Mono · 14/22 · 400",
+    usage: "Prompts, code windows, chips.",
+    className: "font-mono text-sm text-fg [font-variant-ligatures:none]",
+    sample: "$ npx hrgui --about",
   },
 ];
 
-const vitals = [
-  { label: "Cortex Load", value: "75%", offset: "62", stroke: "text-primary" },
-  { label: "Thermal Flux", value: "30%", offset: "180", stroke: "text-secondary" },
-  { label: "Sync Rating", value: "92", offset: "20", stroke: "text-tertiary" },
+const frameClasses = [
+  { name: "hr-frame", usage: "Full-width band with a top hairline. One per section." },
+  { name: "hr-frame--end", usage: "Adds the closing bottom hairline (the footer)." },
+  { name: "hr-frame-col", usage: "Centred column with side rules and + registration marks." },
+  { name: "hr-frame-col--bare", usage: "Same column, no rules or marks. Used inside hr-stage." },
+  { name: "hr-frame-grid", usage: "1px-gap grid; the gap is the divider. Add --2, --3, --cards, --aside, --entry or --logo." },
+  { name: "hr-frame-cell", usage: "A cell. --tall adds vertical room, --bleed lets media run off the edge." },
+  { name: "hr-stage", usage: "Glow and dot-grid header. --screen fills the first viewport." },
 ];
 
+const radii = [
+  { name: "rounded-sm", value: "4px", usage: "Chips, inline code." },
+  { name: "rounded-md", value: "6px", usage: "Buttons, prompt chips." },
+  { name: "rounded-xl", value: "12px", usage: "Code windows, media." },
+  { name: "rounded-full", value: "9999px", usage: "Counters, dots." },
+];
+
+const shadows = [
+  { name: "shadow-card", usage: "Raised cards. Rare: frame cells stay flat." },
+  { name: "shadow-glow", usage: "Hover on a featured element." },
+  { name: "shadow-overlay", usage: "Drawer and menus." },
+];
+
+const rules = [
+  {
+    title: "Rules, not boxes",
+    body: "Structure comes from hairlines on a flat fill. Reach for a frame cell before a rounded card.",
+  },
+  {
+    title: "One-sided borders",
+    body: "Write border-t border-t-solid, never border-t border-solid. There is no border-width reset, so the latter draws all four sides.",
+  },
+  {
+    title: "Tokens, not hex",
+    body: "Use fg, accent, grid-line and friends. They switch with the theme; hard-coded colours don't.",
+  },
+  {
+    title: "Mono is a voice",
+    body: "JetBrains Mono for eyebrows, prompts, counts and code. Plus Jakarta Sans for everything people read.",
+  },
+];
 ---
 
-<DefaultPageLayout title="Style Guide" description={description}>
-  <main class="relative isolate min-h-screen overflow-hidden bg-background pt-24 text-on-background">
-    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div
-        class="absolute inset-0 opacity-90 dark:opacity-100"
-        style="background-image: radial-gradient(circle at 12% 8%, rgba(0, 229, 255, 0.16), transparent 28%), radial-gradient(circle at 82% 14%, rgba(37, 165, 90, 0.12), transparent 20%), linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 32%);"
-      ></div>
-      <div
-        class="absolute inset-0 opacity-35 dark:opacity-45"
-        style="background-image: linear-gradient(rgba(113, 120, 126, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(113, 120, 126, 0.08) 1px, transparent 1px); background-size: 100% 4px, 4px 100%;"
-      ></div>
+<DefaultPageLayout title={title} description={description}>
+  <section class="hr-stage">
+    <div class="hr-frame-col hr-frame-col--bare px-6 pb-14 pt-32 md:px-12 md:pt-36">
+      <p class="label-mono text-accent">design_system // v2</p>
+      <h1 class="mt-4 font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-fg md:text-display-md">
+        {title}<span class="text-accent">.</span>
+      </h1>
+      <p class="mt-4 max-w-[60ch] text-lead text-fg-muted">{description}</p>
+      <nav class="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Style guide sections">
+        <a class="hr-link" href="#color">Color</a>
+        <a class="hr-link" href="#type">Type</a>
+        <a class="hr-link" href="#frame">Frame</a>
+        <a class="hr-link" href="#components">Components</a>
+        <a class="hr-link" href="#rules">Rules</a>
+      </nav>
     </div>
+  </section>
 
-    <div class="relative z-10 mx-auto flex max-w-screen-2xl flex-col gap-18 px-6 pb-24 lg:px-10">
-      <section class="grid gap-8 border-b border-outline-variant pb-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(340px,0.85fr)] lg:items-end">
-        <div class="space-y-6">
-          <div class="flex flex-wrap items-center gap-3">
-            <span class="label-mono rounded-full border border-primary bg-primary px-3 py-1 text-on-primary">core_systems_01</span>
-            <span class="label-mono rounded-full border border-secondary bg-secondary px-3 py-1 text-on-secondary">translated_to_unocss</span>
-            <span class="label-mono rounded-full border border-outline-variant bg-surface-container-highest px-3 py-1 text-on-surface">toggle theme in header</span>
-          </div>
-          <div class="space-y-4">
-            <p class="font-mono text-[0.72rem] uppercase tracking-[0.35em] text-primary">hrgui // component reference</p>
-            <h1 class="font-headline text-display-lg text-on-background">
-              Style guide page for tokens, surfaces, and future components.
-            </h1>
-            <p class="text-lg leading-relaxed text-on-surface-muted">
-              This page translates the design boards in the design directory into the repo's semantic UnoCSS system. Use it as the living place for new modules before they become production components.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-4">
-            <a href="#palette" class="cta-hologram inline-flex items-center rounded px-5 py-3 font-headline text-sm font-semibold uppercase tracking-[0.18em] transition-transform hover:-translate-y-0.5">
-              inspect palette
-            </a>
-            <a href="#components" class="inline-flex items-center rounded border border-outline-variant bg-surface-container-low px-5 py-3 font-headline text-sm font-semibold uppercase tracking-[0.18em] text-on-surface transition-colors hover:border-primary hover:text-primary">
-              browse modules
-            </a>
-          </div>
+  <!-- 01 Color -->
+  <section id="color" class="hr-frame scroll-mt-16">
+    <div class="hr-frame-col">
+      <div class="hr-frame-grid">
+        <div class="hr-frame-cell">
+          <p class="label-mono mb-4 text-accent">01 // color</p>
+          <h2 class="text-headline text-fg md:text-display-md">Color</h2>
+          <p class="mt-4 max-w-[60ch] text-lead text-fg-muted">
+            Every token has a light and a dark value. Both are shown here, read from the stylesheet at build time.
+          </p>
         </div>
-      </section>
 
-      <section id="surfaces" class="space-y-8">
-        <div class="space-y-2">
-          <p class="label-mono text-secondary">module_manifest_02</p>
-          <h2 class="font-headline text-headline-lg text-on-background">Surfaces and shells</h2>
-        </div>
-        <div class="grid gap-6 lg:grid-cols-3">
-          <div class="surface-module rounded-3xl border border-outline-variant p-6">
-            <p class="label-mono text-primary">surface_module</p>
-            <h3 class="mt-4 font-headline text-2xl text-on-surface">Base module</h3>
-            <p class="mt-3 leading-relaxed text-on-surface-muted">
-              Default card background for content blocks, specs, and lower-priority supporting UI.
-            </p>
+        {colorGroups.map((group) => (
+          <div class="hr-frame-grid hr-frame-grid--aside">
+            <div class="hr-frame-cell">
+              <h3 class="text-title-lg text-fg">{group.title}</h3>
+              <p class="mt-3 text-base leading-relaxed text-fg-muted">{group.note}</p>
+            </div>
+            <div class="hr-frame-cell">
+              <ul class="border-t border-t-solid border-grid-line">
+                {group.tokens.map((token) => (
+                  <li class="grid gap-x-6 gap-y-2 border-b border-b-solid border-grid-line px-2 py-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                    <div class="min-w-0">
+                      <p class="font-mono text-sm text-fg">{token.name}</p>
+                      <p class="mt-1 text-sm text-fg-muted">{token.usage}</p>
+                    </div>
+                    <dl class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs text-fg-subtle">
+                      {[
+                        { theme: "light", value: token.light, ground: light["color-canvas"] },
+                        { theme: "dark", value: token.dark, ground: dark["color-canvas"] },
+                      ].map((swatch) => (
+                        <div class="flex items-center gap-2">
+                          <span
+                            class="block h-7 w-7 shrink-0 rounded-sm border border-solid border-border-muted p-1"
+                            style={`background:${swatch.ground}`}
+                            aria-hidden="true"
+                          >
+                            <span class="block h-full w-full rounded-[2px]" style={`background:${swatch.value}`} />
+                          </span>
+                          <div>
+                            <dt class="uppercase tracking-[0.14em]">{swatch.theme}</dt>
+                            <dd class="text-fg-muted">{swatch.value}</dd>
+                          </div>
+                        </div>
+                      ))}
+                    </dl>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div class="surface-module-raised rounded-3xl border border-outline-variant p-6">
-            <p class="label-mono text-secondary">surface_module_raised</p>
-            <h3 class="mt-4 font-headline text-2xl text-on-surface">Raised module</h3>
-            <p class="mt-3 leading-relaxed text-on-surface-muted">
-              Slight lift for active blocks, dashboard cards, and denser sections that need hierarchy.
-            </p>
-          </div>
-          <div class="glass-panel-strong rounded-3xl p-6">
-            <p class="label-mono text-tertiary">glass_panel_strong</p>
-            <h3 class="mt-4 font-headline text-2xl text-on-surface">Glass shell</h3>
-            <p class="mt-3 leading-relaxed text-on-surface-muted">
-              Use sparingly for hero overlays, floating controls, or high-focus containers with atmosphere.
-            </p>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </section>
 
-      <section id="palette" class="space-y-8">
-        <div class="space-y-2">
-          <p class="label-mono text-primary">spectral_analysis_03</p>
-          <h2 class="font-headline text-headline-lg text-on-background">Semantic palette</h2>
+  <!-- 02 Type -->
+  <section id="type" class="hr-frame scroll-mt-16">
+    <div class="hr-frame-col">
+      <div class="hr-frame-grid">
+        <div class="hr-frame-cell">
+          <p class="label-mono mb-4 text-success">02 // type</p>
+          <h2 class="text-headline text-fg md:text-display-md">Type</h2>
+          <p class="mt-4 max-w-[60ch] text-lead text-fg-muted">
+            Plus Jakarta Sans for display and text, JetBrains Mono for the technical voice.
+          </p>
         </div>
-        <div class="grid gap-px overflow-hidden rounded-3xl border border-outline-variant bg-outline-variant md:grid-cols-2 xl:grid-cols-6">
-          {palette.map((swatch) => (
-            <article class={`${swatch.panelClass} flex min-h-52 flex-col justify-between p-5`}>
-              <div>
-                <p class="font-headline text-lg font-semibold">{swatch.name}</p>
-                <p class="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.22em]">{swatch.role}</p>
+
+        {typeStyles.map((style) => (
+          <div class="hr-frame-grid hr-frame-grid--aside">
+            <div class="hr-frame-cell">
+              <p class="font-mono text-sm text-fg">{style.name}</p>
+              <p class="mt-2 font-mono text-xs text-fg-subtle">{style.spec}</p>
+              <p class="mt-3 text-sm text-fg-muted">{style.usage}</p>
+            </div>
+            <div class="hr-frame-cell flex items-center overflow-hidden">
+              <p class={style.className}>{style.sample}</p>
+            </div>
+          </div>
+        ))}
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <p class="font-mono text-sm text-fg">gradient highlight</p>
+            <p class="mt-2 font-mono text-xs text-fg-subtle">from-accent to-success · bg-clip-text</p>
+            <p class="mt-3 text-sm text-fg-muted">One phrase in the hero headline. Nowhere else.</p>
+          </div>
+          <div class="hr-frame-cell flex items-center overflow-hidden">
+            <p class="text-headline text-fg md:text-display-md">
+              I make
+              <span class="bg-gradient-to-r from-accent to-success bg-clip-text pb-[0.12em] text-transparent">cool and awesome</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Frame -->
+  <section id="frame" class="hr-frame scroll-mt-16">
+    <div class="hr-frame-col">
+      <div class="hr-frame-grid">
+        <div class="hr-frame-cell">
+          <p class="label-mono mb-4 text-coral">03 // frame</p>
+          <h2 class="text-headline text-fg md:text-display-md">The framed grid</h2>
+          <p class="mt-4 max-w-[60ch] text-lead text-fg-muted">
+            The page is a ruled sheet. Bands span the viewport, a centred column carries the side rules, and cells are separated by a 1px gap that shows the grid-line colour through.
+          </p>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--3">
+          <div class="hr-frame-cell">
+            <p class="label-mono mb-4 text-accent">01 // cell</p>
+            <h3 class="mb-3 text-title-lg text-fg">hr-frame-grid--3</h3>
+            <p class="text-base leading-relaxed text-fg-muted">Three equal cells from 768px, stacked below.</p>
+          </div>
+          <div class="hr-frame-cell">
+            <p class="label-mono mb-4 text-success">02 // cell</p>
+            <h3 class="mb-3 text-title-lg text-fg">Numbered eyebrows</h3>
+            <p class="text-base leading-relaxed text-fg-muted">Cyan, green, coral, in that order.</p>
+          </div>
+          <div class="hr-frame-cell">
+            <p class="label-mono mb-4 text-coral">03 // cell</p>
+            <h3 class="mb-3 text-title-lg text-fg">Flat fill</h3>
+            <p class="text-base leading-relaxed text-fg-muted">No radius, no shadow. The rules do the work.</p>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Classes</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">hr-frame-grid--aside</p>
+          </div>
+          <div class="hr-frame-cell">
+            <ul class="border-t border-t-solid border-grid-line">
+              {frameClasses.map((item) => (
+                <li class="flex flex-col gap-x-6 gap-y-1 border-b border-b-solid border-grid-line px-2 py-3 lg:flex-row lg:items-baseline">
+                  <span class="shrink-0 font-mono text-sm text-accent lg:w-[20ch]">.{item.name}</span>
+                  <span class="text-sm text-fg-muted">{item.usage}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Components -->
+  <section id="components" class="hr-frame scroll-mt-16">
+    <div class="hr-frame-col">
+      <div class="hr-frame-grid">
+        <div class="hr-frame-cell">
+          <p class="label-mono mb-4 text-accent">04 // components</p>
+          <h2 class="text-headline text-fg md:text-display-md">Components</h2>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Buttons</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">btn-*</p>
+            <p class="mt-3 text-sm text-fg-muted">One primary per view. Sizes: btn-sm, default, btn-lg.</p>
+          </div>
+          <div class="hr-frame-cell flex flex-col gap-6">
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" class="btn-primary">Primary</button>
+              <button type="button" class="btn-secondary">Secondary</button>
+              <button type="button" class="btn-accent">Accent</button>
+              <button type="button" class="btn-ghost">Ghost</button>
+              <button type="button" class="btn-secondary" disabled>Disabled</button>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" class="btn-secondary btn-sm">Small</button>
+              <button type="button" class="btn-secondary">Default</button>
+              <button type="button" class="btn-secondary btn-lg">Large</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Links and labels</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">hr-link · label-mono · chips</p>
+          </div>
+          <div class="hr-frame-cell flex flex-col items-start gap-6">
+            <a class="hr-link" href="#components">View project</a>
+            <p class="label-mono text-accent">01 // module_label</p>
+            <p class="inline-flex w-fit items-center gap-2 rounded-md border border-solid border-border-muted bg-surface px-3 py-1.5 font-mono text-sm text-fg-muted [font-variant-ligatures:none]">
+              <span class="text-success">$</span> about
+            </p>
+            <p class="inline-flex w-fit items-center rounded-md border border-solid border-border-muted bg-surface px-3 py-1.5 font-mono text-sm text-success [font-variant-ligatures:none]">
+              // quick_links
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              {[
+                { label: "TypeScript", color: "var(--color-accent)" },
+                { label: "CSS", color: "var(--color-success)" },
+                { label: "Other", color: "var(--color-coral)" },
+              ].map((chip) => (
+                <li class="inline-flex items-center gap-1.5 rounded-sm border border-solid border-border-muted px-2 py-0.5 font-mono text-xs uppercase tracking-wider text-fg-muted">
+                  <span class="h-2 w-2 shrink-0 rounded-full" style={`background-color:${chip.color}`} aria-hidden="true" />
+                  {chip.label}
+                </li>
+              ))}
+            </ul>
+            <p class="hr-split"><strong>Bold claim.</strong> Muted continuation that finishes the thought.</p>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Hairline rows</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">lists, legends, skills</p>
+            <p class="mt-3 text-sm text-fg-muted">Lists are rows on grid-line rules, with a mono &gt; marker and an optional count.</p>
+          </div>
+          <div class="hr-frame-cell">
+            <ul class="border-t border-t-solid border-grid-line">
+              <li class="flex gap-3 border-b border-b-solid border-grid-line px-2 py-3 text-fg-muted transition-colors duration-150 ease-out hover:bg-surface-overlay/50 hover:text-fg">
+                <span class="font-mono text-accent" aria-hidden="true">&gt;</span>
+                A plain row
+              </li>
+              <li class="border-b border-b-solid border-grid-line text-fg">
+                <details class="group">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-2 py-3 font-semibold text-fg transition-colors duration-150 ease-out marker:hidden hover:bg-surface-overlay/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent">
+                    <span class="pr-2 leading-tight">A group that opens</span>
+                    <span class="inline-flex items-center gap-2 text-xs text-fg-muted">
+                      <span class="rounded-full px-2 py-0.5 font-mono shadow-[inset_0_0_0_1px_var(--color-border)]">2</span>
+                      <span class="font-mono text-accent transition-transform duration-200 ease-out group-open:rotate-90">&gt;</span>
+                    </span>
+                  </summary>
+                  <ul class="mb-3 ml-3 border-l border-l-solid border-grid-line pl-4">
+                    <li class="flex gap-3 px-2 py-1.5 text-fg-muted">
+                      <span class="font-mono text-accent" aria-hidden="true">&gt;</span>
+                      Nested row
+                    </li>
+                    <li class="flex gap-3 px-2 py-1.5 text-fg-muted">
+                      <span class="font-mono text-accent" aria-hidden="true">&gt;</span>
+                      Another nested row
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li class="flex items-center justify-between gap-4 border-b border-b-solid border-grid-line px-2 py-2.5">
+                <span class="flex items-center gap-2.5">
+                  <span class="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                  <span class="font-mono text-xs uppercase tracking-[0.12em] text-fg">Legend row</span>
+                </span>
+                <span class="font-mono text-xs tabular-nums text-fg-muted">62%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Code window</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">hr-code</p>
+            <p class="mt-3 text-sm text-fg-muted">
+              Lines are .ln with a data-n number. .ln--hl highlights, .ln--add marks an addition. Tokens: .k keyword, .s string, .f function, .c comment.
+            </p>
+          </div>
+          <div class="hr-frame-cell grid gap-6 xl:grid-cols-2">
+            <div class="hr-code !h-auto overflow-hidden rounded-xl border border-solid border-border-muted">
+              <div class="hr-code-bar">
+                <span class="hr-dot"></span><span class="hr-dot"></span><span class="hr-dot"></span>
+                <span class="ml-2">about.ts</span>
               </div>
-              <div class="space-y-2 font-mono text-[0.72rem] uppercase tracking-[0.2em]">
-                <div class={swatch.valueClass}>light {swatch.light}</div>
-                <div class={swatch.valueClass}>dark {swatch.dark}</div>
+              <pre><span class="ln" data-n="1"><span class="c">// who is this</span></span><span class="ln" data-n="2"><span class="k">const</span> me = &#123;</span><span class="ln ln--hl" data-n="3">  role: <span class="s">"engineer"</span>,</span><span class="ln ln--add" data-n="4">  ships: <span class="f">pixels</span>(),</span><span class="ln" data-n="5">&#125;;</span></pre>
+            </div>
+            <div class="hr-code !h-auto overflow-hidden rounded-xl border border-solid border-border-muted" aria-hidden="true">
+              <div class="hr-code-bar">
+                <span class="hr-dot"></span><span class="hr-dot"></span><span class="hr-dot"></span>
+                <span class="ml-2">~/stack</span>
               </div>
-            </article>
+              <div class="px-4 py-4 text-sm leading-6 [font-variant-ligatures:none]">
+                <p><span class="text-success">$</span> <span class="text-fg">stack --list</span></p>
+                <p class="flex gap-3"><span class="text-fg-subtle">&gt;</span><span class="w-[12ch] text-accent">javascript</span><span class="text-fg-muted">12 skills</span></p>
+                <p class="flex gap-3"><span class="text-fg-subtle">&gt;</span><span class="w-[12ch] text-success">html_css</span><span class="text-fg-muted">6 skills</span></p>
+                <p class="flex gap-3"><span class="text-fg-subtle">&gt;</span><span class="w-[12ch] text-coral">other</span><span class="text-fg-muted">9 skills</span></p>
+                <p class="text-fg-muted"><span class="text-success">✓</span> 3 groups, 27 skills</p>
+                <p><span class="text-success">$</span> <span class="inline-block animate-cursor-blink text-success">▍</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--aside">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Logo</h3>
+            <p class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">wordmark + cursor</p>
+            <p class="mt-3 text-sm text-fg-muted">The blinking mono bar and the "ui" take the accent.</p>
+          </div>
+          <div class="hr-frame-cell flex items-center">
+            <div class="font-display text-[2.5rem] font-extrabold leading-none tracking-[-0.04em] text-fg">
+              hrg<span class="mx-[0.02em] inline-block animate-cursor-blink font-mono font-normal text-accent">|</span><span class="text-accent">ui</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr-frame-grid hr-frame-grid--2">
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Radius</h3>
+            <ul class="mt-6 border-t border-t-solid border-grid-line">
+              {radii.map((radius) => (
+                <li class="flex items-center gap-4 border-b border-b-solid border-grid-line px-2 py-3">
+                  <span
+                    class="block h-10 w-10 shrink-0 border border-solid border-border-control bg-surface"
+                    style={`border-radius:${radius.value}`}
+                    aria-hidden="true"
+                  />
+                  <div class="min-w-0">
+                    <p class="font-mono text-sm text-fg">{radius.name} <span class="text-fg-subtle">{radius.value}</span></p>
+                    <p class="text-sm text-fg-muted">{radius.usage}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="hr-frame-cell">
+            <h3 class="text-title-lg text-fg">Shadow</h3>
+            <ul class="mt-6 border-t border-t-solid border-grid-line">
+              {shadows.map((shadow) => (
+                <li class="flex items-center gap-4 border-b border-b-solid border-grid-line px-2 py-3">
+                  <span
+                    class="m-1 block h-8 w-8 shrink-0 rounded-md bg-surface"
+                    style={`box-shadow:var(--${shadow.name})`}
+                    aria-hidden="true"
+                  />
+                  <div class="min-w-0">
+                    <p class="font-mono text-sm text-fg">{shadow.name}</p>
+                    <p class="text-sm text-fg-muted">{shadow.usage}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Rules -->
+  <section id="rules" class="hr-frame scroll-mt-16">
+    <div class="hr-frame-col">
+      <div class="hr-frame-grid">
+        <div class="hr-frame-cell">
+          <p class="label-mono mb-4 text-success">05 // rules</p>
+          <h2 class="text-headline text-fg md:text-display-md">Rules of thumb</h2>
+        </div>
+        <div class="hr-frame-grid hr-frame-grid--2">
+          {rules.map((rule, index) => (
+            <div class="hr-frame-cell">
+              <p class="label-mono mb-4 text-fg-subtle">{String(index + 1).padStart(2, "0")} // rule</p>
+              <h3 class="mb-3 text-title-lg text-fg">{rule.title}</h3>
+              <p class="text-base leading-relaxed text-fg-muted">{rule.body}</p>
+            </div>
           ))}
         </div>
-      </section>
-
-      <section id="typography" class="space-y-8">
-        <div class="space-y-10">
-          <div class="space-y-2">
-            <p class="label-mono text-tertiary">signal_clarity_04</p>
-            <h2 class="font-headline text-headline-lg text-on-background">Typography</h2>
-          </div>
-
-          <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.55fr)]">
-            <div class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient">
-              <div class="mb-4 flex items-center gap-4">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Headers // SPACE GROTESK</span>
-                <div class="h-px flex-1 bg-outline-variant"></div>
-              </div>
-              <div class="gap-4 flex flex-col">
-                <h1 class="font-headline text-headline-lg tracking-[-0.06em] text-on-surface">This is text-headline-lg</h1>
-
-              <h1 class="inline-block w-fit bg-gradient-to-r from-on-background via-primary to-primary-container bg-clip-text pb-[0.12em] !leading-[1.15] font-headline text-4xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
-                This is used for blog
-              </h1>
-
-              <h1 class="bg-gradient-to-r from-on-background via-tertiary to-tertiary-container bg-clip-text pb-[0.12em] !leading-[1.15] font-headline text-3xl font-semibold tracking-tight text-transparent sm:text-5xl md:text-6xl">
-                This is used for portfolio
-              </h1>
-
-
-              </div>
-            </div>
-
-            <div class="rounded-3xl border border-outline-variant bg-surface-container-low p-8 shadow-ambient flex flex-col gap-4">
-              <div class="mb-4 flex items-center gap-2">
-                <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">Body // Inter</span>
-                <div class="h-px flex-1 bg-outline-variant"></div>
-              </div>
-              <p class="text-lg leading-relaxed text-on-surface-muted">
-                The bridge between clinical precision and scientific curiosity. Editorial density, stable hierarchy, and sharp metadata should carry the visual voice.
-              </p>
-
-              <div class="mb-8 flex items-center gap-4">
-            <div class="flex items-center gap-2 whitespace-nowrap font-mono text-sm text-primary bg-primary/10 px-2 py-1 rounded tracking-widest">
-              <span>BLOG_DATE //</span>
-              <span class="text-primary">ENTRY_RECORD</span>
-            </div>
-            <div class="h-px flex-1 bg-gradient-to-r from-primary via-outline-variant/60 to-outline-variant"></div>
-          </div>
-
-          <div class="mb-8 flex items-center gap-4">
-        <p class="label-mono text-tertiary">NODE_ACCESS // PORTFOLIO_GRID</p>
-        <div class="h-px flex-1 bg-gradient-to-r from-tertiary via-outline-variant/60 to-outline-variant"></div>
-      </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="components" class="space-y-8">
-        <div class="space-y-2">
-          <p class="label-mono text-primary">component_library_05</p>
-          <h2 class="font-headline text-headline-lg text-on-background">Reference components</h2>
-        </div>
-
-        <div class="grid gap-6 lg:grid-cols-12">
-          <article class="surface-module rounded-3xl border border-outline-variant p-6 lg:col-span-6">
-            <div class="mb-8 flex items-center justify-between">
-              <p class="label-mono text-outline">02_system_vitals</p>
-              <div class="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-secondary">
-                <span class="h-2 w-2 animate-pulse rounded-full bg-secondary"></span>
-                <span>live</span>
-              </div>
-            </div>
-            <div class="grid gap-8 sm:grid-cols-3">
-              {vitals.map((vital) => (
-                <div class="flex flex-col items-center">
-                  <div class="relative mb-4 flex h-24 w-24 items-center justify-center">
-                    <svg viewBox="0 0 96 96" class="h-full w-full -rotate-90 transform">
-                      <circle class="text-outline-variant" cx="48" cy="48" r="40" fill="transparent" stroke="currentColor" stroke-width="2"></circle>
-                      <circle
-                        class={vital.stroke}
-                        cx="48"
-                        cy="48"
-                        r="40"
-                        fill="transparent"
-                        stroke="currentColor"
-                        stroke-width="4"
-                        stroke-dasharray="251"
-                        stroke-dashoffset={vital.offset}
-                      ></circle>
-                    </svg>
-                    <span class="absolute font-headline text-2xl font-bold text-on-surface">{vital.value}</span>
-                  </div>
-                  <span class="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-outline">{vital.label}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-3xl border border-outline-variant bg-neutral-950 shadow-floating lg:col-span-6">
-            <div class="flex items-center justify-between border-b border-white/10 bg-neutral-900 px-4 py-3">
-              <div class="flex gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-tertiary"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-secondary"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-primary-container"></span>
-              </div>
-              <span class="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-white/55">root@guipunk_:/sys/logs</span>
-              <span class="w-8"></span>
-            </div>
-            <div class="space-y-3 overflow-x-auto px-6 py-6 font-mono text-sm leading-relaxed text-white">
-              <div class="flex gap-4"><span class="select-none text-white/20">01</span><p><span class="text-secondary">const</span> <span class="text-primary-container">systemInit</span> = () =&gt; &#123;</p></div>
-              <div class="flex gap-4"><span class="select-none text-white/20">02</span><p class="pl-4"><span class="text-white/60">console</span>.<span class="text-white">log</span>(<span class="text-tertiary">"Initializing Neural Uplink..."</span>);</p></div>
-              <div class="flex gap-4"><span class="select-none text-white/20">03</span><p class="pl-4"><span class="text-secondary">return</span> <span class="text-primary-container">protocol_v04</span>.<span class="text-white">handshake</span>();</p></div>
-              <div class="flex gap-4"><span class="select-none text-white/20">04</span><p>&#125;</p></div>
-              <div class="mt-4 flex gap-4"><span class="select-none text-white/20">05</span><p><span class="text-primary-container">systemInit</span>(); <span class="inline-block h-4 w-2 animate-pulse bg-primary-container align-middle"></span></p></div>
-            </div>
-          </article>
-
-          <article class="control-panel rounded-3xl p-6 lg:col-span-12">
-            <p class="label-mono text-outline">04_component_notes</p>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-4">
-                <p class="font-headline text-xl text-on-surface">Keep semantic names</p>
-                <p class="mt-2 text-sm leading-relaxed text-on-surface-muted">Prefer tokens like surface, outline, primary-container, and on-surface over one-off hard-coded color classes.</p>
-              </div>
-              <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-4">
-                <p class="font-headline text-xl text-on-surface">Prototype here first</p>
-                <p class="mt-2 text-sm leading-relaxed text-on-surface-muted">New cards, controls, and composite modules can land here before being extracted into reusable components.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-      <div class="space-y-4">
-        <div class="flex items-center gap-4">
-          <p class="label-mono text-secondary">more_surfaces_06</p> <div class="h-px flex-1 bg-outline-variant"></div>
-        </div>
-        <h2 class="font-headline text-headline-lg text-on-background">Other Components</h2>
-
-        <div class="flex gap-4 w-full">
-            <div class="px-4 py-2 bg-surface-container-high border-l-2 border-l-solid border-primary flex-1">
-            <span class="block font-mono text-[10px] text-outline uppercase">surface_with_side_border</span>
-            <span class="font-headline font-bold">SIDE_BORDER</span>
-          </div>
-
-          <div class="px-4 py-2 bg-surface-container-high border-l-2 border-l-solid border-secondary flex-1">
-            <span class="block font-mono text-[10px] text-outline uppercase">surface_with_side_border</span>
-            <span class="font-headline font-bold">SIDE_BORDER</span>
-          </div>
-
-          <div class="px-4 py-2 bg-surface-container-high border-l-2 border-l-solid border-tertiary/40">
-            <span class="block font-mono text-[10px] text-outline uppercase">surface_with_side_border</span>
-            <span class="font-headline font-bold">SIDE_BORDER</span>
-          </div>
-        </div>
       </div>
     </div>
-  </main>
+  </section>
 </DefaultPageLayout>
