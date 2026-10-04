@@ -11,41 +11,7 @@ type AppTheme = PresetWind3Theme & TypographyTheme;
 
 export default defineConfig<AppTheme>({
   presets: [presetWind3({ dark: "class" }), presetTypography<AppTheme>()],
-  rules: [
-    [
-      "bg-hologram-gradient",
-      {
-        "background-image": "linear-gradient(135deg, #8fd6ff 0%, #00bfff 100%)",
-      },
-    ],
-    [
-      "bg-bio-signal-gradient",
-      {
-        "background-image": "linear-gradient(135deg, #66dd8b 0%, #25a55a 100%)",
-      },
-    ],
-    [
-      "bg-alert-gradient",
-      {
-        "background-image": "linear-gradient(135deg, #ffbeb3 0%, #ff9585 100%)",
-      },
-    ],
-  ],
   shortcuts: {
-    "glass-panel":
-      "bg-surface-container-low/72 backdrop-blur-xl border border-outline-variant/15 shadow-ambient",
-    "glass-panel-strong":
-      "bg-surface-container-high/78 backdrop-blur-2xl border border-outline-variant/15 shadow-floating",
-    "control-panel":
-      "bg-surface-container-lowest/84 backdrop-blur-2xl border border-outline-variant/15",
-    "ghost-border": "border border-outline-variant/15",
-    "cta-hologram":
-      "bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-hologram hover:shadow-hologram-strong",
-    "surface-module": "bg-surface-container-low text-on-surface",
-    "surface-module-raised":
-      "bg-surface-container-high text-on-surface shadow-ambient",
-    "surface-module-highest":
-      "bg-surface-container-highest text-on-surface shadow-floating",
     "label-mono": "font-mono text-label-sm uppercase tracking-[0.14em]",
     "hr-focus-ring":
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
@@ -411,11 +377,6 @@ export default defineConfig<AppTheme>({
       card: "var(--shadow-card)",
       glow: "var(--shadow-glow)",
       overlay: "var(--shadow-overlay)",
-      // v1 names, kept for existing pages
-      ambient: "var(--shadow-card)",
-      floating: "var(--shadow-card)",
-      hologram: "var(--shadow-glow)",
-      "hologram-strong": "var(--shadow-glow)",
     },
   },
 });
