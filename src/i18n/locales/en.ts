@@ -62,6 +62,12 @@ const en = {
         title: "JACK OF ALL TRADES",
         subtitle: "OTHER_TECH_SKILLS_I_HAVE",
       },
+      terminal: {
+        file: "~/tech_stack",
+        command: "npx hrgui --stack",
+        skills: "skills",
+        summary: "{{groups}} groups · {{skills}} skills loaded",
+      },
     },
     education: {
       moduleLabel: "module_02 // education",

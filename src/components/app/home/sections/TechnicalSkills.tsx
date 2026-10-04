@@ -88,6 +88,74 @@ function NestedList({
   return <ul className={nestedClassName} {...props} />;
 }
 
+/**
+ * A small terminal that "loads" the stack: one line per skill group with its
+ * real skill count. Decorative (it repeats the lists below), so it's hidden
+ * from screen readers.
+ */
+function StackTerminal({
+  sections,
+  colorFor,
+}: {
+  sections: TechnicalSkillSection[];
+  colorFor: (section: TechnicalSkillSection, index: number) => string;
+}) {
+  const { t } = useTranslation();
+  const rows = sections.map((section, index) => ({
+    slug: (section.key ?? `group_${index + 1}`).replace(/-/g, "_"),
+    count: (section.items ?? []).reduce(
+      (total, item) => total + countLeafItems(item),
+      0
+    ),
+    color: colorFor(section, index),
+  }));
+  const total = rows.reduce((sum, row) => sum + row.count, 0);
+
+  return (
+    <div
+      className="hr-code w-full overflow-hidden rounded-xl border border-solid border-border-muted lg:w-[440px]"
+      aria-hidden="true"
+    >
+      <div className="hr-code-bar">
+        <span className="hr-dot" />
+        <span className="hr-dot" />
+        <span className="hr-dot" />
+        <span className="ml-2">{t("home.technicalSkills.terminal.file")}</span>
+      </div>
+      <div className="px-4 py-4 text-sm leading-6 [font-variant-ligatures:none]">
+        <p>
+          <span className="text-success">$</span>{" "}
+          <span className="text-fg">
+            {t("home.technicalSkills.terminal.command")}
+          </span>
+        </p>
+        {rows.map((row) => (
+          <p key={row.slug} className="flex gap-3">
+            <span className="text-fg-subtle">&gt;</span>
+            <span className={`w-[12ch] ${row.color}`}>{row.slug}</span>
+            <span className="text-fg-muted">
+              {row.count} {t("home.technicalSkills.terminal.skills")}
+            </span>
+          </p>
+        ))}
+        <p className="text-fg-muted">
+          <span className="text-success">✓</span>{" "}
+          {t("home.technicalSkills.terminal.summary", {
+            groups: rows.length,
+            skills: total,
+          })}
+        </p>
+        <p>
+          <span className="text-success">$</span>{" "}
+          <span className="inline-block animate-cursor-blink text-success">
+            ▍
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function TechnicalSkills({
   technicalSkills = defaultTechnicalSkills,
 }: {
@@ -159,7 +227,7 @@ export function TechnicalSkills({
     <section className="hr-frame" data-testid="section-technical-skills">
       <div className="hr-frame-col">
         <div className="hr-frame-grid">
-          <div className="hr-frame-cell flex items-end justify-between gap-6">
+          <div className="hr-frame-cell grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <p className="label-mono mb-4 text-accent">
                 {t("home.technicalSkills.moduleLabel")}
@@ -168,36 +236,15 @@ export function TechnicalSkills({
                 {t("home.technicalSkills.heading")}
               </h1>
             </div>
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              className="hidden h-8 w-8 shrink-0 text-accent sm:block"
-            >
-              <path
-                d="M12 2l8 4-8 4-8-4 8-4z"
-                fill="currentColor"
-                fillOpacity="0.2"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 8l8 4-8 4-8-4 8-4z"
-                fill="currentColor"
-                fillOpacity="0.16"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 14l8 4-8 4-8-4 8-4z"
-                fill="currentColor"
-                fillOpacity="0.12"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <StackTerminal
+              sections={technicalSkills ?? []}
+              colorFor={(section, index) =>
+                (
+                  (section.key && summaryCardMap[section.key]) ||
+                  summaryCards[index]
+                )?.className ?? "text-fg"
+              }
+            />
           </div>
 
           {technicalSkills?.map((section, index) => {
