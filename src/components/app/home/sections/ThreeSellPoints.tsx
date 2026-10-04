@@ -29,7 +29,11 @@ function Item({
 export function ThreeSellPoints() {
   const { t } = useTranslation();
   return (
-    <section className="hr-frame" data-testid="section-three-sell-points">
+    <section
+      id="about"
+      className="hr-frame scroll-mt-16"
+      data-testid="section-three-sell-points"
+    >
       <div className="hr-frame-col">
         <div className="hr-frame-grid hr-frame-grid--3">
           <Item

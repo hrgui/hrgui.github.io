@@ -863,3 +863,30 @@ body {
 .hr-prose :where(blockquote) {
   font-style: normal;
 }
+
+/* Scroll-hint arrow: a slow downward nudge (off with reduced motion). */
+@keyframes hr-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+.hr-nudge {
+  display: inline-block;
+  animation: hr-nudge 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hr-nudge {
+    animation: none;
+  }
+}
+
+/* Full-screen hero. Plain CSS on purpose: this height decides what is above
+   the fold, so it must be in the first paint (a generated utility can arrive
+   late in dev and flash the next section). */
+.hr-stage--screen {
+  min-height: max(560px, 100svh);
+}

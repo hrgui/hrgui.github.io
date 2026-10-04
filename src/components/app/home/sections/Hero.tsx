@@ -9,6 +9,8 @@ const HERO_COMMAND_DELAY_MS = 500;
 const HERO_COMMAND_DELAY_TICKS = Math.ceil(
   HERO_COMMAND_DELAY_MS / TYPING_INTERVAL_MS
 );
+// Past this scroll offset the "scroll" hint has done its job.
+const SCROLL_HINT_HIDE_OFFSET = 40;
 
 export function Hero() {
   const { t } = useTranslation();
@@ -23,6 +25,15 @@ export function Hero() {
 
   const intervalRef = useRef<number | null>(null);
   const [typedChars, setTypedChars] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () =>
+      setHasScrolled(window.scrollY > SCROLL_HINT_HIDE_OFFSET);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -93,11 +104,11 @@ export function Hero() {
 
   return (
     <section
-      className="gplay-bg hr-stage relative flex min-h-[720px] flex-col text-fg sm:min-h-[820px]"
+      className="gplay-bg hr-stage hr-stage--screen relative flex flex-col text-fg"
       data-testid="section-hero"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-52 sm:h-64"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-32"
         aria-hidden="true"
         style={{
           backgroundImage:
@@ -177,6 +188,23 @@ export function Hero() {
           </p>
           <AppSocialMedia className="text-xl" />
         </div>
+
+        {/* The hero fills the first screen; this hint says there is more below. */}
+        <a
+          href="#about"
+          tabIndex={isTypingComplete && !hasScrolled ? 0 : -1}
+          aria-hidden={!isTypingComplete || hasScrolled}
+          className={`absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-sm font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle no-underline transition-all duration-300 hover:text-accent hr-focus-ring md:left-12 ${
+            isTypingComplete && !hasScrolled
+              ? "opacity-100"
+              : "pointer-events-none opacity-0"
+          }`}
+        >
+          <span className="hr-nudge text-accent" aria-hidden="true">
+            ↓
+          </span>
+          {t("hero.scrollHint")}
+        </a>
       </div>
     </section>
   );

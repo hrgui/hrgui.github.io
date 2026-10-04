@@ -27,6 +27,7 @@ const en = {
     highlight: "cool and awesome",
     suffix: "web and mobile apps.",
     quickLinks: "// quick_links",
+    scrollHint: "scroll // 01_core",
   },
   home: {
     sellPoints: {
