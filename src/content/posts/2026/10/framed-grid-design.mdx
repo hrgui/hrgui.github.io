@@ -1,0 +1,36 @@
+---
+title: "7 Months Later: Me, Claude, New World++"
+date: "10/04/2026"
+excerpt: 7 months later, I decided to redesign my site once more, because I was curious about Claude Design.
+---
+
+My previous redesign in March 2026 was good. It brought in a better light mode and better colors, and the site was a joy to use.
+
+However, a part of me felt that the design was trying too hard. The gradients were too much for me, and the design didn't really make me happy - it felt like something was always off. So, I went on a hunt for the next perfect design. I kept pestering [Stitch](http://stitch.withgoogle.com/), to no avail. It kept giving me things that lacked inspiration, that lacked who I really am.
+
+Lately, I've been into cyberpunk-style designs, even though I haven't played the game. I might as well at this point. The focus on font and the focus on simplicity are what I wanted to get at: something that reads closer to a technical specs paper, rather than a heavy gradient site with a bunch of surfaces. So, I asked another model, [Claude Design](https://www.anthropic.com/news/claude-design-anthropic-labs), and within a prompt or so, I had exactly that. It's interesting that one prompt got me here, when months of pestering Stitch didn't. In March, I wrote about [the New World of Coding](/posts/2026/03/a-year-later-in-the-new-world). Back then, AI changed the world over the span of years, and now it does so in months. Hence the title: it's a New World++ every few months.
+
+<a
+  href="/images/blog/2026-10-framed-grid/before-after-top.webp"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  ![The March 2026 design on the left, and the new framed grid design on the
+  right](/images/blog/2026-10-framed-grid/before-after-top.webp)
+</a>
+
+March on the left, the new framed grid on the right ([full page before](/images/blog/2026-10-framed-grid/before-full.webp), [full page after](/images/blog/2026-10-framed-grid/after-full.webp)). The rounded, floating cards are gone. In their place are hairline frames, tighter headline type, and sections that run edge to edge, with a little terminal for the tech stack.
+
+What I asked for was a design that utilizes a framed grid, and what I got back was a design system. I then brought it into this codebase with Claude Code. I didn't have to adjust anything by hand, but I did have to keep prompting. It didn't iterate on everything all at once, which is good. I think AI will just continue to improve, but the better it gets, the more it matters that someone checks what it produces.
+
+# Reviewing code
+
+One thing that did not sit right with me is that Claude Code's suggested approach was Auto Mode. Auto Mode just charges ahead and goes with whatever it comes up with. The problem is that sometimes it does too much and sometimes it does too little. For example, it made some decisions that I would question: it created an additional helper CSS layer on top of my UnoCSS configuration, and I wonder if I could have consolidated everything in UnoCSS instead of making new classes. So, for things that I need to supervise, I end up planning.
+
+Reviewing code is more important in this day and age, and it is getting harder. The world wants things done faster, faster, faster, but I'm still the person who has to make sense of everything that has been written. That is why I still iterate a couple of chunks at a time, even though it may not look like it on my personal site. I still have to be the one who holds the line and says, "wait, we should really think about what we are producing."
+
+It's frustrating, and it takes a toll on me to balance speed and quality. Sometimes quality suffers, since there's so much more code to read these days.
+
+And no, I don't let AI read all the code for me. I let AI help me read it, then I decide whether its feedback is worth raising. It doesn't have all the context on what we decided to produce. We're being asked to do things faster, and that speed means making sacrifices. Those sacrifices can reach across teams, and undoing them later can mean rewrites across the entire stack. The AI can't see that cost, so I have to.
+
+Before AI, I couldn't explore every option I wanted as fast as I can now, and that is the real gift. The catch is that every option comes with its own pile of code, and sometimes that is too much to read. Spotting the cost of those sacrifices is my part of the job, but at the end of the day, the decision belongs to all of us, even though we each have our own AI assistants that are now majorly implementing code. It is what we chose. As the Retrospective Prime Directive puts it, everyone did the best job they could, given what they knew at the time. I plan to keep harping on that.
